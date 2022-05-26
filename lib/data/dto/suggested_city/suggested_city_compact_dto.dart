@@ -1,11 +1,16 @@
 import 'dart:convert' as convert;
 
 class SuggestedCityCompactDTO {
+  String? pointKey;
+  String? title;
+  String? fullTitle;
+  String? slug;
+
   SuggestedCityCompactDTO({
-    String? pointKey,
-    String? title,
-    String? fullTitle,
-    String? slug,
+    this.pointKey,
+    this.title,
+    this.fullTitle,
+    this.slug,
   });
 
   factory SuggestedCityCompactDTO.fromApi(data) => SuggestedCityCompactDTO(

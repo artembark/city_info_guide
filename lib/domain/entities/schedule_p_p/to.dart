@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class To {
   String? code;
   String? title;
@@ -11,13 +9,13 @@ class To {
   String? type;
 
   To({
-    @required this.code,
-    @required this.title,
-    @required this.stationType,
-    @required this.popularTitle,
-    @required this.shortTitle,
-    @required this.transportType,
-    @required this.stationTypeName,
-    @required this.type,
+    required this.code,
+    required this.title,
+    required this.stationType,
+    required this.popularTitle,
+    required this.shortTitle,
+    required this.transportType,
+    required this.stationTypeName,
+    required this.type,
   });
 }

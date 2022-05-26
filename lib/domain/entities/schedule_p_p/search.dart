@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'from.dart';
 import 'to.dart';
 
@@ -9,8 +7,8 @@ class Search {
   From? from;
 
   Search({
-    @required this.date,
-    @required this.to,
-    @required this.from,
+    required this.date,
+    required this.to,
+    required this.from,
   });
 }

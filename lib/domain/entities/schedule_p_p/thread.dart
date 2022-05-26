@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 import 'transport_subtype.dart';
 
 class Thread {
@@ -15,15 +13,15 @@ class Thread {
   dynamic expressType;
 
   Thread({
-    @required this.uid,
-    @required this.title,
-    @required this.number,
-    @required this.shortTitle,
-    @required this.threadMethodLink,
-    @required this.carrier,
-    @required this.transportType,
-    @required this.vehicle,
-    @required this.transportSubtype,
-    @required this.expressType,
+    required this.uid,
+    required this.title,
+    required this.number,
+    required this.shortTitle,
+    required this.threadMethodLink,
+    required this.carrier,
+    required this.transportType,
+    required this.vehicle,
+    required this.transportSubtype,
+    required this.expressType,
   });
 }
