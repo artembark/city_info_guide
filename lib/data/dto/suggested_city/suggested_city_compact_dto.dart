@@ -1,5 +1,7 @@
 import 'dart:convert' as convert;
 
+import '../../../domain/entities/suggested_city/suggested_city_compact.dart';
+
 class SuggestedCityCompactDTO {
   String? pointKey;
   String? title;
@@ -34,6 +36,17 @@ class SuggestedCityCompactDTO {
 //   }
 //   return suggestedCityList;
 // }
+}
+
+extension SuggestedCityCompactMapper on SuggestedCityCompactDTO {
+  SuggestedCityCompact toModel() {
+    return SuggestedCityCompact(
+      pointKey: pointKey,
+      title: title,
+      fullTitle: fullTitle,
+      slug: slug,
+    );
+  }
 }
 
 /*[

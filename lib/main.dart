@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:city_info_guide/data/repository/schedule_point_point_repo_impl.dart';
+import 'package:city_info_guide/data/repository/suggested_city_repo_impl.dart';
 import 'package:city_info_guide/domain/blocs/schedule/schedule_cubit.dart';
 import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
+import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -90,8 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           .copyWith(fontStyle: FontStyle.italic),
                       decoration:
                           InputDecoration(border: OutlineInputBorder())),
-                  suggestionsCallback: (pattern) async {
-                    return await getSuggestion(pattern);
+                  suggestionsCallback: (userInput) async {
+                    // final res = await getSuggestion(userInput);
+                    // return res;
+                    final res = await di
+                        .sl<SuggestedCityCompactRepository>()
+                        .getSuggestedCityList(userInput: userInput);
+                    return res;
                   },
                   itemBuilder: (context, suggestion) {
                     final sug1 = suggestion as SuggestedCityCompact;

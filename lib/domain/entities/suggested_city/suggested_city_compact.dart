@@ -5,9 +5,9 @@ class SuggestedCityCompact {
   String? slug;
 
   SuggestedCityCompact({
-    this.pointKey,
-    this.title,
-    this.fullTitle,
-    this.slug,
+    required this.pointKey,
+    required this.title,
+    required this.fullTitle,
+    required this.slug,
   });
 }
