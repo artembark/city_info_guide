@@ -19,7 +19,7 @@ class SchedulePointPointRepositoryImpl implements SchedulePointPointRepository {
       required String to,
       required DateTime date}) async {
     final res = await schedulePointPointRemoteDataSource.getSchedulePointPoint(
-        from, to, date);
+        from: from, to: to, date: date);
     return res.toModel();
   }
 }

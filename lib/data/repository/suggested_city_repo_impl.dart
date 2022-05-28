@@ -13,7 +13,8 @@ class SuggestedCityCompactRepoImpl implements SuggestedCityCompactRepository {
   @override
   Future<List<SuggestedCityCompact>> getSuggestedCityList(
       {required String userInput}) async {
-    final res = await suggestedCityDataSource.getSuggestedCityList(userInput);
+    final res = await suggestedCityDataSource.getSuggestedCityList(
+        userInput: userInput);
     final suggestionsList = res.map((e) => e.toModel()).toList();
     return suggestionsList;
   }

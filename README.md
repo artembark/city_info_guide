@@ -1,1 +1,2 @@
-# Проект информационно-экскурсионного приложения по городу
+# City guide app project
+City guide app development.

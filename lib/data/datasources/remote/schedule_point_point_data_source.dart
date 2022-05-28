@@ -6,7 +6,7 @@ import '../../dto/schedule_p_p/schedule_point_point_dto.dart';
 
 abstract class SchedulePointPointRemoteDataSource {
   Future<SchedulePointPointDTO> getSchedulePointPoint(
-      String from, String to, DateTime date);
+      {required String from, required String to, required DateTime date});
 }
 
 class SchedulePointPointRemoteDataSourceImpl
@@ -17,7 +17,9 @@ class SchedulePointPointRemoteDataSourceImpl
 
   @override
   Future<SchedulePointPointDTO> getSchedulePointPoint(
-      String from, String to, DateTime date) async {
+      {required String from,
+      required String to,
+      required DateTime date}) async {
     final response = await dio.get('/v3.0/search/', queryParameters: {
       'apikey': yandexRaspApiKey,
       'from': from,
