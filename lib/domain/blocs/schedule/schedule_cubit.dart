@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point.dart';
 import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 
 part 'schedule_state.dart';
 
@@ -11,47 +13,67 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   ScheduleCubit({
     required this.schedulePointPointRepository,
   }) : super(
-          ScheduleState(ScheduleRequest()),
+          ScheduleState.citiesSubmitting(ScheduleRequest()),
         );
   final SchedulePointPointRepository schedulePointPointRepository;
 
-  // updateFormState(ScheduleRequest scheduleRequest) {
-  //   emit(state.copyWith(registrationModel: registrationModel));
-  // }
-  init() {
-    print('bloc info ${state.scheduleRequest.toString()}');
-  }
-
   updateFromState(String from) {
-    emit(state.copyWith.scheduleRequest(from: from));
-    print('bloc updated ${state.scheduleRequest.from}');
-    print(state.scheduleRequest.toString());
-    //state.copyWith(scheduleRequest: )
+    state.maybeMap(
+        citiesSubmitting: (state) {
+          emit(state.copyWith.scheduleRequest(from: from));
+        },
+        orElse: () {});
   }
 
   updateToState(String to) {
-    emit(state.copyWith.scheduleRequest(to: to));
-    print('bloc updated ${state.scheduleRequest.to}');
-    print(state.scheduleRequest.toString());
-    //state.copyWith(scheduleRequest: )
+    state.maybeMap(
+        citiesSubmitting: (state) {
+          emit(state.copyWith.scheduleRequest(to: to));
+        },
+        orElse: () {});
   }
 
   updateDate(DateTime dateTime) {
-    emit(state.copyWith.scheduleRequest(date: dateTime));
-    print(state.scheduleRequest.toString());
+    state.maybeMap(
+        citiesSubmitting: (state) {
+          emit(state.copyWith.scheduleRequest(date: dateTime));
+        },
+        orElse: () {});
   }
 
-  getSchedule() async {
-    final schedule = await schedulePointPointRepository.getSchedulePointPoint(
-        from: state.scheduleRequest.from ?? '',
-        to: state.scheduleRequest.to ?? '',
-        date: state.scheduleRequest.date ?? DateTime(2022, 6, 2));
-    if (schedule.pagination?.total == 0) {
-      print('Нет маршрута');
-    } else {
-      print(schedule.segments?.first.from?.title);
-      print(schedule.segments?.first.to?.title);
-    }
+  getSchedule() {
+    state.maybeMap(
+        citiesSubmitting: (state) async {
+          emit(ScheduleState.resultsLoading());
+          final schedulePointPoint =
+              await schedulePointPointRepository.getSchedulePointPoint(
+                  from: state.scheduleRequest.from ?? '',
+                  to: state.scheduleRequest.to ?? '',
+                  date: state.scheduleRequest.date ?? DateTime(2022, 6, 2));
+          emit(ScheduleState.resultsLoaded(schedulePointPoint));
+        },
+        orElse: () {});
+    final from = emit(const ScheduleState.resultsLoading());
+    state.maybeMap(
+        citiesSubmitting: (state) async {
+          final schedulePointPoint =
+              await schedulePointPointRepository.getSchedulePointPoint(
+                  from: state.scheduleRequest.from ?? '',
+                  to: state.scheduleRequest.to ?? '',
+                  date: state.scheduleRequest.date ?? DateTime(2022, 6, 2));
+          emit(ScheduleState.resultsLoaded(schedulePointPoint));
+        },
+        orElse: () {});
+    state.maybeMap(
+        resultsLoaded: (state) {
+          if (state.schedulePointPoint.pagination?.total == 0) {
+            print('Нет маршрута');
+          } else {
+            print(state.schedulePointPoint.segments?.first.from?.title);
+            print(state.schedulePointPoint.segments?.first.to?.title);
+          }
+        },
+        orElse: () {});
   }
 
   printText() async {

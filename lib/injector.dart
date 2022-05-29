@@ -64,11 +64,11 @@ Future<void> initializeDependencies() async {
       ),
     )..interceptors.add(
         LogInterceptor(
-          responseBody: true,
-          requestBody: true,
-          responseHeader: true,
-          requestHeader: true,
-          request: true,
+          responseBody: false,
+          requestBody: false,
+          responseHeader: false,
+          requestHeader: false,
+          request: false,
         ),
       ),
   );
