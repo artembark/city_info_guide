@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ScheduleState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
@@ -27,7 +26,6 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -35,7 +33,6 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -44,7 +41,6 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
     required TResult Function(CitiesSubmitting value) citiesSubmitting,
     required TResult Function(ResultsLoading value) resultsLoading,
     required TResult Function(ResultsLoaded value) resultsLoaded,
@@ -52,7 +48,6 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -60,7 +55,6 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -84,121 +78,6 @@ class _$ScheduleStateCopyWithImpl<$Res>
   final ScheduleState _value;
   // ignore: unused_field
   final $Res Function(ScheduleState) _then;
-}
-
-/// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$InitialCopyWithImpl<$Res> extends _$ScheduleStateCopyWithImpl<$Res>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
-      : super(_value, (v) => _then(v as _$Initial));
-
-  @override
-  _$Initial get _value => super._value as _$Initial;
-}
-
-/// @nodoc
-
-class _$Initial implements Initial {
-  const _$Initial();
-
-  @override
-  String toString() {
-    return 'ScheduleState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
-    required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
-        resultsLoaded,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
-    TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
-    TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(CitiesSubmitting value) citiesSubmitting,
-    required TResult Function(ResultsLoading value) resultsLoading,
-    required TResult Function(ResultsLoaded value) resultsLoaded,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(CitiesSubmitting value)? citiesSubmitting,
-    TResult Function(ResultsLoading value)? resultsLoading,
-    TResult Function(ResultsLoaded value)? resultsLoaded,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(CitiesSubmitting value)? citiesSubmitting,
-    TResult Function(ResultsLoading value)? resultsLoading,
-    TResult Function(ResultsLoaded value)? resultsLoaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial implements ScheduleState {
-  const factory Initial() = _$Initial;
 }
 
 /// @nodoc
@@ -276,7 +155,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
@@ -288,7 +166,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -299,7 +176,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -314,7 +190,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
     required TResult Function(CitiesSubmitting value) citiesSubmitting,
     required TResult Function(ResultsLoading value) resultsLoading,
     required TResult Function(ResultsLoaded value) resultsLoaded,
@@ -325,7 +200,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -336,7 +210,6 @@ class _$CitiesSubmitting implements CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -400,7 +273,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
@@ -412,7 +284,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -423,7 +294,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -438,7 +308,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
     required TResult Function(CitiesSubmitting value) citiesSubmitting,
     required TResult Function(ResultsLoading value) resultsLoading,
     required TResult Function(ResultsLoaded value) resultsLoaded,
@@ -449,7 +318,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -460,7 +328,6 @@ class _$ResultsLoading implements ResultsLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -543,7 +410,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
@@ -555,7 +421,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -566,7 +431,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
@@ -581,7 +445,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
     required TResult Function(CitiesSubmitting value) citiesSubmitting,
     required TResult Function(ResultsLoading value) resultsLoading,
     required TResult Function(ResultsLoaded value) resultsLoaded,
@@ -592,7 +455,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,
@@ -603,7 +465,6 @@ class _$ResultsLoaded implements ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
     TResult Function(CitiesSubmitting value)? citiesSubmitting,
     TResult Function(ResultsLoading value)? resultsLoading,
     TResult Function(ResultsLoaded value)? resultsLoaded,

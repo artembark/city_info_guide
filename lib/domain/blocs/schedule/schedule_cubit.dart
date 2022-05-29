@@ -53,17 +53,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
           emit(ScheduleState.resultsLoaded(schedulePointPoint));
         },
         orElse: () {});
-    final from = emit(const ScheduleState.resultsLoading());
-    state.maybeMap(
-        citiesSubmitting: (state) async {
-          final schedulePointPoint =
-              await schedulePointPointRepository.getSchedulePointPoint(
-                  from: state.scheduleRequest.from ?? '',
-                  to: state.scheduleRequest.to ?? '',
-                  date: state.scheduleRequest.date ?? DateTime(2022, 6, 2));
-          emit(ScheduleState.resultsLoaded(schedulePointPoint));
-        },
-        orElse: () {});
+
     state.maybeMap(
         resultsLoaded: (state) {
           if (state.schedulePointPoint.pagination?.total == 0) {
@@ -74,12 +64,5 @@ class ScheduleCubit extends Cubit<ScheduleState> {
           }
         },
         orElse: () {});
-  }
-
-  printText() async {
-    final schedule = await schedulePointPointRepository.getSchedulePointPoint(
-        from: 'c2', to: 'c85072', date: DateTime(2022, 6, 2));
-    print('working');
-    print(schedule.segments?.first.from?.title);
   }
 }

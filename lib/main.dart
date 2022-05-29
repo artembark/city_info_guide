@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
 
-import 'domain/entities/schedule_request.dart';
 import 'domain/entities/suggested_city/suggested_city_compact.dart';
 import 'injector.dart' as di;
 
@@ -62,103 +61,97 @@ class _MyHomePageState extends State<MyHomePage> {
           child: BlocBuilder<ScheduleCubit, ScheduleState>(
             builder: (context, state) {
               return state.map(
-                  initial: (initial) => Text('initial'),
                   citiesSubmitting: (citiesSubmittingState) {
-                    return ListView(
-                        //mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TypeAheadField(
-                            minCharsForSuggestions: 1,
-                            textFieldConfiguration: TextFieldConfiguration(
-                                controller: _fromTypeAheadController,
-                                autofocus: false,
-                                style: DefaultTextStyle.of(context)
-                                    .style
-                                    .copyWith(fontStyle: FontStyle.italic),
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder())),
-                            suggestionsCallback: (userInput) async {
-                              final res = await di
-                                  .sl<SuggestedCityCompactRepository>()
-                                  .getSuggestedCityList(userInput: userInput);
-                              return res;
-                            },
-                            itemBuilder: (context, suggestion) {
-                              final sug = suggestion as SuggestedCityCompact;
-                              return ListTile(
-                                leading: const Icon(Icons.location_city),
-                                title: Text(sug.fullTitle!),
-                                subtitle: Text(sug.pointKey!),
-                              );
-                            },
-                            onSuggestionSelected: (suggestion) {
-                              final sug = suggestion as SuggestedCityCompact;
-                              _fromTypeAheadController.text = sug.title!;
-                              context
-                                  .read<ScheduleCubit>()
-                                  .updateFromState(sug.pointKey!);
-                            },
-                          ),
-                          TypeAheadField(
-                            minCharsForSuggestions: 1,
-                            textFieldConfiguration: TextFieldConfiguration(
-                                controller: _toTypeAheadController,
-                                autofocus: false,
-                                style: DefaultTextStyle.of(context)
-                                    .style
-                                    .copyWith(fontStyle: FontStyle.italic),
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder())),
-                            suggestionsCallback: (userInput) async {
-                              final res = await di
-                                  .sl<SuggestedCityCompactRepository>()
-                                  .getSuggestedCityList(userInput: userInput);
-                              return res;
-                            },
-                            itemBuilder: (context, suggestion) {
-                              final sug = suggestion as SuggestedCityCompact;
-                              return ListTile(
-                                leading: const Icon(Icons.shopping_cart),
-                                title: Text(sug.fullTitle!),
-                                subtitle: Text(sug.pointKey!),
-                              );
-                            },
-                            onSuggestionSelected: (suggestion) {
-                              final sug = suggestion as SuggestedCityCompact;
-                              _toTypeAheadController.text = sug.title!;
-                              context
-                                  .read<ScheduleCubit>()
-                                  .updateToState(sug.pointKey!);
-                            },
-                          ),
-                          if (citiesSubmittingState.scheduleRequest.date !=
-                              null)
-                            Text(
-                              DateFormat('yyyy-MM-dd').format(
-                                  citiesSubmittingState.scheduleRequest.date!),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 25.0),
-                            ),
-                          ElevatedButton(
-                              onPressed: () async {
-                                DateTime? newDate = await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    firstDate: DateTime(2022, 5, 1),
-                                    lastDate: DateTime(2022, 5, 31));
-                                if (newDate == null) return;
-                                context
-                                    .read<ScheduleCubit>()
-                                    .updateDate(newDate);
-                              },
-                              child: Text('Выбрать дату')),
-                          ElevatedButton(
-                            onPressed: () {
-                              context.read<ScheduleCubit>().getSchedule();
-                            },
-                            child: Text('Получить расписание'),
-                          )
-                        ]);
+                    return ListView(children: [
+                      TypeAheadField(
+                        minCharsForSuggestions: 1,
+                        textFieldConfiguration: TextFieldConfiguration(
+                            controller: _fromTypeAheadController,
+                            autofocus: false,
+                            style: DefaultTextStyle.of(context)
+                                .style
+                                .copyWith(fontStyle: FontStyle.italic),
+                            decoration:
+                                InputDecoration(border: OutlineInputBorder())),
+                        suggestionsCallback: (userInput) async {
+                          final res = await di
+                              .sl<SuggestedCityCompactRepository>()
+                              .getSuggestedCityList(userInput: userInput);
+                          return res;
+                        },
+                        itemBuilder: (context, suggestion) {
+                          final sug = suggestion as SuggestedCityCompact;
+                          return ListTile(
+                            leading: const Icon(Icons.location_city),
+                            title: Text(sug.fullTitle!),
+                            subtitle: Text(sug.pointKey!),
+                          );
+                        },
+                        onSuggestionSelected: (suggestion) {
+                          final sug = suggestion as SuggestedCityCompact;
+                          _fromTypeAheadController.text = sug.title!;
+                          context
+                              .read<ScheduleCubit>()
+                              .updateFromState(sug.pointKey!);
+                        },
+                      ),
+                      TypeAheadField(
+                        minCharsForSuggestions: 1,
+                        textFieldConfiguration: TextFieldConfiguration(
+                            controller: _toTypeAheadController,
+                            autofocus: false,
+                            style: DefaultTextStyle.of(context)
+                                .style
+                                .copyWith(fontStyle: FontStyle.italic),
+                            decoration:
+                                InputDecoration(border: OutlineInputBorder())),
+                        suggestionsCallback: (userInput) async {
+                          final res = await di
+                              .sl<SuggestedCityCompactRepository>()
+                              .getSuggestedCityList(userInput: userInput);
+                          return res;
+                        },
+                        itemBuilder: (context, suggestion) {
+                          final sug = suggestion as SuggestedCityCompact;
+                          return ListTile(
+                            leading: const Icon(Icons.shopping_cart),
+                            title: Text(sug.fullTitle!),
+                            subtitle: Text(sug.pointKey!),
+                          );
+                        },
+                        onSuggestionSelected: (suggestion) {
+                          final sug = suggestion as SuggestedCityCompact;
+                          _toTypeAheadController.text = sug.title!;
+                          context
+                              .read<ScheduleCubit>()
+                              .updateToState(sug.pointKey!);
+                        },
+                      ),
+                      if (citiesSubmittingState.scheduleRequest.date != null)
+                        Text(
+                          DateFormat('yyyy-MM-dd').format(
+                              citiesSubmittingState.scheduleRequest.date!),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 25.0),
+                        ),
+                      ElevatedButton(
+                          onPressed: () async {
+                            DateTime? newDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2022, 5, 1),
+                                lastDate: DateTime(2022, 5, 31));
+                            if (newDate == null) return;
+                            context.read<ScheduleCubit>().updateDate(newDate);
+                          },
+                          child: Text('Выбрать дату')),
+                      ElevatedButton(
+                        onPressed: () {
+                          context.read<ScheduleCubit>().getSchedule();
+                        },
+                        child: Text('Получить расписание'),
+                      )
+                    ]);
                   },
                   resultsLoading: (resultsLoadingState) =>
                       const CircularProgressIndicator(),
@@ -173,7 +166,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         if (segment.from?.transportType == 'bus') {
                           icon = Icons.bus_alert as IconData;
                         }
-                        ;
                         if (segment.from?.transportType == 'train') {
                           icon = Icons.train as IconData;
                         }
@@ -218,12 +210,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-String durationToString(int minutes) {
-  var d = Duration(minutes: minutes);
-  List<String> parts = d.toString().split(':');
-  return '${parts[0].padLeft(2, '0')}:${parts[1].padLeft(2, '0')}';
 }
 
 String printDuration(Duration duration) {
