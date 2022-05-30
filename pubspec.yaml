@@ -13,7 +13,6 @@ dependencies:
   freezed_annotation: ^2.0.3
   json_annotation: ^4.5.0
   flutter_typeahead: ^4.0.0
-  http: ^0.13.4
   dio: ^4.0.6
   intl: ^0.17.0
   get_it: ^7.2.0
