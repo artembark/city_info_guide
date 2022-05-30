@@ -4,6 +4,9 @@ part 'schedule_request.freezed.dart';
 
 @freezed
 class ScheduleRequest with _$ScheduleRequest {
-  factory ScheduleRequest({String? from, String? to, DateTime? date}) =
-      _ScheduleRequest;
+  factory ScheduleRequest({
+    String? from,
+    String? to,
+    DateTime? date,
+  }) = _ScheduleRequest;
 }

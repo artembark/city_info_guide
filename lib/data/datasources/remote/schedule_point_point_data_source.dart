@@ -25,6 +25,7 @@ class SchedulePointPointRemoteDataSourceImpl
       'from': from,
       'to': to,
       'date': DateFormat('yyyy-MM-dd').format(date),
+      'transfers': true
     });
     return SchedulePointPointDTO.fromJson(response.data);
   }

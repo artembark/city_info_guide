@@ -3,7 +3,6 @@ import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_poin
 import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 
 part 'schedule_state.dart';
 
@@ -17,7 +16,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         );
   final SchedulePointPointRepository schedulePointPointRepository;
 
-  updateFromState(String from) {
+  updateFromField(String from) {
     state.maybeMap(
         citiesSubmitting: (state) {
           emit(state.copyWith.scheduleRequest(from: from));
@@ -25,7 +24,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         orElse: () {});
   }
 
-  updateToState(String to) {
+  updateToField(String to) {
     state.maybeMap(
         citiesSubmitting: (state) {
           emit(state.copyWith.scheduleRequest(to: to));
@@ -44,13 +43,21 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   getSchedule() {
     state.maybeMap(
         citiesSubmitting: (state) async {
-          emit(ScheduleState.resultsLoading());
-          final schedulePointPoint =
-              await schedulePointPointRepository.getSchedulePointPoint(
-                  from: state.scheduleRequest.from ?? '',
-                  to: state.scheduleRequest.to ?? '',
-                  date: state.scheduleRequest.date ?? DateTime(2022, 6, 2));
-          emit(ScheduleState.resultsLoaded(schedulePointPoint));
+          emit(const ScheduleState.resultsLoading());
+          try {
+            final schedulePointPoint =
+                await schedulePointPointRepository.getSchedulePointPoint(
+                    from: state.scheduleRequest.from ?? '',
+                    to: state.scheduleRequest.to ?? '',
+                    date: state.scheduleRequest.date ?? DateTime.now());
+            if (schedulePointPoint.pagination?.total == 0) {
+              emit(const ScheduleState.resultsEmpty());
+            } else {
+              emit(ScheduleState.resultsLoaded(schedulePointPoint));
+            }
+          } on Exception catch (exception) {
+            emit(ScheduleState.resultsFailure(exception));
+          }
         },
         orElse: () {});
 

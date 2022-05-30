@@ -1,0 +1,4877 @@
+{
+  "interval_segments": [],
+  "pagination": {
+    "total": 30,
+    "limit": 100,
+    "offset": 0
+  },
+  "segments": [
+    {
+      "arrival": "2022-05-31T19:36:00+03:00",
+      "departure_from": {
+        "code": "s9600216",
+        "title": "Домодедово",
+        "station_type": "airport",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T14:00:00+03:00",
+      "transport_types": [
+        "plane",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T15:25:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "U6-59_220531_c30_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "U6 59",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 30,
+              "codes": {
+                "icao": null,
+                "sirena": "У6",
+                "iata": "U6"
+              },
+              "title": "Уральские авиалинии"
+            },
+            "transport_type": "plane",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T14:00:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7680,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T19:36:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "7579_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "7579",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "last",
+              "title": "«Ласточка»"
+            },
+            "express_type": "express"
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T17:33:00+03:00",
+          "stops": "Девяткино, Токсово, Орехово, 69 км, Сосново, Лосево, Громово, Приозерск",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 7380,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T12:46:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T07:05:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T08:25:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-6_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 6",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T07:05:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T12:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_3_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T10:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T11:46:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T06:00:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T07:25:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-2_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 2",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A320",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T06:00:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T11:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_2_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T09:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T19:27:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T13:40:00+03:00",
+      "transport_types": [
+        "plane",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T15:05:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-20_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 20",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T13:40:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 6060,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T19:27:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6551_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6551",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T16:46:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9660,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T14:17:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T08:30:00+03:00",
+      "transport_types": [
+        "plane",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T09:50:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "FV-6010_220531_c8565_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "FV 6010",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 8565,
+              "codes": {
+                "icao": null,
+                "sirena": "ФВ",
+                "iata": "FV"
+              },
+              "title": "Россия"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A319",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T08:30:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 6120,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T14:17:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6529_4_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6529",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T11:32:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9900,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T15:46:00+03:00",
+      "departure_from": {
+        "code": "s9600216",
+        "title": "Домодедово",
+        "station_type": "airport",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T09:55:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T11:30:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "S7-1027_220531_c23_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "S7 1027",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 23,
+              "codes": {
+                "icao": null,
+                "sirena": "С7",
+                "iata": "S7"
+              },
+              "title": "S7 Airlines"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A320",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T09:55:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5700,
+          "arrival_terminal": "1",
+          "departure_terminal": "",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7200,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T15:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_6_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T13:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T16:40:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T10:45:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T12:00:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "FV-6018_220531_c8565_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "FV 6018",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 8565,
+              "codes": {
+                "icao": null,
+                "sirena": "ФВ",
+                "iata": "FV"
+              },
+              "title": "Россия"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A319",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T10:45:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4500,
+          "arrival_terminal": "1",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T16:40:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_9_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T14:05:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T21:16:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T15:20:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T16:45:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-22_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 22",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T15:20:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 8100,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T21:16:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_11_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T19:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T22:46:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T16:45:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T18:05:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "FV-6030_220531_c8565_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "FV 6030",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 8565,
+              "codes": {
+                "icao": null,
+                "sirena": "ФВ",
+                "iata": "FV"
+              },
+              "title": "Россия"
+            },
+            "transport_type": "plane",
+            "vehicle": "Сухой Суперджет 100",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T16:45:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 8700,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T22:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_14_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T20:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T23:14:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T17:10:00+03:00",
+      "transport_types": [
+        "plane",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T18:35:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-24_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 24",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A320",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T17:10:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7200,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T23:14:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6567_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6567",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T20:35:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9540,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T20:05:00+03:00",
+      "departure_from": {
+        "code": "s9600216",
+        "title": "Домодедово",
+        "station_type": "airport",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T14:00:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T15:25:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "U6-59_220531_c30_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "U6 59",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 30,
+              "codes": {
+                "icao": null,
+                "sirena": "У6",
+                "iata": "U6"
+              },
+              "title": "Уральские авиалинии"
+            },
+            "transport_type": "plane",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T14:00:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T20:05:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_14_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T17:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T13:35:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T07:30:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T08:55:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "DP-209_220531_c9144_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "DP 209",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 9144,
+              "codes": {
+                "icao": null,
+                "sirena": "ДР",
+                "iata": "DP"
+              },
+              "title": "Победа"
+            },
+            "transport_type": "plane",
+            "vehicle": "Boeing 737-800",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T07:30:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T13:35:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_13_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T11:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T17:40:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T11:35:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T12:55:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "FV-6028_220531_c8565_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "FV 6028",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 8565,
+              "codes": {
+                "icao": null,
+                "sirena": "ФВ",
+                "iata": "FV"
+              },
+              "title": "Россия"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A319",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T11:35:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7800,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T17:40:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_10_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T15:05:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T21:05:00+03:00",
+      "departure_from": {
+        "code": "s9600216",
+        "title": "Домодедово",
+        "station_type": "airport",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T14:55:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T16:30:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "S7-1013_220531_c23_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "S7 1013",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 23,
+              "codes": {
+                "icao": null,
+                "sirena": "С7",
+                "iata": "S7"
+              },
+              "title": "S7 Airlines"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T14:55:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5700,
+          "arrival_terminal": "1",
+          "departure_terminal": "",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7200,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T21:05:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_23_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T18:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T18:40:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T12:25:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T13:55:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-18_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 18",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T12:25:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5400,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7800,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T18:40:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_11_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T16:05:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T23:05:00+03:00",
+      "departure_from": {
+        "code": "s9600215",
+        "title": "Внуково",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T16:45:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T18:05:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "FV-6030_220531_c8565_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "FV 6030",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 8565,
+              "codes": {
+                "icao": null,
+                "sirena": "ФВ",
+                "iata": "FV"
+              },
+              "title": "Россия"
+            },
+            "transport_type": "plane",
+            "vehicle": "Сухой Суперджет 100",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T16:45:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "A",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 7500,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T23:05:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_4_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T20:10:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 10500,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T19:16:00+03:00",
+      "departure_from": {
+        "code": "s9600216",
+        "title": "Домодедово",
+        "station_type": "airport",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T12:55:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T14:30:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "S7-1011_220531_c23_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "S7 1011",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 23,
+              "codes": {
+                "icao": null,
+                "sirena": "С7",
+                "iata": "S7"
+              },
+              "title": "S7 Airlines"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T12:55:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5700,
+          "arrival_terminal": "1",
+          "departure_terminal": "",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 9000,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T19:16:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_9_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T17:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T21:55:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T15:20:00+03:00",
+      "transport_types": [
+        "plane",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T16:45:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-22_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 22",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Airbus A321",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T15:20:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 5100,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 8880,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T21:55:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6559_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Приозерск",
+            "number": "6559",
+            "short_title": "СПб-Фин. — Приозерск",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T19:13:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9720,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T17:04:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T09:40:00+03:00",
+      "transport_types": [
+        "train",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T13:32:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "762A_1_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "762А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T09:40:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 13920,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 2820,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T17:04:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6539_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6539",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T14:19:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9900,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T14:17:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T06:50:00+03:00",
+      "transport_types": [
+        "train",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T10:45:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "756A_2_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "756А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T06:50:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 14100,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 2820,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T14:17:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6529_4_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6529",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T11:32:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9900,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T23:14:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T15:40:00+03:00",
+      "transport_types": [
+        "train",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T19:25:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "774A_1_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "774А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T15:40:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 13500,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 4200,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T23:14:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6567_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6567",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T20:35:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9540,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T13:35:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T05:55:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T09:35:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "754A_3_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "754А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T05:55:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 13200,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 5100,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T13:35:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_13_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T11:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T08:35:00+03:00",
+      "departure_from": {
+        "code": "s9600213",
+        "title": "Шереметьево",
+        "station_type": "airport",
+        "popular_title": null,
+        "short_title": null,
+        "transport_type": "plane",
+        "station_type_name": "аэропорт",
+        "type": "station"
+      },
+      "departure": "2022-05-31T00:40:00+03:00",
+      "transport_types": [
+        "plane",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T02:00:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "SU-46_220531_c26_12",
+            "title": "Москва — Санкт-Петербург",
+            "number": "SU 46",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 26,
+              "codes": {
+                "icao": "AFL",
+                "sirena": "СУ",
+                "iata": "SU"
+              },
+              "title": "Аэрофлот"
+            },
+            "transport_type": "plane",
+            "vehicle": "Boeing 737-800",
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T00:40:00+03:00",
+          "stops": "",
+          "start_date": "2022-05-31",
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 4800,
+          "arrival_terminal": "1",
+          "departure_terminal": "B",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 14400,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9600366",
+            "title": "Пулково",
+            "station_type": "airport",
+            "popular_title": "",
+            "short_title": "",
+            "transport_type": "plane",
+            "station_type_name": "аэропорт",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T08:35:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_0_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T06:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T21:55:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T13:40:00+03:00",
+      "transport_types": [
+        "train",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T17:44:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "770A_2_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "770А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T13:40:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 14640,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 5340,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T21:55:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6559_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Приозерск",
+            "number": "6559",
+            "short_title": "СПб-Фин. — Приозерск",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T19:13:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9720,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T15:35:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T07:00:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T11:04:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "758A_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "758А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 4240,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ДОСС"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T07:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 14640,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 6960,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T15:35:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_22_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T13:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-06-01T10:08:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T22:50:00+03:00",
+      "transport_types": [
+        "train",
+        "suburban"
+      ],
+      "details": [
+        {
+          "arrival": "2022-06-01T06:40:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "006A_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "006А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 112,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ФПК"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T22:50:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 28200,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 2820,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9602497",
+            "title": "Санкт-Петербург (Финляндский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Финляндский вокзал",
+            "short_title": "СПб-Фин.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-06-01T10:08:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "6511_0_9602497_g22_4",
+            "title": "Санкт-Петербург (Финляндский вокзал) — Кузнечное",
+            "number": "6511",
+            "short_title": "СПб-Фин. — Кузнечное",
+            "carrier": {
+              "code": 1332,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Северо-западная пригородная пассажирская компания"
+            },
+            "transport_type": "suburban",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": "#CC6600",
+              "code": "suburban",
+              "title": "Пригородный поезд"
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-06-01T07:27:00+03:00",
+          "stops": "везде",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9660,
+          "arrival_terminal": null,
+          "start_date": "2022-06-01",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-06-01T11:43:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T23:55:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-06-01T07:55:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "002A_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "002А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 112,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ФПК"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T23:55:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 28800,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 5100,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-06-01T11:43:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_1_f9654496t9853048_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Петрозаводск",
+            "number": "2342/807",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Петрозаводск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-06-01T09:20:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8580,
+          "arrival_terminal": null,
+          "start_date": "2022-06-01",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-06-01T09:46:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T21:55:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-06-01T06:06:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "026A_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "026А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 112,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ФПК"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T21:55:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 29460,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 5040,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-06-01T09:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_0_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-06-01T07:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-06-01",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-06-01T09:35:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T21:24:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-06-01T05:19:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "056A_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "056А",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 112,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "РЖД/ФПК"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T21:24:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 28500,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 6060,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9654496",
+            "title": "Санкт-Петербург, Северный автовокзал",
+            "station_type": "bus_station",
+            "popular_title": "Северный автовокзал (Мурино)",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автовокзал",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-06-01T09:35:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_1_f9654496t9813869_175",
+            "title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "number": "859",
+            "short_title": "Санкт-Петербург, Северный автовокзал — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-06-01T07:00:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 9300,
+          "arrival_terminal": null,
+          "start_date": "2022-06-01",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    },
+    {
+      "arrival": "2022-05-31T12:46:00+03:00",
+      "departure_from": {
+        "code": "s2006004",
+        "title": "Москва (Ленинградский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Ленинградский вокзал",
+        "short_title": "М-Ленинградск",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "departure": "2022-05-31T00:20:00+03:00",
+      "transport_types": [
+        "train",
+        "bus"
+      ],
+      "details": [
+        {
+          "arrival": "2022-05-31T08:59:00+03:00",
+          "from": {
+            "code": "c213",
+            "type": "settlement",
+            "popular_title": "Москва",
+            "short_title": "Москва",
+            "title": "Москва"
+          },
+          "thread": {
+            "uid": "020U_0_2",
+            "title": "Москва — Санкт-Петербург",
+            "number": "020У",
+            "short_title": "Москва — Санкт-Петербург",
+            "carrier": {
+              "code": 129,
+              "codes": {
+                "icao": null,
+                "sirena": null,
+                "iata": null
+              },
+              "title": "Тверской Экспресс"
+            },
+            "transport_type": "train",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T00:20:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "duration": 31140,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        },
+        {
+          "duration": 5460,
+          "is_transfer": true,
+          "transfer_point": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "transfer_to": {
+            "code": "s9837534",
+            "title": "Санкт-Петербург, метро «Парнас»",
+            "station_type": "bus_stop",
+            "popular_title": "Метро «Парнас»",
+            "short_title": "",
+            "transport_type": "bus",
+            "station_type_name": "автобусная остановка",
+            "type": "station"
+          },
+          "transfer_from": {
+            "code": "s9602494",
+            "title": "Санкт-Петербург (Московский вокзал)",
+            "station_type": "train_station",
+            "popular_title": "Московский вокзал",
+            "short_title": "СПб-Моск.",
+            "transport_type": "train",
+            "station_type_name": "вокзал",
+            "type": "station"
+          }
+        },
+        {
+          "arrival": "2022-05-31T12:46:00+03:00",
+          "from": {
+            "code": "c2",
+            "type": "settlement",
+            "popular_title": "Санкт-Петербург",
+            "short_title": "Санкт-Петербург",
+            "title": "Санкт-Петербург"
+          },
+          "thread": {
+            "uid": "empty_3_f9837534t9813869_175",
+            "title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "number": "960",
+            "short_title": "Санкт-Петербург, метро «Парнас» — Приозерск",
+            "carrier": null,
+            "transport_type": "bus",
+            "vehicle": null,
+            "transport_subtype": {
+              "color": null,
+              "code": null,
+              "title": null
+            },
+            "express_type": null
+          },
+          "departure_platform": "",
+          "departure": "2022-05-31T10:30:00+03:00",
+          "stops": "",
+          "departure_terminal": null,
+          "to": {
+            "code": "c10883",
+            "type": "settlement",
+            "popular_title": "Приозерск",
+            "short_title": "Приозерск",
+            "title": "Приозерск"
+          },
+          "duration": 8160,
+          "arrival_terminal": null,
+          "start_date": "2022-05-31",
+          "arrival_platform": ""
+        }
+      ],
+      "has_transfers": true,
+      "transfers": [
+        {
+          "code": "c2",
+          "type": "settlement",
+          "popular_title": "Санкт-Петербург",
+          "short_title": "Санкт-Петербург",
+          "title": "Санкт-Петербург"
+        }
+      ],
+      "arrival_to": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      }
+    }
+  ],
+  "search": {
+    "date": "2022-05-31",
+    "to": {
+      "code": "c10883",
+      "type": "settlement",
+      "popular_title": "Приозерск",
+      "short_title": "Приозерск",
+      "title": "Приозерск"
+    },
+    "from": {
+      "code": "c213",
+      "type": "settlement",
+      "popular_title": "Москва",
+      "short_title": "Москва",
+      "title": "Москва"
+    }
+  }
+}
