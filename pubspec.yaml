@@ -22,6 +22,7 @@ dependencies:
   flutter_native_splash: ^2.2.2
   transparent_image: ^2.0.0
   cached_network_image: ^3.2.1
+  geolocator: ^8.2.1
 
 dev_dependencies:
   flutter_test:

@@ -1,19 +1,22 @@
 import 'package:city_info_guide/core/utils/secrets.dart';
+import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
 import '../../dto/schedule_p_p/schedule_point_point_dto.dart';
 
-abstract class SchedulePointPointRemoteDataSource {
+abstract class YandexRaspApiDataSource {
   Future<SchedulePointPointDTO> getSchedulePointPoint(
       {required String from, required String to, required DateTime date});
+
+  Future<NearestSettlementDTO> getNearestSettlement(
+      {required String lat, required String lon});
 }
 
-class SchedulePointPointRemoteDataSourceImpl
-    implements SchedulePointPointRemoteDataSource {
+class YandexRaspApiDataSourceImpl implements YandexRaspApiDataSource {
   final Dio dio;
 
-  SchedulePointPointRemoteDataSourceImpl({required this.dio});
+  YandexRaspApiDataSourceImpl({required this.dio});
 
   @override
   Future<SchedulePointPointDTO> getSchedulePointPoint(
@@ -28,5 +31,20 @@ class SchedulePointPointRemoteDataSourceImpl
       'transfers': true
     });
     return SchedulePointPointDTO.fromJson(response.data);
+  }
+
+  @override
+  Future<NearestSettlementDTO> getNearestSettlement(
+      {required String lat, required String lon}) async {
+    final response =
+        await dio.get('/v3.0/nearest_settlement/', queryParameters: {
+      'apikey': yandexRaspApiKey,
+      'lat': lat,
+      'lng': lon,
+      'distance': '50',
+      'format': 'json',
+      'lang': 'ru_RU'
+    });
+    return NearestSettlementDTO.fromJson(response.data);
   }
 }

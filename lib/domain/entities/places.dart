@@ -15,6 +15,7 @@ class PlaceOfInterest with _$PlaceOfInterest {
     required double lat,
   }) = _PlaceOfInterest;
 
+  //TODO: refactor to data layer
   factory PlaceOfInterest.fromJson(Map<String, dynamic> json) =>
       _$PlaceOfInterestFromJson(json);
 }

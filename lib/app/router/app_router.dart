@@ -16,7 +16,8 @@ import '../../presentation/views/poi_page.dart';
         page: SplashPage,
         initial: true,
         transitionsBuilder: TransitionsBuilders.noTransition),
-    CustomRoute(page: HomePage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(
+        page: HomePage, transitionsBuilder: TransitionsBuilders.noTransition),
     AutoRoute(page: SchedulePage),
     AutoRoute(page: PoiPage),
   ],

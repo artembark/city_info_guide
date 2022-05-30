@@ -35,6 +35,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Stack(
           children: [
             AnimatedScale(
+              curve: Curves.fastOutSlowIn,
               scale: scale,
               duration: const Duration(seconds: 1),
               child: Container(

@@ -15,20 +15,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //TODO:refactor bubbles, add shadow, add appear and moving animation to all
       body: SafeArea(
         child: Stack(
           children: [
             Center(
               child: Padding(
-                  padding: const EdgeInsets.all(40.0),
-                  child: Image(
-                    image: AssetImage('assets/images/main_circle.png'),
-                  )
-                  //Image.asset('assets/images/main_circle.png'),
-                  ),
+                padding: const EdgeInsets.all(40.0),
+                child: Image.asset('assets/images/main_circle.png'),
+              ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 15),
+              margin: const EdgeInsets.only(top: 15),
               alignment: Alignment.topCenter,
               child: Hero(
                 tag: 'priozersk',
@@ -44,22 +42,22 @@ class _HomePageState extends State<HomePage> {
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const PoiRoute()),
                 child: Container(
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     minWidth: 120.0,
                     minHeight: 120.0,
                   ),
                   decoration: BoxDecoration(
-                    color: Color(0xFF0061C2),
+                    color: const Color(0xFF0061C2),
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Color(0xFF0061C2).withOpacity(0.8),
-                        offset: Offset(0, 5),
+                        color: const Color(0xFF0061C2).withOpacity(0.8),
+                        offset: const Offset(0, 5),
                         blurRadius: 30,
                       ),
                     ],
                   ),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     'Гостиницы',
                     textAlign: TextAlign.center,
@@ -73,7 +71,7 @@ class _HomePageState extends State<HomePage> {
               right: 30,
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const PoiRoute()),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 70.0,
                   backgroundColor: Color(0xFF007FFF),
                   child: Center(
@@ -90,7 +88,7 @@ class _HomePageState extends State<HomePage> {
               left: 15,
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFF8DC6FF),
                   child: Center(
@@ -107,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               left: 40,
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFFD143BE),
                   child: Center(
@@ -124,7 +122,7 @@ class _HomePageState extends State<HomePage> {
               right: 40,
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFFC68EB9),
                   child: Center(
@@ -141,7 +139,7 @@ class _HomePageState extends State<HomePage> {
               right: 130,
               child: GestureDetector(
                 onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFF5381AE),
                   child: Center(

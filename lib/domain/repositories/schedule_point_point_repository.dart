@@ -10,4 +10,3 @@ abstract class SchedulePointPointRepository {
     required DateTime date,
   });
 }
-//TODO: разобраться с required
