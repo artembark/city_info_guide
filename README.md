@@ -25,6 +25,7 @@ For converting human readable city names to codes suggestions api is used.
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - `mockito` for testing
 - `cloud_firestore` for the remote database
+- [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
 - [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
 
 ## Native splash screen
