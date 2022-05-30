@@ -2,12 +2,15 @@
 City guide app development.
 
 ##Schedule API
+
 It' good to know how one can come to your city and leave it. So you need a schedule service.
 
 Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)
 
 Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.html)
+
 ##Suggests API
+
 Schedule api needs to have city codes in request. For converting human readable city names to codes
 suggestions api is used. 
 
