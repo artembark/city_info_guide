@@ -27,6 +27,17 @@ class _HomePageState extends State<HomePage> {
                   //Image.asset('assets/images/main_circle.png'),
                   ),
             ),
+            Container(
+              margin: EdgeInsets.only(top: 15),
+              alignment: Alignment.topCenter,
+              child: Hero(
+                tag: 'priozersk',
+                child: Image.asset(
+                  'assets/images/prio_splash.png',
+                  width: MediaQuery.of(context).size.width * 0.7,
+                ),
+              ),
+            ),
             Positioned(
               top: 120,
               left: 40,

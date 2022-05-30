@@ -14,13 +14,15 @@ class _SplashPageState extends State<SplashPage> {
   BorderRadius borderRadius = BorderRadius.circular(0);
   BoxShape boxShape = BoxShape.rectangle;
   double scale = 3.5;
+
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 0)).then((value) => setState(() {
-          expanded = true;
-          scale = 0.79;
-        }));
-    Future.delayed(Duration(milliseconds: 1400))
+    Future.delayed(const Duration(milliseconds: 0))
+        .then((value) => setState(() {
+              expanded = true;
+              scale = 0.79;
+            }));
+    Future.delayed(const Duration(milliseconds: 1400))
         .then((value) => AutoRouter.of(context).push(const HomeRoute()));
     super.initState();
   }
@@ -34,9 +36,9 @@ class _SplashPageState extends State<SplashPage> {
           children: [
             AnimatedScale(
               scale: scale,
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF0B85FF),
                   shape: BoxShape.circle,
                 ),
@@ -50,8 +52,10 @@ class _SplashPageState extends State<SplashPage> {
                 firstChild: Container(),
                 secondChild: FractionallySizedBox(
                     widthFactor: 0.7,
-                    child: Image.asset('assets/images/prio_splash.png')),
-                duration: Duration(milliseconds: 300),
+                    child: Hero(
+                        tag: 'priozersk',
+                        child: Image.asset('assets/images/prio_splash.png'))),
+                duration: const Duration(milliseconds: 300),
                 alignment: Alignment.centerRight,
               ),
             ),
@@ -61,9 +65,9 @@ class _SplashPageState extends State<SplashPage> {
               secondChild: FractionallySizedBox(
                   widthFactor: 0.7,
                   child: Column(
-                    children: [Text('Долгота'), Text('Широта')],
+                    children: const [Text('Долгота'), Text('Широта')],
                   )),
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               alignment: Alignment.centerRight,
             ),
           ],

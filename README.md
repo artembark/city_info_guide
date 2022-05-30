@@ -8,7 +8,7 @@ Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.
 
 ## Suggests API
 Schedule api needs to have city codes in request.  
-For converting human readable city names to codes suggestions api is used. 
+Suggestions api is used for converting human readable city names to codes. 
 
 ## Packages used
 
@@ -27,6 +27,9 @@ For converting human readable city names to codes suggestions api is used.
 - `cloud_firestore` for the remote database
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
 - [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
+
+## Package to be implemented
+- [`map_launcher`](https://pub.dev/packages/map_launcher) to find available maps installed on a device and launch them with a marker or show directions
 
 ## Native splash screen
 [Github repo and readme](https://github.com/jonbhanson/flutter_native_splash#readme)
