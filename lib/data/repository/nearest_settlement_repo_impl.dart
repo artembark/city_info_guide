@@ -9,7 +9,7 @@ class NearestSettlementRepoImpl implements NearestSettlementRepository {
 
   @override
   Future<NearestSettlement> getNearestSettlement(
-      {required String lat, required String lon}) async {
+      {required double lat, required double lon}) async {
     final res =
         await yandexRaspApiDataSource.getNearestSettlement(lat: lat, lon: lon);
     return res.toModel();

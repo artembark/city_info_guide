@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ScheduleRequest {
   String? get from => throw _privateConstructorUsedError;
+  String? get fromTitle => throw _privateConstructorUsedError;
   String? get to => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
 
@@ -30,7 +31,7 @@ abstract class $ScheduleRequestCopyWith<$Res> {
   factory $ScheduleRequestCopyWith(
           ScheduleRequest value, $Res Function(ScheduleRequest) then) =
       _$ScheduleRequestCopyWithImpl<$Res>;
-  $Res call({String? from, String? to, DateTime? date});
+  $Res call({String? from, String? fromTitle, String? to, DateTime? date});
 }
 
 /// @nodoc
@@ -45,6 +46,7 @@ class _$ScheduleRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? from = freezed,
+    Object? fromTitle = freezed,
     Object? to = freezed,
     Object? date = freezed,
   }) {
@@ -52,6 +54,10 @@ class _$ScheduleRequestCopyWithImpl<$Res>
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fromTitle: fromTitle == freezed
+          ? _value.fromTitle
+          : fromTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       to: to == freezed
           ? _value.to
@@ -72,7 +78,7 @@ abstract class _$$_ScheduleRequestCopyWith<$Res>
           _$_ScheduleRequest value, $Res Function(_$_ScheduleRequest) then) =
       __$$_ScheduleRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? from, String? to, DateTime? date});
+  $Res call({String? from, String? fromTitle, String? to, DateTime? date});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
   @override
   $Res call({
     Object? from = freezed,
+    Object? fromTitle = freezed,
     Object? to = freezed,
     Object? date = freezed,
   }) {
@@ -96,6 +103,10 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fromTitle: fromTitle == freezed
+          ? _value.fromTitle
+          : fromTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       to: to == freezed
           ? _value.to
@@ -112,10 +123,12 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ScheduleRequest implements _ScheduleRequest {
-  _$_ScheduleRequest({this.from, this.to, this.date});
+  _$_ScheduleRequest({this.from, this.fromTitle, this.to, this.date});
 
   @override
   final String? from;
+  @override
+  final String? fromTitle;
   @override
   final String? to;
   @override
@@ -123,7 +136,7 @@ class _$_ScheduleRequest implements _ScheduleRequest {
 
   @override
   String toString() {
-    return 'ScheduleRequest(from: $from, to: $to, date: $date)';
+    return 'ScheduleRequest(from: $from, fromTitle: $fromTitle, to: $to, date: $date)';
   }
 
   @override
@@ -132,6 +145,7 @@ class _$_ScheduleRequest implements _ScheduleRequest {
         (other.runtimeType == runtimeType &&
             other is _$_ScheduleRequest &&
             const DeepCollectionEquality().equals(other.from, from) &&
+            const DeepCollectionEquality().equals(other.fromTitle, fromTitle) &&
             const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.date, date));
   }
@@ -140,6 +154,7 @@ class _$_ScheduleRequest implements _ScheduleRequest {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(from),
+      const DeepCollectionEquality().hash(fromTitle),
       const DeepCollectionEquality().hash(to),
       const DeepCollectionEquality().hash(date));
 
@@ -152,11 +167,14 @@ class _$_ScheduleRequest implements _ScheduleRequest {
 abstract class _ScheduleRequest implements ScheduleRequest {
   factory _ScheduleRequest(
       {final String? from,
+      final String? fromTitle,
       final String? to,
       final DateTime? date}) = _$_ScheduleRequest;
 
   @override
   String? get from => throw _privateConstructorUsedError;
+  @override
+  String? get fromTitle => throw _privateConstructorUsedError;
   @override
   String? get to => throw _privateConstructorUsedError;
   @override

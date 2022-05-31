@@ -10,7 +10,7 @@ abstract class YandexRaspApiDataSource {
       {required String from, required String to, required DateTime date});
 
   Future<NearestSettlementDTO> getNearestSettlement(
-      {required String lat, required String lon});
+      {required double lat, required double lon});
 }
 
 class YandexRaspApiDataSourceImpl implements YandexRaspApiDataSource {
@@ -35,7 +35,7 @@ class YandexRaspApiDataSourceImpl implements YandexRaspApiDataSource {
 
   @override
   Future<NearestSettlementDTO> getNearestSettlement(
-      {required String lat, required String lon}) async {
+      {required double lat, required double lon}) async {
     final response =
         await dio.get('/v3.0/nearest_settlement/', queryParameters: {
       'apikey': yandexRaspApiKey,

@@ -6,6 +6,7 @@ part 'schedule_request.freezed.dart';
 class ScheduleRequest with _$ScheduleRequest {
   factory ScheduleRequest({
     String? from,
+    String? fromTitle,
     String? to,
     DateTime? date,
   }) = _ScheduleRequest;

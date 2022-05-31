@@ -5,7 +5,7 @@ import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_poin
 /// названия города с его кодом
 abstract class NearestSettlementRepository {
   Future<NearestSettlement> getNearestSettlement({
-    required String lat,
-    required String lon,
+    required double lat,
+    required double lon,
   });
 }

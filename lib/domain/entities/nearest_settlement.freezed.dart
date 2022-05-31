@@ -184,14 +184,14 @@ class __$$_NearestSettlementCopyWithImpl<$Res>
 
 class _$_NearestSettlement implements _NearestSettlement {
   _$_NearestSettlement(
-      {this.distance,
-      this.code,
-      this.title,
-      this.popularTitle,
-      this.shortTitle,
-      this.lat,
-      this.lng,
-      this.type});
+      {required this.distance,
+      required this.code,
+      required this.title,
+      required this.popularTitle,
+      required this.shortTitle,
+      required this.lat,
+      required this.lng,
+      required this.type});
 
   @override
   final double? distance;
@@ -253,14 +253,14 @@ class _$_NearestSettlement implements _NearestSettlement {
 
 abstract class _NearestSettlement implements NearestSettlement {
   factory _NearestSettlement(
-      {final double? distance,
-      final String? code,
-      final String? title,
-      final String? popularTitle,
-      final String? shortTitle,
-      final double? lat,
-      final double? lng,
-      final String? type}) = _$_NearestSettlement;
+      {required final double? distance,
+      required final String? code,
+      required final String? title,
+      required final String? popularTitle,
+      required final String? shortTitle,
+      required final double? lat,
+      required final double? lng,
+      required final String? type}) = _$_NearestSettlement;
 
   @override
   double? get distance => throw _privateConstructorUsedError;

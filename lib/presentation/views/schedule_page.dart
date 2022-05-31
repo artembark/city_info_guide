@@ -1,4 +1,5 @@
 import 'package:city_info_guide/domain/blocs/schedule/schedule_cubit.dart';
+import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,17 +26,40 @@ class _SchedulePageState extends State<SchedulePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Расписание'),
+        title: const Text('Расписание'),
       ),
       body: BlocProvider(
         create: (context) => di.sl<ScheduleCubit>(),
-        child: BlocBuilder<ScheduleCubit, ScheduleState>(
+        child: BlocConsumer<ScheduleCubit, ScheduleState>(
+          listenWhen: (previous, current) {
+            final previousFrom = previous.maybeMap(
+                citiesSubmitting: (citiesSubmittingState) {
+                  return citiesSubmittingState.scheduleRequest.fromTitle;
+                },
+                orElse: () {});
+            final currentFrom = current.maybeMap(
+                citiesSubmitting: (citiesSubmittingState) {
+                  return citiesSubmittingState.scheduleRequest.fromTitle;
+                },
+                orElse: () {});
+            return previousFrom != currentFrom;
+          },
+          listener: (context, state) {
+            print('listening');
+            state.maybeMap(
+                citiesSubmitting: (citiesSubmittingState) {
+                  _fromTypeAheadController.text =
+                      citiesSubmittingState.scheduleRequest.fromTitle ?? '';
+                  ;
+                },
+                orElse: () {});
+          },
           builder: (context, state) {
             return state.map(
                 citiesSubmitting: (citiesSubmittingState) {
                   return ListView(children: [
                     Image.asset('assets/images/station.png'),
-                    Text('Откуда'),
+                    const Text('Откуда'),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
@@ -49,7 +73,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                   style: DefaultTextStyle.of(context)
                                       .style
                                       .copyWith(fontStyle: FontStyle.italic),
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                       border: OutlineInputBorder())),
                               suggestionsCallback: (userInput) async {
                                 final res = await di
@@ -75,16 +99,15 @@ class _SchedulePageState extends State<SchedulePage> {
                             ),
                           ),
                           IconButton(
-                            icon: Icon(Icons.gps_fixed),
+                            icon: const Icon(Icons.gps_fixed),
                             onPressed: () async {
-                              Position position = await _determinePosition();
-                              print(position.latitude);
+                              context.read<ScheduleCubit>().getPosition();
                             },
                           )
                         ],
                       ),
                     ),
-                    Text('Куда'),
+                    const Text('Куда'),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: TypeAheadField(
@@ -95,8 +118,8 @@ class _SchedulePageState extends State<SchedulePage> {
                             style: DefaultTextStyle.of(context)
                                 .style
                                 .copyWith(fontStyle: FontStyle.italic),
-                            decoration:
-                                InputDecoration(border: OutlineInputBorder())),
+                            decoration: const InputDecoration(
+                                border: OutlineInputBorder())),
                         suggestionsCallback: (userInput) async {
                           final res = await di
                               .sl<SuggestedCityCompactRepository>()
@@ -125,7 +148,7 @@ class _SchedulePageState extends State<SchedulePage> {
                         DateFormat('yyyy-MM-dd').format(
                             citiesSubmittingState.scheduleRequest.date!),
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 25.0),
+                        style: const TextStyle(fontSize: 25.0),
                       ),
                     ElevatedButton(
                         onPressed: () async {
@@ -137,12 +160,12 @@ class _SchedulePageState extends State<SchedulePage> {
                           if (newDate == null) return;
                           context.read<ScheduleCubit>().updateDate(newDate);
                         },
-                        child: Text('Выбрать дату')),
+                        child: const Text('Выбрать дату')),
                     ElevatedButton(
                       onPressed: () {
                         context.read<ScheduleCubit>().getSchedule();
                       },
-                      child: Text('Получить расписание'),
+                      child: const Text('Получить расписание'),
                     )
                   ]);
                 },
@@ -157,10 +180,10 @@ class _SchedulePageState extends State<SchedulePage> {
                       final segment = segments[index];
                       IconData icon = Icons.control_point;
                       if (segment.from?.transportType == 'bus') {
-                        icon = Icons.bus_alert as IconData;
+                        icon = Icons.bus_alert;
                       }
                       if (segment.from?.transportType == 'train') {
-                        icon = Icons.train as IconData;
+                        icon = Icons.train;
                       }
                       int dur = 0;
                       final duration = segment.duration;
@@ -173,12 +196,12 @@ class _SchedulePageState extends State<SchedulePage> {
                           leading: Icon(icon),
                           title: Column(
                             children: [
-                              Text('Откуда'),
+                              const Text('Откуда'),
                               Text(segment.from?.title ?? ''),
                               Text('Время отъезда ${segment.departure}'),
                               Text(
                                   'Тип транспорта ${segment.from?.transportType}'),
-                              Text('Куда'),
+                              const Text('Куда'),
                               Text(segments[index].to?.title ?? ''),
                               Text('Время прибытия ${segment.arrival}'),
                               Text(
@@ -217,45 +240,4 @@ String printDuration(Duration duration) {
   // String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
   //return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
   return "${twoDigits(duration.inHours)} ч. $twoDigitMinutes м.";
-}
-
-/// Determine the current position of the device.
-///
-/// When the location services are not enabled or permissions
-/// are denied the `Future` will return an error.
-Future<Position> _determinePosition() async {
-  bool serviceEnabled;
-  LocationPermission permission;
-
-  // Test if location services are enabled.
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    // Location services are not enabled don't continue
-    // accessing the position and request users of the
-    // App to enable the location services.
-    return Future.error('Location services are disabled.');
-  }
-
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      // Permissions are denied, next time you could try
-      // requesting permissions again (this is also where
-      // Android's shouldShowRequestPermissionRationale
-      // returned true. According to Android guidelines
-      // your App should show an explanatory UI now.
-      return Future.error('Location permissions are denied');
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    // Permissions are denied forever, handle appropriately.
-    return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.');
-  }
-
-  // When we reach here, permissions are granted and we can
-  // continue accessing the position of the device.
-  return await Geolocator.getCurrentPosition();
 }

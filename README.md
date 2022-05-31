@@ -5,6 +5,9 @@ City guide app development.
 It' good to know how one can come to your city and leave it. So you need a schedule service.  
 Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)  
 Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.html)  
+Currently project uses two API methods:
+- get schedule between two stations
+- get nearest settlement to current location (geocoder)
 
 ## Suggests API
 Schedule api needs to have city codes in request.  
