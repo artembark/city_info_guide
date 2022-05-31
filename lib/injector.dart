@@ -1,21 +1,26 @@
-import 'package:city_info_guide/data/datasources/local/geolocation_data_source.dart';
-import 'package:city_info_guide/data/datasources/remote/yandex_rasp_api_data_source.dart';
-import 'package:city_info_guide/data/datasources/remote/yandex_suggests_api_data_source.dart';
-import 'package:city_info_guide/data/dto/suggested_city/suggested_city_compact_dto.dart';
+import 'package:city_info_guide/data/datasources/local/location/geolocator_data_source.dart';
+import 'package:city_info_guide/data/datasources/local/location/local_poi_data_source.dart';
+import 'package:city_info_guide/data/datasources/local/poi_data_sorce.dart';
+import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
+import 'package:city_info_guide/data/datasources/remote/suggests/yandex_suggests_api_data_source.dart';
 import 'package:city_info_guide/data/repository/geolocation_repo_impl.dart';
+import 'package:city_info_guide/data/repository/poi_repo_impl.dart';
 import 'package:city_info_guide/data/repository/schedule_point_point_repo_impl.dart';
 import 'package:city_info_guide/data/repository/suggested_city_repo_impl.dart';
 import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
 import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart';
+import 'package:city_info_guide/domain/repositories/poi_repository.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import 'data/datasources/local/location_data_sorce.dart';
+import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
+import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'data/repository/nearest_settlement_repo_impl.dart';
 import 'domain/blocs/schedule/schedule_cubit.dart';
 
-// можно было бы просто RepositoryProvider и BlocProvider обойтись
 GetIt sl = GetIt.instance; //short for service locator
 // final dio = Dio(
 //   BaseOptions(
@@ -40,35 +45,42 @@ Future<void> initializeDependencies() async {
     ),
   );
   // Data sources
-  sl.registerLazySingleton<YandexRaspApiDataSource>(
+  sl.registerLazySingleton<ScheduleApiDataSource>(
     () => YandexRaspApiDataSourceImpl(
       dio: sl(),
     ),
   );
-  sl.registerLazySingleton<YandexSuggestsApiDataSource>(
-    () => YandexSuggestsApiDataSourceImpl(),
+  sl.registerLazySingleton<SuggestsApiDataSource>(
+    () => YandexSuggestsApiDataSource(),
   );
-  sl.registerLazySingleton<GeolocationDataSource>(
-    () => GeolocationDataSourceImpl(),
+  sl.registerLazySingleton<LocationDataSource>(
+    () => GeolocatorDataSource(),
+  );
+  sl.registerLazySingleton<PoiDataSource>(
+    () => LocalPoiDataSource(),
   );
 
   // Repository
-  sl.registerLazySingleton<SchedulePointPointRepository>(
-    () => SchedulePointPointRepositoryImpl(
-      yandexRaspApiDataSource: sl(),
+  sl.registerLazySingleton<ScheduleRepository>(
+    () => ScheduleRepositoryImpl(
+      scheduleApiDataSource: sl(),
     ),
   );
   sl.registerLazySingleton<SuggestedCityCompactRepository>(
       () => SuggestedCityCompactRepoImpl(
-            yandexSuggestsApiDataSource: sl(),
+            suggestsApiDataSource: sl(),
           ));
   sl.registerLazySingleton<NearestSettlementRepository>(
       () => NearestSettlementRepoImpl(
-            yandexRaspApiDataSource: sl(),
+            scheduleApiDataSource: sl(),
           ));
   sl.registerLazySingleton<GeolocationRepository>(
       () => GeolocationRepositoryImpl(
-            geolocationDataSource: sl(),
+            locationDataSource: sl(),
+          ));
+  sl.registerLazySingleton<PlacesOfInterestRepository>(
+      () => PlacesOfInterestRepoImpl(
+            poiDataSource: sl(),
           ));
 
   // External

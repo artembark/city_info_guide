@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'places.dart';
+part of 'poi.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -20,13 +20,13 @@ PlaceOfInterest _$PlaceOfInterestFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlaceOfInterest {
-  int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
-  double get lon => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
+  double? get lon => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,13 +40,13 @@ abstract class $PlaceOfInterestCopyWith<$Res> {
           PlaceOfInterest value, $Res Function(PlaceOfInterest) then) =
       _$PlaceOfInterestCopyWithImpl<$Res>;
   $Res call(
-      {int id,
-      String title,
-      String description,
-      String category,
-      String image,
-      double lon,
-      double lat});
+      {int? id,
+      String? title,
+      String? description,
+      String? category,
+      String? image,
+      double? lon,
+      double? lat});
 }
 
 /// @nodoc
@@ -72,31 +72,31 @@ class _$PlaceOfInterestCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lon: lon == freezed
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -109,13 +109,13 @@ abstract class _$$_PlaceOfInterestCopyWith<$Res>
       __$$_PlaceOfInterestCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
-      String title,
-      String description,
-      String category,
-      String image,
-      double lon,
-      double lat});
+      {int? id,
+      String? title,
+      String? description,
+      String? category,
+      String? image,
+      double? lon,
+      double? lat});
 }
 
 /// @nodoc
@@ -143,31 +143,31 @@ class __$$_PlaceOfInterestCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lon: lon == freezed
           ? _value.lon
           : lon // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       lat: lat == freezed
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -188,19 +188,19 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
       _$$_PlaceOfInterestFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
-  final String title;
+  final String? title;
   @override
-  final String description;
+  final String? description;
   @override
-  final String category;
+  final String? category;
   @override
-  final String image;
+  final String? image;
   @override
-  final double lon;
+  final double? lon;
   @override
-  final double lat;
+  final double? lat;
 
   @override
   String toString() {
@@ -247,31 +247,31 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
 
 abstract class _PlaceOfInterest implements PlaceOfInterest {
   factory _PlaceOfInterest(
-      {required final int id,
-      required final String title,
-      required final String description,
-      required final String category,
-      required final String image,
-      required final double lon,
-      required final double lat}) = _$_PlaceOfInterest;
+      {required final int? id,
+      required final String? title,
+      required final String? description,
+      required final String? category,
+      required final String? image,
+      required final double? lon,
+      required final double? lat}) = _$_PlaceOfInterest;
 
   factory _PlaceOfInterest.fromJson(Map<String, dynamic> json) =
       _$_PlaceOfInterest.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   @override
-  String get category => throw _privateConstructorUsedError;
+  String? get category => throw _privateConstructorUsedError;
   @override
-  String get image => throw _privateConstructorUsedError;
+  String? get image => throw _privateConstructorUsedError;
   @override
-  double get lon => throw _privateConstructorUsedError;
+  double? get lon => throw _privateConstructorUsedError;
   @override
-  double get lat => throw _privateConstructorUsedError;
+  double? get lat => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_PlaceOfInterestCopyWith<_$_PlaceOfInterest> get copyWith =>

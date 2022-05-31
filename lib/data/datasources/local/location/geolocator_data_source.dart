@@ -1,10 +1,7 @@
 import 'package:geolocator/geolocator.dart';
+import '../location_data_sorce.dart';
 
-abstract class GeolocationDataSource {
-  Future<Position> getCurrentPosition();
-}
-
-class GeolocationDataSourceImpl implements GeolocationDataSource {
+class GeolocatorDataSource implements LocationDataSource {
   /// Determine the current position of the device.
   ///
   /// When the location services are not enabled or permissions
@@ -41,9 +38,9 @@ class GeolocationDataSourceImpl implements GeolocationDataSource {
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
-
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
+    //TODO: should return DTO's between layers
     return await Geolocator.getCurrentPosition();
   }
 }

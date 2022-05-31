@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:city_info_guide/domain/entities/places.dart';
+import 'package:city_info_guide/domain/entities/poi.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -31,42 +31,47 @@ class _PoiPageState extends State<PoiPage> {
         title: Text('Достопримечательности'),
       ),
       body: SafeArea(
-          child: FutureBuilder<List<PlaceOfInterest>>(
-              future: loadData(),
-              builder: (ctx, snapshot) {
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                      itemCount: places.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: Column(
-                            children: [
-                              // CachedNetworkImage(
-                              //   imageUrl: places[index].image,
-                              //   placeholder: (context, url) =>
-                              //       CircularProgressIndicator(),
-                              //   errorWidget: (context, url, error) =>
-                              //       Icon(Icons.error),
-                              // ),
-                              FadeInImage.memoryNetwork(
-                                placeholder: kTransparentImage,
-                                image: places[index].image,
-                              ),
-                              // Image.network(
-                              //   places[index].image,
-                              // ),
-                              ListTile(
-                                title: Text(places[index].title),
-                              ),
-                            ],
-                          ),
-                        );
-                      });
-                }
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              })),
+        child: FutureBuilder<List<PlaceOfInterest>>(
+          future: loadData(),
+          builder: (ctx, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: places.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Column(
+                      children: [
+                        // CachedNetworkImage(
+                        //   imageUrl: places[index].image,
+                        //   placeholder: (context, url) =>
+                        //       CircularProgressIndicator(),
+                        //   errorWidget: (context, url, error) =>
+                        //       Icon(Icons.error),
+                        // ),
+                        //TODO: refactor !
+                        FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: places[index].image!,
+                        ),
+                        // Image.network(
+                        //   places[index].image,
+                        // ),
+                        //TODO: refactor !
+                        ListTile(
+                          title: Text(places[index].title ?? '-'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
+      ),
     );
   }
 

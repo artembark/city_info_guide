@@ -23,6 +23,13 @@ class _SchedulePageState extends State<SchedulePage> {
   final TextEditingController _toTypeAheadController = TextEditingController();
 
   @override
+  void dispose() {
+    _fromTypeAheadController.dispose();
+    _toTypeAheadController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -94,7 +101,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                 _fromTypeAheadController.text = sug.title!;
                                 context
                                     .read<ScheduleCubit>()
-                                    .updateFromField(sug.pointKey!);
+                                    .setFrom(sug.pointKey!);
                               },
                             ),
                           ),
@@ -137,9 +144,7 @@ class _SchedulePageState extends State<SchedulePage> {
                         onSuggestionSelected: (suggestion) {
                           final sug = suggestion as SuggestedCityCompact;
                           _toTypeAheadController.text = sug.title!;
-                          context
-                              .read<ScheduleCubit>()
-                              .updateToField(sug.pointKey!);
+                          context.read<ScheduleCubit>().setTo(sug.pointKey!);
                         },
                       ),
                     ),
@@ -158,7 +163,7 @@ class _SchedulePageState extends State<SchedulePage> {
                               firstDate: DateTime(2022, 5, 1),
                               lastDate: DateTime(2022, 5, 31));
                           if (newDate == null) return;
-                          context.read<ScheduleCubit>().updateDate(newDate);
+                          context.read<ScheduleCubit>().setDate(newDate);
                         },
                         child: const Text('Выбрать дату')),
                     ElevatedButton(

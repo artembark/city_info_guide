@@ -18,11 +18,11 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   }) : super(
           ScheduleState.citiesSubmitting(ScheduleRequest()),
         );
-  final SchedulePointPointRepository schedulePointPointRepository;
+  final ScheduleRepository schedulePointPointRepository;
   final GeolocationRepository geolocationRepository;
   final NearestSettlementRepository nearestSettlementRepository;
 
-  updateFromField(String from) {
+  setFrom(String from) {
     state.maybeMap(
         citiesSubmitting: (state) {
           emit(state.copyWith.scheduleRequest(from: from));
@@ -30,7 +30,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         orElse: () {});
   }
 
-  updateToField(String to) {
+  setTo(String to) {
     state.maybeMap(
         citiesSubmitting: (state) {
           emit(state.copyWith.scheduleRequest(to: to));
@@ -38,7 +38,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         orElse: () {});
   }
 
-  updateDate(DateTime dateTime) {
+  setDate(DateTime dateTime) {
     state.maybeMap(
         citiesSubmitting: (state) {
           emit(state.copyWith.scheduleRequest(date: dateTime));

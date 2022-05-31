@@ -1,15 +1,17 @@
-import 'package:city_info_guide/data/datasources/local/geolocation_data_source.dart';
+import 'package:city_info_guide/data/datasources/local/location/geolocator_data_source.dart';
 import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
 import 'package:geolocator_platform_interface/src/models/position.dart';
 
-class GeolocationRepositoryImpl implements GeolocationRepository {
-  GeolocationDataSource geolocationDataSource;
+import '../datasources/local/location_data_sorce.dart';
 
-  GeolocationRepositoryImpl({required this.geolocationDataSource});
+class GeolocationRepositoryImpl implements GeolocationRepository {
+  LocationDataSource locationDataSource;
+
+  GeolocationRepositoryImpl({required this.locationDataSource});
 
   @override
   Future<Position?> getCurrentPosition() async {
-    final location = await geolocationDataSource.getCurrentPosition();
+    final location = await locationDataSource.getCurrentPosition();
     return location;
   }
 }

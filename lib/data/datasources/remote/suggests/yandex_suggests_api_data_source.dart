@@ -1,17 +1,12 @@
+import 'package:city_info_guide/data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'package:city_info_guide/data/dto/suggested_city/suggested_city_compact_list_dto.dart';
 import 'package:dio/dio.dart';
 
-import '../../dto/suggested_city/suggested_city_compact_dto.dart';
-
-abstract class YandexSuggestsApiDataSource {
-  Future<List<SuggestedCityCompactDTO>> getSuggestedCityListCompact(
-      {required String userInput});
-  //TODO:implement request to full data
-}
+import '../../../dto/suggested_city/suggested_city_compact_dto.dart';
 
 //TODO: сделать возможность задавать разные baseurl через getit и пробрасывать через конструктор
-class YandexSuggestsApiDataSourceImpl implements YandexSuggestsApiDataSource {
-  YandexSuggestsApiDataSourceImpl();
+class YandexSuggestsApiDataSource implements SuggestsApiDataSource {
+  YandexSuggestsApiDataSource();
 
   final Dio dio = Dio(
     BaseOptions(

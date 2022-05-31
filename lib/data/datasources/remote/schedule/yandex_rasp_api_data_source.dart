@@ -1,19 +1,12 @@
 import 'package:city_info_guide/core/utils/secrets.dart';
+import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
-import '../../dto/schedule_p_p/schedule_point_point_dto.dart';
+import '../../../dto/schedule_p_p/schedule_point_point_dto.dart';
 
-abstract class YandexRaspApiDataSource {
-  Future<SchedulePointPointDTO> getSchedulePointPoint(
-      {required String from, required String to, required DateTime date});
-
-  Future<NearestSettlementDTO> getNearestSettlement(
-      {required double lat, required double lon});
-}
-
-class YandexRaspApiDataSourceImpl implements YandexRaspApiDataSource {
+class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
   final Dio dio;
 
   YandexRaspApiDataSourceImpl({required this.dio});

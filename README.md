@@ -1,8 +1,8 @@
 # City guide app project
 City guide app development.
 
-## Schedule API
-It' good to know how one can come to your city and leave it. So you need a schedule service.  
+## Yandex Schedule API
+It is good to know how one can come to your city and leave it. So you need a schedule service.  
 Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)  
 Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.html)  
 Currently project uses two API methods:
@@ -35,9 +35,7 @@ Suggestions api is used for converting human readable city names to codes.
 ## Package to be implemented
 - [`map_launcher`](https://pub.dev/packages/map_launcher) to find available maps installed on a device and launch them with a marker or show directions
 
-## Native splash screen
-[Github repo and readme](https://github.com/jonbhanson/flutter_native_splash#readme)
-
+## [Native splash screen](https://pub.dev/packages/flutter_native_splash)  
 A native splash screen will be shown before flutter app starts.
 ```yaml
 flutter_native_splash:
@@ -48,4 +46,4 @@ After adding assets run the following command:
 ```
 flutter pub run flutter_native_splash:create
 ```
-[How it works under the hood](https://github.com/jonbhanson/flutter_native_splash#readme)
+[How it works under the hood](https://github.com/jonbhanson/flutter_native_splash#how-it-works)
