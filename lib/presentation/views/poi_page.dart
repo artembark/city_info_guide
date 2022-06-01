@@ -1,9 +1,9 @@
-import 'dart:convert';
-
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:city_info_guide/domain/entities/poi.dart';
+import 'package:city_info_guide/domain/blocs/poi/poi_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transparent_image/transparent_image.dart';
+
+import '../../injector.dart';
 
 class PoiPage extends StatefulWidget {
   const PoiPage({Key? key}) : super(key: key);
@@ -13,70 +13,65 @@ class PoiPage extends StatefulWidget {
 }
 
 class _PoiPageState extends State<PoiPage> {
-  late List<PlaceOfInterest> places;
-
-  Future<List<PlaceOfInterest>> loadData() async {
-    String data =
-        await DefaultAssetBundle.of(context).loadString('assets/places.json');
-    Iterable l = jsonDecode(data);
-    places = List<PlaceOfInterest>.from(
-        l.map((model) => PlaceOfInterest.fromJson(model)));
-    return places;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Достопримечательности'),
+        title: const Text('Достопримечательности'),
       ),
       body: SafeArea(
-        child: FutureBuilder<List<PlaceOfInterest>>(
-          future: loadData(),
-          builder: (ctx, snapshot) {
-            if (snapshot.hasData) {
+          child: BlocProvider(
+        create: (_) => sl<PoiCubit>()..getPointsOfInterest(),
+        child: BlocBuilder<PoiCubit, PoiState>(builder: (context, state) {
+          return state.map(
+            initial: (state) =>
+                const Center(child: CircularProgressIndicator()),
+            loading: (state) =>
+                const Center(child: CircularProgressIndicator()),
+            success: (state) {
               return ListView.builder(
-                itemCount: places.length,
+                itemCount: state.placesOfInterest.length,
                 itemBuilder: (context, index) {
                   return Card(
                     child: Column(
                       children: [
-                        // CachedNetworkImage(
-                        //   imageUrl: places[index].image,
-                        //   placeholder: (context, url) =>
-                        //       CircularProgressIndicator(),
-                        //   errorWidget: (context, url, error) =>
-                        //       Icon(Icons.error),
-                        // ),
-                        //TODO: refactor !
+// CachedNetworkImage(
+//   imageUrl: places[index].image,
+//   placeholder: (context, url) =>
+//       CircularProgressIndicator(),
+//   errorWidget: (context, url, error) =>
+//       Icon(Icons.error),
+// ),
+//TODO: refactor !
                         FadeInImage.memoryNetwork(
                           placeholder: kTransparentImage,
-                          image: places[index].image!,
+                          image: state.placesOfInterest[index].image!,
                         ),
-                        // Image.network(
-                        //   places[index].image,
-                        // ),
-                        //TODO: refactor !
+// Image.network(
+//   places[index].image,
+// ),
+//TODO: refactor !
                         ListTile(
-                          title: Text(places[index].title ?? '-'),
+                          title:
+                              Text(state.placesOfInterest[index].title ?? '-'),
                         ),
                       ],
                     ),
                   );
                 },
               );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-        ),
-      ),
+            },
+            empty: (state) => const Center(
+              child: Text('Пусто'),
+            ),
+            failure: (state) => Center(
+              child: Text(
+                state.exception.toString(),
+              ),
+            ),
+          );
+        }),
+      )),
     );
-  }
-
-  @override
-  void initState() {
-    loadData();
   }
 }

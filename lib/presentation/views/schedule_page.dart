@@ -8,7 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
-import '/injector.dart' as di;
+import '/injector.dart';
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _SchedulePageState extends State<SchedulePage> {
         title: const Text('Расписание'),
       ),
       body: BlocProvider(
-        create: (context) => di.sl<ScheduleCubit>(),
+        create: (_) => sl<ScheduleCubit>(),
         child: BlocConsumer<ScheduleCubit, ScheduleState>(
           listenWhen: (previous, current) {
             final previousFrom = previous.maybeMap(
@@ -83,9 +83,10 @@ class _SchedulePageState extends State<SchedulePage> {
                                   decoration: const InputDecoration(
                                       border: OutlineInputBorder())),
                               suggestionsCallback: (userInput) async {
-                                final res = await di
-                                    .sl<SuggestedCityCompactRepository>()
-                                    .getSuggestedCityList(userInput: userInput);
+                                final res =
+                                    await sl<SuggestedCityCompactRepository>()
+                                        .getSuggestedCityList(
+                                            userInput: userInput);
                                 return res;
                               },
                               itemBuilder: (context, suggestion) {
@@ -128,8 +129,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             decoration: const InputDecoration(
                                 border: OutlineInputBorder())),
                         suggestionsCallback: (userInput) async {
-                          final res = await di
-                              .sl<SuggestedCityCompactRepository>()
+                          final res = await sl<SuggestedCityCompactRepository>()
                               .getSuggestedCityList(userInput: userInput);
                           return res;
                         },

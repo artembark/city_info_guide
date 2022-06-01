@@ -19,6 +19,7 @@ import 'data/datasources/local/location_data_sorce.dart';
 import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'data/repository/nearest_settlement_repo_impl.dart';
+import 'domain/blocs/poi/poi_cubit.dart';
 import 'domain/blocs/schedule/schedule_cubit.dart';
 
 GetIt sl = GetIt.instance; //short for service locator
@@ -42,6 +43,11 @@ Future<void> initializeDependencies() async {
       schedulePointPointRepository: sl(),
       geolocationRepository: sl(),
       nearestSettlementRepository: sl(),
+    ),
+  );
+  sl.registerFactory(
+    () => PoiCubit(
+      placesOfInterestRepository: sl(),
     ),
   );
   // Data sources
