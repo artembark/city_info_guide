@@ -2,7 +2,7 @@ import 'package:city_info_guide/data/datasources/local/location/geolocator_data_
 import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
 import 'package:geolocator_platform_interface/src/models/position.dart';
 
-import '../datasources/local/location_data_sorce.dart';
+import '../datasources/local/location/location_data_sorce.dart';
 
 class GeolocationRepositoryImpl implements GeolocationRepository {
   LocationDataSource locationDataSource;

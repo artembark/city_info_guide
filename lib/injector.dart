@@ -1,6 +1,5 @@
 import 'package:city_info_guide/data/datasources/local/location/geolocator_data_source.dart';
-import 'package:city_info_guide/data/datasources/local/location/local_poi_data_source.dart';
-import 'package:city_info_guide/data/datasources/local/poi_data_sorce.dart';
+import 'package:city_info_guide/data/datasources/local/poi/local_poi_data_source.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
 import 'package:city_info_guide/data/datasources/remote/suggests/yandex_suggests_api_data_source.dart';
 import 'package:city_info_guide/data/repository/geolocation_repo_impl.dart';
@@ -15,7 +14,8 @@ import 'package:city_info_guide/domain/repositories/suggested_city_repository.da
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-import 'data/datasources/local/location_data_sorce.dart';
+import 'data/datasources/local/location/location_data_sorce.dart';
+import 'data/datasources/local/poi/poi_data_sorce.dart';
 import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'data/repository/nearest_settlement_repo_impl.dart';
@@ -63,7 +63,7 @@ Future<void> initializeDependencies() async {
     () => GeolocatorDataSource(),
   );
   sl.registerLazySingleton<PoiDataSource>(
-    () => LocalPoiDataSource(),
+    () => AssetJsonPoiDataSource(),
   );
 
   // Repository

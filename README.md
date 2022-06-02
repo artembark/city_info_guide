@@ -1,5 +1,5 @@
 # City guide app project
-City guide app development.
+City guide app development. Development is in progress.
 
 ## Yandex Schedule API
 It is good to know how one can come to your city and leave it. So you need a schedule service.  
@@ -47,3 +47,8 @@ After adding assets run the following command:
 flutter pub run flutter_native_splash:create
 ```
 [How it works under the hood](https://github.com/jonbhanson/flutter_native_splash#how-it-works)
+
+## Yandex Map intent
+As an example of platform channel this app implements opening Yandex Map with a point to 
+make route to and showing 360 degree panorama.  
+Documentation to Yandex Map intents is [here](https://yandex.ru/dev/yandex-apps-launch/maps/)
