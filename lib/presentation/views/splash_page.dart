@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
+import '../../gen/assets.gen.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
@@ -55,7 +57,7 @@ class _SplashPageState extends State<SplashPage> {
                     widthFactor: 0.7,
                     child: Hero(
                         tag: 'priozersk',
-                        child: Image.asset('assets/images/prio_splash.png'))),
+                        child: Assets.images.prioSplash.image())),
                 duration: const Duration(milliseconds: 300),
                 alignment: Alignment.centerRight,
               ),

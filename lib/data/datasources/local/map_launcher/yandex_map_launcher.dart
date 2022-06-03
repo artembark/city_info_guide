@@ -2,6 +2,7 @@ import 'package:city_info_guide/data/datasources/local/map_launcher/map_launcher
 import 'package:flutter/services.dart';
 
 class YandexMapLauncher extends MapLauncher {
+  //TODO: add web platform
   static const _channel = MethodChannel('map_launcher');
 
   @override

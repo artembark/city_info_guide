@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
+import '../../gen/assets.gen.dart';
 import '/injector.dart';
 
 class SchedulePage extends StatefulWidget {
@@ -65,7 +66,7 @@ class _SchedulePageState extends State<SchedulePage> {
             return state.map(
                 citiesSubmitting: (citiesSubmittingState) {
                   return ListView(children: [
-                    Image.asset('assets/images/station.png'),
+                    Assets.images.station.image(),
                     const Text('Откуда'),
                     Padding(
                       padding: const EdgeInsets.all(16.0),

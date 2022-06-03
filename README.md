@@ -10,8 +10,10 @@ Currently project uses two API methods:
 - get nearest settlement to current location (geocoder)
 
 ## Suggests API
-Schedule api needs to have city codes in request.  
-Suggestions api is used for converting human readable city names to codes. 
+In order to simplify entering from and to position for schedule this app uses suggestions API. 
+Settlements name appear as you type letters, suggesting you convenient names.
+Schedule api also needs to have city codes in request. Suggests api is used for 
+converting human readable city names to codes. 
 
 ## Packages used
 
@@ -50,12 +52,14 @@ flutter pub run flutter_native_splash:create
 
 ## Yandex Map intent
 As an example of platform channel this app implements opening Yandex Map with a point to 
-make route to and showing 360 degree panorama.  
+make route to, showing organization card and showing 360 degree panorama.  
 Documentation to Yandex Map intents is [here](https://yandex.ru/dev/yandex-apps-launch/maps/)
 
 To open Android native and iOS native from Android Studio Flutter project go to Tools-Flutter-Open 
-corresponding variant.
-
+corresponding variant. 
+[Writing custom platform-specific code](https://docs.flutter.dev/development/platform-integration/platform-channels)
+[How To Call iOS Native Code [2021] Swift Platform Specific Code](https://www.youtube.com/watch?v=EHQTdB2qenU)
+[How To Call Android Native Code [2021] 1/2 Java & Kotlin Platform Specific Code](https://www.youtube.com/watch?v=j0cy_Z6IG_c)
 For iOS don't forget to add url schemes in Info.plist file
 ```
 <key>LSApplicationQueriesSchemes</key>

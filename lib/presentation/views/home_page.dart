@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
+import 'package:city_info_guide/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,19 +23,16 @@ class _HomePageState extends State<HomePage> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(40.0),
-                child: Image.asset('assets/images/main_circle.png'),
+                child: Assets.images.mainCircle.image(),
               ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 15),
               alignment: Alignment.topCenter,
               child: Hero(
-                tag: 'priozersk',
-                child: Image.asset(
-                  'assets/images/prio_splash.png',
-                  width: MediaQuery.of(context).size.width * 0.7,
-                ),
-              ),
+                  tag: 'priozersk',
+                  child: Assets.images.prioSplash
+                      .image(width: MediaQuery.of(context).size.width * 0.7)),
             ),
             Positioned(
               top: 120,

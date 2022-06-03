@@ -39,34 +39,48 @@ class _PoiPageState extends State<PoiPage> {
                           state.placesOfInterest[index].image!,
                         ),
                         ListTile(
-                          title:
+                          title: Column(
+                            children: [
                               Text(state.placesOfInterest[index].title ?? '-'),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.map_outlined),
-                            onPressed: () {
-                              YandexMapLauncher()
-                                  .isMapAvailable()
-                                  .then((value) => print(value));
-                              // YandexMapLauncher().showRoute(
-                              //     fromLat: 61.042566,
-                              //     fromLon: 30.137968,
-                              //     toLat: 61.029901,
-                              //     toLon: 30.122463,
-                              //     routeType: 'auto');
-                              // YandexMapLauncher().showMarker(
-                              //     pointLat: state.placesOfInterest[index].lat!,
-                              //     pointLon: state.placesOfInterest[index].lon!,
-                              //     zoom: 17);
-                              // YandexMapLauncher().showOrgCard(
-                              //     oid: state.placesOfInterest[index].oid!);
-                              YandexMapLauncher().showPanorama(
-                                  pointLat: state.placesOfInterest[index].lat!,
-                                  pointLon: state.placesOfInterest[index].lon!,
-                                  directionAzimuth: 0,
-                                  directionAngle: 0,
-                                  spanHorizontal: 0,
-                                  spanVertical: 0);
-                            },
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.panorama),
+                                    onPressed: () {
+                                      YandexMapLauncher().showPanorama(
+                                          pointLat: state
+                                              .placesOfInterest[index].lat!,
+                                          pointLon: state
+                                              .placesOfInterest[index].lon!,
+                                          directionAzimuth: 0,
+                                          directionAngle: 0,
+                                          spanHorizontal: 0,
+                                          spanVertical: 0);
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.control_point),
+                                    onPressed: () {
+                                      YandexMapLauncher().showMarker(
+                                          pointLat: state
+                                              .placesOfInterest[index].lat!,
+                                          pointLon: state
+                                              .placesOfInterest[index].lon!,
+                                          zoom: 17);
+                                    },
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.circle),
+                                    onPressed: () {
+                                      YandexMapLauncher().showOrgCard(
+                                          oid: state
+                                              .placesOfInterest[index].oid!);
+                                    },
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
                         ),
                       ],
