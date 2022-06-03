@@ -19,7 +19,10 @@ abstract class MapLauncher {
     required double pointLon,
     required double directionAzimuth,
     required double directionAngle,
-    required String spanHorizontal,
-    required String spanVertical,
+    required double spanHorizontal,
+    required double spanVertical,
+  });
+  Future<dynamic> showOrgCard({
+    required double oid,
   });
 }

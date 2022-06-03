@@ -14,6 +14,7 @@ PoiDTO _$PoiDTOFromJson(Map<String, dynamic> json) => PoiDTO(
       json['image'] as String?,
       (json['lon'] as num?)?.toDouble(),
       (json['lat'] as num?)?.toDouble(),
+      (json['oid'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$PoiDTOToJson(PoiDTO instance) => <String, dynamic>{
@@ -24,4 +25,5 @@ Map<String, dynamic> _$PoiDTOToJson(PoiDTO instance) => <String, dynamic>{
       'image': instance.image,
       'lon': instance.lon,
       'lat': instance.lat,
+      'oid': instance.oid,
     };

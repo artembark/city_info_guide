@@ -28,7 +28,7 @@ class AppRouter extends _i5.RootStackRouter {
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i1.SplashPage(),
-          transitionsBuilder: _i5.TransitionsBuilders.noTransition,
+          transitionsBuilder: _i5.TransitionsBuilders.slideLeft,
           opaque: true,
           barrierDismissible: false);
     },
@@ -36,7 +36,7 @@ class AppRouter extends _i5.RootStackRouter {
       return _i5.CustomPage<dynamic>(
           routeData: routeData,
           child: const _i2.HomePage(),
-          transitionsBuilder: _i5.TransitionsBuilders.noTransition,
+          transitionsBuilder: _i5.TransitionsBuilders.slideLeft,
           opaque: true,
           barrierDismissible: false);
     },

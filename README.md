@@ -52,3 +52,14 @@ flutter pub run flutter_native_splash:create
 As an example of platform channel this app implements opening Yandex Map with a point to 
 make route to and showing 360 degree panorama.  
 Documentation to Yandex Map intents is [here](https://yandex.ru/dev/yandex-apps-launch/maps/)
+
+To open Android native and iOS native from Android Studio Flutter project go to Tools-Flutter-Open 
+corresponding variant.
+
+For iOS don't forget to add url schemes in Info.plist file
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+<string>yandexmaps</string>
+</array>
+```

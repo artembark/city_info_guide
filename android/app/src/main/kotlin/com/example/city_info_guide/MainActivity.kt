@@ -18,40 +18,42 @@ class MainActivity : FlutterActivity() {
 
         //receive data from Flutter
         channel.setMethodCallHandler { call, result ->
-            val arguments = call.arguments<Map<String, String>>() ?: return@setMethodCallHandler
+            val arguments = call.arguments<Map<String, String>>() ?: return@setMethodCallHandler result.error(
+                "ARGUMENTS_NOT_PROVIDED",
+                "Arguments not provided",
+                null,
+            )
+            val mapPackageName = arguments["mapPackageName"] ?: return@setMethodCallHandler result.error(
+                "MAP_NAME_NOT_PROVIDED",
+                "Map name not provided",
+                null,
+            )
             when (call.method) {
                 "isMapAvailable" -> {
-                    if (arguments["mapPackageName"] != null) {
-                        val isMapAvailable =
-                            isMapAvailable(arguments["mapPackageName"])
-                        if (isMapAvailable) {
-                            result.success(true)
-                        } else result.error(
-                            "MAP_NOT_AVAILABLE",
-                            "Map is not installed on this device",
-                            null,
-                        )
-                    }
-                }
-                "showRoute" -> {
-                    launchYandexMapRoute(
-                        fromLat = arguments["fromLat"].toString(),
-                        fromLon = arguments["fromLon"].toString(),
-                        toLat = arguments["toLat"].toString(),
-                        toLon = arguments["toLon"].toString(),
-                        routeType = arguments["routeType"] ?: "auto"
+                    if (isMapAvailable(mapPackageName)) {
+                        result.success(true)
+                    } else result.error(
+                        "MAP_NOT_AVAILABLE",
+                        "Map is not installed on this device",
+                        null,
                     )
-                    result.success(null)
                 }
-                "showMarker" -> {
-                    launchYandexMapMarker(
-                        pointLat = arguments["pointLat"].toString(),
-                        pointLon = arguments["pointLon"].toString(),
-                        zoom = arguments["zoom"].toString(),
+                "showMap" -> {
+                    val url = arguments["url"] ?: return@setMethodCallHandler result.error(
+                        "MAP_URL_NOT_PROVIDED",
+                        "Map url not provided",
+                        null,
                     )
-
-                    result.success(null)
+                    if (isMapAvailable(mapPackageName)) {
+                        launchMap(url)
+                        result.success(null)
+                    } else result.error(
+                        "MAP_NOT_AVAILABLE",
+                        "Map is not installed on this device",
+                        null,
+                    )
                 }
+                else -> result.notImplemented()
             }
 
         }
@@ -68,28 +70,11 @@ class MainActivity : FlutterActivity() {
         return false
     }
 
-    private fun launchYandexMapRoute(
-        fromLat: String,
-        fromLon: String,
-        toLat: String,
-        toLon: String,
-        routeType: String,
+    private fun launchMap(
+        url: String,
     ) {
         val uri =
-            Uri.parse("yandexmaps://maps.yandex.ru/?rtext=$fromLat,$fromLon~$toLat,$toLon&rtt=$routeType");
-        val intent = Intent(Intent.ACTION_VIEW, uri);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.setPackage("ru.yandex.yandexmaps")
-        startActivity(intent);
-    }
-
-    private fun launchYandexMapMarker(
-        pointLat: String,
-        pointLon: String,
-        zoom: String,
-    ) {
-        val uri =
-            Uri.parse("yandexmaps://maps.yandex.ru/?whatshere[point]=$pointLon,$pointLat&whatshere[zoom]=$zoom");
+            Uri.parse(url);
         val intent = Intent(Intent.ACTION_VIEW, uri);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.setPackage("ru.yandex.yandexmaps")

@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PlaceOfInterest _$PlaceOfInterestFromJson(Map<String, dynamic> json) {
-  return _PlaceOfInterest.fromJson(json);
-}
-
 /// @nodoc
 mixin _$PlaceOfInterest {
   int? get id => throw _privateConstructorUsedError;
@@ -27,8 +23,8 @@ mixin _$PlaceOfInterest {
   String? get image => throw _privateConstructorUsedError;
   double? get lon => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
+  double? get oid => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PlaceOfInterestCopyWith<PlaceOfInterest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -46,7 +42,8 @@ abstract class $PlaceOfInterestCopyWith<$Res> {
       String? category,
       String? image,
       double? lon,
-      double? lat});
+      double? lat,
+      double? oid});
 }
 
 /// @nodoc
@@ -67,6 +64,7 @@ class _$PlaceOfInterestCopyWithImpl<$Res>
     Object? image = freezed,
     Object? lon = freezed,
     Object? lat = freezed,
+    Object? oid = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -97,6 +95,10 @@ class _$PlaceOfInterestCopyWithImpl<$Res>
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as double?,
+      oid: oid == freezed
+          ? _value.oid
+          : oid // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -115,7 +117,8 @@ abstract class _$$_PlaceOfInterestCopyWith<$Res>
       String? category,
       String? image,
       double? lon,
-      double? lat});
+      double? lat,
+      double? oid});
 }
 
 /// @nodoc
@@ -138,6 +141,7 @@ class __$$_PlaceOfInterestCopyWithImpl<$Res>
     Object? image = freezed,
     Object? lon = freezed,
     Object? lat = freezed,
+    Object? oid = freezed,
   }) {
     return _then(_$_PlaceOfInterest(
       id: id == freezed
@@ -168,12 +172,16 @@ class __$$_PlaceOfInterestCopyWithImpl<$Res>
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as double?,
+      oid: oid == freezed
+          ? _value.oid
+          : oid // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_PlaceOfInterest implements _PlaceOfInterest {
   _$_PlaceOfInterest(
       {required this.id,
@@ -182,10 +190,8 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
       required this.category,
       required this.image,
       required this.lon,
-      required this.lat});
-
-  factory _$_PlaceOfInterest.fromJson(Map<String, dynamic> json) =>
-      _$$_PlaceOfInterestFromJson(json);
+      required this.lat,
+      required this.oid});
 
   @override
   final int? id;
@@ -201,10 +207,12 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
   final double? lon;
   @override
   final double? lat;
+  @override
+  final double? oid;
 
   @override
   String toString() {
-    return 'PlaceOfInterest(id: $id, title: $title, description: $description, category: $category, image: $image, lon: $lon, lat: $lat)';
+    return 'PlaceOfInterest(id: $id, title: $title, description: $description, category: $category, image: $image, lon: $lon, lat: $lat, oid: $oid)';
   }
 
   @override
@@ -219,10 +227,10 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
             const DeepCollectionEquality().equals(other.category, category) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.lon, lon) &&
-            const DeepCollectionEquality().equals(other.lat, lat));
+            const DeepCollectionEquality().equals(other.lat, lat) &&
+            const DeepCollectionEquality().equals(other.oid, oid));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,17 +240,13 @@ class _$_PlaceOfInterest implements _PlaceOfInterest {
       const DeepCollectionEquality().hash(category),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(lon),
-      const DeepCollectionEquality().hash(lat));
+      const DeepCollectionEquality().hash(lat),
+      const DeepCollectionEquality().hash(oid));
 
   @JsonKey(ignore: true)
   @override
   _$$_PlaceOfInterestCopyWith<_$_PlaceOfInterest> get copyWith =>
       __$$_PlaceOfInterestCopyWithImpl<_$_PlaceOfInterest>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_PlaceOfInterestToJson(this);
-  }
 }
 
 abstract class _PlaceOfInterest implements PlaceOfInterest {
@@ -253,10 +257,8 @@ abstract class _PlaceOfInterest implements PlaceOfInterest {
       required final String? category,
       required final String? image,
       required final double? lon,
-      required final double? lat}) = _$_PlaceOfInterest;
-
-  factory _PlaceOfInterest.fromJson(Map<String, dynamic> json) =
-      _$_PlaceOfInterest.fromJson;
+      required final double? lat,
+      required final double? oid}) = _$_PlaceOfInterest;
 
   @override
   int? get id => throw _privateConstructorUsedError;
@@ -272,6 +274,8 @@ abstract class _PlaceOfInterest implements PlaceOfInterest {
   double? get lon => throw _privateConstructorUsedError;
   @override
   double? get lat => throw _privateConstructorUsedError;
+  @override
+  double? get oid => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_PlaceOfInterestCopyWith<_$_PlaceOfInterest> get copyWith =>

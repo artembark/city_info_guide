@@ -6,7 +6,14 @@
     "category": "poi",
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/f8/ab/46/img-20180512-171036537.jpg?w=500&h=400&s=1",
     "lat": 61.029946,
-    "lon": 30.122480
+    "lon": 30.122480,
+    "oid":1234080827,
+    "yandexPanoramaLat": 61.034892,
+    "yandexPanoramaLon": 30.114969,
+    "yandexPanoramaAzimuth":36.902975,
+    "yandexPanoramaAngle":4.364775,
+    "yandexPanoramaHorizontal":64.077729,
+    "yandexPanoramaVertical":37.710401
   },
   {
     "id": 2,
@@ -15,7 +22,8 @@
     "category": "poi",
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/17/e7/e2/caption.jpg?w=500&h=400&s=1",
     "lat": 61.035647,
-    "lon": 30.114044
+    "lon": 30.114044,
+    "oid": 1012084536
   },
   {
     "id": 3,
@@ -24,7 +32,8 @@
     "category": "poi",
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/0e/99/f2/caption.jpg?w=500&h=-1&s=1",
     "lat": 61.038193,
-    "lon": 30.115261
+    "lon": 30.115261,
+    "oid": 120044044242
   },
   {
     "id": 4,
@@ -33,6 +42,7 @@
     "category": "poi",
     "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/48/0c/95/152.jpg?w=500&h=-1&s=1",
     "lat": 61.031636,
-    "lon": 30.123663
+    "lon": 30.123663,
+    "oid": 168226012408
   }
 ]

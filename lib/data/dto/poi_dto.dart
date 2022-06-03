@@ -20,9 +20,10 @@ class PoiDTO {
   final String? image;
   final double? lon;
   final double? lat;
+  final double? oid;
 
   PoiDTO(this.id, this.title, this.description, this.category, this.image,
-      this.lon, this.lat);
+      this.lon, this.lat, this.oid);
 
   factory PoiDTO.fromJson(Map<String, dynamic> json) => _$PoiDTOFromJson(json);
 }
@@ -37,6 +38,7 @@ extension PoiMapper on PoiDTO {
       image: image,
       lon: lon,
       lat: lat,
+      oid: oid,
     );
   }
 }

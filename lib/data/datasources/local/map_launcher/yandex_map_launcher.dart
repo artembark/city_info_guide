@@ -8,6 +8,7 @@ class YandexMapLauncher extends MapLauncher {
   Future<bool?> isMapAvailable() {
     final Map<String, String?> methodArgs = {
       'mapPackageName': 'ru.yandex.yandexmaps',
+      'mapUrlPrefix': 'yandexmaps://',
     };
     return _channel.invokeMethod('isMapAvailable', methodArgs);
   }
@@ -18,17 +19,17 @@ class YandexMapLauncher extends MapLauncher {
       required double pointLon,
       required double directionAzimuth,
       required double directionAngle,
-      required String spanHorizontal,
-      required String spanVertical}) {
+      required double spanHorizontal,
+      required double spanVertical}) {
+    String url = 'yandexmaps://?panorama[point]=$pointLon,$pointLat'
+        '&panorama[direction]=$directionAzimuth,$directionAngle'
+        '&panorama[span]=$spanHorizontal,$spanVertical';
     final Map<String, String?> methodArgs = {
-      'pointLat': pointLat.toString(),
-      'pointLon': pointLon.toString(),
-      'directionAzimuth': directionAzimuth.toString(),
-      'directionAngle': directionAngle.toString(),
-      'spanHorizontal': spanHorizontal,
-      'spanVertical': spanVertical,
+      'url': url.toString(),
+      'mapPackageName': 'ru.yandex.yandexmaps',
+      'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showRoute', methodArgs);
+    return _channel.invokeMethod('showMap', methodArgs);
   }
 
   @override
@@ -38,14 +39,15 @@ class YandexMapLauncher extends MapLauncher {
       required double toLat,
       required double toLon,
       String? routeType}) {
+    String url =
+        'yandexmaps://maps.yandex.ru/?rtext=$fromLat,$fromLon~$toLat,$toLon'
+        '&rtt=$routeType';
     final Map<String, String?> methodArgs = {
-      'fromLat': fromLat.toString(),
-      'fromLon': fromLon.toString(),
-      'toLat': toLat.toString(),
-      'toLon': toLon.toString(),
-      'routeType': routeType,
+      'url': url.toString(),
+      'mapPackageName': 'ru.yandex.yandexmaps',
+      'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showRoute', methodArgs);
+    return _channel.invokeMethod('showMap', methodArgs);
   }
 
   @override
@@ -53,11 +55,27 @@ class YandexMapLauncher extends MapLauncher {
       {required double pointLat,
       required double pointLon,
       required double zoom}) {
+    String url =
+        'yandexmaps://maps.yandex.ru/?whatshere[point]=$pointLon,$pointLat'
+        '&whatshere[zoom]=$zoom';
     final Map<String, String?> methodArgs = {
-      'pointLat': pointLat.toString(),
-      'pointLon': pointLon.toString(),
-      'zoom': zoom.toString(),
+      'url': url.toString(),
+      'mapPackageName': 'ru.yandex.yandexmaps',
+      'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showMarker', methodArgs);
+    return _channel.invokeMethod('showMap', methodArgs);
+  }
+
+  @override
+  Future showOrgCard({
+    required double oid,
+  }) {
+    String url = 'yandexmaps://maps.yandex.ru/?oid=${oid.floor()}';
+    final Map<String, String?> methodArgs = {
+      'url': url.toString(),
+      'mapPackageName': 'ru.yandex.yandexmaps',
+      'mapUrlPrefix': 'yandexmaps://',
+    };
+    return _channel.invokeMethod('showMap', methodArgs);
   }
 }

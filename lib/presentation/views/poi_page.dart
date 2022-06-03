@@ -2,7 +2,6 @@ import 'package:city_info_guide/data/datasources/local/map_launcher/yandex_map_l
 import 'package:city_info_guide/domain/blocs/poi/poi_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transparent_image/transparent_image.dart';
 
 import '../../injector.dart';
 
@@ -54,10 +53,19 @@ class _PoiPageState extends State<PoiPage> {
                               //     toLat: 61.029901,
                               //     toLon: 30.122463,
                               //     routeType: 'auto');
-                              YandexMapLauncher().showMarker(
+                              // YandexMapLauncher().showMarker(
+                              //     pointLat: state.placesOfInterest[index].lat!,
+                              //     pointLon: state.placesOfInterest[index].lon!,
+                              //     zoom: 17);
+                              // YandexMapLauncher().showOrgCard(
+                              //     oid: state.placesOfInterest[index].oid!);
+                              YandexMapLauncher().showPanorama(
                                   pointLat: state.placesOfInterest[index].lat!,
                                   pointLon: state.placesOfInterest[index].lon!,
-                                  zoom: 17);
+                                  directionAzimuth: 0,
+                                  directionAngle: 0,
+                                  spanHorizontal: 0,
+                                  spanVertical: 0);
                             },
                           ),
                         ),

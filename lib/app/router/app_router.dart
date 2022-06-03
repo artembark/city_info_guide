@@ -15,9 +15,9 @@ import '../../presentation/views/poi_page.dart';
     CustomRoute(
         page: SplashPage,
         initial: true,
-        transitionsBuilder: TransitionsBuilders.noTransition),
+        transitionsBuilder: TransitionsBuilders.slideLeft),
     CustomRoute(
-        page: HomePage, transitionsBuilder: TransitionsBuilders.noTransition),
+        page: HomePage, transitionsBuilder: TransitionsBuilders.slideLeft),
     AutoRoute(page: SchedulePage),
     AutoRoute(page: PoiPage),
   ],
