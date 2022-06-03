@@ -158,11 +158,21 @@ class _SchedulePageState extends State<SchedulePage> {
                       ),
                     ElevatedButton(
                         onPressed: () async {
+                          final initialDate = DateTime.now();
                           DateTime? newDate = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2022, 5, 1),
-                              lastDate: DateTime(2022, 5, 31));
+                            context: context,
+                            initialDate: initialDate,
+                            firstDate: DateTime.now().subtract(
+                              Duration(
+                                days: 30,
+                              ),
+                            ),
+                            lastDate: DateTime.now().add(
+                              Duration(
+                                days: 30,
+                              ),
+                            ),
+                          );
                           if (newDate == null) return;
                           context.read<ScheduleCubit>().setDate(newDate);
                         },
@@ -196,6 +206,10 @@ class _SchedulePageState extends State<SchedulePage> {
                       if (duration != null) {
                         dur = duration.toInt();
                       }
+                      final correctedDepartureTime =
+                          segment.departure?.add(Duration(hours: 3));
+                      final correctedArrivalTime =
+                          segment.arrival?.add(Duration(hours: 3));
                       return Card(
                         color: Colors.grey[200],
                         child: ListTile(
@@ -204,12 +218,14 @@ class _SchedulePageState extends State<SchedulePage> {
                             children: [
                               const Text('Откуда'),
                               Text(segment.from?.title ?? ''),
-                              Text('Время отъезда ${segment.departure}'),
+                              Text(
+                                  'Время отъезда ${DateFormat('dd/MM/yyyy в kk:mm').format(correctedDepartureTime!)}'),
                               Text(
                                   'Тип транспорта ${segment.from?.transportType}'),
                               const Text('Куда'),
                               Text(segments[index].to?.title ?? ''),
-                              Text('Время прибытия ${segment.arrival}'),
+                              Text(
+                                  'Время прибытия ${DateFormat('dd/MM/yyyy в kk:mm').format(correctedArrivalTime!)}'),
                               Text(
                                   'Тип транспорта ${segment.to?.transportType}'),
                               Text(

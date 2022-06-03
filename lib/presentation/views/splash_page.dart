@@ -45,32 +45,32 @@ class _SplashPageState extends State<SplashPage> {
           child: Stack(
             children: [
               Assets.images.korela.image(fit: BoxFit.fill),
-              AnimatedScale(
-                curve: Curves.fastOutSlowIn,
-                scale: scale,
-                duration: const Duration(seconds: 1),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF0B85FF),
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-              Center(
-                child: AnimatedCrossFade(
-                  crossFadeState: !expanded
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                  firstChild: Container(),
-                  secondChild: FractionallySizedBox(
-                      widthFactor: 0.7,
-                      child: Hero(
-                          tag: 'priozersk',
-                          child: Assets.images.prioSplash.image())),
-                  duration: const Duration(milliseconds: 300),
-                  alignment: Alignment.centerRight,
-                ),
-              ),
+              // AnimatedScale(
+              //   curve: Curves.fastOutSlowIn,
+              //   scale: scale,
+              //   duration: const Duration(seconds: 1),
+              //   child: Container(
+              //     decoration: const BoxDecoration(
+              //       color: Color(0xFF0B85FF),
+              //       shape: BoxShape.circle,
+              //     ),
+              //   ),
+              // ),
+              // Center(
+              //   child: AnimatedCrossFade(
+              //     crossFadeState: !expanded
+              //         ? CrossFadeState.showFirst
+              //         : CrossFadeState.showSecond,
+              //     firstChild: Container(),
+              //     secondChild: FractionallySizedBox(
+              //         widthFactor: 0.7,
+              //         child: Hero(
+              //             tag: 'priozersk',
+              //             child: Assets.images.prioSplash.image())),
+              //     duration: const Duration(milliseconds: 300),
+              //     alignment: Alignment.centerRight,
+              //   ),
+              // ),
               AnimatedCrossFade(
                 crossFadeState: CrossFadeState.showFirst,
                 firstChild: Container(),
