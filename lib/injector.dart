@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:city_info_guide/data/datasources/local/location/geolocator_data_source.dart';
 import 'package:city_info_guide/data/datasources/local/poi/local_poi_data_source.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
@@ -12,6 +14,7 @@ import 'package:city_info_guide/domain/repositories/poi_repository.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 
 import 'data/datasources/local/location/location_data_sorce.dart';
@@ -34,6 +37,13 @@ GetIt sl = GetIt.instance; //short for service locator
 //     responseType: ResponseType.plain,
 //   ),
 // );
+_parseAndDecode(String response) {
+  return jsonDecode(response);
+}
+
+parseJson(String response) {
+  return compute(_parseAndDecode, response);
+}
 
 Future<void> initializeDependencies() async {
   // Features - main feature
@@ -92,22 +102,26 @@ Future<void> initializeDependencies() async {
   // External
   const baseUrl = 'https://api.rasp.yandex.net';
   sl.registerLazySingleton(
-    () => Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-      ),
-    )..interceptors.add(
-        LogInterceptor(
-          responseBody: false,
-          requestBody: false,
-          responseHeader: false,
-          requestHeader: false,
-          request: false,
+    () {
+      final dio = Dio(
+        BaseOptions(
+          baseUrl: baseUrl,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
         ),
-      ),
+      )..interceptors.add(
+          LogInterceptor(
+            responseBody: false,
+            requestBody: false,
+            responseHeader: false,
+            requestHeader: false,
+            request: false,
+          ),
+        );
+      (dio.transformer as DefaultTransformer).jsonDecodeCallback = parseJson;
+      return dio;
+    },
   );
 }
