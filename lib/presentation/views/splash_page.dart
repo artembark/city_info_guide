@@ -16,6 +16,7 @@ class _SplashPageState extends State<SplashPage> {
   BorderRadius borderRadius = BorderRadius.circular(0);
   BoxShape boxShape = BoxShape.rectangle;
   double scale = 3.5;
+  bool pos = false;
 
   @override
   void initState() {
@@ -24,8 +25,12 @@ class _SplashPageState extends State<SplashPage> {
               expanded = true;
               scale = 0.79;
             }));
-    Future.delayed(const Duration(milliseconds: 1400))
-        .then((value) => AutoRouter.of(context).push(const HomeRoute()));
+    Future.delayed(const Duration(milliseconds: 1400)).then((value) {
+      setState(() {
+        pos = true;
+      });
+      return AutoRouter.of(context).push(const HomeRoute());
+    });
     super.initState();
   }
 
@@ -34,46 +39,51 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
         body: SafeArea(
       child: Center(
-        child: Stack(
-          children: [
-            AnimatedScale(
-              curve: Curves.fastOutSlowIn,
-              scale: scale,
-              duration: const Duration(seconds: 1),
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFF0B85FF),
-                  shape: BoxShape.circle,
+        child: AnimatedSlide(
+          duration: Duration(milliseconds: 300),
+          offset: pos ? Offset(-1, 0) : Offset(0, 0),
+          child: Stack(
+            children: [
+              Assets.images.korela.image(fit: BoxFit.fill),
+              AnimatedScale(
+                curve: Curves.fastOutSlowIn,
+                scale: scale,
+                duration: const Duration(seconds: 1),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF0B85FF),
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
-            ),
-            Center(
-              child: AnimatedCrossFade(
-                crossFadeState: !expanded
-                    ? CrossFadeState.showFirst
-                    : CrossFadeState.showSecond,
+              Center(
+                child: AnimatedCrossFade(
+                  crossFadeState: !expanded
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  firstChild: Container(),
+                  secondChild: FractionallySizedBox(
+                      widthFactor: 0.7,
+                      child: Hero(
+                          tag: 'priozersk',
+                          child: Assets.images.prioSplash.image())),
+                  duration: const Duration(milliseconds: 300),
+                  alignment: Alignment.centerRight,
+                ),
+              ),
+              AnimatedCrossFade(
+                crossFadeState: CrossFadeState.showFirst,
                 firstChild: Container(),
                 secondChild: FractionallySizedBox(
                     widthFactor: 0.7,
-                    child: Hero(
-                        tag: 'priozersk',
-                        child: Assets.images.prioSplash.image())),
+                    child: Column(
+                      children: const [Text('Долгота'), Text('Широта')],
+                    )),
                 duration: const Duration(milliseconds: 300),
                 alignment: Alignment.centerRight,
               ),
-            ),
-            AnimatedCrossFade(
-              crossFadeState: CrossFadeState.showFirst,
-              firstChild: Container(),
-              secondChild: FractionallySizedBox(
-                  widthFactor: 0.7,
-                  child: Column(
-                    children: const [Text('Долгота'), Text('Широта')],
-                  )),
-              duration: const Duration(milliseconds: 300),
-              alignment: Alignment.centerRight,
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ));

@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
 import 'package:city_info_guide/presentation/views/schedule_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../presentation/views/poi_page.dart';
 
@@ -13,6 +14,7 @@ import '../../presentation/views/poi_page.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     CustomRoute(
+        durationInMilliseconds: 500,
         page: SplashPage,
         initial: true,
         transitionsBuilder: TransitionsBuilders.slideLeft),

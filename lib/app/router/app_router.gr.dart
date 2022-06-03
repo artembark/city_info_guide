@@ -29,6 +29,7 @@ class AppRouter extends _i5.RootStackRouter {
           routeData: routeData,
           child: const _i1.SplashPage(),
           transitionsBuilder: _i5.TransitionsBuilders.slideLeft,
+          durationInMilliseconds: 500,
           opaque: true,
           barrierDismissible: false);
     },

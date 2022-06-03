@@ -15,6 +15,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/bird.png
   AssetGenImage get bird => const AssetGenImage('assets/images/bird.png');
 
+  /// File path: assets/images/korela.jpg
+  AssetGenImage get korela => const AssetGenImage('assets/images/korela.jpg');
+
   /// File path: assets/images/main_circle.png
   AssetGenImage get mainCircle =>
       const AssetGenImage('assets/images/main_circle.png');
