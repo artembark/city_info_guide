@@ -23,6 +23,7 @@ dependencies:
   transparent_image: ^2.0.0
   cached_network_image: ^3.2.1
   geolocator: ^8.2.1
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:

@@ -30,6 +30,7 @@ converting human readable city names to codes.
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - `mockito` for testing
 - `cloud_firestore` for the remote database
+- [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
 - [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
@@ -66,4 +67,26 @@ For iOS don't forget to add url schemes in Info.plist file
 <array>
 <string>yandexmaps</string>
 </array>
+```
+## Heavy task isolate computing
+The project uses Dio as network requests handler. Dio transformer allows changes to the 
+request/response data before it is sent/received to/from the server. Transformer is used
+to set jsonDecodeCallback to execute a jsonDecode function in a separate isolate.
+
+```
+// Must be top-level function
+_parseAndDecode(String response) {
+return jsonDecode(response);
+}
+
+parseJson(String text) {
+return compute(_parseAndDecode, text);
+}
+
+void main() {
+...
+//Custom jsonDecodeCallback
+(dio.transformer as DefaultTransformer).jsonDecodeCallback = parseJson;
+runApp(MyApp());
+}
 ```

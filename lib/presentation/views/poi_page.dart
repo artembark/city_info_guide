@@ -2,6 +2,8 @@ import 'package:city_info_guide/data/datasources/local/map_launcher/yandex_map_l
 import 'package:city_info_guide/domain/blocs/poi/poi_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../injector.dart';
 
@@ -35,9 +37,31 @@ class _PoiPageState extends State<PoiPage> {
                   return Card(
                     child: Column(
                       children: [
-                        Image.network(
-                          state.placesOfInterest[index].image!,
+                        CachedNetworkImage(
+                          imageUrl: state.placesOfInterest[index].image!,
+                          placeholder: (_, __) => SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 250.0,
+                            child: Shimmer.fromColors(
+                                baseColor: Colors.grey[500]!,
+                                highlightColor: Colors.grey[100]!,
+                                child: Container(
+                                  width: 200.0,
+                                  height: 250.0,
+                                  color: Colors.white,
+                                )),
+                          ),
+                          height: 250,
+                          // progressIndicatorBuilder:
+                          //     (context, url, downloadProgress) =>
+                          //         CircularProgressIndicator(
+                          //             value: downloadProgress.progress),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
+                        // Image.network(
+                        //   state.placesOfInterest[index].image!,
+                        // ),
                         ListTile(
                           title: Column(
                             children: [

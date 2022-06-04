@@ -76,7 +76,7 @@ class MainActivity : FlutterActivity() {
         val uri =
             Uri.parse(url);
         val intent = Intent(Intent.ACTION_VIEW, uri);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         intent.setPackage("ru.yandex.yandexmaps")
         startActivity(intent);
     }
