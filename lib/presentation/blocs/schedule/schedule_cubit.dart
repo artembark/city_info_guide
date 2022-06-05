@@ -25,17 +25,32 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   setFrom(String from) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(from: from)));
+    // state.maybeMap(
+    //     citiesSubmitting: (state) {
+    //       emit(state.copyWith.scheduleRequest(from: from));
+    //     },
+    //     orElse: () {});
   }
 
   setTo(String to) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(to: to)));
+    // state.maybeMap(
+    //     citiesSubmitting: (state) {
+    //       emit(state.copyWith.scheduleRequest(to: to));
+    //     },
+    //     orElse: () {});
   }
 
   setDate(DateTime dateTime) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(
         scheduleRequest.copyWith(date: dateTime)));
+    // state.maybeMap(
+    //     citiesSubmitting: (state) {
+    //       emit(state.copyWith.scheduleRequest(date: dateTime));
+    //     },
+    //     orElse: () {});
   }
 
   getPosition() async {
@@ -47,11 +62,18 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(
         from: nearestSettlement.code, fromTitle: nearestSettlement.title)));
+    // state.maybeMap(
+    //     citiesSubmitting: (state) {
+    //       emit(state.copyWith.scheduleRequest(
+    //           from: nearestSettlement.code,
+    //           fromTitle: nearestSettlement.title));
+    //     },
+    //     orElse: () {});
   }
 
   getSchedule() async {
-    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(const ScheduleState.resultsLoading());
+    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     try {
       final schedulePointPoint =
           await schedulePointPointRepository.getSchedulePointPoint(
@@ -66,5 +88,25 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     } on Exception catch (exception) {
       emit(ScheduleState.resultsFailure(exception));
     }
+
+    // state.maybeMap(
+    //     citiesSubmitting: (state) async {
+    //       emit(const ScheduleState.resultsLoading());
+    //       try {
+    //         final schedulePointPoint =
+    //             await schedulePointPointRepository.getSchedulePointPoint(
+    //                 from: state.scheduleRequest.from ?? '',
+    //                 to: state.scheduleRequest.to ?? '',
+    //                 date: state.scheduleRequest.date ?? DateTime.now());
+    //         if (schedulePointPoint.pagination?.total == 0) {
+    //           emit(const ScheduleState.resultsEmpty());
+    //         } else {
+    //           emit(ScheduleState.resultsLoaded(schedulePointPoint));
+    //         }
+    //       } on Exception catch (exception) {
+    //         emit(ScheduleState.resultsFailure(exception));
+    //       }
+    //     },
+    //     orElse: () {});
   }
 }
