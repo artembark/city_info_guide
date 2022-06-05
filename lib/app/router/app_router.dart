@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
-import 'package:city_info_guide/presentation/views/schedule_page.dart';
+import 'package:city_info_guide/presentation/views/schedule_input_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -20,7 +20,7 @@ import '../../presentation/views/poi_page.dart';
         transitionsBuilder: TransitionsBuilders.slideLeft),
     CustomRoute(
         page: HomePage, transitionsBuilder: TransitionsBuilders.slideLeft),
-    AutoRoute(page: SchedulePage),
+    AutoRoute(page: ScheduleInputPage),
     AutoRoute(page: PoiPage),
   ],
 )

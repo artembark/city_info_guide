@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ScheduleState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
@@ -28,7 +30,8 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -37,7 +40,8 @@ mixin _$ScheduleState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -97,7 +101,7 @@ abstract class _$$_CitiesSubmittingCopyWith<$Res> {
   factory _$$_CitiesSubmittingCopyWith(
           _$_CitiesSubmitting value, $Res Function(_$_CitiesSubmitting) then) =
       __$$_CitiesSubmittingCopyWithImpl<$Res>;
-  $Res call({ScheduleRequest scheduleRequest});
+  $Res call({ScheduleRequest scheduleRequest, bool requestingLocation});
 
   $ScheduleRequestCopyWith<$Res> get scheduleRequest;
 }
@@ -116,12 +120,17 @@ class __$$_CitiesSubmittingCopyWithImpl<$Res>
   @override
   $Res call({
     Object? scheduleRequest = freezed,
+    Object? requestingLocation = freezed,
   }) {
     return _then(_$_CitiesSubmitting(
-      scheduleRequest == freezed
+      scheduleRequest: scheduleRequest == freezed
           ? _value.scheduleRequest
           : scheduleRequest // ignore: cast_nullable_to_non_nullable
               as ScheduleRequest,
+      requestingLocation: requestingLocation == freezed
+          ? _value.requestingLocation
+          : requestingLocation // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -136,14 +145,18 @@ class __$$_CitiesSubmittingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CitiesSubmitting implements _CitiesSubmitting {
-  const _$_CitiesSubmitting(this.scheduleRequest);
+  const _$_CitiesSubmitting(
+      {required this.scheduleRequest, this.requestingLocation = false});
 
   @override
   final ScheduleRequest scheduleRequest;
+  @override
+  @JsonKey()
+  final bool requestingLocation;
 
   @override
   String toString() {
-    return 'ScheduleState.citiesSubmitting(scheduleRequest: $scheduleRequest)';
+    return 'ScheduleState.citiesSubmitting(scheduleRequest: $scheduleRequest, requestingLocation: $requestingLocation)';
   }
 
   @override
@@ -152,12 +165,16 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
         (other.runtimeType == runtimeType &&
             other is _$_CitiesSubmitting &&
             const DeepCollectionEquality()
-                .equals(other.scheduleRequest, scheduleRequest));
+                .equals(other.scheduleRequest, scheduleRequest) &&
+            const DeepCollectionEquality()
+                .equals(other.requestingLocation, requestingLocation));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(scheduleRequest));
+      runtimeType,
+      const DeepCollectionEquality().hash(scheduleRequest),
+      const DeepCollectionEquality().hash(requestingLocation));
 
   @JsonKey(ignore: true)
   @override
@@ -167,32 +184,36 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
     required TResult Function(Exception exception) resultsFailure,
   }) {
-    return citiesSubmitting(scheduleRequest);
+    return citiesSubmitting(scheduleRequest, requestingLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
     TResult Function(Exception exception)? resultsFailure,
   }) {
-    return citiesSubmitting?.call(scheduleRequest);
+    return citiesSubmitting?.call(scheduleRequest, requestingLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -200,7 +221,7 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
     required TResult orElse(),
   }) {
     if (citiesSubmitting != null) {
-      return citiesSubmitting(scheduleRequest);
+      return citiesSubmitting(scheduleRequest, requestingLocation);
     }
     return orElse();
   }
@@ -247,10 +268,12 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
 }
 
 abstract class _CitiesSubmitting implements ScheduleState {
-  const factory _CitiesSubmitting(final ScheduleRequest scheduleRequest) =
-      _$_CitiesSubmitting;
+  const factory _CitiesSubmitting(
+      {required final ScheduleRequest scheduleRequest,
+      final bool requestingLocation}) = _$_CitiesSubmitting;
 
   ScheduleRequest get scheduleRequest => throw _privateConstructorUsedError;
+  bool get requestingLocation => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_CitiesSubmittingCopyWith<_$_CitiesSubmitting> get copyWith =>
       throw _privateConstructorUsedError;
@@ -297,7 +320,9 @@ class _$_ResultsLoading implements _ResultsLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
@@ -310,7 +335,8 @@ class _$_ResultsLoading implements _ResultsLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -322,7 +348,8 @@ class _$_ResultsLoading implements _ResultsLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -446,7 +473,9 @@ class _$_ResultsLoaded implements _ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
@@ -459,7 +488,8 @@ class _$_ResultsLoaded implements _ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -471,7 +501,8 @@ class _$_ResultsLoaded implements _ResultsLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -577,7 +608,9 @@ class _$_ResultsEmpty implements _ResultsEmpty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
@@ -590,7 +623,8 @@ class _$_ResultsEmpty implements _ResultsEmpty {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -602,7 +636,8 @@ class _$_ResultsEmpty implements _ResultsEmpty {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -725,7 +760,9 @@ class _$_ResultsFailure implements _ResultsFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ScheduleRequest scheduleRequest) citiesSubmitting,
+    required TResult Function(
+            ScheduleRequest scheduleRequest, bool requestingLocation)
+        citiesSubmitting,
     required TResult Function() resultsLoading,
     required TResult Function(SchedulePointPoint schedulePointPoint)
         resultsLoaded,
@@ -738,7 +775,8 @@ class _$_ResultsFailure implements _ResultsFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,
@@ -750,7 +788,8 @@ class _$_ResultsFailure implements _ResultsFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ScheduleRequest scheduleRequest)? citiesSubmitting,
+    TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
+        citiesSubmitting,
     TResult Function()? resultsLoading,
     TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
     TResult Function()? resultsEmpty,

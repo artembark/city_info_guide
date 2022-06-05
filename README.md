@@ -28,7 +28,7 @@ converting human readable city names to codes.
 - [`auto_route_generator`](https://pub.dev/packages/auto_route_generator) generator for `auto_route`
 - [`get_it`](https://pub.dev/packages/get_it) service locator
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
-- `mockito` for testing
+- [`mockito`](https://pub.dev/packages/mockito) for testing
 - `cloud_firestore` for the remote database
 - [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services

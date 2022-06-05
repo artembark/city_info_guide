@@ -3,7 +3,8 @@ part of 'schedule_cubit.dart';
 @freezed
 class ScheduleState with _$ScheduleState {
   const factory ScheduleState.citiesSubmitting(
-      ScheduleRequest scheduleRequest) = _CitiesSubmitting;
+      {required ScheduleRequest scheduleRequest,
+      @Default(false) bool requestingLocation}) = _CitiesSubmitting;
 
   const factory ScheduleState.resultsLoading() = _ResultsLoading;
 

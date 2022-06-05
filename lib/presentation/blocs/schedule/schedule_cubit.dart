@@ -16,7 +16,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     required this.geolocationRepository,
     required this.schedulePointPointRepository,
   }) : super(
-          ScheduleState.citiesSubmitting(ScheduleRequest()),
+          ScheduleState.citiesSubmitting(scheduleRequest: ScheduleRequest()),
         );
   final ScheduleRepository schedulePointPointRepository;
   final GeolocationRepository geolocationRepository;
@@ -24,7 +24,8 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   setFrom(String from) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(from: from)));
+    emit(ScheduleState.citiesSubmitting(
+        scheduleRequest: scheduleRequest.copyWith(from: from)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(from: from));
@@ -34,7 +35,8 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   setTo(String to) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(to: to)));
+    emit(ScheduleState.citiesSubmitting(
+        scheduleRequest: scheduleRequest.copyWith(to: to)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(to: to));
@@ -45,7 +47,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   setDate(DateTime dateTime) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(
-        scheduleRequest.copyWith(date: dateTime)));
+        scheduleRequest: scheduleRequest.copyWith(date: dateTime)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(date: dateTime));
@@ -55,13 +57,25 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   getPosition() async {
     //TODO: try on Exception
+    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
+    emit(ScheduleState.citiesSubmitting(
+        scheduleRequest: scheduleRequest, requestingLocation: true));
+
     final position = await geolocationRepository.getCurrentPosition();
     if (position == null) return;
+
     final nearestSettlement = await nearestSettlementRepository
         .getNearestSettlement(lat: position.latitude, lon: position.longitude);
-    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(scheduleRequest.copyWith(
-        from: nearestSettlement.code, fromTitle: nearestSettlement.title)));
+
+    emit(
+      ScheduleState.citiesSubmitting(
+        scheduleRequest: scheduleRequest.copyWith(
+          from: nearestSettlement.code,
+          fromTitle: nearestSettlement.title,
+        ),
+        requestingLocation: false,
+      ),
+    );
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(
@@ -72,8 +86,8 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   }
 
   getSchedule() async {
-    emit(const ScheduleState.resultsLoading());
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
+    emit(const ScheduleState.resultsLoading());
     try {
       final schedulePointPoint =
           await schedulePointPointRepository.getSchedulePointPoint(

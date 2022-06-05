@@ -96,7 +96,8 @@ class _HomePageState extends State<HomePage> {
               top: 220,
               left: 15,
               child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
+                onTap: () =>
+                    AutoRouter.of(context).push(const ScheduleInputRoute()),
                 child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFF8DC6FF),
@@ -113,7 +114,8 @@ class _HomePageState extends State<HomePage> {
               bottom: 170,
               left: 40,
               child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
+                onTap: () =>
+                    AutoRouter.of(context).push(const ScheduleInputRoute()),
                 child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFFD143BE),
@@ -130,7 +132,8 @@ class _HomePageState extends State<HomePage> {
               top: 160,
               right: 40,
               child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
+                onTap: () =>
+                    AutoRouter.of(context).push(const ScheduleInputRoute()),
                 child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFFC68EB9),
@@ -147,7 +150,8 @@ class _HomePageState extends State<HomePage> {
               top: 70,
               right: 130,
               child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const ScheduleRoute()),
+                onTap: () =>
+                    AutoRouter.of(context).push(const ScheduleInputRoute()),
                 child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFF5381AE),

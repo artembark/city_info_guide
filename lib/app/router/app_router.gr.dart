@@ -15,7 +15,7 @@ import 'package:flutter/material.dart' as _i6;
 
 import '../../presentation/views/home_page.dart' as _i2;
 import '../../presentation/views/poi_page.dart' as _i4;
-import '../../presentation/views/schedule_page.dart' as _i3;
+import '../../presentation/views/schedule_input_page.dart' as _i3;
 import '../../presentation/views/splash_page.dart' as _i1;
 
 class AppRouter extends _i5.RootStackRouter {
@@ -41,9 +41,9 @@ class AppRouter extends _i5.RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    ScheduleRoute.name: (routeData) {
+    ScheduleInputRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.SchedulePage());
+          routeData: routeData, child: const _i3.ScheduleInputPage());
     },
     PoiRoute.name: (routeData) {
       return _i5.MaterialPageX<dynamic>(
@@ -55,7 +55,7 @@ class AppRouter extends _i5.RootStackRouter {
   List<_i5.RouteConfig> get routes => [
         _i5.RouteConfig(SplashRoute.name, path: '/'),
         _i5.RouteConfig(HomeRoute.name, path: '/home-page'),
-        _i5.RouteConfig(ScheduleRoute.name, path: '/schedule-page'),
+        _i5.RouteConfig(ScheduleInputRoute.name, path: '/schedule-input-page'),
         _i5.RouteConfig(PoiRoute.name, path: '/poi-page')
       ];
 }
@@ -77,11 +77,12 @@ class HomeRoute extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.SchedulePage]
-class ScheduleRoute extends _i5.PageRouteInfo<void> {
-  const ScheduleRoute() : super(ScheduleRoute.name, path: '/schedule-page');
+/// [_i3.ScheduleInputPage]
+class ScheduleInputRoute extends _i5.PageRouteInfo<void> {
+  const ScheduleInputRoute()
+      : super(ScheduleInputRoute.name, path: '/schedule-input-page');
 
-  static const String name = 'ScheduleRoute';
+  static const String name = 'ScheduleInputRoute';
 }
 
 /// generated route for
