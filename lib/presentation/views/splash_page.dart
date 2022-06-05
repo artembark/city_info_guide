@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import '../../gen/assets.gen.dart';
 
@@ -20,6 +21,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
+    super.initState();
     Future.delayed(const Duration(milliseconds: 0))
         .then((value) => setState(() {
               expanded = true;
@@ -31,7 +33,6 @@ class _SplashPageState extends State<SplashPage> {
       });
       return AutoRouter.of(context).push(const HomeRoute());
     });
-    super.initState();
   }
 
   @override

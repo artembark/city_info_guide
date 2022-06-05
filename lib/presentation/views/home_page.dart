@@ -13,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool scaleLarge = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,30 +39,39 @@ class _HomePageState extends State<HomePage> {
             Positioned(
               top: 120,
               left: 40,
-              child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const PoiRoute()),
-                child: Container(
-                  constraints: const BoxConstraints(
-                    minWidth: 120.0,
-                    minHeight: 120.0,
+              child: AnimatedScale(
+                onEnd: () => AutoRouter.of(context).push(const PoiRoute()),
+                scale: scaleLarge ? 12 : 1,
+                duration: Duration(milliseconds: 500),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      scaleLarge = true;
+                    });
+                  },
+                  child: Container(
+                    constraints: const BoxConstraints(
+                      minWidth: 120.0,
+                      minHeight: 120.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0061C2),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xFF0061C2).withOpacity(0.8),
+                          offset: const Offset(0, 5),
+                          blurRadius: 30,
+                        ),
+                      ],
+                    ),
+                    child: const Center(
+                        child: Text(
+                      'Гостиницы',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
                   ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF0061C2),
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: const Color(0xFF0061C2).withOpacity(0.8),
-                        offset: const Offset(0, 5),
-                        blurRadius: 30,
-                      ),
-                    ],
-                  ),
-                  child: const Center(
-                      child: Text(
-                    'Гостиницы',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
                 ),
               ),
             ),

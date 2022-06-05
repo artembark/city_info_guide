@@ -1,5 +1,5 @@
 import 'package:city_info_guide/data/datasources/local/map_launcher/yandex_map_launcher.dart';
-import 'package:city_info_guide/domain/blocs/poi/poi_cubit.dart';
+import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';

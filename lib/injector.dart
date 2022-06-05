@@ -13,6 +13,8 @@ import 'package:city_info_guide/domain/repositories/nearest_settlement_repositor
 import 'package:city_info_guide/domain/repositories/poi_repository.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
+import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
+import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
@@ -22,8 +24,6 @@ import 'data/datasources/local/poi/poi_data_sorce.dart';
 import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'data/repository/nearest_settlement_repo_impl.dart';
-import 'domain/blocs/poi/poi_cubit.dart';
-import 'domain/blocs/schedule/schedule_cubit.dart';
 
 GetIt sl = GetIt.instance; //short for service locator
 // final dio = Dio(

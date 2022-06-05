@@ -1,10 +1,8 @@
-import 'package:city_info_guide/domain/blocs/schedule/schedule_cubit.dart';
-import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
+import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
