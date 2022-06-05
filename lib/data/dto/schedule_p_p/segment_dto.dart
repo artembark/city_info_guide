@@ -16,7 +16,7 @@ class SegmentDTO {
   ToDTO? to;
   bool? hasTransfers;
   TicketsInfoDTO? ticketsInfo;
-  double? duration;
+  num? duration;
   dynamic arrivalTerminal;
   String? startDate;
   String? arrivalPlatform;
@@ -62,7 +62,7 @@ class SegmentDTO {
             ? null
             : TicketsInfoDTO.fromJson(
                 json['tickets_info'] as Map<String, dynamic>),
-        duration: json['duration'] as double?,
+        duration: json['duration'] as num?,
         arrivalTerminal: json['arrival_terminal'] as dynamic,
         startDate: json['start_date'] as String?,
         arrivalPlatform: json['arrival_platform'] as String?,

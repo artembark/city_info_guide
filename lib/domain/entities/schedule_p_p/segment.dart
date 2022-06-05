@@ -14,7 +14,7 @@ class Segment {
   To? to;
   bool? hasTransfers;
   TicketsInfo? ticketsInfo;
-  double? duration;
+  num? duration;
   dynamic arrivalTerminal;
   String? startDate;
   String? arrivalPlatform;

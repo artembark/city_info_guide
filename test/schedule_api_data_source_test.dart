@@ -1,61 +1,48 @@
 import 'dart:convert';
 
+import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
+import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
+import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart';
+import 'package:dio/dio.dart';
+import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 
-import '../../helpers/json_reader.dart';
-import '../../helpers/test_helper.mocks.dart';
+import 'helpers/json_reader.dart';
 
-void main() {
-  late MockHttpClient mockHttpClient;
-  late RemoteDataSourceImpl dataSource;
+main() {
+  late ScheduleApiDataSource scheduleApiDataSource;
+  late DioAdapter dioAdapter;
 
-  setUp(() {
-    mockHttpClient = MockHttpClient();
-    dataSource = RemoteDataSourceImpl(client: mockHttpClient);
+  setUpAll(() async {
+    Dio dio = Dio();
+    dioAdapter = DioAdapter(dio: dio);
+    //????
+    //dio.httpClientAdapter = dioAdapter;
+    //???
+    scheduleApiDataSource = YandexRaspApiDataSourceImpl(dio: dio);
   });
 
-  group('get current weather', () {
-    final tCityName = 'Jakarta';
-    final tWeatherModel = WeatherModel.fromJson(json
-        .decode(readJson('helpers/dummy_data/dummy_weather_response.json')));
+  test('getSchedulePointPoint', () async {
+    final jsonFromFile = jsonDecode(
+        readJson('helpers/dummy_data/dummy_response_without_transfers.json'));
+    final tSchedulePointPointDTO = SchedulePointPointDTO.fromJson(jsonFromFile);
 
-    test(
-      'should return weather model when the response code is 200',
-      () async {
-        // arrange
-        when(
-          mockHttpClient.get(Uri.parse(Urls.currentWeatherByName(tCityName))),
-        ).thenAnswer(
-          (_) async => http.Response(
-              readJson('helpers/dummy_data/dummy_weather_response.json'), 200),
-        );
+    // final responseBody = ResponseBody.fromString(
+    //   jsonFromFile,
+    //   200,
+    // );
 
-        // act
-        final result = await dataSource.getCurrentWeather(tCityName);
+    const path = '/v3.0/search/';
+    dioAdapter.onGet(path, (server) {
+      server.reply(200, jsonFromFile);
+    });
 
-        // assert
-        expect(result, equals(tWeatherModel));
-      },
-    );
+    // when(dioAdapter.fetch(RequestOptions(path: path), any, any))
+    //     .thenAnswer((_) async => responseBody);
 
-    test(
-      'should throw a server exception when the response code is 404 or other',
-      () async {
-        // arrange
-        when(
-          mockHttpClient.get(Uri.parse(Urls.currentWeatherByName(tCityName))),
-        ).thenAnswer(
-          (_) async => http.Response('Not found', 404),
-        );
-
-        // act
-        final call = dataSource.getCurrentWeather(tCityName);
-
-        // assert
-        expect(() => call, throwsA(isA<ServerException>()));
-      },
-    );
+    final response = await scheduleApiDataSource.getSchedulePointPoint(
+        from: 'c2', to: 'c10893', date: DateTime.now());
+    expect(tSchedulePointPointDTO == response, true);
   });
 }
