@@ -29,7 +29,7 @@ converting human readable city names to codes.
 - [`get_it`](https://pub.dev/packages/get_it) service locator
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - [`mockito`](https://pub.dev/packages/mockito) for testing
-- `cloud_firestore` for the remote database
+- [`http`](https://pub.dev/packages/http) for mockito testing
 - [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
