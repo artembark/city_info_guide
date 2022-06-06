@@ -22,10 +22,10 @@ mixin _$ScheduleState {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,9 +33,10 @@ mixin _$ScheduleState {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,9 +44,10 @@ mixin _$ScheduleState {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -188,10 +190,10 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) {
     return citiesSubmitting(scheduleRequest, requestingLocation);
   }
@@ -202,9 +204,10 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) {
     return citiesSubmitting?.call(scheduleRequest, requestingLocation);
   }
@@ -215,9 +218,10 @@ class _$_CitiesSubmitting implements _CitiesSubmitting {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) {
     if (citiesSubmitting != null) {
@@ -324,10 +328,10 @@ class _$_ResultsLoading implements _ResultsLoading {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) {
     return resultsLoading();
   }
@@ -338,9 +342,10 @@ class _$_ResultsLoading implements _ResultsLoading {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) {
     return resultsLoading?.call();
   }
@@ -351,9 +356,10 @@ class _$_ResultsLoading implements _ResultsLoading {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) {
     if (resultsLoading != null) {
@@ -412,7 +418,7 @@ abstract class _$$_ResultsLoadedCopyWith<$Res> {
   factory _$$_ResultsLoadedCopyWith(
           _$_ResultsLoaded value, $Res Function(_$_ResultsLoaded) then) =
       __$$_ResultsLoadedCopyWithImpl<$Res>;
-  $Res call({SchedulePointPoint schedulePointPoint});
+  $Res call({SchedulePointPointEntity schedulePointPoint});
 }
 
 /// @nodoc
@@ -434,7 +440,7 @@ class __$$_ResultsLoadedCopyWithImpl<$Res>
       schedulePointPoint == freezed
           ? _value.schedulePointPoint
           : schedulePointPoint // ignore: cast_nullable_to_non_nullable
-              as SchedulePointPoint,
+              as SchedulePointPointEntity,
     ));
   }
 }
@@ -445,7 +451,7 @@ class _$_ResultsLoaded implements _ResultsLoaded {
   const _$_ResultsLoaded(this.schedulePointPoint);
 
   @override
-  final SchedulePointPoint schedulePointPoint;
+  final SchedulePointPointEntity schedulePointPoint;
 
   @override
   String toString() {
@@ -477,10 +483,10 @@ class _$_ResultsLoaded implements _ResultsLoaded {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) {
     return resultsLoaded(schedulePointPoint);
   }
@@ -491,9 +497,10 @@ class _$_ResultsLoaded implements _ResultsLoaded {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) {
     return resultsLoaded?.call(schedulePointPoint);
   }
@@ -504,9 +511,10 @@ class _$_ResultsLoaded implements _ResultsLoaded {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) {
     if (resultsLoaded != null) {
@@ -557,10 +565,10 @@ class _$_ResultsLoaded implements _ResultsLoaded {
 }
 
 abstract class _ResultsLoaded implements ScheduleState {
-  const factory _ResultsLoaded(final SchedulePointPoint schedulePointPoint) =
-      _$_ResultsLoaded;
+  const factory _ResultsLoaded(
+      final SchedulePointPointEntity schedulePointPoint) = _$_ResultsLoaded;
 
-  SchedulePointPoint get schedulePointPoint =>
+  SchedulePointPointEntity get schedulePointPoint =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_ResultsLoadedCopyWith<_$_ResultsLoaded> get copyWith =>
@@ -612,10 +620,10 @@ class _$_ResultsEmpty implements _ResultsEmpty {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) {
     return resultsEmpty();
   }
@@ -626,9 +634,10 @@ class _$_ResultsEmpty implements _ResultsEmpty {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) {
     return resultsEmpty?.call();
   }
@@ -639,9 +648,10 @@ class _$_ResultsEmpty implements _ResultsEmpty {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) {
     if (resultsEmpty != null) {
@@ -700,7 +710,7 @@ abstract class _$$_ResultsFailureCopyWith<$Res> {
   factory _$$_ResultsFailureCopyWith(
           _$_ResultsFailure value, $Res Function(_$_ResultsFailure) then) =
       __$$_ResultsFailureCopyWithImpl<$Res>;
-  $Res call({Exception exception});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -716,13 +726,13 @@ class __$$_ResultsFailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? exception = freezed,
+    Object? message = freezed,
   }) {
     return _then(_$_ResultsFailure(
-      exception == freezed
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as Exception,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -730,14 +740,14 @@ class __$$_ResultsFailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ResultsFailure implements _ResultsFailure {
-  const _$_ResultsFailure(this.exception);
+  const _$_ResultsFailure(this.message);
 
   @override
-  final Exception exception;
+  final String message;
 
   @override
   String toString() {
-    return 'ScheduleState.resultsFailure(exception: $exception)';
+    return 'ScheduleState.resultsFailure(message: $message)';
   }
 
   @override
@@ -745,12 +755,12 @@ class _$_ResultsFailure implements _ResultsFailure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ResultsFailure &&
-            const DeepCollectionEquality().equals(other.exception, exception));
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
   @override
@@ -764,12 +774,12 @@ class _$_ResultsFailure implements _ResultsFailure {
             ScheduleRequest scheduleRequest, bool requestingLocation)
         citiesSubmitting,
     required TResult Function() resultsLoading,
-    required TResult Function(SchedulePointPoint schedulePointPoint)
+    required TResult Function(SchedulePointPointEntity schedulePointPoint)
         resultsLoaded,
     required TResult Function() resultsEmpty,
-    required TResult Function(Exception exception) resultsFailure,
+    required TResult Function(String message) resultsFailure,
   }) {
-    return resultsFailure(exception);
+    return resultsFailure(message);
   }
 
   @override
@@ -778,11 +788,12 @@ class _$_ResultsFailure implements _ResultsFailure {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
   }) {
-    return resultsFailure?.call(exception);
+    return resultsFailure?.call(message);
   }
 
   @override
@@ -791,13 +802,14 @@ class _$_ResultsFailure implements _ResultsFailure {
     TResult Function(ScheduleRequest scheduleRequest, bool requestingLocation)?
         citiesSubmitting,
     TResult Function()? resultsLoading,
-    TResult Function(SchedulePointPoint schedulePointPoint)? resultsLoaded,
+    TResult Function(SchedulePointPointEntity schedulePointPoint)?
+        resultsLoaded,
     TResult Function()? resultsEmpty,
-    TResult Function(Exception exception)? resultsFailure,
+    TResult Function(String message)? resultsFailure,
     required TResult orElse(),
   }) {
     if (resultsFailure != null) {
-      return resultsFailure(exception);
+      return resultsFailure(message);
     }
     return orElse();
   }
@@ -844,9 +856,9 @@ class _$_ResultsFailure implements _ResultsFailure {
 }
 
 abstract class _ResultsFailure implements ScheduleState {
-  const factory _ResultsFailure(final Exception exception) = _$_ResultsFailure;
+  const factory _ResultsFailure(final String message) = _$_ResultsFailure;
 
-  Exception get exception => throw _privateConstructorUsedError;
+  String get message => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_ResultsFailureCopyWith<_$_ResultsFailure> get copyWith =>
       throw _privateConstructorUsedError;

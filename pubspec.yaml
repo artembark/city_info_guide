@@ -27,6 +27,8 @@ dependencies:
   mockito: ^5.2.0
   http: ^0.13.4
   http_mock_adapter: ^0.3.2
+  equatable: ^2.0.3
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
-import 'package:city_info_guide/domain/entities/schedule_p_p/segment.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/entities/schedule_p_p/segment_entity.dart';
 import 'from_dto.dart';
 import 'thread_dto.dart';
 import 'tickets_info_dto.dart';
@@ -33,22 +33,22 @@ class SegmentDTO with _$SegmentDTO {
 }
 
 extension SegmentMapper on SegmentDTO {
-  Segment toModel() {
-    return Segment(
+  SegmentEntity toEntity() {
+    return SegmentEntity(
       arrival: arrival,
-      from: from?.toModel(),
-      thread: thread?.toModel(),
+      from: from?.toEntity(),
+      thread: thread?.toEntity(),
       departurePlatform: departurePlatform,
       departure: departure,
       arrivalPlatform: arrivalPlatform,
       departureTerminal: departureTerminal,
       stops: stops,
       hasTransfers: hasTransfers,
-      ticketsInfo: ticketsInfo?.toModel(),
+      ticketsInfo: ticketsInfo?.toEntity(),
       startDate: startDate,
       arrivalTerminal: arrivalTerminal,
       duration: duration,
-      to: to?.toModel(),
+      to: to?.toEntity(),
     );
   }
 }

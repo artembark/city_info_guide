@@ -1,9 +1,10 @@
 import 'package:city_info_guide/core/utils/secrets.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
-import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart';
+import 'package:city_info_guide/data/exception.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
+import '../../../dto/nearest_settlement/nearest_settlement_dto.dart';
 import '../../../dto/schedule_p_p/schedule_point_point_dto.dart';
 
 class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
@@ -23,7 +24,11 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       'date': DateFormat('yyyy-MM-dd').format(date),
       'transfers': true
     });
-    return SchedulePointPointDTO.fromJson(response.data);
+    if (response.statusCode == 200) {
+      return SchedulePointPointDTO.fromJson(response.data);
+    } else {
+      throw ServerException();
+    }
   }
 
   @override

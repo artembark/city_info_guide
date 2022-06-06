@@ -1,8 +1,8 @@
-class TicketsInfo {
+class TicketsInfoEntity {
   bool? etMarker;
   List<dynamic>? places;
 
-  TicketsInfo({
+  TicketsInfoEntity({
     required this.etMarker,
     required this.places,
   });

@@ -1,9 +1,9 @@
-class TransportSubtype {
+class TransportSubtypeEntity {
   dynamic color;
   dynamic code;
   dynamic title;
 
-  TransportSubtype({
+  TransportSubtypeEntity({
     required this.color,
     required this.code,
     required this.title,

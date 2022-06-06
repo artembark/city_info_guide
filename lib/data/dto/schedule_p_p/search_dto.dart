@@ -1,6 +1,6 @@
-import 'package:city_info_guide/domain/entities/schedule_p_p/search.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/entities/schedule_p_p/search_entity.dart';
 import 'from_dto.dart';
 import 'to_dto.dart';
 
@@ -20,11 +20,11 @@ class SearchDTO with _$SearchDTO {
 }
 
 extension SearchMapper on SearchDTO {
-  Search toModel() {
-    return Search(
+  SearchEntity toEntity() {
+    return SearchEntity(
       date: date,
-      to: to?.toModel(),
-      from: from?.toModel(),
+      to: to?.toEntity(),
+      from: from?.toEntity(),
     );
   }
 }

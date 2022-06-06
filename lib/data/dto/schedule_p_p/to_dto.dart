@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/to.dart';
+import '../../../domain/entities/schedule_p_p/to_entity.dart';
 
 part 'to_dto.freezed.dart';
 part 'to_dto.g.dart';
@@ -22,8 +22,8 @@ class ToDTO with _$ToDTO {
 }
 
 extension ToMapper on ToDTO {
-  To toModel() {
-    return To(
+  ToEntity toEntity() {
+    return ToEntity(
       code: code,
       title: title,
       stationType: stationType,

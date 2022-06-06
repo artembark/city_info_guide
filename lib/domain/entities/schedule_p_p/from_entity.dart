@@ -1,4 +1,4 @@
-class To {
+class FromEntity {
   String? code;
   String? title;
   String? stationType;
@@ -8,7 +8,7 @@ class To {
   String? stationTypeName;
   String? type;
 
-  To({
+  FromEntity({
     required this.code,
     required this.title,
     required this.stationType,

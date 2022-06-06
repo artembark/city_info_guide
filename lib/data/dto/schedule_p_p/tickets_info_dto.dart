@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/tickets_info.dart';
+import '../../../domain/entities/schedule_p_p/tickets_info_entity.dart';
 
 part 'tickets_info_dto.freezed.dart';
 
@@ -18,8 +18,8 @@ class TicketsInfoDTO with _$TicketsInfoDTO {
 }
 
 extension TicketsInfoMapper on TicketsInfoDTO {
-  TicketsInfo toModel() {
-    return TicketsInfo(
+  TicketsInfoEntity toEntity() {
+    return TicketsInfoEntity(
       etMarker: etMarker,
       places: places,
     );

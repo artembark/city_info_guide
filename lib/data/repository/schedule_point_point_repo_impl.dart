@@ -1,9 +1,13 @@
-import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
-import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart';
-import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point.dart';
+import 'dart:io';
 
+import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart';
+import 'package:city_info_guide/data/exception.dart';
+import 'package:dartz/dartz.dart';
+
+import '../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 import '../../domain/repositories/schedule_point_point_repository.dart';
 import '../datasources/remote/schedule/schedule_api_data_source.dart';
+import '../failure.dart';
 
 //TODO: understand difference with extends in that case
 //TODO: use info about network to cache info
@@ -14,12 +18,18 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
   ScheduleRepositoryImpl({required this.scheduleApiDataSource});
 
   @override
-  Future<SchedulePointPoint> getSchedulePointPoint(
+  Future<Either<Failure, SchedulePointPointEntity>> getSchedulePointPoint(
       {required String from,
       required String to,
       required DateTime date}) async {
-    final res = await scheduleApiDataSource.getSchedulePointPoint(
-        from: from, to: to, date: date);
-    return res.toModel();
+    try {
+      final res = await scheduleApiDataSource.getSchedulePointPoint(
+          from: from, to: to, date: date);
+      return Right(res.toEntity());
+    } on ServerException {
+      return const Left(ServerFailure(''));
+    } on SocketException {
+      return const Left(ConnectionFailure('Failed to connect to network'));
+    }
   }
 }

@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'helpers/json_reader.dart';
+import '../../helpers/json_reader.dart';
 
 main() {
   late ScheduleApiDataSource scheduleApiDataSource;

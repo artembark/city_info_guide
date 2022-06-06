@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/transport_subtype.dart';
+import '../../../domain/entities/schedule_p_p/transport_subtype_entity.dart';
 
 part 'transport_subtype_dto.freezed.dart';
 
@@ -19,8 +19,8 @@ class TransportSubtypeDTO with _$TransportSubtypeDTO {
 }
 
 extension TransportSubtypeMapper on TransportSubtypeDTO {
-  TransportSubtype toModel() {
-    return TransportSubtype(
+  TransportSubtypeEntity toEntity() {
+    return TransportSubtypeEntity(
       color: color,
       code: code,
       title: title,

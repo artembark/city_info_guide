@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/thread.dart';
+import '../../../domain/entities/schedule_p_p/thread_entity.dart';
 import 'transport_subtype_dto.dart';
 
 part 'thread_dto.freezed.dart';
@@ -26,8 +26,8 @@ class ThreadDTO with _$ThreadDTO {
 }
 
 extension ThreadMapper on ThreadDTO {
-  Thread toModel() {
-    return Thread(
+  ThreadEntity toEntity() {
+    return ThreadEntity(
       uid: uid,
       title: title,
       number: number,
@@ -36,7 +36,7 @@ extension ThreadMapper on ThreadDTO {
       carrier: carrier,
       transportType: transportType,
       vehicle: vehicle,
-      transportSubtype: transportSubtype?.toModel(),
+      transportSubtype: transportSubtype?.toEntity(),
       expressType: expressType,
     );
   }

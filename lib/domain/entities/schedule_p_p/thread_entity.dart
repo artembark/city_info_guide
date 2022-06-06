@@ -1,6 +1,6 @@
-import 'transport_subtype.dart';
+import 'transport_subtype_entity.dart';
 
-class Thread {
+class ThreadEntity {
   String? uid;
   String? title;
   String? number;
@@ -9,10 +9,10 @@ class Thread {
   dynamic carrier;
   String? transportType;
   dynamic vehicle;
-  TransportSubtype? transportSubtype;
+  TransportSubtypeEntity? transportSubtype;
   dynamic expressType;
 
-  Thread({
+  ThreadEntity({
     required this.uid,
     required this.title,
     required this.number,

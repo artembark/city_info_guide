@@ -1,9 +1,9 @@
-class Pagination {
+class PaginationEntity {
   int? total;
   int? limit;
   int? offset;
 
-  Pagination({
+  PaginationEntity({
     required this.total,
     required this.limit,
     required this.offset,

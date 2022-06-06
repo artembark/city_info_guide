@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/from.dart';
+import '../../../domain/entities/schedule_p_p/from_entity.dart';
 
 part 'from_dto.freezed.dart';
 part 'from_dto.g.dart';
@@ -23,8 +23,8 @@ class FromDTO with _$FromDTO {
 }
 
 extension FromMapper on FromDTO {
-  From toModel() {
-    return From(
+  FromEntity toEntity() {
+    return FromEntity(
       code: code,
       title: title,
       stationType: stationType,

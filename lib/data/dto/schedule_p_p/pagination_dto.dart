@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../../domain/entities/schedule_p_p/pagination.dart';
+
+import '../../../domain/entities/schedule_p_p/pagination_entity.dart';
 
 part 'pagination_dto.freezed.dart';
 
@@ -18,8 +19,8 @@ class PaginationDTO with _$PaginationDTO {
 }
 
 extension PaginationMapper on PaginationDTO {
-  Pagination toModel() {
-    return Pagination(
+  PaginationEntity toEntity() {
+    return PaginationEntity(
       total: total,
       limit: limit,
       offset: offset,

@@ -1,25 +1,25 @@
-import 'from.dart';
-import 'thread.dart';
-import 'tickets_info.dart';
-import 'to.dart';
+import 'from_entity.dart';
+import 'thread_entity.dart';
+import 'tickets_info_entity.dart';
+import 'to_entity.dart';
 
-class Segment {
+class SegmentEntity {
   DateTime? arrival;
-  From? from;
-  Thread? thread;
+  FromEntity? from;
+  ThreadEntity? thread;
   String? departurePlatform;
   DateTime? departure;
   String? stops;
   dynamic departureTerminal;
-  To? to;
+  ToEntity? to;
   bool? hasTransfers;
-  TicketsInfo? ticketsInfo;
+  TicketsInfoEntity? ticketsInfo;
   num? duration;
   dynamic arrivalTerminal;
   String? startDate;
   String? arrivalPlatform;
 
-  Segment({
+  SegmentEntity({
     required this.arrival,
     required this.from,
     required this.thread,
