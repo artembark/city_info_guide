@@ -1,20 +1,20 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../../domain/entities/schedule_p_p/tickets_info.dart';
 
-class TicketsInfoDTO {
-  bool? etMarker;
-  List<dynamic>? places;
+part 'tickets_info_dto.freezed.dart';
 
-  TicketsInfoDTO({this.etMarker, this.places});
+part 'tickets_info_dto.g.dart';
 
-  factory TicketsInfoDTO.fromJson(Map<String, dynamic> json) => TicketsInfoDTO(
-        etMarker: json['et_marker'] as bool?,
-        places: json['places'] as List<dynamic>?,
-      );
+@freezed
+class TicketsInfoDTO with _$TicketsInfoDTO {
+  const factory TicketsInfoDTO({
+    bool? etMarker,
+    List<dynamic>? places,
+  }) = _TicketsInfoDTO;
 
-  Map<String, dynamic> toJson() => {
-        'et_marker': etMarker,
-        'places': places,
-      };
+  factory TicketsInfoDTO.fromJson(Map<String, dynamic> json) =>
+      _$TicketsInfoDTOFromJson(json);
 }
 
 extension TicketsInfoMapper on TicketsInfoDTO {

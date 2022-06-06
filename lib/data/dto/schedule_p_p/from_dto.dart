@@ -1,47 +1,25 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../../domain/entities/schedule_p_p/from.dart';
 
-class FromDTO {
-  String? code;
-  String? title;
-  String? stationType;
-  String? popularTitle;
-  String? shortTitle;
-  String? transportType;
-  String? stationTypeName;
-  String? type;
+part 'from_dto.freezed.dart';
+part 'from_dto.g.dart';
 
-  FromDTO({
-    this.code,
-    this.title,
-    this.stationType,
-    this.popularTitle,
-    this.shortTitle,
-    this.transportType,
-    this.stationTypeName,
-    this.type,
-  });
+@freezed
+class FromDTO with _$FromDTO {
+  const factory FromDTO({
+    String? code,
+    String? title,
+    String? stationType,
+    String? popularTitle,
+    String? shortTitle,
+    String? transportType,
+    String? stationTypeName,
+    String? type,
+  }) = _FromDTO;
 
-  factory FromDTO.fromJson(Map<String, dynamic> json) => FromDTO(
-        code: json['code'] as String?,
-        title: json['title'] as String?,
-        stationType: json['station_type'] as String?,
-        popularTitle: json['popular_title'] as String?,
-        shortTitle: json['short_title'] as String?,
-        transportType: json['transport_type'] as String?,
-        stationTypeName: json['station_type_name'] as String?,
-        type: json['type'] as String?,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'code': code,
-        'title': title,
-        'station_type': stationType,
-        'popular_title': popularTitle,
-        'short_title': shortTitle,
-        'transport_type': transportType,
-        'station_type_name': stationTypeName,
-        'type': type,
-      };
+  factory FromDTO.fromJson(Map<String, dynamic> json) =>
+      _$FromDTOFromJson(json);
 }
 
 extension FromMapper on FromDTO {

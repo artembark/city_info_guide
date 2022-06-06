@@ -90,3 +90,10 @@ void main() {
 runApp(MyApp());
 }
 ```
+
+##Testing coverage
+```brew install lcov
+flutter test --coverage
+genhtml coverage/lcov.info -o coverage/html
+open coverage/html/index.html
+```

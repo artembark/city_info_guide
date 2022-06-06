@@ -42,6 +42,9 @@ abstract class $SchedulePointPointDTOCopyWith<$Res> {
       PaginationDTO? pagination,
       List<SegmentDTO>? segments,
       SearchDTO? search});
+
+  $PaginationDTOCopyWith<$Res>? get pagination;
+  $SearchDTOCopyWith<$Res>? get search;
 }
 
 /// @nodoc
@@ -79,6 +82,28 @@ class _$SchedulePointPointDTOCopyWithImpl<$Res>
               as SearchDTO?,
     ));
   }
+
+  @override
+  $PaginationDTOCopyWith<$Res>? get pagination {
+    if (_value.pagination == null) {
+      return null;
+    }
+
+    return $PaginationDTOCopyWith<$Res>(_value.pagination!, (value) {
+      return _then(_value.copyWith(pagination: value));
+    });
+  }
+
+  @override
+  $SearchDTOCopyWith<$Res>? get search {
+    if (_value.search == null) {
+      return null;
+    }
+
+    return $SearchDTOCopyWith<$Res>(_value.search!, (value) {
+      return _then(_value.copyWith(search: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -93,6 +118,11 @@ abstract class _$$_SchedulePointPointDTOCopyWith<$Res>
       PaginationDTO? pagination,
       List<SegmentDTO>? segments,
       SearchDTO? search});
+
+  @override
+  $PaginationDTOCopyWith<$Res>? get pagination;
+  @override
+  $SearchDTOCopyWith<$Res>? get search;
 }
 
 /// @nodoc
