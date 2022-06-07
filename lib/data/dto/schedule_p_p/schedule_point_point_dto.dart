@@ -15,7 +15,7 @@ class SchedulePointPointDTO with _$SchedulePointPointDTO {
   const SchedulePointPointDTO._();
 
   const factory SchedulePointPointDTO({
-    List<dynamic>? intervalSegments,
+    @Default([]) List<dynamic>? intervalSegments,
     PaginationDTO? pagination,
     List<SegmentDTO>? segments,
     SearchDTO? search,

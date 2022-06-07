@@ -1,0 +1,283 @@
+{
+  "interval_segments": [],
+  "pagination": {
+    "total": 4,
+    "limit": 100,
+    "offset": 0
+  },
+  "segments": [
+    {
+      "arrival": "2022-06-15T07:31:00+03:00",
+      "from": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      },
+      "thread": {
+        "uid": "empty_0_f9813869t9837534_175",
+        "title": "Приозерск — Санкт-Петербург, метро «Парнас»",
+        "number": "960",
+        "short_title": "Приозерск — Санкт-Петербург, метро «Парнас»",
+        "thread_method_link": "api.rasp.yandex.net/v3/thread/?date=2022-06-15&uid=empty_0_f9813869t9837534_175",
+        "carrier": null,
+        "transport_type": "bus",
+        "vehicle": null,
+        "transport_subtype": {
+          "color": null,
+          "code": null,
+          "title": null
+        },
+        "express_type": null
+      },
+      "departure_platform": "",
+      "departure": "2022-06-15T05:05:00+03:00",
+      "stops": "",
+      "departure_terminal": null,
+      "to": {
+        "code": "s9837534",
+        "title": "Санкт-Петербург, метро «Парнас»",
+        "station_type": "bus_stop",
+        "popular_title": "Метро «Парнас»",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автобусная остановка",
+        "type": "station"
+      },
+      "has_transfers": false,
+      "tickets_info": {
+        "et_marker": false,
+        "places": []
+      },
+      "duration": 8760,
+      "arrival_terminal": null,
+      "start_date": "2022-06-15",
+      "arrival_platform": ""
+    },
+    {
+      "arrival": "2022-06-15T08:08:00+03:00",
+      "from": {
+        "code": "s9813869",
+        "title": "Приозерск",
+        "station_type": "bus_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      },
+      "thread": {
+        "uid": "empty_7_f9813869t9654496_175",
+        "title": "Приозерск — Санкт-Петербург, Северный автовокзал",
+        "number": "859",
+        "short_title": "Приозерск — Санкт-Петербург, Северный автовокзал",
+        "thread_method_link": "api.rasp.yandex.net/v3/thread/?date=2022-06-15&uid=empty_7_f9813869t9654496_175",
+        "carrier": null,
+        "transport_type": "bus",
+        "vehicle": null,
+        "transport_subtype": {
+          "color": null,
+          "code": null,
+          "title": null
+        },
+        "express_type": null
+      },
+      "departure_platform": "",
+      "departure": "2022-06-15T05:20:00+03:00",
+      "stops": "",
+      "departure_terminal": null,
+      "to": {
+        "code": "s9654496",
+        "title": "Санкт-Петербург, Северный автовокзал",
+        "station_type": "bus_station",
+        "popular_title": "Северный автовокзал (Мурино)",
+        "short_title": "",
+        "transport_type": "bus",
+        "station_type_name": "автовокзал",
+        "type": "station"
+      },
+      "has_transfers": false,
+      "tickets_info": {
+        "et_marker": false,
+        "places": []
+      },
+      "duration": 10080,
+      "arrival_terminal": null,
+      "start_date": "2022-06-15",
+      "arrival_platform": ""
+    },
+    {
+      "arrival": "2022-06-15T08:15:00+03:00",
+      "from": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "thread": {
+        "uid": "6508_0_9602748_g22_4",
+        "title": "Кузнечное — Санкт-Петербург (Финляндский вокзал)",
+        "number": "6508",
+        "short_title": "Кузнечное — СПб-Фин.",
+        "thread_method_link": "api.rasp.yandex.net/v3/thread/?date=2022-06-15&uid=6508_0_9602748_g22_4",
+        "carrier": {
+          "code": 1332,
+          "contacts": "",
+          "url": "http://www.ppk-piter.ru/",
+          "logo_svg": null,
+          "title": "Северо-западная пригородная пассажирская компания",
+          "phone": "",
+          "codes": {
+            "icao": null,
+            "sirena": null,
+            "iata": null
+          },
+          "address": "197022, г. Санкт- Петербург, Инструментальная улица, дом 3, литера П",
+          "logo": "https://yastat.net/s3/rasp/media/data/company/logo/szppk_logo2.png",
+          "email": ""
+        },
+        "transport_type": "suburban",
+        "vehicle": null,
+        "transport_subtype": {
+          "color": "#CC6600",
+          "code": "suburban",
+          "title": "Пригородный поезд"
+        },
+        "express_type": null
+      },
+      "departure_platform": "",
+      "departure": "2022-06-15T05:28:00+03:00",
+      "stops": "везде",
+      "departure_terminal": null,
+      "to": {
+        "code": "s9602497",
+        "title": "Санкт-Петербург (Финляндский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Финляндский вокзал",
+        "short_title": "СПб-Фин.",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "has_transfers": false,
+      "tickets_info": {
+        "et_marker": false,
+        "places": [
+          {
+            "currency": "RUB",
+            "price": {
+              "cents": 0,
+              "whole": 392
+            },
+            "name": null
+          }
+        ]
+      },
+      "duration": 10020,
+      "arrival_terminal": null,
+      "start_date": "2022-06-15",
+      "arrival_platform": ""
+    },
+    {
+      "arrival": "2022-06-15T09:00:00+03:00",
+      "from": {
+        "code": "s9603177",
+        "title": "Приозерск",
+        "station_type": "train_station",
+        "popular_title": "",
+        "short_title": "",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "thread": {
+        "uid": "7582_0_9602748_g22_4",
+        "title": "Кузнечное — Санкт-Петербург (Финляндский вокзал)",
+        "number": "7582",
+        "short_title": "Кузнечное — СПб-Фин.",
+        "thread_method_link": "api.rasp.yandex.net/v3/thread/?date=2022-06-15&uid=7582_0_9602748_g22_4",
+        "carrier": {
+          "code": 1332,
+          "contacts": "",
+          "url": "http://www.ppk-piter.ru/",
+          "logo_svg": null,
+          "title": "Северо-западная пригородная пассажирская компания",
+          "phone": "",
+          "codes": {
+            "icao": null,
+            "sirena": null,
+            "iata": null
+          },
+          "address": "197022, г. Санкт- Петербург, Инструментальная улица, дом 3, литера П",
+          "logo": "https://yastat.net/s3/rasp/media/data/company/logo/szppk_logo2.png",
+          "email": ""
+        },
+        "transport_type": "suburban",
+        "vehicle": null,
+        "transport_subtype": {
+          "color": "#CC6600",
+          "code": "last",
+          "title": "«Ласточка»"
+        },
+        "express_type": "express"
+      },
+      "departure_platform": "",
+      "departure": "2022-06-15T06:56:00+03:00",
+      "stops": "Громово, Лосево, Сосново, 69 км, Орехово, Токсово, Девяткино, Санкт-Петербург (Финляндский вокзал)",
+      "departure_terminal": null,
+      "to": {
+        "code": "s9602497",
+        "title": "Санкт-Петербург (Финляндский вокзал)",
+        "station_type": "train_station",
+        "popular_title": "Финляндский вокзал",
+        "short_title": "СПб-Фин.",
+        "transport_type": "train",
+        "station_type_name": "вокзал",
+        "type": "station"
+      },
+      "has_transfers": false,
+      "tickets_info": {
+        "et_marker": false,
+        "places": [
+          {
+            "currency": "RUB",
+            "price": {
+              "cents": 0,
+              "whole": 447
+            },
+            "name": null
+          }
+        ]
+      },
+      "duration": 7440,
+      "arrival_terminal": null,
+      "start_date": "2022-06-15",
+      "arrival_platform": ""
+    }
+  ],
+  "search": {
+    "date": "2022-06-15",
+    "to": {
+      "code": "c2",
+      "type": "settlement",
+      "popular_title": "Санкт-Петербург",
+      "short_title": "Санкт-Петербург",
+      "title": "Санкт-Петербург"
+    },
+    "from": {
+      "code": "c10883",
+      "type": "settlement",
+      "popular_title": "Приозерск",
+      "short_title": "Приозерск",
+      "title": "Приозерск"
+    }
+  }
+}

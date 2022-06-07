@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 
 import '../../../domain/entities/schedule_p_p/segment_entity.dart';
 import 'from_dto.dart';
@@ -12,6 +13,7 @@ part 'segment_dto.g.dart';
 @freezed
 class SegmentDTO with _$SegmentDTO {
   const factory SegmentDTO({
+    //@JsonKey(fromJson: _fromJson, toJson: _toJson)
     DateTime? arrival,
     FromDTO? from,
     ThreadDTO? thread,
@@ -30,6 +32,9 @@ class SegmentDTO with _$SegmentDTO {
 
   factory SegmentDTO.fromJson(Map<String, dynamic> json) =>
       _$SegmentDTOFromJson(json);
+
+  // DateTime _fromJson(String date) => DateFormat('M/D/yyyy').parse(date);
+  // String _toJson(DateTime date) => DateFormat('M/D/yyyy').format(date);
 }
 
 extension SegmentMapper on SegmentDTO {

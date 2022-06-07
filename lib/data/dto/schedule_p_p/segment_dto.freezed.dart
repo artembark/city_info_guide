@@ -20,6 +20,7 @@ SegmentDTO _$SegmentDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SegmentDTO {
+//@JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime? get arrival => throw _privateConstructorUsedError;
   FromDTO? get from => throw _privateConstructorUsedError;
   ThreadDTO? get thread => throw _privateConstructorUsedError;
@@ -341,6 +342,7 @@ class _$_SegmentDTO implements _SegmentDTO {
   factory _$_SegmentDTO.fromJson(Map<String, dynamic> json) =>
       _$$_SegmentDTOFromJson(json);
 
+//@JsonKey(fromJson: _fromJson, toJson: _toJson)
   @override
   final DateTime? arrival;
   @override
@@ -452,7 +454,7 @@ abstract class _SegmentDTO implements SegmentDTO {
   factory _SegmentDTO.fromJson(Map<String, dynamic> json) =
       _$_SegmentDTO.fromJson;
 
-  @override
+  @override //@JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime? get arrival => throw _privateConstructorUsedError;
   @override
   FromDTO? get from => throw _privateConstructorUsedError;

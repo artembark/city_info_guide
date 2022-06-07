@@ -169,7 +169,7 @@ class __$$_SchedulePointPointDTOCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_SchedulePointPointDTO extends _SchedulePointPointDTO {
   const _$_SchedulePointPointDTO(
-      {final List<dynamic>? intervalSegments,
+      {final List<dynamic>? intervalSegments = const [],
       this.pagination,
       final List<SegmentDTO>? segments,
       this.search})
@@ -182,6 +182,7 @@ class _$_SchedulePointPointDTO extends _SchedulePointPointDTO {
 
   final List<dynamic>? _intervalSegments;
   @override
+  @JsonKey()
   List<dynamic>? get intervalSegments {
     final value = _intervalSegments;
     if (value == null) return null;

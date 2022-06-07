@@ -97,3 +97,12 @@ flutter test --coverage
 genhtml coverage/lcov.info -o coverage/html
 open coverage/html/index.html
 ```
+
+##Config for json_serializable in `build.yaml`
+```targets:
+$default:
+builders:
+json_serializable:
+options:
+explicit_to_json: true
+field_rename: snake```

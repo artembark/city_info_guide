@@ -1,11 +1,16 @@
-class TransportSubtypeEntity {
-  dynamic color;
-  dynamic code;
-  dynamic title;
+import 'package:equatable/equatable.dart';
 
-  TransportSubtypeEntity({
+class TransportSubtypeEntity extends Equatable {
+  final dynamic color;
+  final dynamic code;
+  final dynamic title;
+
+  const TransportSubtypeEntity({
     required this.color,
     required this.code,
     required this.title,
   });
+
+  @override
+  List<Object?> get props => [color, code, title];
 }

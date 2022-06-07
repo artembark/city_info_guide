@@ -8,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../helpers/dummy_data/dummy_schedule_point_point_dto.dart';
 import '../../helpers/json_reader.dart';
 
 main() {
@@ -29,9 +30,6 @@ main() {
     test('getSchedulePointPointSuccess', () async {
       final jsonFromFile = jsonDecode(
           readJson('helpers/dummy_data/dummy_response_without_transfers.json'));
-      final tSchedulePointPointDTO =
-          SchedulePointPointDTO.fromJson(jsonFromFile);
-
       const path = '/v3.0/search/';
 
       // dioAdapter.onGet(path, (server) {

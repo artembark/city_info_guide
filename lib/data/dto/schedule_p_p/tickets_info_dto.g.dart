@@ -8,12 +8,12 @@ part of 'tickets_info_dto.dart';
 
 _$_TicketsInfoDTO _$$_TicketsInfoDTOFromJson(Map<String, dynamic> json) =>
     _$_TicketsInfoDTO(
-      etMarker: json['etMarker'] as bool?,
+      etMarker: json['et_marker'] as bool?,
       places: json['places'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$$_TicketsInfoDTOToJson(_$_TicketsInfoDTO instance) =>
     <String, dynamic>{
-      'etMarker': instance.etMarker,
+      'et_marker': instance.etMarker,
       'places': instance.places,
     };

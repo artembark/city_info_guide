@@ -1,12 +1,14 @@
-class ToEntity {
-  String? code;
-  String? title;
-  String? stationType;
-  String? popularTitle;
-  String? shortTitle;
-  String? transportType;
-  String? stationTypeName;
-  String? type;
+import 'package:equatable/equatable.dart';
+
+class ToEntity extends Equatable {
+  final String? code;
+  final String? title;
+  final String? stationType;
+  final String? popularTitle;
+  final String? shortTitle;
+  final String? transportType;
+  final String? stationTypeName;
+  final String? type;
 
   ToEntity({
     required this.code,
@@ -18,4 +20,16 @@ class ToEntity {
     required this.stationTypeName,
     required this.type,
   });
+
+  @override
+  List<Object?> get props => [
+        code,
+        title,
+        stationType,
+        popularTitle,
+        shortTitle,
+        transportType,
+        stationTypeName,
+        type
+      ];
 }

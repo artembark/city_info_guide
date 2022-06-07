@@ -1,14 +1,16 @@
-class FromEntity {
-  String? code;
-  String? title;
-  String? stationType;
-  String? popularTitle;
-  String? shortTitle;
-  String? transportType;
-  String? stationTypeName;
-  String? type;
+import 'package:equatable/equatable.dart';
 
-  FromEntity({
+class FromEntity extends Equatable {
+  final String? code;
+  final String? title;
+  final String? stationType;
+  final String? popularTitle;
+  final String? shortTitle;
+  final String? transportType;
+  final String? stationTypeName;
+  final String? type;
+
+  const FromEntity({
     required this.code,
     required this.title,
     required this.stationType,
@@ -18,4 +20,16 @@ class FromEntity {
     required this.stationTypeName,
     required this.type,
   });
+
+  @override
+  List<Object?> get props => [
+        code,
+        title,
+        stationType,
+        popularTitle,
+        shortTitle,
+        transportType,
+        stationTypeName,
+        type
+      ];
 }
