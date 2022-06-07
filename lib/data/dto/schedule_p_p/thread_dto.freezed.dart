@@ -227,7 +227,7 @@ class __$$_ThreadDTOCopyWithImpl<$Res> extends _$ThreadDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ThreadDTO implements _ThreadDTO {
+class _$_ThreadDTO extends _ThreadDTO {
   const _$_ThreadDTO(
       {this.uid,
       this.title,
@@ -238,7 +238,8 @@ class _$_ThreadDTO implements _ThreadDTO {
       this.transportType,
       this.vehicle,
       this.transportSubtype,
-      this.expressType});
+      this.expressType})
+      : super._();
 
   factory _$_ThreadDTO.fromJson(Map<String, dynamic> json) =>
       _$$_ThreadDTOFromJson(json);
@@ -317,7 +318,7 @@ class _$_ThreadDTO implements _ThreadDTO {
   }
 }
 
-abstract class _ThreadDTO implements ThreadDTO {
+abstract class _ThreadDTO extends ThreadDTO {
   const factory _ThreadDTO(
       {final String? uid,
       final String? title,
@@ -329,6 +330,7 @@ abstract class _ThreadDTO implements ThreadDTO {
       final dynamic vehicle,
       final TransportSubtypeDTO? transportSubtype,
       final dynamic expressType}) = _$_ThreadDTO;
+  const _ThreadDTO._() : super._();
 
   factory _ThreadDTO.fromJson(Map<String, dynamic> json) =
       _$_ThreadDTO.fromJson;

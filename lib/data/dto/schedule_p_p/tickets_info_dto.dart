@@ -8,6 +8,7 @@ part 'tickets_info_dto.g.dart';
 
 @freezed
 class TicketsInfoDTO with _$TicketsInfoDTO {
+  const TicketsInfoDTO._();
   const factory TicketsInfoDTO({
     bool? etMarker,
     List<dynamic>? places,
@@ -15,6 +16,11 @@ class TicketsInfoDTO with _$TicketsInfoDTO {
 
   factory TicketsInfoDTO.fromJson(Map<String, dynamic> json) =>
       _$TicketsInfoDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'TicketsInfoDTO(etMarker: $etMarker, places: $places)';
+  // }
 }
 
 extension TicketsInfoMapper on TicketsInfoDTO {

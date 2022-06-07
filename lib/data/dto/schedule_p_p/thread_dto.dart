@@ -8,6 +8,7 @@ part 'thread_dto.g.dart';
 
 @freezed
 class ThreadDTO with _$ThreadDTO {
+  const ThreadDTO._();
   const factory ThreadDTO({
     String? uid,
     String? title,
@@ -23,6 +24,11 @@ class ThreadDTO with _$ThreadDTO {
 
   factory ThreadDTO.fromJson(Map<String, dynamic> json) =>
       _$ThreadDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'ThreadDTO(uid: \'$uid\', title: \'$title\', number: \'$number\', shortTitle: \'$shortTitle\', threadMethodLink: \'$threadMethodLink\', carrier: \'$carrier\', transportType: \'$transportType\', vehicle: \'$vehicle\', transportSubtype: $transportSubtype, expressType: \'$expressType\')';
+  // }
 }
 
 extension ThreadMapper on ThreadDTO {

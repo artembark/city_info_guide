@@ -12,7 +12,7 @@ void main() {
 
   setUp(() {
     mockScheduleRepository = MockScheduleRepository();
-    usecase = GetSchedulePointPoint(mockScheduleRepository);
+    usecase = GetSchedulePointPoint(scheduleRepository: mockScheduleRepository);
   });
 
   test(
@@ -21,8 +21,8 @@ void main() {
       when(mockScheduleRepository.getSchedulePointPoint(
               from: 'c2', to: 'c10893', date: DateTime(2022, 6, 10)))
           .thenAnswer((_) async => Right(tSchedulePointPointEntity));
-      final result = await usecase.execute(
-          from: 'c2', to: 'c10893', date: DateTime(2022, 6, 10));
+      final result = await usecase.call(SchedulePointPointParams(
+          from: 'c2', to: 'c10893', dateTime: DateTime(2022, 6, 10)));
       expect(result, equals(Right(tSchedulePointPointEntity)));
     },
   );

@@ -12,6 +12,7 @@ part 'segment_dto.g.dart';
 
 @freezed
 class SegmentDTO with _$SegmentDTO {
+  const SegmentDTO._();
   const factory SegmentDTO({
     //@JsonKey(fromJson: _fromJson, toJson: _toJson)
     DateTime? arrival,
@@ -33,7 +34,12 @@ class SegmentDTO with _$SegmentDTO {
   factory SegmentDTO.fromJson(Map<String, dynamic> json) =>
       _$SegmentDTOFromJson(json);
 
-  // DateTime _fromJson(String date) => DateFormat('M/D/yyyy').parse(date);
+  // @override
+  // String toString() {
+  //   return 'SegmentDTO(arrival: \'${arrival?.toIso8601String()}\', from: $from, thread: $thread, departurePlatform: \'$departurePlatform\', departure: \'$departure\', stops: $stops, departureTerminal: \'$departureTerminal\', to: $to, hasTransfers: $hasTransfers, ticketsInfo: $ticketsInfo, duration: $duration, arrivalTerminal: \'$arrivalTerminal\', startDate: \'$startDate\', arrivalPlatform: \'$arrivalPlatform)\'';
+  // }
+
+// DateTime _fromJson(String date) => DateFormat('M/D/yyyy').parse(date);
   // String _toJson(DateTime date) => DateFormat('M/D/yyyy').format(date);
 }
 

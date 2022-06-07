@@ -9,6 +9,7 @@ part 'search_dto.g.dart';
 
 @freezed
 class SearchDTO with _$SearchDTO {
+  const SearchDTO._();
   const factory SearchDTO({
     String? date,
     ToDTO? to,
@@ -17,6 +18,11 @@ class SearchDTO with _$SearchDTO {
 
   factory SearchDTO.fromJson(Map<String, dynamic> json) =>
       _$SearchDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'SearchDTO(date: \'$date\', to: $to, from: $from)';
+  // }
 }
 
 extension SearchMapper on SearchDTO {

@@ -30,6 +30,10 @@ main() {
     test('getSchedulePointPointSuccess', () async {
       final jsonFromFile = jsonDecode(
           readJson('helpers/dummy_data/dummy_response_without_transfers.json'));
+      // final tSchedulePointPointDTO =
+      //     SchedulePointPointDTO.fromJson(jsonFromFile);
+      // final tSchedulePointPointDTO = tSchedulePointPontDTO;
+      // print(tSchedulePointPointDTO);
       const path = '/v3.0/search/';
 
       // dioAdapter.onGet(path, (server) {

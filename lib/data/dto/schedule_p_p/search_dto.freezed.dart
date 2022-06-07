@@ -142,8 +142,8 @@ class __$$_SearchDTOCopyWithImpl<$Res> extends _$SearchDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SearchDTO implements _SearchDTO {
-  const _$_SearchDTO({this.date, this.to, this.from});
+class _$_SearchDTO extends _SearchDTO {
+  const _$_SearchDTO({this.date, this.to, this.from}) : super._();
 
   factory _$_SearchDTO.fromJson(Map<String, dynamic> json) =>
       _$$_SearchDTOFromJson(json);
@@ -189,11 +189,12 @@ class _$_SearchDTO implements _SearchDTO {
   }
 }
 
-abstract class _SearchDTO implements SearchDTO {
+abstract class _SearchDTO extends SearchDTO {
   const factory _SearchDTO(
       {final String? date,
       final ToDTO? to,
       final FromDTO? from}) = _$_SearchDTO;
+  const _SearchDTO._() : super._();
 
   factory _SearchDTO.fromJson(Map<String, dynamic> json) =
       _$_SearchDTO.fromJson;

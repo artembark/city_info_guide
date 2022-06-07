@@ -322,7 +322,7 @@ class __$$_SegmentDTOCopyWithImpl<$Res> extends _$SegmentDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SegmentDTO implements _SegmentDTO {
+class _$_SegmentDTO extends _SegmentDTO {
   const _$_SegmentDTO(
       {this.arrival,
       this.from,
@@ -337,7 +337,8 @@ class _$_SegmentDTO implements _SegmentDTO {
       this.duration,
       this.arrivalTerminal,
       this.startDate,
-      this.arrivalPlatform});
+      this.arrivalPlatform})
+      : super._();
 
   factory _$_SegmentDTO.fromJson(Map<String, dynamic> json) =>
       _$$_SegmentDTOFromJson(json);
@@ -434,7 +435,7 @@ class _$_SegmentDTO implements _SegmentDTO {
   }
 }
 
-abstract class _SegmentDTO implements SegmentDTO {
+abstract class _SegmentDTO extends SegmentDTO {
   const factory _SegmentDTO(
       {final DateTime? arrival,
       final FromDTO? from,
@@ -450,6 +451,7 @@ abstract class _SegmentDTO implements SegmentDTO {
       final dynamic arrivalTerminal,
       final String? startDate,
       final String? arrivalPlatform}) = _$_SegmentDTO;
+  const _SegmentDTO._() : super._();
 
   factory _SegmentDTO.fromJson(Map<String, dynamic> json) =
       _$_SegmentDTO.fromJson;

@@ -7,6 +7,7 @@ part 'to_dto.g.dart';
 
 @freezed
 class ToDTO with _$ToDTO {
+  const ToDTO._();
   const factory ToDTO({
     String? code,
     String? title,
@@ -19,6 +20,11 @@ class ToDTO with _$ToDTO {
   }) = _ToDTO;
 
   factory ToDTO.fromJson(Map<String, dynamic> json) => _$ToDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'ToDTO(code: \'$code\', title: \'$title\', stationType: \'$stationType\', popularTitle: \'$popularTitle\', shortTitle: \'$shortTitle\', transportType: \'$transportType\', stationTypeName: \'$stationTypeName\', type: \'$type\')';
+  // }
 }
 
 extension ToMapper on ToDTO {

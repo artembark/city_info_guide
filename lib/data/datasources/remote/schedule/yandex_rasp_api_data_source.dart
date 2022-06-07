@@ -43,6 +43,10 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       'format': 'json',
       'lang': 'ru_RU'
     });
-    return NearestSettlementDTO.fromJson(response.data);
+    if (response.statusCode == 200) {
+      return NearestSettlementDTO.fromJson(response.data);
+    } else {
+      throw ServerException();
+    }
   }
 }

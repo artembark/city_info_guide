@@ -105,9 +105,10 @@ class __$$_TicketsInfoDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TicketsInfoDTO implements _TicketsInfoDTO {
+class _$_TicketsInfoDTO extends _TicketsInfoDTO {
   const _$_TicketsInfoDTO({this.etMarker, final List<dynamic>? places})
-      : _places = places;
+      : _places = places,
+        super._();
 
   factory _$_TicketsInfoDTO.fromJson(Map<String, dynamic> json) =>
       _$$_TicketsInfoDTOFromJson(json);
@@ -155,9 +156,10 @@ class _$_TicketsInfoDTO implements _TicketsInfoDTO {
   }
 }
 
-abstract class _TicketsInfoDTO implements TicketsInfoDTO {
+abstract class _TicketsInfoDTO extends TicketsInfoDTO {
   const factory _TicketsInfoDTO(
       {final bool? etMarker, final List<dynamic>? places}) = _$_TicketsInfoDTO;
+  const _TicketsInfoDTO._() : super._();
 
   factory _TicketsInfoDTO.fromJson(Map<String, dynamic> json) =
       _$_TicketsInfoDTO.fromJson;

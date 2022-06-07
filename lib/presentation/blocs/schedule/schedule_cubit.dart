@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:city_info_guide/domain/entities/schedule_request.dart';
-import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
-import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart';
-import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
+import 'package:city_info_guide/domain/usecases/get_nearest_settlement.dart';
 import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
+import 'package:city_info_guide/domain/usecases/usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
@@ -14,17 +13,13 @@ part 'schedule_cubit.freezed.dart';
 
 class ScheduleCubit extends Cubit<ScheduleState> {
   ScheduleCubit({
-    required this.nearestSettlementRepository,
-    required this.geolocationRepository,
-    required this.schedulePointPointRepository,
     required this.getSchedulePointPoint,
+    required this.getNearestSettlement,
   }) : super(
           ScheduleState.citiesSubmitting(scheduleRequest: ScheduleRequest()),
         );
-  final ScheduleRepository schedulePointPointRepository;
-  final GeolocationRepository geolocationRepository;
-  final NearestSettlementRepository nearestSettlementRepository;
   final GetSchedulePointPoint getSchedulePointPoint;
+  final GetNearestSettlement getNearestSettlement;
 
   setFrom(String from) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
@@ -60,26 +55,24 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   }
 
   getPosition() async {
-    //TODO: try on Exception
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(
         scheduleRequest: scheduleRequest, requestingLocation: true));
 
-    final position = await geolocationRepository.getCurrentPosition();
-    if (position == null) return;
+    final nearestSettlement = await getNearestSettlement.call(NoParams());
 
-    final nearestSettlement = await nearestSettlementRepository
-        .getNearestSettlement(lat: position.latitude, lon: position.longitude);
+    nearestSettlement.fold(
+        (l) => emit(const ScheduleState.resultsFailure('Error')),
+        (nearestSettlement) => emit(
+              ScheduleState.citiesSubmitting(
+                scheduleRequest: scheduleRequest.copyWith(
+                  from: nearestSettlement.code,
+                  fromTitle: nearestSettlement.title,
+                ),
+                requestingLocation: false,
+              ),
+            ));
 
-    emit(
-      ScheduleState.citiesSubmitting(
-        scheduleRequest: scheduleRequest.copyWith(
-          from: nearestSettlement.code,
-          fromTitle: nearestSettlement.title,
-        ),
-        requestingLocation: false,
-      ),
-    );
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(
@@ -92,19 +85,23 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   getSchedule() async {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(const ScheduleState.resultsLoading());
-    final schedulePointPoint = await getSchedulePointPoint.execute(
-        from: scheduleRequest.from ?? '',
-        to: scheduleRequest.to ?? '',
-        date: scheduleRequest.date ?? DateTime.now());
-    schedulePointPoint
-        .fold((failure) => emit(ScheduleState.resultsFailure(failure.message)),
-            (data) {
-      if (data.pagination?.total == 0) {
-        emit(const ScheduleState.resultsEmpty());
-      } else {
-        emit(ScheduleState.resultsLoaded(data));
-      }
-    });
+    final schedulePointPoint = await getSchedulePointPoint.call(
+        SchedulePointPointParams(
+            from: scheduleRequest.from ?? '',
+            to: scheduleRequest.to ?? '',
+            dateTime: scheduleRequest.date ?? DateTime.now()));
+    schedulePointPoint.fold(
+      (failure) => emit(
+        ScheduleState.resultsFailure(failure.message),
+      ),
+      (data) {
+        if (data.pagination?.total == 0) {
+          emit(const ScheduleState.resultsEmpty());
+        } else {
+          emit(ScheduleState.resultsLoaded(data));
+        }
+      },
+    );
 
     // state.maybeMap(
     //     citiesSubmitting: (state) async {

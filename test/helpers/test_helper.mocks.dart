@@ -5,17 +5,24 @@
 import 'dart:async' as _i6;
 
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart'
-    as _i9;
+    as _i13;
 import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart'
     as _i4;
 import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart'
     as _i3;
 import 'package:city_info_guide/data/failure.dart' as _i7;
+import 'package:city_info_guide/domain/entities/nearest_settlement_entity.dart'
+    as _i10;
 import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point_entity.dart'
-    as _i8;
-import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart'
+    as _i12;
+import 'package:city_info_guide/domain/repositories/geolocation_repository.dart'
     as _i5;
+import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart'
+    as _i9;
+import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart'
+    as _i11;
 import 'package:dartz/dartz.dart' as _i2;
+import 'package:geolocator/geolocator.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -36,32 +43,68 @@ class _FakeSchedulePointPointDTO_1 extends _i1.Fake
 class _FakeNearestSettlementDTO_2 extends _i1.Fake
     implements _i4.NearestSettlementDTO {}
 
+/// A class which mocks [GeolocationRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGeolocationRepository extends _i1.Mock
+    implements _i5.GeolocationRepository {
+  MockGeolocationRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, _i8.Position>> getCurrentPosition() =>
+      (super.noSuchMethod(Invocation.method(#getCurrentPosition, []),
+              returnValue: Future<_i2.Either<_i7.Failure, _i8.Position>>.value(
+                  _FakeEither_0<_i7.Failure, _i8.Position>()))
+          as _i6.Future<_i2.Either<_i7.Failure, _i8.Position>>);
+}
+
+/// A class which mocks [NearestSettlementRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNearestSettlementRepository extends _i1.Mock
+    implements _i9.NearestSettlementRepository {
+  MockNearestSettlementRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i6.Future<_i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>
+      getNearestSettlement({double? lat, double? lon}) => (super.noSuchMethod(
+          Invocation.method(#getNearestSettlement, [], {#lat: lat, #lon: lon}),
+          returnValue: Future<
+                  _i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>.value(
+              _FakeEither_0<_i7.Failure, _i10.NearestSettlementEntity>())) as _i6
+          .Future<_i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>);
+}
+
 /// A class which mocks [ScheduleRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockScheduleRepository extends _i1.Mock
-    implements _i5.ScheduleRepository {
+    implements _i11.ScheduleRepository {
   MockScheduleRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, _i8.SchedulePointPointEntity>>
+  _i6.Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>
       getSchedulePointPoint({String? from, String? to, DateTime? date}) =>
           (super.noSuchMethod(
               Invocation.method(#getSchedulePointPoint, [],
                   {#from: from, #to: to, #date: date}),
               returnValue:
-                  Future<_i2.Either<_i7.Failure, _i8.SchedulePointPointEntity>>.value(
-                      _FakeEither_0<_i7.Failure, _i8.SchedulePointPointEntity>())) as _i6
-              .Future<_i2.Either<_i7.Failure, _i8.SchedulePointPointEntity>>);
+                  Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>.value(
+                      _FakeEither_0<_i7.Failure, _i12.SchedulePointPointEntity>())) as _i6
+              .Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>);
 }
 
 /// A class which mocks [ScheduleApiDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockScheduleApiDataSource extends _i1.Mock
-    implements _i9.ScheduleApiDataSource {
+    implements _i13.ScheduleApiDataSource {
   MockScheduleApiDataSource() {
     _i1.throwOnMissingStub(this);
   }

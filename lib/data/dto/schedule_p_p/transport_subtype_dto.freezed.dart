@@ -116,8 +116,8 @@ class __$$_TransportSubtypeDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TransportSubtypeDTO implements _TransportSubtypeDTO {
-  const _$_TransportSubtypeDTO({this.color, this.code, this.title});
+class _$_TransportSubtypeDTO extends _TransportSubtypeDTO {
+  const _$_TransportSubtypeDTO({this.color, this.code, this.title}) : super._();
 
   factory _$_TransportSubtypeDTO.fromJson(Map<String, dynamic> json) =>
       _$$_TransportSubtypeDTOFromJson(json);
@@ -164,11 +164,12 @@ class _$_TransportSubtypeDTO implements _TransportSubtypeDTO {
   }
 }
 
-abstract class _TransportSubtypeDTO implements TransportSubtypeDTO {
+abstract class _TransportSubtypeDTO extends TransportSubtypeDTO {
   const factory _TransportSubtypeDTO(
       {final dynamic color,
       final dynamic code,
       final dynamic title}) = _$_TransportSubtypeDTO;
+  const _TransportSubtypeDTO._() : super._();
 
   factory _TransportSubtypeDTO.fromJson(Map<String, dynamic> json) =
       _$_TransportSubtypeDTO.fromJson;

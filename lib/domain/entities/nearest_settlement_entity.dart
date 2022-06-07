@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'nearest_settlement.freezed.dart';
+part 'nearest_settlement_entity.freezed.dart';
 
 @freezed
-class NearestSettlement with _$NearestSettlement {
-  factory NearestSettlement({
+class NearestSettlementEntity with _$NearestSettlementEntity {
+  factory NearestSettlementEntity({
     required double? distance,
     required String? code,
     required String? title,
@@ -13,5 +13,5 @@ class NearestSettlement with _$NearestSettlement {
     required double? lat,
     required double? lng,
     required String? type,
-  }) = _NearestSettlement;
+  }) = _NearestSettlementEntity;
 }

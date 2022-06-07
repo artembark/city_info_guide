@@ -6,21 +6,21 @@ part of 'nearest_settlement_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NearestSettlementDTO _$NearestSettlementDTOFromJson(
+_$_NearestSettlementDTO _$$_NearestSettlementDTOFromJson(
         Map<String, dynamic> json) =>
-    NearestSettlementDTO(
-      (json['distance'] as num?)?.toDouble(),
-      json['code'] as String?,
-      json['title'] as String?,
-      json['popular_title'] as String?,
-      json['short_title'] as String?,
-      (json['lat'] as num?)?.toDouble(),
-      (json['lng'] as num?)?.toDouble(),
-      json['type'] as String?,
+    _$_NearestSettlementDTO(
+      distance: (json['distance'] as num?)?.toDouble(),
+      code: json['code'] as String?,
+      title: json['title'] as String?,
+      popularTitle: json['popular_title'] as String?,
+      shortTitle: json['short_title'] as String?,
+      lat: (json['lat'] as num?)?.toDouble(),
+      lng: (json['lng'] as num?)?.toDouble(),
+      type: json['type'] as String?,
     );
 
-Map<String, dynamic> _$NearestSettlementDTOToJson(
-        NearestSettlementDTO instance) =>
+Map<String, dynamic> _$$_NearestSettlementDTOToJson(
+        _$_NearestSettlementDTO instance) =>
     <String, dynamic>{
       'distance': instance.distance,
       'code': instance.code,

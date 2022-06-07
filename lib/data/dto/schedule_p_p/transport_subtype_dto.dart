@@ -8,6 +8,7 @@ part 'transport_subtype_dto.g.dart';
 
 @freezed
 class TransportSubtypeDTO with _$TransportSubtypeDTO {
+  const TransportSubtypeDTO._();
   const factory TransportSubtypeDTO({
     dynamic color,
     dynamic code,
@@ -16,6 +17,11 @@ class TransportSubtypeDTO with _$TransportSubtypeDTO {
 
   factory TransportSubtypeDTO.fromJson(Map<String, dynamic> json) =>
       _$TransportSubtypeDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'TransportSubtypeDTO(color: \'$color\', code: \'$code\', title: \'$title\')';
+  // }
 }
 
 extension TransportSubtypeMapper on TransportSubtypeDTO {

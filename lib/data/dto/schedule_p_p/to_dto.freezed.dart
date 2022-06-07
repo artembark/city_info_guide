@@ -180,7 +180,7 @@ class __$$_ToDTOCopyWithImpl<$Res> extends _$ToDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ToDTO implements _ToDTO {
+class _$_ToDTO extends _ToDTO {
   const _$_ToDTO(
       {this.code,
       this.title,
@@ -189,7 +189,8 @@ class _$_ToDTO implements _ToDTO {
       this.shortTitle,
       this.transportType,
       this.stationTypeName,
-      this.type});
+      this.type})
+      : super._();
 
   factory _$_ToDTO.fromJson(Map<String, dynamic> json) =>
       _$$_ToDTOFromJson(json);
@@ -260,7 +261,7 @@ class _$_ToDTO implements _ToDTO {
   }
 }
 
-abstract class _ToDTO implements ToDTO {
+abstract class _ToDTO extends ToDTO {
   const factory _ToDTO(
       {final String? code,
       final String? title,
@@ -270,6 +271,7 @@ abstract class _ToDTO implements ToDTO {
       final String? transportType,
       final String? stationTypeName,
       final String? type}) = _$_ToDTO;
+  const _ToDTO._() : super._();
 
   factory _ToDTO.fromJson(Map<String, dynamic> json) = _$_ToDTO.fromJson;
 

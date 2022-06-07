@@ -12,7 +12,7 @@ final tSchedulePointPointDTO = SchedulePointPointDTO(
   segments: [
     SegmentDTO(
         arrival: DateTime.parse('2022-06-15T07:31:00+03:00'),
-        from: const FromDTO(
+        from: FromDTO(
             code: 's9813869',
             title: 'Приозерск',
             stationType: 'bus_station',
@@ -54,7 +54,7 @@ final tSchedulePointPointDTO = SchedulePointPointDTO(
         arrivalPlatform: null),
     SegmentDTO(
         arrival: DateTime.parse('2022-06-15T08:08:00+03:00'),
-        from: const FromDTO(
+        from: FromDTO(
             code: 's9813869',
             title: 'Приозерск',
             stationType: null,
@@ -94,9 +94,9 @@ final tSchedulePointPointDTO = SchedulePointPointDTO(
         startDate: null,
         arrivalPlatform: null)
   ],
-  search: const SearchDTO(
+  search: SearchDTO(
     date: '2022-06-15',
-    to: ToDTO(
+    to: const ToDTO(
         code: 'c2',
         title: 'Санкт-Петербург',
         stationType: null,

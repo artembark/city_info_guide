@@ -181,8 +181,8 @@ class __$$_FromDTOCopyWithImpl<$Res> extends _$FromDTOCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FromDTO implements _FromDTO {
-  const _$_FromDTO(
+class _$_FromDTO extends _FromDTO {
+  _$_FromDTO(
       {this.code,
       this.title,
       this.stationType,
@@ -190,7 +190,8 @@ class _$_FromDTO implements _FromDTO {
       this.shortTitle,
       this.transportType,
       this.stationTypeName,
-      this.type});
+      this.type})
+      : super._();
 
   factory _$_FromDTO.fromJson(Map<String, dynamic> json) =>
       _$$_FromDTOFromJson(json);
@@ -261,8 +262,8 @@ class _$_FromDTO implements _FromDTO {
   }
 }
 
-abstract class _FromDTO implements FromDTO {
-  const factory _FromDTO(
+abstract class _FromDTO extends FromDTO {
+  factory _FromDTO(
       {final String? code,
       final String? title,
       final String? stationType,
@@ -271,6 +272,7 @@ abstract class _FromDTO implements FromDTO {
       final String? transportType,
       final String? stationTypeName,
       final String? type}) = _$_FromDTO;
+  _FromDTO._() : super._();
 
   factory _FromDTO.fromJson(Map<String, dynamic> json) = _$_FromDTO.fromJson;
 
