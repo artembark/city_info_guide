@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">28.6 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-06-06 03:20:12</td>
+            <td class="headerValue">2022-06-08 02:14:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -61,33 +61,34 @@
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : import 'package:freezed_annotation/freezed_annotation.dart';</a>
-<a name="2"><span class="lineNum">       2 </span>            : import '../../../domain/entities/schedule_p_p/pagination.dart';</a>
-<a name="3"><span class="lineNum">       3 </span>            : </a>
-<a name="4"><span class="lineNum">       4 </span>            : part 'pagination_dto.freezed.dart';</a>
-<a name="5"><span class="lineNum">       5 </span>            : </a>
-<a name="6"><span class="lineNum">       6 </span>            : part 'pagination_dto.g.dart';</a>
-<a name="7"><span class="lineNum">       7 </span>            : </a>
-<a name="8"><span class="lineNum">       8 </span>            : @freezed</a>
-<a name="9"><span class="lineNum">       9 </span>            : class PaginationDTO with _$PaginationDTO {</a>
-<a name="10"><span class="lineNum">      10 </span>            :   const factory PaginationDTO({</a>
-<a name="11"><span class="lineNum">      11 </span>            :     int? total,</a>
-<a name="12"><span class="lineNum">      12 </span>            :     int? limit,</a>
-<a name="13"><span class="lineNum">      13 </span>            :     int? offset,</a>
-<a name="14"><span class="lineNum">      14 </span>            :   }) = _PaginationDTO;</a>
-<a name="15"><span class="lineNum">      15 </span>            : </a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          1 :   factory PaginationDTO.fromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :       _$PaginationDTOFromJson(json);</span></a>
-<a name="18"><span class="lineNum">      18 </span>            : }</a>
-<a name="19"><span class="lineNum">      19 </span>            : </a>
-<a name="20"><span class="lineNum">      20 </span>            : extension PaginationMapper on PaginationDTO {</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :   Pagination toModel() {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineNoCov">          0 :     return Pagination(</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineNoCov">          0 :       total: total,</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineNoCov">          0 :       limit: limit,</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineNoCov">          0 :       offset: offset,</span></a>
-<a name="26"><span class="lineNum">      26 </span>            :     );</a>
-<a name="27"><span class="lineNum">      27 </span>            :   }</a>
-<a name="28"><span class="lineNum">      28 </span>            : }</a>
+<a name="2"><span class="lineNum">       2 </span>            : </a>
+<a name="3"><span class="lineNum">       3 </span>            : import '../../../domain/entities/schedule_p_p/pagination_entity.dart';</a>
+<a name="4"><span class="lineNum">       4 </span>            : </a>
+<a name="5"><span class="lineNum">       5 </span>            : part 'pagination_dto.freezed.dart';</a>
+<a name="6"><span class="lineNum">       6 </span>            : </a>
+<a name="7"><span class="lineNum">       7 </span>            : part 'pagination_dto.g.dart';</a>
+<a name="8"><span class="lineNum">       8 </span>            : </a>
+<a name="9"><span class="lineNum">       9 </span>            : @freezed</a>
+<a name="10"><span class="lineNum">      10 </span>            : class PaginationDTO with _$PaginationDTO {</a>
+<a name="11"><span class="lineNum">      11 </span>            :   const factory PaginationDTO({</a>
+<a name="12"><span class="lineNum">      12 </span>            :     int? total,</a>
+<a name="13"><span class="lineNum">      13 </span>            :     int? limit,</a>
+<a name="14"><span class="lineNum">      14 </span>            :     int? offset,</a>
+<a name="15"><span class="lineNum">      15 </span>            :   }) = _PaginationDTO;</a>
+<a name="16"><span class="lineNum">      16 </span>            : </a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          2 :   factory PaginationDTO.fromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          2 :       _$PaginationDTOFromJson(json);</span></a>
+<a name="19"><span class="lineNum">      19 </span>            : }</a>
+<a name="20"><span class="lineNum">      20 </span>            : </a>
+<a name="21"><span class="lineNum">      21 </span>            : extension PaginationMapper on PaginationDTO {</a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          1 :   PaginationEntity toEntity() {</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          1 :     return PaginationEntity(</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          1 :       total: total,</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">          1 :       limit: limit,</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">          1 :       offset: offset,</span></a>
+<a name="27"><span class="lineNum">      27 </span>            :     );</a>
+<a name="28"><span class="lineNum">      28 </span>            :   }</a>
+<a name="29"><span class="lineNum">      29 </span>            : }</a>
 </pre>
       </td>
     </tr>

@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-06-06 03:20:12</td>
+            <td class="headerValue">2022-06-08 02:14:32</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -62,7 +62,7 @@
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : import 'package:freezed_annotation/freezed_annotation.dart';</a>
 <a name="2"><span class="lineNum">       2 </span>            : </a>
-<a name="3"><span class="lineNum">       3 </span>            : import '../../../domain/entities/schedule_p_p/tickets_info.dart';</a>
+<a name="3"><span class="lineNum">       3 </span>            : import '../../../domain/entities/schedule_p_p/tickets_info_entity.dart';</a>
 <a name="4"><span class="lineNum">       4 </span>            : </a>
 <a name="5"><span class="lineNum">       5 </span>            : part 'tickets_info_dto.freezed.dart';</a>
 <a name="6"><span class="lineNum">       6 </span>            : </a>
@@ -70,23 +70,29 @@
 <a name="8"><span class="lineNum">       8 </span>            : </a>
 <a name="9"><span class="lineNum">       9 </span>            : @freezed</a>
 <a name="10"><span class="lineNum">      10 </span>            : class TicketsInfoDTO with _$TicketsInfoDTO {</a>
-<a name="11"><span class="lineNum">      11 </span>            :   const factory TicketsInfoDTO({</a>
-<a name="12"><span class="lineNum">      12 </span>            :     bool? etMarker,</a>
-<a name="13"><span class="lineNum">      13 </span>            :     List&lt;dynamic&gt;? places,</a>
-<a name="14"><span class="lineNum">      14 </span>            :   }) = _TicketsInfoDTO;</a>
-<a name="15"><span class="lineNum">      15 </span>            : </a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :   factory TicketsInfoDTO.fromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineNoCov">          0 :       _$TicketsInfoDTOFromJson(json);</span></a>
-<a name="18"><span class="lineNum">      18 </span>            : }</a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          3 :   const TicketsInfoDTO._();</span></a>
+<a name="12"><span class="lineNum">      12 </span>            :   const factory TicketsInfoDTO({</a>
+<a name="13"><span class="lineNum">      13 </span>            :     bool? etMarker,</a>
+<a name="14"><span class="lineNum">      14 </span>            :     List&lt;dynamic&gt;? places,</a>
+<a name="15"><span class="lineNum">      15 </span>            :   }) = _TicketsInfoDTO;</a>
+<a name="16"><span class="lineNum">      16 </span>            : </a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          2 :   factory TicketsInfoDTO.fromJson(Map&lt;String, dynamic&gt; json) =&gt;</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          2 :       _$TicketsInfoDTOFromJson(json);</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
-<a name="20"><span class="lineNum">      20 </span>            : extension TicketsInfoMapper on TicketsInfoDTO {</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :   TicketsInfo toModel() {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineNoCov">          0 :     return TicketsInfo(</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineNoCov">          0 :       etMarker: etMarker,</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineNoCov">          0 :       places: places,</span></a>
-<a name="25"><span class="lineNum">      25 </span>            :     );</a>
-<a name="26"><span class="lineNum">      26 </span>            :   }</a>
-<a name="27"><span class="lineNum">      27 </span>            : }</a>
+<a name="20"><span class="lineNum">      20 </span>            :   // @override</a>
+<a name="21"><span class="lineNum">      21 </span>            :   // String toString() {</a>
+<a name="22"><span class="lineNum">      22 </span>            :   //   return 'TicketsInfoDTO(etMarker: $etMarker, places: $places)';</a>
+<a name="23"><span class="lineNum">      23 </span>            :   // }</a>
+<a name="24"><span class="lineNum">      24 </span>            : }</a>
+<a name="25"><span class="lineNum">      25 </span>            : </a>
+<a name="26"><span class="lineNum">      26 </span>            : extension TicketsInfoMapper on TicketsInfoDTO {</a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          1 :   TicketsInfoEntity toEntity() {</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 :     return TicketsInfoEntity(</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">          1 :       etMarker: etMarker,</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">          1 :       places: places,</span></a>
+<a name="31"><span class="lineNum">      31 </span>            :     );</a>
+<a name="32"><span class="lineNum">      32 </span>            :   }</a>
+<a name="33"><span class="lineNum">      33 </span>            : }</a>
 </pre>
       </td>
     </tr>
