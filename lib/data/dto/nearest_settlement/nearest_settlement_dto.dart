@@ -9,8 +9,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 /// lat : 61.035787
 /// lng : 30.102868
 /// type : "settlement"
-part 'nearest_settlement_dto.g.dart';
 part 'nearest_settlement_dto.freezed.dart';
+part 'nearest_settlement_dto.g.dart';
 
 @freezed
 class NearestSettlementDTO with _$NearestSettlementDTO {

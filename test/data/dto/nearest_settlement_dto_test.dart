@@ -1,17 +1,9 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart';
-import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart';
 import 'package:city_info_guide/domain/entities/nearest_settlement_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import '../../helpers/dummy_data/dummy_schedule_point_point_dto.dart';
-import '../../helpers/dummy_data/dummy_schedule_point_point_entity.dart';
-import '../../helpers/dummy_data/new_dummmy_schedule_point_point_dto.dart';
-import '../../helpers/dummy_data/new_dummmy_schedule_point_point_entity.dart';
-import '../../helpers/json_reader.dart';
 
 void main() {
   final testNearestSettlementDTO = NearestSettlementDTO(
@@ -43,10 +35,11 @@ void main() {
 
   group('from json', () {
     test(
-      'should return a valid model from json',
+      'should return a valid nearest settlement model from json',
       () async {
         final Map<String, dynamic> jsonMap = json.decode(
-          readJson('helpers/dummy_data/dummy_nearest_settlement_response.json'),
+          File('test/helpers/dummy_data/dummy_nearest_settlement_response.json')
+              .readAsStringSync(),
         );
         final result = NearestSettlementDTO.fromJson(jsonMap);
         expect(result, equals(testNearestSettlementDTO));
@@ -59,7 +52,7 @@ void main() {
       'should return a json map containing proper data',
       () async {
         final result = testNearestSettlementDTO.toJson();
-        final Map<String, dynamic> expectedJsonMapFromFile = json.decode(
+        final Map<String, dynamic> expectedJsonMapFromFile = jsonDecode(
           File('test/helpers/dummy_data/dummy_nearest_settlement_response.json')
               .readAsStringSync(),
         );

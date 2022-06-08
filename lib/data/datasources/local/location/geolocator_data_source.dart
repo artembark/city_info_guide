@@ -1,5 +1,5 @@
 import 'package:geolocator/geolocator.dart';
-import 'location_data_sorce.dart';
+import 'location_data_source.dart';
 
 class GeolocatorDataSource implements LocationDataSource {
   /// Determine the current position of the device.

@@ -21,7 +21,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 
-import 'data/datasources/local/location/location_data_sorce.dart';
+import 'data/datasources/local/location/location_data_source.dart';
 import 'data/datasources/local/poi/poi_data_sorce.dart';
 import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
