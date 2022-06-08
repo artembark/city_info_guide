@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:city_info_guide/core/utils/secrets.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'package:city_info_guide/data/exception.dart';
 import 'package:dio/dio.dart';
