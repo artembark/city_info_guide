@@ -105,10 +105,13 @@ builders:
 json_serializable:
 options:
 explicit_to_json: true
-field_rename: snake```
+field_rename: snake
+```
 
 ## Android Studio file nesting rules
 In Visual Studio Code you can hide dedicated file types in project tree. But sometimes you still need to look inside this files.
-In Android Studio in oder to keep folder structure clear you can customize file nesting rules and add `*.g.dart` and `*.freezed.dart`.
-<img width="348" alt="menu" src="https://user-images.githubusercontent.com/30658712/172616371-2afc9596-64d1-4003-b4ff-d5483a9e83c3.png">
-<img width="607" alt="settings" src="https://user-images.githubusercontent.com/30658712/172616416-d4bbf00c-545a-49b0-9ca8-4831a018c3ca.png">
+In Android Studio in oder to keep folder structure clear you can customize file nesting rules and add `*.g.dart` and `*.freezed.dart`. Press settings button in the upper right corner of project tree window and select "File Nesting"
+
+<img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/172616371-2afc9596-64d1-4003-b4ff-d5483a9e83c3.png">
+Add file extensions separated by the `;`
+<img width="400" alt="settings" src="https://user-images.githubusercontent.com/30658712/172616416-d4bbf00c-545a-49b0-9ca8-4831a018c3ca.png">
