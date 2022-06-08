@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:city_info_guide/core/utils/secrets.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'package:city_info_guide/data/exception.dart';
@@ -18,7 +20,7 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       required String to,
       required DateTime date}) async {
     final response = await dio.get('/v3.0/search/', queryParameters: {
-      'apikey': yandexRaspApiKey,
+      'apikey': const String.fromEnvironment('API_KEY'),
       'from': from,
       'to': to,
       'date': DateFormat('yyyy-MM-dd').format(date),
@@ -36,7 +38,7 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       {required double lat, required double lon}) async {
     final response =
         await dio.get('/v3.0/nearest_settlement/', queryParameters: {
-      'apikey': yandexRaspApiKey,
+      'apikey': const String.fromEnvironment('API_KEY'),
       'lat': lat,
       'lng': lon,
       'distance': '50',
