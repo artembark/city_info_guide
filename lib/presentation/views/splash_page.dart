@@ -31,7 +31,7 @@ class _SplashPageState extends State<SplashPage> {
       setState(() {
         pos = true;
       });
-      return AutoRouter.of(context).push(const HomeRoute());
+      return AutoRouter.of(context).replace(const HomeRoute());
     });
   }
 

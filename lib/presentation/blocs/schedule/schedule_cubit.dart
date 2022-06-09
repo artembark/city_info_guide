@@ -21,10 +21,15 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   final GetSchedulePointPoint getSchedulePointPoint;
   final GetNearestSettlement getNearestSettlement;
 
-  setFrom(String from) {
+  init() {
+    emit(ScheduleState.citiesSubmitting(scheduleRequest: ScheduleRequest()));
+  }
+
+  setFromCity(String fromCode, String fromTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(
-        scheduleRequest: scheduleRequest.copyWith(from: from)));
+        scheduleRequest:
+            scheduleRequest.copyWith(from: fromCode, fromTitle: fromTitle)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(from: from));
@@ -32,10 +37,11 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     //     orElse: () {});
   }
 
-  setTo(String to) {
+  setToCity(String toCode, String toTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleState.citiesSubmitting(
-        scheduleRequest: scheduleRequest.copyWith(to: to)));
+        scheduleRequest:
+            scheduleRequest.copyWith(to: toCode, toTitle: toTitle)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(to: to));
@@ -84,6 +90,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   getSchedule() async {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
+    if (scheduleRequest.from == scheduleRequest.to) {}
     emit(const ScheduleState.resultsLoading());
     final schedulePointPoint = await getSchedulePointPoint.call(
         SchedulePointPointParams(
@@ -98,7 +105,8 @@ class ScheduleCubit extends Cubit<ScheduleState> {
         if (data.pagination?.total == 0) {
           emit(const ScheduleState.resultsEmpty());
         } else {
-          emit(ScheduleState.resultsLoaded(data));
+          emit(ScheduleState.toDetailsPage(data));
+          //emit(ScheduleState.resultsLoaded(data));
         }
       },
     );

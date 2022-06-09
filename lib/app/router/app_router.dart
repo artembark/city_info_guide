@@ -6,6 +6,7 @@ import 'package:city_info_guide/presentation/views/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../presentation/views/poi_page.dart';
+import '../../presentation/views/schedule_result_page.dart';
 
 //part 'app_router.gr.dart';
 
@@ -21,6 +22,7 @@ import '../../presentation/views/poi_page.dart';
     CustomRoute(
         page: HomePage, transitionsBuilder: TransitionsBuilders.slideLeft),
     AutoRoute(page: ScheduleInputPage),
+    AutoRoute(page: ScheduleResultPage),
     AutoRoute(page: PoiPage),
   ],
 )

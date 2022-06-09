@@ -1,10 +1,15 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
+import 'package:city_info_guide/presentation/views/schedule_result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
+import '../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
 import '../../gen/assets.gen.dart';
 import '/injector.dart';
@@ -37,30 +42,21 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
       body: BlocProvider(
         create: (_) => sl<ScheduleCubit>(),
         child: BlocConsumer<ScheduleCubit, ScheduleState>(
-          listenWhen: (previous, current) {
-            final previousFrom = previous.mapOrNull(
-              citiesSubmitting: (citiesSubmittingState) {
-                return citiesSubmittingState.scheduleRequest.fromTitle;
-              },
-            );
-            final currentFrom = current.mapOrNull(
-              citiesSubmitting: (citiesSubmittingState) {
-                return citiesSubmittingState.scheduleRequest.fromTitle;
-              },
-            );
-            return previousFrom != currentFrom;
-          },
           listener: (context, state) {
-            state.mapOrNull(citiesSubmitting: (citiesSubmittingState) {
-              _fromTypeAheadController.text =
-                  citiesSubmittingState.scheduleRequest.fromTitle ?? '';
+            state.whenOrNull(toDetailsPage: (schedulePointPoint) {
+              AutoRouter.of(context).push(ScheduleResultRoute(
+                  schedulePointPointEntity: schedulePointPoint));
+            }, resultsLoading: () {
+              _showAlertDialog(context);
             });
           },
           builder: (context, state) {
             final scheduleCubit = context.read<ScheduleCubit>();
             return state.when(
                 citiesSubmitting: (scheduleRequest, loadingLocation) {
-              return ListView(children: [
+              _fromTypeAheadController.text = scheduleRequest.fromTitle ?? '';
+              _toTypeAheadController.text = scheduleRequest.toTitle ?? '';
+              return Column(children: [
                 Assets.images.station.image(),
                 const Text('Откуда'),
                 Padding(
@@ -74,9 +70,6 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                           textFieldConfiguration: TextFieldConfiguration(
                               controller: _fromTypeAheadController,
                               autofocus: false,
-                              style: DefaultTextStyle.of(context)
-                                  .style
-                                  .copyWith(fontStyle: FontStyle.italic),
                               decoration: const InputDecoration(
                                   border: OutlineInputBorder())),
                           suggestionsCallback: (userInput) async {
@@ -88,15 +81,13 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                           itemBuilder: (context, suggestion) {
                             final sug = suggestion as SuggestedCityCompact;
                             return ListTile(
-                              leading: const Icon(Icons.location_city),
                               title: Text(sug.fullTitle!),
-                              subtitle: Text(sug.pointKey!),
                             );
                           },
                           onSuggestionSelected: (suggestion) {
                             final sug = suggestion as SuggestedCityCompact;
-                            _fromTypeAheadController.text = sug.title!;
-                            scheduleCubit.setFrom(sug.pointKey!);
+                            scheduleCubit.setFromCity(
+                                sug.pointKey ?? '', sug.title ?? '');
                           },
                         ),
                       ),
@@ -120,9 +111,6 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                     textFieldConfiguration: TextFieldConfiguration(
                       controller: _toTypeAheadController,
                       autofocus: false,
-                      style: DefaultTextStyle.of(context)
-                          .style
-                          .copyWith(fontStyle: FontStyle.italic),
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                       ),
@@ -135,15 +123,13 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                     itemBuilder: (context, suggestion) {
                       final sug = suggestion as SuggestedCityCompact;
                       return ListTile(
-                        leading: const Icon(Icons.shopping_cart),
                         title: Text(sug.fullTitle!),
-                        subtitle: Text(sug.pointKey!),
                       );
                     },
                     onSuggestionSelected: (suggestion) {
                       final sug = suggestion as SuggestedCityCompact;
-                      _toTypeAheadController.text = sug.title!;
-                      scheduleCubit.setTo(sug.pointKey!);
+                      scheduleCubit.setToCity(
+                          sug.pointKey ?? '', sug.title ?? '');
                     },
                   ),
                 ),
@@ -184,60 +170,21 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
             }, resultsLoading: () {
               return const Center(child: CircularProgressIndicator());
             }, resultsLoaded: (resultsLoadedState) {
-              final segments = resultsLoadedState.segments;
-              return ListView.separated(
-                itemCount: segments!.length,
-                itemBuilder: (context, index) {
-                  final segment = segments[index];
-                  IconData icon = Icons.control_point;
-                  if (segment.from?.transportType == 'bus') {
-                    icon = Icons.bus_alert;
-                  }
-                  if (segment.from?.transportType == 'train') {
-                    icon = Icons.train;
-                  }
-                  int dur = 0;
-                  final duration = segment.duration;
-                  if (duration != null) {
-                    dur = duration.toInt();
-                  }
-                  final correctedDepartureTime =
-                      segment.departure?.add(const Duration(hours: 3));
-                  final correctedArrivalTime =
-                      segment.arrival?.add(const Duration(hours: 3));
-                  return Card(
-                    color: Colors.grey[200],
-                    child: ListTile(
-                      leading: Icon(icon),
-                      title: Column(
-                        children: [
-                          const Text('Откуда'),
-                          Text(segment.from?.title ?? ''),
-                          Text(
-                              'Время отъезда ${DateFormat('dd/MM/yyyy в kk:mm').format(correctedDepartureTime!)}'),
-                          Text('Тип транспорта ${segment.from?.transportType}'),
-                          const Text('Куда'),
-                          Text(segments[index].to?.title ?? ''),
-                          Text(
-                              'Время прибытия ${DateFormat('dd/MM/yyyy в kk:mm').format(correctedArrivalTime!)}'),
-                          Text('Тип транспорта ${segment.to?.transportType}'),
-                          Text(
-                              'Время в пути ${printDuration(Duration(seconds: dur))}'),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 10.0,
-                  );
-                },
+              return const Center(
+                child: CircularProgressIndicator(),
               );
             }, resultsEmpty: () {
-              return const Center(child: Text('Нет маршрута'));
+              return const Center(
+                child: Text('Нет маршрута'),
+              );
             }, resultsFailure: (resultsFailureState) {
-              return const Center(child: Text('Ошибка'));
+              return const Center(
+                child: Text('Ошибка'),
+              );
+            }, toDetailsPage: (SchedulePointPointEntity schedulePointPoint) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             });
           },
         ),
@@ -246,11 +193,15 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
   }
 }
 
-String printDuration(Duration duration) {
-  //String twoDigits(int n) => n.toString().padLeft(2, "0");
-  String twoDigits(int n) => n.toString();
-  String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
-  // String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-  //return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
-  return "${twoDigits(duration.inHours)} ч. $twoDigitMinutes м.";
+void _showAlertDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    //barrierColor: Colors.red,
+    barrierDismissible: false,
+    builder: (context) {
+      return AlertDialog(
+        content: Lottie.asset('assets/lottie/bus_driving.json'),
+      );
+    },
+  );
 }

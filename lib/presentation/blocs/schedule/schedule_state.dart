@@ -14,4 +14,6 @@ class ScheduleState with _$ScheduleState {
   const factory ScheduleState.resultsEmpty() = _ResultsEmpty;
 
   const factory ScheduleState.resultsFailure(String message) = _ResultsFailure;
+  const factory ScheduleState.toDetailsPage(
+      SchedulePointPointEntity schedulePointPoint) = _ToDetailsPage;
 }
