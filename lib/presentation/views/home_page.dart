@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/gen/assets.gen.dart';
+import 'package:city_info_guide/presentation/views/schedule_wrapper.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -96,8 +97,9 @@ class _HomePageState extends State<HomePage> {
               top: 220,
               left: 15,
               child: GestureDetector(
-                onTap: () =>
-                    AutoRouter.of(context).push(const ScheduleInputRoute()),
+                onTap: () => context.pushRoute(
+                  const ScheduleRouter(),
+                ),
                 child: const CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color(0xFF8DC6FF),

@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point_entity.dart';
+import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../core/utils/duration_converter.dart';
-import '../../injector.dart';
 
 class ScheduleResultPage extends StatelessWidget {
   const ScheduleResultPage({Key? key, required this.schedulePointPointEntity})
@@ -16,26 +17,11 @@ class ScheduleResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-        value: BlocProvider.of<ScheduleCubit>(context),
-        child: ScheduleResultView(
-          schedulePointPointEntity: schedulePointPointEntity,
-        ));
-  }
-}
-
-class ScheduleResultView extends StatelessWidget {
-  const ScheduleResultView({Key? key, required this.schedulePointPointEntity})
-      : super(key: key);
-
-  final SchedulePointPointEntity schedulePointPointEntity;
-  @override
-  Widget build(BuildContext context) {
     final segments = schedulePointPointEntity.segments;
     return WillPopScope(
-      onWillPop: () {
-        context.read<ScheduleCubit>().init();
-        return AutoRouter.of(context).pop();
+      onWillPop: () async {
+        context.read<ScheduleCubit>().init(ScheduleRequest());
+        return true;
       },
       child: Scaffold(
           appBar: AppBar(

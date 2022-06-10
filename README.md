@@ -115,3 +115,23 @@ In Android Studio in oder to keep folder structure clear you can customize file 
 <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/172616371-2afc9596-64d1-4003-b4ff-d5483a9e83c3.png">
 Add file extensions separated by the `;`
 <img width="400" alt="settings" src="https://user-images.githubusercontent.com/30658712/172616416-d4bbf00c-545a-49b0-9ca8-4831a018c3ca.png">
+
+## Auto route
+[DOC](https://github.com/Milad-Akarie/auto_route_library)
+[More DOC (slightly different examples(maybe not up to date))](https://autoroute.vercel.app/introduction)
+
+This app uses AutoRoute for navigation.
+If you wrap FirstRoute() page content with BlocProvider and use context.router.push(SecondRoute())
+for navigating to second page and try to access blocs provided in the first page you will get
+an error. The second page doesn't know anything about blocs, provided un the firs page.
+In order to access the same bloc instance through multiple pages it is necessary to create nesting 
+routing by creating a wrapper page and implementing BlocProvider in it. So each page on this nested 
+route will have access to this bloc/blocs.
+[Milad-Akarie comment](https://github.com/Milad-Akarie/auto_route_library/issues/632#issuecomment-889936599)
+In a nested route there is no back button in the AppBar by default, so you need to add it manually by 
+providing `leading: const AutoLeadingButton()`
+By returning from a second page with back button press you can wrap the second page with 
+`WillPopScope` and add events to bloc or execute functions of cubit by writing
+`context.read<MyCubit>().cubitFunction();` or `context.read<MyBloc>().dispatch(blocEvent)`;
+[Felix Angelov comment](https://github.com/felangel/bloc/issues/352#issuecomment-502900632)
+Alternative example [implementing AutoRouteWapper](https://github.com/Milad-Akarie/auto_route_library/issues/792)

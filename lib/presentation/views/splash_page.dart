@@ -45,7 +45,7 @@ class _SplashPageState extends State<SplashPage> {
           offset: pos ? Offset(-1, 0) : Offset(0, 0),
           child: Stack(
             children: [
-              Assets.images.korela.image(fit: BoxFit.fill),
+              Assets.images.korela.image(fit: BoxFit.fitHeight),
               // AnimatedScale(
               //   curve: Curves.fastOutSlowIn,
               //   scale: scale,
@@ -72,17 +72,17 @@ class _SplashPageState extends State<SplashPage> {
               //     alignment: Alignment.centerRight,
               //   ),
               // ),
-              AnimatedCrossFade(
-                crossFadeState: CrossFadeState.showFirst,
-                firstChild: Container(),
-                secondChild: FractionallySizedBox(
-                    widthFactor: 0.7,
-                    child: Column(
-                      children: const [Text('Долгота'), Text('Широта')],
-                    )),
-                duration: const Duration(milliseconds: 300),
-                alignment: Alignment.centerRight,
-              ),
+              // AnimatedCrossFade(
+              //   crossFadeState: CrossFadeState.showFirst,
+              //   firstChild: Container(),
+              //   secondChild: FractionallySizedBox(
+              //       widthFactor: 0.7,
+              //       child: Column(
+              //         children: const [Text('Долгота'), Text('Широта')],
+              //       )),
+              //   duration: const Duration(milliseconds: 300),
+              //   alignment: Alignment.centerRight,
+              // ),
             ],
           ),
         ),

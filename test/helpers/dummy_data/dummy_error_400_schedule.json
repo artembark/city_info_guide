@@ -2,7 +2,7 @@
   "error": {
     "text": "Точка отправления не должна совпадать с точкой прибытия.",
     "error_code": "v3.0_stable-57-1.8996410.1168813578_31",
-    "request": "http://api.rasp.yandex.net/v3.0/search/?apikey=02c6c717-535e-43f9-905d-f1f91bdda6ee&from=c10883&to=c10883&date=2022-06-21&transfers=true",
+    "request": "http://api.rasp.yandex.net/v3.0/search/?apikey=apiKey&from=c10883&to=c10883&date=2022-06-21&transfers=true",
     "http_code": 400
   }
 }

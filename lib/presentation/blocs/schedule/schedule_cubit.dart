@@ -21,8 +21,32 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   final GetSchedulePointPoint getSchedulePointPoint;
   final GetNearestSettlement getNearestSettlement;
 
-  init() {
-    emit(ScheduleState.citiesSubmitting(scheduleRequest: ScheduleRequest()));
+  init(ScheduleRequest scheduleRequest) {
+    emit(ScheduleState.citiesSubmitting(scheduleRequest: scheduleRequest));
+  }
+
+  fillWithFavourite() {
+    emit(ScheduleState.citiesSubmitting(
+        scheduleRequest: ScheduleRequest(
+            from: 'c10883',
+            fromTitle: 'Приозерск',
+            to: 'c2',
+            toTitle: 'Санкт-Петербург',
+            date: DateTime(2022, 06, 28))));
+  }
+
+  swapFromTo() {
+    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
+    emit(
+      ScheduleState.citiesSubmitting(
+        scheduleRequest: ScheduleRequest(
+            from: scheduleRequest.to,
+            fromTitle: scheduleRequest.toTitle,
+            to: scheduleRequest.from,
+            toTitle: scheduleRequest.fromTitle,
+            date: scheduleRequest.date),
+      ),
+    );
   }
 
   setFromCity(String fromCode, String fromTitle) {

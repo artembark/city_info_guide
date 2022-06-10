@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/app/router/navigation_observer.dart';
 import 'package:city_info_guide/bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +38,8 @@ class CityInfoGuideApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
+      routerDelegate: AutoRouterDelegate(_appRouter,
+          navigatorObservers: () => [MyObserver()]),
       routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
