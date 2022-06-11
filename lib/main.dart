@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app/router/app_router.gr.dart';
 import 'injector.dart' as di;
@@ -38,6 +39,13 @@ class CityInfoGuideApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: Theme.of(context).copyWith(
+        navigationBarTheme: NavigationBarThemeData().copyWith(
+          labelTextStyle: MaterialStateProperty.all(
+            GoogleFonts.montserrat(),
+          ),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       routerDelegate: AutoRouterDelegate(_appRouter,
           navigatorObservers: () => [MyObserver()]),

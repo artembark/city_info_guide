@@ -1,10 +1,15 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/presentation/views/favourites_page.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
+import 'package:city_info_guide/presentation/views/map.dart';
+import 'package:city_info_guide/presentation/views/profile_page.dart';
 import 'package:city_info_guide/presentation/views/schedule_input_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../presentation/views/dashboard.dart';
+import '../../presentation/views/home_wrapper.dart';
 import '../../presentation/views/poi_page.dart';
 import '../../presentation/views/schedule_result_page.dart';
 import '../../presentation/views/schedule_wrapper.dart';
@@ -19,19 +24,35 @@ import '../../presentation/views/schedule_wrapper.dart';
       page: SplashPage,
       initial: true,
     ),
-    AutoRoute(page: HomePage),
     AutoRoute(
-      page: ScheduleWrapperPage,
-      name: 'ScheduleRouter',
+      page: DashboardPage,
       children: [
         AutoRoute(
-          initial: true,
-          page: ScheduleInputPage,
+          page: HomeWrapperPage,
+          children: [
+            AutoRoute(
+              page: HomePage,
+              initial: true,
+            ),
+            AutoRoute(
+              page: ScheduleWrapperPage,
+              name: 'ScheduleRouter',
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: ScheduleInputPage,
+                ),
+                AutoRoute(page: ScheduleResultPage),
+              ],
+            ),
+            AutoRoute(page: PoiPage),
+          ],
         ),
-        AutoRoute(page: ScheduleResultPage),
+        AutoRoute(page: MapPage),
+        AutoRoute(page: FavouritesPage),
+        AutoRoute(page: ProfilePage),
       ],
-    ),
-    AutoRoute(page: PoiPage),
+    )
   ],
 )
 // extend the generated private router

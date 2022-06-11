@@ -25,6 +25,10 @@ class $AssetsImagesGen {
   AssetGenImage get mainCircle =>
       const AssetGenImage('assets/images/main_circle.png');
 
+  /// File path: assets/images/point_and_line.jpeg
+  AssetGenImage get pointAndLine =>
+      const AssetGenImage('assets/images/point_and_line.jpeg');
+
   /// File path: assets/images/prio_splash.png
   AssetGenImage get prioSplash =>
       const AssetGenImage('assets/images/prio_splash.png');

@@ -61,5 +61,5 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
 flutter_native_splash:
-  color: "#0B85FF"
+  color: "#525814"
   image: assets/images/bird.png
