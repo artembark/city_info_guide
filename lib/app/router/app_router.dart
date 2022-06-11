@@ -48,7 +48,7 @@ import '../../presentation/views/schedule_wrapper.dart';
             AutoRoute(page: PoiPage),
           ],
         ),
-        AutoRoute(page: MapPage),
+        AutoRoute(page: MapControlsPage),
         AutoRoute(page: FavouritesPage),
         AutoRoute(page: ProfilePage),
       ],

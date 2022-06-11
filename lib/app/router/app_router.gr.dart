@@ -46,9 +46,9 @@ class AppRouter extends _i12.RootStackRouter {
       return _i12.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i3.HomeWrapperPage());
     },
-    MapRoute.name: (routeData) {
+    MapControlsRoute.name: (routeData) {
       return _i12.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.MapPage());
+          routeData: routeData, child: _i4.MapControlsPage());
     },
     FavouritesRoute.name: (routeData) {
       return _i12.MaterialPageX<dynamic>(
@@ -109,8 +109,8 @@ class AppRouter extends _i12.RootStackRouter {
                     _i12.RouteConfig(PoiRoute.name,
                         path: 'poi-page', parent: HomeWrapperRoute.name)
                   ]),
-              _i12.RouteConfig(MapRoute.name,
-                  path: 'map-page', parent: DashboardRoute.name),
+              _i12.RouteConfig(MapControlsRoute.name,
+                  path: 'map-controls-page', parent: DashboardRoute.name),
               _i12.RouteConfig(FavouritesRoute.name,
                   path: 'favourites-page', parent: DashboardRoute.name),
               _i12.RouteConfig(ProfileRoute.name,
@@ -148,11 +148,12 @@ class HomeWrapperRoute extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.MapPage]
-class MapRoute extends _i12.PageRouteInfo<void> {
-  const MapRoute() : super(MapRoute.name, path: 'map-page');
+/// [_i4.MapControlsPage]
+class MapControlsRoute extends _i12.PageRouteInfo<void> {
+  const MapControlsRoute()
+      : super(MapControlsRoute.name, path: 'map-controls-page');
 
-  static const String name = 'MapRoute';
+  static const String name = 'MapControlsRoute';
 }
 
 /// generated route for
