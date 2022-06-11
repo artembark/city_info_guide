@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   BoxShape boxShape = BoxShape.rectangle;
   double scale = 3.5;
   bool pos = false;
-
+  final theImage = Image.asset('assets/images/korela1.JPG');
   @override
   void initState() {
     super.initState();
@@ -27,66 +27,78 @@ class _SplashPageState extends State<SplashPage> {
               expanded = true;
               scale = 0.79;
             }));
-    Future.delayed(const Duration(milliseconds: 1400)).then((value) {
+
+    Future.delayed(const Duration(milliseconds: 1700)).then((value) {
       setState(() {
         pos = true;
       });
-      return AutoRouter.of(context).replace(const HomeRoute());
+      return context.router.replace(const HomeRoute());
     });
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    precacheImage(theImage.image, context);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: Center(
-        child: AnimatedSlide(
-          duration: Duration(milliseconds: 300),
-          offset: pos ? Offset(-1, 0) : Offset(0, 0),
-          child: Stack(
-            children: [
-              Assets.images.korela.image(fit: BoxFit.fitHeight),
-              // AnimatedScale(
-              //   curve: Curves.fastOutSlowIn,
-              //   scale: scale,
-              //   duration: const Duration(seconds: 1),
-              //   child: Container(
-              //     decoration: const BoxDecoration(
-              //       color: Color(0xFF0B85FF),
-              //       shape: BoxShape.circle,
-              //     ),
-              //   ),
-              // ),
-              // Center(
-              //   child: AnimatedCrossFade(
-              //     crossFadeState: !expanded
-              //         ? CrossFadeState.showFirst
-              //         : CrossFadeState.showSecond,
-              //     firstChild: Container(),
-              //     secondChild: FractionallySizedBox(
-              //         widthFactor: 0.7,
-              //         child: Hero(
-              //             tag: 'priozersk',
-              //             child: Assets.images.prioSplash.image())),
-              //     duration: const Duration(milliseconds: 300),
-              //     alignment: Alignment.centerRight,
-              //   ),
-              // ),
-              // AnimatedCrossFade(
-              //   crossFadeState: CrossFadeState.showFirst,
-              //   firstChild: Container(),
-              //   secondChild: FractionallySizedBox(
-              //       widthFactor: 0.7,
-              //       child: Column(
-              //         children: const [Text('Долгота'), Text('Широта')],
-              //       )),
-              //   duration: const Duration(milliseconds: 300),
-              //   alignment: Alignment.centerRight,
-              // ),
-            ],
+    return AnimatedSlide(
+      duration: Duration(milliseconds: 300),
+      offset: pos ? Offset(-1, 0) : Offset(0, 0),
+      child: Stack(
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/korela.jpg'),
+                      fit: BoxFit.cover)),
+              child: null),
+          // AnimatedScale(
+          //   curve: Curves.fastOutSlowIn,
+          //   scale: scale,
+          //   duration: const Duration(seconds: 1),
+          //   child: Container(
+          //     decoration: const BoxDecoration(
+          //       color: Color(0xFF0B85FF),
+          //       shape: BoxShape.circle,
+          //     ),
+          //   ),
+          // ),
+          Center(
+            child: Transform.translate(
+              offset: Offset(0, 200),
+              child: AnimatedCrossFade(
+                crossFadeState: !expanded
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
+                firstChild: Container(),
+                secondChild: FractionallySizedBox(
+                  widthFactor: 0.7,
+                  child: Hero(
+                    tag: 'priozersk',
+                    child: Assets.images.prioSplash.image(),
+                  ),
+                ),
+                duration: const Duration(milliseconds: 300),
+                alignment: Alignment.centerRight,
+              ),
+            ),
           ),
-        ),
+          // AnimatedCrossFade(
+          //   crossFadeState: CrossFadeState.showFirst,
+          //   firstChild: Container(),
+          //   secondChild: FractionallySizedBox(
+          //       widthFactor: 0.7,
+          //       child: Column(
+          //         children: const [Text('Долгота'), Text('Широта')],
+          //       )),
+          //   duration: const Duration(milliseconds: 300),
+          //   alignment: Alignment.centerRight,
+          // ),
+        ],
       ),
-    ));
+    );
   }
 }

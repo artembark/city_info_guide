@@ -15,22 +15,19 @@ import '../../presentation/views/schedule_wrapper.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    CustomRoute(
-        durationInMilliseconds: 500,
-        page: SplashPage,
-        initial: true,
-        transitionsBuilder: TransitionsBuilders.slideLeft),
-    CustomRoute(
-        page: HomePage, transitionsBuilder: TransitionsBuilders.slideLeft),
-    CustomRoute(
+    AutoRoute(
+      page: SplashPage,
+      initial: true,
+    ),
+    AutoRoute(page: HomePage),
+    AutoRoute(
       page: ScheduleWrapperPage,
       name: 'ScheduleRouter',
-      transitionsBuilder: TransitionsBuilders.fadeIn,
       children: [
-        CustomRoute(
-            initial: true,
-            page: ScheduleInputPage,
-            transitionsBuilder: TransitionsBuilders.fadeIn),
+        AutoRoute(
+          initial: true,
+          page: ScheduleInputPage,
+        ),
         AutoRoute(page: ScheduleResultPage),
       ],
     ),

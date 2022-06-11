@@ -28,8 +28,11 @@ class ScheduleResultPage extends StatelessWidget {
             title: Column(
               children: [
                 Text('Расписание'),
-                Text('${schedulePointPointEntity.search?.from?.title} - '
-                    '${schedulePointPointEntity.search?.to?.title}')
+                Text(
+                  '${schedulePointPointEntity.search?.from?.title} - '
+                  '${schedulePointPointEntity.search?.to?.title}',
+                  maxLines: 2,
+                )
               ],
             ),
           ),

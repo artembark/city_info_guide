@@ -15,7 +15,8 @@ Future<void> main() async {
   await di.initializeDependencies();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.white, // not for ios
+      //status bar color only for android
+      statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness
           .light, //dark copy: when light text is black, when dark - white
     ),

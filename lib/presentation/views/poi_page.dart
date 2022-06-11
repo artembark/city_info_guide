@@ -35,79 +35,67 @@ class _PoiPageState extends State<PoiPage> {
                 itemCount: state.placesOfInterest.length,
                 itemBuilder: (context, index) {
                   return Card(
-                    child: Column(
-                      children: [
-                        CachedNetworkImage(
-                          imageUrl: state.placesOfInterest[index].image!,
-                          placeholder: (_, __) => SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            height: 250.0,
-                            child: Shimmer.fromColors(
-                                baseColor: Colors.grey[500]!,
-                                highlightColor: Colors.grey[100]!,
-                                child: Container(
-                                  width: 200.0,
-                                  height: 250.0,
-                                  color: Colors.white,
-                                )),
+                    child: ListTile(
+                      leading: CachedNetworkImage(
+                        imageUrl: state.placesOfInterest[index].image!,
+                        placeholder: (_, __) => SizedBox(
+                          //width: 150,
+                          height: 200.0,
+                          child: Shimmer.fromColors(
+                            baseColor: Colors.grey[500]!,
+                            highlightColor: Colors.grey[100]!,
+                            child: Container(
+                              width: 150.0,
+                              height: 150.0,
+                              color: Colors.white,
+                            ),
                           ),
-                          height: 250,
-                          // progressIndicatorBuilder:
-                          //     (context, url, downloadProgress) =>
-                          //         CircularProgressIndicator(
-                          //             value: downloadProgress.progress),
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
                         ),
-                        // Image.network(
-                        //   state.placesOfInterest[index].image!,
-                        // ),
-                        ListTile(
-                          title: Column(
+                        height: 200,
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
+                      title: Column(
+                        children: [
+                          Text(state.placesOfInterest[index].title ?? '-'),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(state.placesOfInterest[index].title ?? '-'),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(Icons.panorama),
-                                    onPressed: () {
-                                      YandexMapLauncher().showPanorama(
-                                          pointLat: state
-                                              .placesOfInterest[index].lat!,
-                                          pointLon: state
-                                              .placesOfInterest[index].lon!,
-                                          directionAzimuth: 0,
-                                          directionAngle: 0,
-                                          spanHorizontal: 0,
-                                          spanVertical: 0);
-                                    },
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.control_point),
-                                    onPressed: () {
-                                      YandexMapLauncher().showMarker(
-                                          pointLat: state
-                                              .placesOfInterest[index].lat!,
-                                          pointLon: state
-                                              .placesOfInterest[index].lon!,
-                                          zoom: 17);
-                                    },
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.circle),
-                                    onPressed: () {
-                                      YandexMapLauncher().showOrgCard(
-                                          oid: state
-                                              .placesOfInterest[index].oid!);
-                                    },
-                                  ),
-                                ],
-                              )
+                              IconButton(
+                                icon: const Icon(Icons.panorama),
+                                onPressed: () {
+                                  YandexMapLauncher().showPanorama(
+                                      pointLat:
+                                          state.placesOfInterest[index].lat!,
+                                      pointLon:
+                                          state.placesOfInterest[index].lon!,
+                                      directionAzimuth: 0,
+                                      directionAngle: 0,
+                                      spanHorizontal: 0,
+                                      spanVertical: 0);
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.control_point),
+                                onPressed: () {
+                                  YandexMapLauncher().showMarker(
+                                      pointLat:
+                                          state.placesOfInterest[index].lat!,
+                                      pointLon:
+                                          state.placesOfInterest[index].lon!,
+                                      zoom: 17);
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.circle),
+                                onPressed: () {
+                                  YandexMapLauncher().showOrgCard(
+                                      oid: state.placesOfInterest[index].oid!);
+                                },
+                              ),
                             ],
-                          ),
-                        ),
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },

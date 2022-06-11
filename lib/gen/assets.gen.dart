@@ -18,6 +18,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/korela.jpg
   AssetGenImage get korela => const AssetGenImage('assets/images/korela.jpg');
 
+  /// File path: assets/images/korela1.JPG
+  AssetGenImage get korela1 => const AssetGenImage('assets/images/korela1.JPG');
+
   /// File path: assets/images/main_circle.png
   AssetGenImage get mainCircle =>
       const AssetGenImage('assets/images/main_circle.png');
@@ -28,6 +31,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/station.png
   AssetGenImage get station => const AssetGenImage('assets/images/station.png');
+
+  /// File path: assets/images/tochka.jpeg
+  AssetGenImage get tochka => const AssetGenImage('assets/images/tochka.jpeg');
 }
 
 class $AssetsLottieGen {

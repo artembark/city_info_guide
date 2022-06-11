@@ -135,3 +135,6 @@ By returning from a second page with back button press you can wrap the second p
 `context.read<MyCubit>().cubitFunction();` or `context.read<MyBloc>().dispatch(blocEvent)`;
 [Felix Angelov comment](https://github.com/felangel/bloc/issues/352#issuecomment-502900632)
 Alternative example [implementing AutoRouteWapper](https://github.com/Milad-Akarie/auto_route_library/issues/792)
+
+## Preload images
+[Source](https://medium.com/flutter/improving-perceived-performance-with-image-placeholders-precaching-and-disabled-navigation-6b3601087a2b)

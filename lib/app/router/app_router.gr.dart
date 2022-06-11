@@ -30,41 +30,24 @@ class AppRouter extends _i7.RootStackRouter {
   @override
   final Map<String, _i7.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
-      return _i7.CustomPage<dynamic>(
-          routeData: routeData,
-          child: const _i1.SplashPage(),
-          transitionsBuilder: _i7.TransitionsBuilders.slideLeft,
-          durationInMilliseconds: 500,
-          opaque: true,
-          barrierDismissible: false);
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SplashPage());
     },
     HomeRoute.name: (routeData) {
-      return _i7.CustomPage<dynamic>(
-          routeData: routeData,
-          child: const _i2.HomePage(),
-          transitionsBuilder: _i7.TransitionsBuilders.slideLeft,
-          opaque: true,
-          barrierDismissible: false);
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.HomePage());
     },
     ScheduleRouter.name: (routeData) {
-      return _i7.CustomPage<dynamic>(
-          routeData: routeData,
-          child: const _i3.ScheduleWrapperPage(),
-          transitionsBuilder: _i7.TransitionsBuilders.fadeIn,
-          opaque: true,
-          barrierDismissible: false);
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.ScheduleWrapperPage());
     },
     PoiRoute.name: (routeData) {
       return _i7.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i4.PoiPage());
     },
     ScheduleInputRoute.name: (routeData) {
-      return _i7.CustomPage<dynamic>(
-          routeData: routeData,
-          child: const _i5.ScheduleInputPage(),
-          transitionsBuilder: _i7.TransitionsBuilders.fadeIn,
-          opaque: true,
-          barrierDismissible: false);
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i5.ScheduleInputPage());
     },
     ScheduleResultRoute.name: (routeData) {
       final args = routeData.argsAs<ScheduleResultRouteArgs>();
