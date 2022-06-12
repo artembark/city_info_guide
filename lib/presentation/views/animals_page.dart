@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class FavouritesPage extends StatelessWidget {
-  const FavouritesPage({Key? key}) : super(key: key);
+class AnimalsPage extends StatelessWidget {
+  const AnimalsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        title: const Text(
+          'Живтоные',
+        ),
       ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Icon(
-                FontAwesomeIcons.heart,
+                FontAwesomeIcons.kiwiBird,
                 size: 40.0,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text('FAVOURITES TO BE IMPLEMENTED'),
+              Text('ANIMALS TO BE IMPLEMENTED'),
             ],
           ),
         ),

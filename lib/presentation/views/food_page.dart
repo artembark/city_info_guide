@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class FavouritesPage extends StatelessWidget {
-  const FavouritesPage({Key? key}) : super(key: key);
+class FoodPage extends StatelessWidget {
+  const FoodPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        title: const Text(
+          'Где поесть',
+        ),
       ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Icon(
-                FontAwesomeIcons.heart,
+                FontAwesomeIcons.plateWheat,
                 size: 40.0,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text('FAVOURITES TO BE IMPLEMENTED'),
+              Text('FOOD TO BE IMPLEMENTED'),
             ],
           ),
         ),

@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class FavouritesPage extends StatelessWidget {
-  const FavouritesPage({Key? key}) : super(key: key);
+class CarPage extends StatelessWidget {
+  const CarPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        title: const Text(
+          'Авто',
+        ),
       ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Icon(
-                FontAwesomeIcons.heart,
+                FontAwesomeIcons.car,
                 size: 40.0,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text('FAVOURITES TO BE IMPLEMENTED'),
+              Text('CAR TO BE IMPLEMENTED'),
             ],
           ),
         ),

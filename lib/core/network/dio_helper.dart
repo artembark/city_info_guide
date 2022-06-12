@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+//currently not used
 class ApiBaseHelper {
   static final String url = 'BASE_URL';
   static BaseOptions opts = BaseOptions(

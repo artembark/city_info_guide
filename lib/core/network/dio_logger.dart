@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+//currently not used
 class Logging extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {

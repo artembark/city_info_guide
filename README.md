@@ -26,20 +26,25 @@ converting human readable city names to codes.
 - [`freezed_annotation`](https://pub.dev/packages/freezed_annotation) to write annotations used by freezed
 - [`json_serializable`](https://pub.dev/packages/json_serializable) to create code for JSON serialization and deserialization
 - [`json_annotation`](https://pub.dev/packages/json_annotation) to write annotations used by json_serializable
+- [equatable](https://pub.dev/packages/equatable) to create simple comparable classes
 - [`dio`](https://pub.dev/packages/dio) for handling network requests
+- [http_mock_adapter](https://pub.dev/packages/http_mock_adapter) for dio testing
 - [`auto_route`](https://pub.dev/packages/auto_route) for app navigation
 - [`auto_route_generator`](https://pub.dev/packages/auto_route_generator) generator for `auto_route`
 - [`get_it`](https://pub.dev/packages/get_it) service locator
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - [`mockito`](https://pub.dev/packages/mockito) for testing
-- [`http`](https://pub.dev/packages/http) for mockito testing
+- [cached_network_image](https://pub.dev/packages/cached_network_image) for caching images
 - [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
 - [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
-
-## Package to be implemented
-- [`map_launcher`](https://pub.dev/packages/map_launcher) to find available maps installed on a device and launch them with a marker or show directions
+- [font_awesome_flutter](https://artembark.youtrack.cloud/newIssue?draftId=2-27) for icons
+- [lottie](https://pub.dev/packages/lottie) for lottie animation files
+- [google_fonts](https://pub.dev/packages/google_fonts) for custom free fonts
+- [yandex_mapkit](https://pub.dev/packages/yandex_mapkit) to use Yandex MapKit
+- [dartz](https://pub.dev/packages/dartz) to implement Either and handle Errors
+- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) to create launcher icons
 
 ## [Native splash screen](https://pub.dev/packages/flutter_native_splash)  
 A native splash screen will be shown before flutter app starts.
@@ -120,7 +125,7 @@ Add file extensions separated by the `;`
 <img width="400" alt="settings" src="https://user-images.githubusercontent.com/30658712/172616416-d4bbf00c-545a-49b0-9ca8-4831a018c3ca.png">
 
 ## Auto route
-[DOC](https://github.com/Milad-Akarie/auto_route_library)
+[DOC](https://github.com/Milad-Akarie/auto_route_library)   
 [More DOC (slightly different examples(maybe not up to date))](https://autoroute.vercel.app/introduction)
 
 This app uses AutoRoute for navigation.
@@ -129,14 +134,14 @@ for navigating to second page and try to access blocs provided in the first page
 an error. The second page doesn't know anything about blocs, provided on the first page.
 In order to access the same bloc instance through multiple pages you can either pass it as a parameter orit is necessary to create nesting 
 routing by creating a wrapper page and implementing BlocProvider in it. So each page on this nested 
-route will have access to this bloc/blocs.
+route will have access to this bloc/blocs.   
 [Milad-Akarie comment](https://github.com/Milad-Akarie/auto_route_library/issues/632#issuecomment-889936599)
 In a nested route there is no back button in the AppBar by default, so you need to add it manually by 
-providing `leading: const AutoLeadingButton()`
+providing `leading: const AutoLeadingButton()`   
 By returning from a second page with back button press you can wrap the second page with 
 `WillPopScope` and add events to bloc or execute functions of cubit by writing
-`context.read<MyCubit>().cubitFunction();` or `context.read<MyBloc>().dispatch(blocEvent)`;
-[Felix Angelov comment](https://github.com/felangel/bloc/issues/352#issuecomment-502900632)
+`context.read<MyCubit>().cubitFunction();` or `context.read<MyBloc>().dispatch(blocEvent)`;   
+[Felix Angelov comment](https://github.com/felangel/bloc/issues/352#issuecomment-502900632)   
 Alternative example [implementing AutoRouteWapper](https://github.com/Milad-Akarie/auto_route_library/issues/792)
 
 ## Preload images
@@ -151,3 +156,20 @@ Problems with iOS deployment. Fixed with changing target OS version to 12.0 and 
 [this](https://github.com/CocoaPods/CocoaPods/issues/10220#issuecomment-730963835)
 
 Also need specify locale `YMKMapKit.setLocale("ru_RU")`
+
+## Icons generator
+Use
+`flutter pub run flutter_launcher_icons:main`
+
+## App name change
+From [here](https://stackoverflow.com/questions/49353199/how-can-i-change-the-app-display-name-build-with-flutter)
+Open AndroidManifest.xml (located at android/app/src/main)  
+Android    
+`<application
+        android:label="App Name" ...> // Your app name here`   
+iOS   
+Open info.plist (located at ios/Runner)
+`<key>CFBundleName</key>
+<string>App Name</string> // Your app name here`   
+Don't forget to run `flutter clean`   
+Can use [THIS](https://pub.dev/packages/flutter_launcher_name) package alternatively.    

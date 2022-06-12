@@ -27,18 +27,8 @@ import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
 import 'data/repository/nearest_settlement_repo_impl.dart';
 
-GetIt sl = GetIt.instance; //short for service locator
-// final dio = Dio(
-//   BaseOptions(
-//     connectTimeout: 20000,
-//     baseUrl: 'https://api.rasp.yandex.net',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json',
-//     },
-//     responseType: ResponseType.plain,
-//   ),
-// );
+GetIt sl = GetIt.instance;
+//TODO: move this and dio to external file
 _parseAndDecode(String response) {
   return jsonDecode(response);
 }

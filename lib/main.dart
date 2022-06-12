@@ -14,15 +14,6 @@ Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.initializeDependencies();
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.dark.copyWith(
-      //status bar color only for android
-      statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness
-          .light, //dark copy: when light text is black, when dark - white
-    ),
-  );
-  FlutterNativeSplash.remove();
   BlocOverrides.runZoned(
     () {
       runApp(CityInfoGuideApp());
@@ -40,12 +31,26 @@ class CityInfoGuideApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       theme: Theme.of(context).copyWith(
-        navigationBarTheme: NavigationBarThemeData().copyWith(
-          labelTextStyle: MaterialStateProperty.all(
-            GoogleFonts.montserrat(),
+          navigationBarTheme: const NavigationBarThemeData().copyWith(
+            labelTextStyle: MaterialStateProperty.all(
+              GoogleFonts.montserrat(),
+            ),
           ),
-        ),
-      ),
+          appBarTheme: const AppBarTheme().copyWith(
+            iconTheme: IconThemeData(
+              color: Colors.black, //change your color here
+            ),
+            titleTextStyle: GoogleFonts.montserrat(
+                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 22),
+            elevation: 0,
+            color: Colors.transparent,
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarColor: Colors.black38,
+              statusBarIconBrightness: Brightness.light,
+              // For Android (dark icons)
+              statusBarBrightness: Brightness.light, // For iOS (dark icons)
+            ),
+          )),
       debugShowCheckedModeBanner: false,
       routerDelegate: AutoRouterDelegate(_appRouter,
           navigatorObservers: () => [MyObserver()]),

@@ -26,15 +26,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 0,
         systemOverlayStyle: const SystemUiOverlayStyle(
-          // Status bar color
           statusBarColor: Colors.transparent,
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
-        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
           'ПРИОЗЕРСК',
@@ -77,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                       title: 'Места',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const ScheduleRouter()),
+                      onTap: () => context.pushRoute(const HotelsRoute()),
                       icon: FontAwesomeIcons.hotel,
                       backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
                       title: 'Гостиницы',
@@ -89,31 +85,31 @@ class _HomePageState extends State<HomePage> {
                       title: 'Транспорт',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const PoiRoute()),
+                      onTap: () => context.pushRoute(const FoodRoute()),
                       icon: FontAwesomeIcons.plateWheat,
                       backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
                       title: 'Где поесть',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const PoiRoute()),
+                      onTap: () => context.pushRoute(const EventsRoute()),
                       icon: FontAwesomeIcons.calendar,
                       backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
                       title: 'События',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const PoiRoute()),
+                      onTap: () => context.pushRoute(const KidsRoute()),
                       icon: FontAwesomeIcons.child,
                       backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
                       title: 'Детям',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const PoiRoute()),
+                      onTap: () => context.pushRoute(const AnimalsRoute()),
                       icon: FontAwesomeIcons.kiwiBird,
                       backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
                       title: 'Животные',
                     ),
                     MenuGridItem(
-                      onTap: () => context.pushRoute(const PoiRoute()),
+                      onTap: () => context.pushRoute(const CarRoute()),
                       icon: FontAwesomeIcons.car,
                       backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
                       title: 'Авто',

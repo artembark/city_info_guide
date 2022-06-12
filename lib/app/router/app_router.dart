@@ -2,14 +2,20 @@ import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/presentation/views/favourites_page.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
-import 'package:city_info_guide/presentation/views/map.dart';
+import 'package:city_info_guide/presentation/views/map_controls_page.dart';
 import 'package:city_info_guide/presentation/views/profile_page.dart';
 import 'package:city_info_guide/presentation/views/schedule_input_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../presentation/views/animals_page.dart';
+import '../../presentation/views/cars_page.dart';
 import '../../presentation/views/dashboard.dart';
+import '../../presentation/views/event_page.dart';
+import '../../presentation/views/food_page.dart';
 import '../../presentation/views/home_wrapper.dart';
+import '../../presentation/views/hotels_page.dart';
+import '../../presentation/views/kids_page.dart';
 import '../../presentation/views/poi_page.dart';
 import '../../presentation/views/schedule_result_page.dart';
 import '../../presentation/views/schedule_wrapper.dart';
@@ -46,6 +52,12 @@ import '../../presentation/views/schedule_wrapper.dart';
               ],
             ),
             AutoRoute(page: PoiPage),
+            AutoRoute(page: HotelsPage),
+            AutoRoute(page: FoodPage),
+            AutoRoute(page: EventsPage),
+            AutoRoute(page: KidsPage),
+            AutoRoute(page: AnimalsPage),
+            AutoRoute(page: CarPage),
           ],
         ),
         AutoRoute(page: MapControlsPage),

@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class FavouritesPage extends StatelessWidget {
-  const FavouritesPage({Key? key}) : super(key: key);
+class HotelsPage extends StatelessWidget {
+  const HotelsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
+        title: const Text(
+          'Гостиницы',
+        ),
       ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Icon(
-                FontAwesomeIcons.heart,
+                FontAwesomeIcons.hotel,
                 size: 40.0,
               ),
               SizedBox(
                 height: 20,
               ),
-              Text('FAVOURITES TO BE IMPLEMENTED'),
+              Text('HOTELS TO BE IMPLEMENTED'),
             ],
           ),
         ),
