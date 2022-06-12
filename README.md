@@ -1,6 +1,9 @@
 # City guide app project
 City guide app development. Development is in progress.
 
+<img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">
+
+
 ## Yandex Schedule API
 It is good to know how one can come to your city and leave it. So you need a schedule service.  
 Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)  
@@ -137,6 +140,7 @@ By returning from a second page with back button press you can wrap the second p
 Alternative example [implementing AutoRouteWapper](https://github.com/Milad-Akarie/auto_route_library/issues/792)
 
 ## Preload images
+In order to show images instantly, without artefacts, you can preload them.
 [Source](https://medium.com/flutter/improving-perceived-performance-with-image-placeholders-precaching-and-disabled-navigation-6b3601087a2b)
 
 ## To run iOS on a real device
