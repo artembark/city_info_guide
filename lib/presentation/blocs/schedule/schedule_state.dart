@@ -9,10 +9,11 @@ class ScheduleState with _$ScheduleState {
   const factory ScheduleState.resultsLoading() = _ResultsLoading;
 
   const factory ScheduleState.resultsLoaded(
-      SchedulePointPoint schedulePointPoint) = _ResultsLoaded;
+      SchedulePointPointEntity schedulePointPoint) = _ResultsLoaded;
 
   const factory ScheduleState.resultsEmpty() = _ResultsEmpty;
 
-  const factory ScheduleState.resultsFailure(Exception exception) =
-      _ResultsFailure;
+  const factory ScheduleState.resultsFailure(String message) = _ResultsFailure;
+  const factory ScheduleState.toDetailsPage(
+      SchedulePointPointEntity schedulePointPoint) = _ToDetailsPage;
 }

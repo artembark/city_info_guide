@@ -18,9 +18,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/korela.jpg
   AssetGenImage get korela => const AssetGenImage('assets/images/korela.jpg');
 
+  /// File path: assets/images/korela1.JPG
+  AssetGenImage get korela1 => const AssetGenImage('assets/images/korela1.JPG');
+
   /// File path: assets/images/main_circle.png
   AssetGenImage get mainCircle =>
       const AssetGenImage('assets/images/main_circle.png');
+
+  /// File path: assets/images/point_and_line.jpeg
+  AssetGenImage get pointAndLine =>
+      const AssetGenImage('assets/images/point_and_line.jpeg');
 
   /// File path: assets/images/prio_splash.png
   AssetGenImage get prioSplash =>
@@ -28,12 +35,23 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/station.png
   AssetGenImage get station => const AssetGenImage('assets/images/station.png');
+
+  /// File path: assets/images/tochka.jpeg
+  AssetGenImage get tochka => const AssetGenImage('assets/images/tochka.jpeg');
+}
+
+class $AssetsLottieGen {
+  const $AssetsLottieGen();
+
+  /// File path: assets/lottie/bus_driving.json
+  String get busDriving => 'assets/lottie/bus_driving.json';
 }
 
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const String places = 'assets/places.json';
 }
 
@@ -49,7 +67,7 @@ class AssetGenImage {
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
     bool excludeFromSemantics = false,
-    double? scale = 1.0,
+    double? scale,
     double? width,
     double? height,
     Color? color,
@@ -96,4 +114,6 @@ class AssetGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }

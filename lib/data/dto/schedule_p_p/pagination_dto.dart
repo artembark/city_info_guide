@@ -1,28 +1,26 @@
-import '../../../domain/entities/schedule_p_p/pagination.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class PaginationDTO {
-  int? total;
-  int? limit;
-  int? offset;
+import '../../../domain/entities/schedule_p_p/pagination_entity.dart';
 
-  PaginationDTO({this.total, this.limit, this.offset});
+part 'pagination_dto.freezed.dart';
 
-  factory PaginationDTO.fromJson(Map<String, dynamic> json) => PaginationDTO(
-        total: json['total'] as int?,
-        limit: json['limit'] as int?,
-        offset: json['offset'] as int?,
-      );
+part 'pagination_dto.g.dart';
 
-  Map<String, dynamic> toJson() => {
-        'total': total,
-        'limit': limit,
-        'offset': offset,
-      };
+@freezed
+class PaginationDTO with _$PaginationDTO {
+  const factory PaginationDTO({
+    int? total,
+    int? limit,
+    int? offset,
+  }) = _PaginationDTO;
+
+  factory PaginationDTO.fromJson(Map<String, dynamic> json) =>
+      _$PaginationDTOFromJson(json);
 }
 
 extension PaginationMapper on PaginationDTO {
-  Pagination toModel() {
-    return Pagination(
+  PaginationEntity toEntity() {
+    return PaginationEntity(
       total: total,
       limit: limit,
       offset: offset,

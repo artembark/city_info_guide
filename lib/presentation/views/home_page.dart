@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -13,159 +16,300 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool scaleLarge = false;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //TODO:refactor bubbles, add shadow, add appear and moving animation to all
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: Assets.images.mainCircle.image(),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.transparent,
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          'ПРИОЗЕРСК',
+          style: GoogleFonts.montserrat(
+            textStyle: const TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFFd2cbbf),
+            ),
+          ),
+        ),
+      ),
+      body: Stack(
+        children: [
+          Assets.images.korela1.image(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 235,
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 15),
-              alignment: Alignment.topCenter,
-              child: Hero(
-                  tag: 'priozersk',
-                  child: Assets.images.prioSplash
-                      .image(width: MediaQuery.of(context).size.width * 0.7)),
-            ),
-            Positioned(
-              top: 120,
-              left: 40,
-              child: AnimatedScale(
-                onEnd: () => AutoRouter.of(context).push(const PoiRoute()),
-                scale: scaleLarge ? 12 : 1,
-                duration: Duration(milliseconds: 500),
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      scaleLarge = true;
-                    });
-                  },
-                  child: Container(
-                    constraints: const BoxConstraints(
-                      minWidth: 120.0,
-                      minHeight: 120.0,
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black38),
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(Radius.circular(20))),
+                child: GridView(
+                  padding: const EdgeInsets.fromLTRB(6, 12, 6, 6),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4,
+                      mainAxisSpacing: 5,
+                      childAspectRatio: 1 / 1.2),
+                  children: [
+                    MenuGridItem(
+                      onTap: () => context.router.push(const PoiRoute()),
+                      icon: FontAwesomeIcons.mapLocation,
+                      backgroundColor: const Color(0xFF007FFF).withOpacity(0.5),
+                      title: 'Места',
                     ),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF0061C2),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF0061C2).withOpacity(0.8),
-                          offset: const Offset(0, 5),
-                          blurRadius: 30,
-                        ),
-                      ],
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const ScheduleRouter()),
+                      icon: FontAwesomeIcons.hotel,
+                      backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
+                      title: 'Гостиницы',
                     ),
-                    child: const Center(
-                        child: Text(
-                      'Гостиницы',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const ScheduleRouter()),
+                      icon: FontAwesomeIcons.bus,
+                      backgroundColor: const Color(0xFF8DC6FF).withOpacity(0.5),
+                      title: 'Транспорт',
+                    ),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const PoiRoute()),
+                      icon: FontAwesomeIcons.plateWheat,
+                      backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
+                      title: 'Где поесть',
+                    ),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const PoiRoute()),
+                      icon: FontAwesomeIcons.calendar,
+                      backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
+                      title: 'События',
+                    ),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const PoiRoute()),
+                      icon: FontAwesomeIcons.child,
+                      backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
+                      title: 'Детям',
+                    ),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const PoiRoute()),
+                      icon: FontAwesomeIcons.kiwiBird,
+                      backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
+                      title: 'Животные',
+                    ),
+                    MenuGridItem(
+                      onTap: () => context.pushRoute(const PoiRoute()),
+                      icon: FontAwesomeIcons.car,
+                      backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
+                      title: 'Авто',
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'Популярное',
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 100,
-              right: 30,
-              child: GestureDetector(
-                onTap: () => AutoRouter.of(context).push(const PoiRoute()),
-                child: const CircleAvatar(
-                  radius: 70.0,
-                  backgroundColor: Color(0xFF007FFF),
-                  child: Center(
-                      child: Text(
-                    'Что посмотреть?',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        PopularItem(
+                          onTap: () {},
+                          imagePath: Assets.images.korela1.path,
+                          title: 'Крепость Корела',
+                          type: 'Музей',
+                          color: const Color(0xFF007FFF),
+                        ),
+                        PopularItem(
+                          onTap: () {},
+                          imagePath: Assets.images.tochka.path,
+                          title: 'Точка на карте',
+                          type: 'Гостиница',
+                          color: const Color(0xFF8DC6AF),
+                        ),
+                        PopularItem(
+                          onTap: () {},
+                          imagePath: Assets.images.station.path,
+                          title: 'Вокзал',
+                          type: 'Место',
+                          color: const Color(0xFF007FFF),
+                        ),
+                        PopularItem(
+                          onTap: () {},
+                          imagePath: Assets.images.pointAndLine.path,
+                          title: 'Точка и линия на плоскости',
+                          type: 'Кафе',
+                          color: const Color(0xFFD143BE),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            Positioned(
-              top: 220,
-              left: 15,
-              child: GestureDetector(
-                onTap: () =>
-                    AutoRouter.of(context).push(const ScheduleInputRoute()),
-                child: const CircleAvatar(
-                  radius: 50.0,
-                  backgroundColor: Color(0xFF8DC6FF),
-                  child: Center(
-                      child: Text(
-                    'Транспорт',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 170,
-              left: 40,
-              child: GestureDetector(
-                onTap: () =>
-                    AutoRouter.of(context).push(const ScheduleInputRoute()),
-                child: const CircleAvatar(
-                  radius: 50.0,
-                  backgroundColor: Color(0xFFD143BE),
-                  child: Center(
-                      child: Text(
-                    'Где поесть',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 160,
-              right: 40,
-              child: GestureDetector(
-                onTap: () =>
-                    AutoRouter.of(context).push(const ScheduleInputRoute()),
-                child: const CircleAvatar(
-                  radius: 50.0,
-                  backgroundColor: Color(0xFFC68EB9),
-                  child: Center(
-                      child: Text(
-                    'События',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 70,
-              right: 130,
-              child: GestureDetector(
-                onTap: () =>
-                    AutoRouter.of(context).push(const ScheduleInputRoute()),
-                child: const CircleAvatar(
-                  radius: 50.0,
-                  backgroundColor: Color(0xFF5381AE),
-                  child: Center(
-                      child: Text(
-                    'Детям',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-          ],
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class PopularItem extends StatelessWidget {
+  const PopularItem(
+      {Key? key,
+      required this.title,
+      required this.imagePath,
+      required this.color,
+      required this.type,
+      required this.onTap})
+      : super(key: key);
+
+  final String title;
+  final String type;
+  final String imagePath;
+  final Color color;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 1 / 1.2,
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(13.0),
+          side: const BorderSide(
+            color: Colors.black12,
+          ),
         ),
+        clipBehavior: Clip.hardEdge,
+        child: InkWell(
+          onTap: onTap,
+          child: Stack(
+            children: [
+              Ink.image(
+                image: AssetImage(imagePath),
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 150),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: color.withOpacity(0.75),
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Text(
+                    type,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 10,
+                left: 10,
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 150),
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                      color: color.withOpacity(0.75),
+                      borderRadius: BorderRadius.circular(16)),
+                  child: Text(
+                    title,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(
+                      textStyle: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MenuGridItem extends StatelessWidget {
+  const MenuGridItem(
+      {Key? key,
+      required this.title,
+      required this.onTap,
+      required this.backgroundColor,
+      required this.icon})
+      : super(key: key);
+
+  final VoidCallback onTap;
+  final Color backgroundColor;
+  final IconData icon;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: backgroundColor),
+            child: Icon(
+              icon,
+              size: 35,
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.montserrat(
+                textStyle: const TextStyle(fontWeight: FontWeight.w500)),
+          )
+        ],
       ),
     );
   }

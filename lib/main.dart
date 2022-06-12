@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/app/router/navigation_observer.dart';
 import 'package:city_info_guide/bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app/router/app_router.gr.dart';
 import 'injector.dart' as di;
@@ -13,7 +16,8 @@ Future<void> main() async {
   await di.initializeDependencies();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.white, // not for ios
+      //status bar color only for android
+      statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness
           .light, //dark copy: when light text is black, when dark - white
     ),
@@ -35,8 +39,16 @@ class CityInfoGuideApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: Theme.of(context).copyWith(
+        navigationBarTheme: NavigationBarThemeData().copyWith(
+          labelTextStyle: MaterialStateProperty.all(
+            GoogleFonts.montserrat(),
+          ),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
+      routerDelegate: AutoRouterDelegate(_appRouter,
+          navigatorObservers: () => [MyObserver()]),
       routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }

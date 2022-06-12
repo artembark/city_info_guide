@@ -9,7 +9,7 @@ part of 'schedule_point_point_dto.dart';
 _$_SchedulePointPointDTO _$$_SchedulePointPointDTOFromJson(
         Map<String, dynamic> json) =>
     _$_SchedulePointPointDTO(
-      intervalSegments: json['intervalSegments'] as List<dynamic>?,
+      intervalSegments: json['interval_segments'] as List<dynamic>? ?? const [],
       pagination: json['pagination'] == null
           ? null
           : PaginationDTO.fromJson(json['pagination'] as Map<String, dynamic>),
@@ -24,7 +24,7 @@ _$_SchedulePointPointDTO _$$_SchedulePointPointDTOFromJson(
 Map<String, dynamic> _$$_SchedulePointPointDTOToJson(
         _$_SchedulePointPointDTO instance) =>
     <String, dynamic>{
-      'intervalSegments': instance.intervalSegments,
+      'interval_segments': instance.intervalSegments,
       'pagination': instance.pagination?.toJson(),
       'segments': instance.segments?.map((e) => e.toJson()).toList(),
       'search': instance.search?.toJson(),

@@ -1,38 +1,36 @@
-import 'package:city_info_guide/domain/entities/schedule_p_p/search.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/entities/schedule_p_p/search_entity.dart';
 import 'from_dto.dart';
 import 'to_dto.dart';
 
-class SearchDTO {
-  String? date;
-  ToDTO? to;
-  FromDTO? from;
+part 'search_dto.freezed.dart';
+part 'search_dto.g.dart';
 
-  SearchDTO({this.date, this.to, this.from});
+@freezed
+class SearchDTO with _$SearchDTO {
+  const SearchDTO._();
+  const factory SearchDTO({
+    String? date,
+    ToDTO? to,
+    FromDTO? from,
+  }) = _SearchDTO;
 
-  factory SearchDTO.fromJson(Map<String, dynamic> json) => SearchDTO(
-        date: json['date'] as String?,
-        to: json['to'] == null
-            ? null
-            : ToDTO.fromJson(json['to'] as Map<String, dynamic>),
-        from: json['from'] == null
-            ? null
-            : FromDTO.fromJson(json['from'] as Map<String, dynamic>),
-      );
+  factory SearchDTO.fromJson(Map<String, dynamic> json) =>
+      _$SearchDTOFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'date': date,
-        'to': to?.toJson(),
-        'from': from?.toJson(),
-      };
+  // @override
+  // String toString() {
+  //   return 'SearchDTO(date: \'$date\', to: $to, from: $from)';
+  // }
 }
 
 extension SearchMapper on SearchDTO {
-  Search toModel() {
-    return Search(
+  SearchEntity toEntity() {
+    return SearchEntity(
       date: date,
-      to: to?.toModel(),
-      from: from?.toModel(),
+      to: to?.toEntity(),
+      from: from?.toEntity(),
     );
   }
 }

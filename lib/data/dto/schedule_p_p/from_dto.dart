@@ -1,52 +1,36 @@
-import '../../../domain/entities/schedule_p_p/from.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class FromDTO {
-  String? code;
-  String? title;
-  String? stationType;
-  String? popularTitle;
-  String? shortTitle;
-  String? transportType;
-  String? stationTypeName;
-  String? type;
+import '../../../domain/entities/schedule_p_p/from_entity.dart';
 
-  FromDTO({
-    this.code,
-    this.title,
-    this.stationType,
-    this.popularTitle,
-    this.shortTitle,
-    this.transportType,
-    this.stationTypeName,
-    this.type,
-  });
+part 'from_dto.freezed.dart';
+part 'from_dto.g.dart';
 
-  factory FromDTO.fromJson(Map<String, dynamic> json) => FromDTO(
-        code: json['code'] as String?,
-        title: json['title'] as String?,
-        stationType: json['station_type'] as String?,
-        popularTitle: json['popular_title'] as String?,
-        shortTitle: json['short_title'] as String?,
-        transportType: json['transport_type'] as String?,
-        stationTypeName: json['station_type_name'] as String?,
-        type: json['type'] as String?,
-      );
+@freezed
+class FromDTO with _$FromDTO {
+  const FromDTO._();
+  factory FromDTO({
+    String? code,
+    String? title,
+    String? stationType,
+    String? popularTitle,
+    String? shortTitle,
+    String? transportType,
+    String? stationTypeName,
+    String? type,
+  }) = _FromDTO;
 
-  Map<String, dynamic> toJson() => {
-        'code': code,
-        'title': title,
-        'station_type': stationType,
-        'popular_title': popularTitle,
-        'short_title': shortTitle,
-        'transport_type': transportType,
-        'station_type_name': stationTypeName,
-        'type': type,
-      };
+  factory FromDTO.fromJson(Map<String, dynamic> json) =>
+      _$FromDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'FromDTO(code: \'$code\', title: \'$title\', stationType: \'$stationType\', popularTitle: \'$popularTitle\', shortTitle: \'$shortTitle\', transportType: \'$transportType\', stationTypeName: \'$stationTypeName\', type: \'$type\')';
+  // }
 }
 
 extension FromMapper on FromDTO {
-  From toModel() {
-    return From(
+  FromEntity toEntity() {
+    return FromEntity(
       code: code,
       title: title,
       stationType: stationType,

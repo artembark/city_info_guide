@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/schedule_point_point.dart';
+import '../../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 import 'pagination_dto.dart';
 import 'search_dto.dart';
 import 'segment_dto.dart';
@@ -15,7 +15,7 @@ class SchedulePointPointDTO with _$SchedulePointPointDTO {
   const SchedulePointPointDTO._();
 
   const factory SchedulePointPointDTO({
-    List<dynamic>? intervalSegments,
+    @Default([]) List<dynamic>? intervalSegments,
     PaginationDTO? pagination,
     List<SegmentDTO>? segments,
     SearchDTO? search,
@@ -26,12 +26,12 @@ class SchedulePointPointDTO with _$SchedulePointPointDTO {
 }
 
 extension SchedulePointPointMapper on SchedulePointPointDTO {
-  SchedulePointPoint toModel() {
-    return SchedulePointPoint(
+  SchedulePointPointEntity toEntity() {
+    return SchedulePointPointEntity(
       intervalSegments: intervalSegments,
-      pagination: pagination?.toModel(),
-      segments: segments?.map((e) => e.toModel()).toList(),
-      search: search?.toModel(),
+      pagination: pagination?.toEntity(),
+      segments: segments?.map((e) => e.toEntity()).toList(),
+      search: search?.toEntity(),
     );
   }
 }

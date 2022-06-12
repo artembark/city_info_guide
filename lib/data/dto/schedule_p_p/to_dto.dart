@@ -1,52 +1,35 @@
-import '../../../domain/entities/schedule_p_p/to.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class ToDTO {
-  String? code;
-  String? title;
-  String? stationType;
-  String? popularTitle;
-  String? shortTitle;
-  String? transportType;
-  String? stationTypeName;
-  String? type;
+import '../../../domain/entities/schedule_p_p/to_entity.dart';
 
-  ToDTO({
-    this.code,
-    this.title,
-    this.stationType,
-    this.popularTitle,
-    this.shortTitle,
-    this.transportType,
-    this.stationTypeName,
-    this.type,
-  });
+part 'to_dto.freezed.dart';
+part 'to_dto.g.dart';
 
-  factory ToDTO.fromJson(Map<String, dynamic> json) => ToDTO(
-        code: json['code'] as String?,
-        title: json['title'] as String?,
-        stationType: json['station_type'] as String?,
-        popularTitle: json['popular_title'] as String?,
-        shortTitle: json['short_title'] as String?,
-        transportType: json['transport_type'] as String?,
-        stationTypeName: json['station_type_name'] as String?,
-        type: json['type'] as String?,
-      );
+@freezed
+class ToDTO with _$ToDTO {
+  const ToDTO._();
+  const factory ToDTO({
+    String? code,
+    String? title,
+    String? stationType,
+    String? popularTitle,
+    String? shortTitle,
+    String? transportType,
+    String? stationTypeName,
+    String? type,
+  }) = _ToDTO;
 
-  Map<String, dynamic> toJson() => {
-        'code': code,
-        'title': title,
-        'station_type': stationType,
-        'popular_title': popularTitle,
-        'short_title': shortTitle,
-        'transport_type': transportType,
-        'station_type_name': stationTypeName,
-        'type': type,
-      };
+  factory ToDTO.fromJson(Map<String, dynamic> json) => _$ToDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'ToDTO(code: \'$code\', title: \'$title\', stationType: \'$stationType\', popularTitle: \'$popularTitle\', shortTitle: \'$shortTitle\', transportType: \'$transportType\', stationTypeName: \'$stationTypeName\', type: \'$type\')';
+  // }
 }
 
 extension ToMapper on ToDTO {
-  To toModel() {
-    return To(
+  ToEntity toEntity() {
+    return ToEntity(
       code: code,
       title: title,
       stationType: stationType,

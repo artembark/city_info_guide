@@ -1,11 +1,18 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/presentation/views/favourites_page.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
+import 'package:city_info_guide/presentation/views/map.dart';
+import 'package:city_info_guide/presentation/views/profile_page.dart';
 import 'package:city_info_guide/presentation/views/schedule_input_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../presentation/views/dashboard.dart';
+import '../../presentation/views/home_wrapper.dart';
 import '../../presentation/views/poi_page.dart';
+import '../../presentation/views/schedule_result_page.dart';
+import '../../presentation/views/schedule_wrapper.dart';
 
 //part 'app_router.gr.dart';
 
@@ -13,15 +20,39 @@ import '../../presentation/views/poi_page.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    CustomRoute(
-        durationInMilliseconds: 500,
-        page: SplashPage,
-        initial: true,
-        transitionsBuilder: TransitionsBuilders.slideLeft),
-    CustomRoute(
-        page: HomePage, transitionsBuilder: TransitionsBuilders.slideLeft),
-    AutoRoute(page: ScheduleInputPage),
-    AutoRoute(page: PoiPage),
+    AutoRoute(
+      page: SplashPage,
+      initial: true,
+    ),
+    AutoRoute(
+      page: DashboardPage,
+      children: [
+        AutoRoute(
+          page: HomeWrapperPage,
+          children: [
+            AutoRoute(
+              page: HomePage,
+              initial: true,
+            ),
+            AutoRoute(
+              page: ScheduleWrapperPage,
+              name: 'ScheduleRouter',
+              children: [
+                AutoRoute(
+                  initial: true,
+                  page: ScheduleInputPage,
+                ),
+                AutoRoute(page: ScheduleResultPage),
+              ],
+            ),
+            AutoRoute(page: PoiPage),
+          ],
+        ),
+        AutoRoute(page: MapControlsPage),
+        AutoRoute(page: FavouritesPage),
+        AutoRoute(page: ProfilePage),
+      ],
+    )
   ],
 )
 // extend the generated private router

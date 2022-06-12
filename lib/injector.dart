@@ -13,13 +13,15 @@ import 'package:city_info_guide/domain/repositories/nearest_settlement_repositor
 import 'package:city_info_guide/domain/repositories/poi_repository.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
+import 'package:city_info_guide/domain/usecases/get_nearest_settlement.dart';
+import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
 import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 
-import 'data/datasources/local/location/location_data_sorce.dart';
+import 'data/datasources/local/location/location_data_source.dart';
 import 'data/datasources/local/poi/poi_data_sorce.dart';
 import 'data/datasources/remote/schedule/schedule_api_data_source.dart';
 import 'data/datasources/remote/suggests/suggests_api_data_source.dart';
@@ -47,12 +49,18 @@ parseJson(String response) {
 
 Future<void> initializeDependencies() async {
   // Features - main feature
+  //Usecases
+  sl.registerLazySingleton(
+      () => GetSchedulePointPoint(scheduleRepository: sl()));
+  sl.registerLazySingleton(() => GetNearestSettlement(
+        nearestSettlementRepository: sl(),
+        geolocationRepository: sl(),
+      ));
   // Bloc
   sl.registerFactory(
     () => ScheduleCubit(
-      schedulePointPointRepository: sl(),
-      geolocationRepository: sl(),
-      nearestSettlementRepository: sl(),
+      getSchedulePointPoint: sl(),
+      getNearestSettlement: sl(),
     ),
   );
   sl.registerFactory(
@@ -60,22 +68,6 @@ Future<void> initializeDependencies() async {
       placesOfInterestRepository: sl(),
     ),
   );
-  // Data sources
-  sl.registerLazySingleton<ScheduleApiDataSource>(
-    () => YandexRaspApiDataSourceImpl(
-      dio: sl(),
-    ),
-  );
-  sl.registerLazySingleton<SuggestsApiDataSource>(
-    () => YandexSuggestsApiDataSource(),
-  );
-  sl.registerLazySingleton<LocationDataSource>(
-    () => GeolocatorDataSource(),
-  );
-  sl.registerLazySingleton<PoiDataSource>(
-    () => AssetJsonPoiDataSource(),
-  );
-
   // Repository
   sl.registerLazySingleton<ScheduleRepository>(
     () => ScheduleRepositoryImpl(
@@ -98,6 +90,21 @@ Future<void> initializeDependencies() async {
       () => PlacesOfInterestRepoImpl(
             poiDataSource: sl(),
           ));
+  // Data sources
+  sl.registerLazySingleton<ScheduleApiDataSource>(
+    () => YandexRaspApiDataSourceImpl(
+      dio: sl(),
+    ),
+  );
+  sl.registerLazySingleton<SuggestsApiDataSource>(
+    () => YandexSuggestsApiDataSource(),
+  );
+  sl.registerLazySingleton<LocationDataSource>(
+    () => GeolocatorDataSource(),
+  );
+  sl.registerLazySingleton<PoiDataSource>(
+    () => AssetJsonPoiDataSource(),
+  );
 
   // External
   const baseUrl = 'https://api.rasp.yandex.net';

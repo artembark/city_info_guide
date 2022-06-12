@@ -19,6 +19,7 @@ mixin _$ScheduleRequest {
   String? get from => throw _privateConstructorUsedError;
   String? get fromTitle => throw _privateConstructorUsedError;
   String? get to => throw _privateConstructorUsedError;
+  String? get toTitle => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +32,12 @@ abstract class $ScheduleRequestCopyWith<$Res> {
   factory $ScheduleRequestCopyWith(
           ScheduleRequest value, $Res Function(ScheduleRequest) then) =
       _$ScheduleRequestCopyWithImpl<$Res>;
-  $Res call({String? from, String? fromTitle, String? to, DateTime? date});
+  $Res call(
+      {String? from,
+      String? fromTitle,
+      String? to,
+      String? toTitle,
+      DateTime? date});
 }
 
 /// @nodoc
@@ -48,6 +54,7 @@ class _$ScheduleRequestCopyWithImpl<$Res>
     Object? from = freezed,
     Object? fromTitle = freezed,
     Object? to = freezed,
+    Object? toTitle = freezed,
     Object? date = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,6 +69,10 @@ class _$ScheduleRequestCopyWithImpl<$Res>
       to: to == freezed
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      toTitle: toTitle == freezed
+          ? _value.toTitle
+          : toTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       date: date == freezed
           ? _value.date
@@ -78,7 +89,12 @@ abstract class _$$_ScheduleRequestCopyWith<$Res>
           _$_ScheduleRequest value, $Res Function(_$_ScheduleRequest) then) =
       __$$_ScheduleRequestCopyWithImpl<$Res>;
   @override
-  $Res call({String? from, String? fromTitle, String? to, DateTime? date});
+  $Res call(
+      {String? from,
+      String? fromTitle,
+      String? to,
+      String? toTitle,
+      DateTime? date});
 }
 
 /// @nodoc
@@ -97,6 +113,7 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
     Object? from = freezed,
     Object? fromTitle = freezed,
     Object? to = freezed,
+    Object? toTitle = freezed,
     Object? date = freezed,
   }) {
     return _then(_$_ScheduleRequest(
@@ -112,6 +129,10 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
               as String?,
+      toTitle: toTitle == freezed
+          ? _value.toTitle
+          : toTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -123,7 +144,8 @@ class __$$_ScheduleRequestCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ScheduleRequest implements _ScheduleRequest {
-  _$_ScheduleRequest({this.from, this.fromTitle, this.to, this.date});
+  _$_ScheduleRequest(
+      {this.from, this.fromTitle, this.to, this.toTitle, this.date});
 
   @override
   final String? from;
@@ -132,11 +154,13 @@ class _$_ScheduleRequest implements _ScheduleRequest {
   @override
   final String? to;
   @override
+  final String? toTitle;
+  @override
   final DateTime? date;
 
   @override
   String toString() {
-    return 'ScheduleRequest(from: $from, fromTitle: $fromTitle, to: $to, date: $date)';
+    return 'ScheduleRequest(from: $from, fromTitle: $fromTitle, to: $to, toTitle: $toTitle, date: $date)';
   }
 
   @override
@@ -147,6 +171,7 @@ class _$_ScheduleRequest implements _ScheduleRequest {
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.fromTitle, fromTitle) &&
             const DeepCollectionEquality().equals(other.to, to) &&
+            const DeepCollectionEquality().equals(other.toTitle, toTitle) &&
             const DeepCollectionEquality().equals(other.date, date));
   }
 
@@ -156,6 +181,7 @@ class _$_ScheduleRequest implements _ScheduleRequest {
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(fromTitle),
       const DeepCollectionEquality().hash(to),
+      const DeepCollectionEquality().hash(toTitle),
       const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
@@ -169,6 +195,7 @@ abstract class _ScheduleRequest implements ScheduleRequest {
       {final String? from,
       final String? fromTitle,
       final String? to,
+      final String? toTitle,
       final DateTime? date}) = _$_ScheduleRequest;
 
   @override
@@ -177,6 +204,8 @@ abstract class _ScheduleRequest implements ScheduleRequest {
   String? get fromTitle => throw _privateConstructorUsedError;
   @override
   String? get to => throw _privateConstructorUsedError;
+  @override
+  String? get toTitle => throw _privateConstructorUsedError;
   @override
   DateTime? get date => throw _privateConstructorUsedError;
   @override

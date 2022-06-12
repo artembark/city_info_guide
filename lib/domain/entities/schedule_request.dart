@@ -8,6 +8,7 @@ class ScheduleRequest with _$ScheduleRequest {
     String? from,
     String? fromTitle,
     String? to,
+    String? toTitle,
     DateTime? date,
   }) = _ScheduleRequest;
 }

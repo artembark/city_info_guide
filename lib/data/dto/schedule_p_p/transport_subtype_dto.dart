@@ -1,30 +1,32 @@
-import '../../../domain/entities/schedule_p_p/transport_subtype.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class TransportSubtypeDTO {
-  dynamic color;
-  dynamic code;
-  dynamic title;
+import '../../../domain/entities/schedule_p_p/transport_subtype_entity.dart';
 
-  TransportSubtypeDTO({this.color, this.code, this.title});
+part 'transport_subtype_dto.freezed.dart';
 
-  factory TransportSubtypeDTO.fromJson(Map<String, dynamic> json) {
-    return TransportSubtypeDTO(
-      color: json['color'] as dynamic,
-      code: json['code'] as dynamic,
-      title: json['title'] as dynamic,
-    );
-  }
+part 'transport_subtype_dto.g.dart';
 
-  Map<String, dynamic> toJson() => {
-        'color': color,
-        'code': code,
-        'title': title,
-      };
+@freezed
+class TransportSubtypeDTO with _$TransportSubtypeDTO {
+  const TransportSubtypeDTO._();
+  const factory TransportSubtypeDTO({
+    dynamic color,
+    dynamic code,
+    dynamic title,
+  }) = _TransportSubtypeDTO;
+
+  factory TransportSubtypeDTO.fromJson(Map<String, dynamic> json) =>
+      _$TransportSubtypeDTOFromJson(json);
+
+  // @override
+  // String toString() {
+  //   return 'TransportSubtypeDTO(color: \'$color\', code: \'$code\', title: \'$title\')';
+  // }
 }
 
 extension TransportSubtypeMapper on TransportSubtypeDTO {
-  TransportSubtype toModel() {
-    return TransportSubtype(
+  TransportSubtypeEntity toEntity() {
+    return TransportSubtypeEntity(
       color: color,
       code: code,
       title: title,

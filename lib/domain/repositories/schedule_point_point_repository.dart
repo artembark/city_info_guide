@@ -1,10 +1,13 @@
-import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point.dart';
+import 'package:dartz/dartz.dart';
+
+import '../../data/failure.dart';
+import '../entities/schedule_p_p/schedule_point_point_entity.dart';
 
 /// Репозиторий для получения расписания рейсов между
 /// двумя населенными пунктами по дате
 abstract class ScheduleRepository {
   //получение объекта с расписанием
-  Future<SchedulePointPoint> getSchedulePointPoint({
+  Future<Either<Failure, SchedulePointPointEntity>> getSchedulePointPoint({
     required String from,
     required String to,
     required DateTime date,

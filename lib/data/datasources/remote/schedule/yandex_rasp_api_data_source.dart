@@ -1,9 +1,9 @@
-import 'package:city_info_guide/core/utils/secrets.dart';
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
-import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart';
+import 'package:city_info_guide/data/exception.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 
+import '../../../dto/nearest_settlement/nearest_settlement_dto.dart';
 import '../../../dto/schedule_p_p/schedule_point_point_dto.dart';
 
 class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
@@ -16,14 +16,19 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       {required String from,
       required String to,
       required DateTime date}) async {
+    //TODO: make api keys be stored securely and be accessible while testing
     final response = await dio.get('/v3.0/search/', queryParameters: {
-      'apikey': yandexRaspApiKey,
+      'apikey': const String.fromEnvironment('API_KEY'),
       'from': from,
       'to': to,
       'date': DateFormat('yyyy-MM-dd').format(date),
       'transfers': true
     });
-    return SchedulePointPointDTO.fromJson(response.data);
+    if (response.statusCode == 200) {
+      return SchedulePointPointDTO.fromJson(response.data);
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
@@ -31,13 +36,17 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       {required double lat, required double lon}) async {
     final response =
         await dio.get('/v3.0/nearest_settlement/', queryParameters: {
-      'apikey': yandexRaspApiKey,
+      'apikey': const String.fromEnvironment('API_KEY'),
       'lat': lat,
       'lng': lon,
       'distance': '50',
       'format': 'json',
       'lang': 'ru_RU'
     });
-    return NearestSettlementDTO.fromJson(response.data);
+    if (response.statusCode == 200) {
+      return NearestSettlementDTO.fromJson(response.data);
+    } else {
+      throw ServerException();
+    }
   }
 }
