@@ -1,5 +1,6 @@
 import UIKit
 import Flutter
+import YandexMapsMobile
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -7,6 +8,7 @@ import Flutter
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+          YMKMapKit.setApiKey("f96d8fa8-446f-43d3-b09f-f8f814b38329")
       let controller:FlutterViewController = window?.rootViewController as! FlutterViewController
       let MAP_LAUNCHER_CHANNEL = "map_launcher"
       let mapChannel = FlutterMethodChannel(name: MAP_LAUNCHER_CHANNEL,binaryMessenger: controller.binaryMessenger)

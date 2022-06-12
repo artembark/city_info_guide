@@ -6,12 +6,14 @@ import android.net.Uri
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import com.yandex.mapkit.MapKitFactory;
 
 class MainActivity : FlutterActivity() {
     private val MAP_LAUNCHER_CHANNEL = "map_launcher"
     private lateinit var channel: MethodChannel
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        MapKitFactory.setApiKey("f96d8fa8-446f-43d3-b09f-f8f814b38329");
         super.configureFlutterEngine(flutterEngine)
         //create channel
         channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MAP_LAUNCHER_CHANNEL)

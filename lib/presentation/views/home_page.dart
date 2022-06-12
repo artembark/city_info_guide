@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,6 +26,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.transparent,
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
@@ -213,7 +222,7 @@ class PopularItem extends StatelessWidget {
                 top: 10,
                 right: 10,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 150),
+                  constraints: const BoxConstraints(maxWidth: 150),
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                       color: color.withOpacity(0.75),
@@ -235,7 +244,7 @@ class PopularItem extends StatelessWidget {
                 bottom: 10,
                 left: 10,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 150),
+                  constraints: const BoxConstraints(maxWidth: 150),
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                       color: color.withOpacity(0.75),
