@@ -123,8 +123,8 @@ Add file extensions separated by the `;`
 This app uses AutoRoute for navigation.
 If you wrap FirstRoute() page content with BlocProvider and use context.router.push(SecondRoute())
 for navigating to second page and try to access blocs provided in the first page you will get
-an error. The second page doesn't know anything about blocs, provided un the firs page.
-In order to access the same bloc instance through multiple pages it is necessary to create nesting 
+an error. The second page doesn't know anything about blocs, provided on the first page.
+In order to access the same bloc instance through multiple pages you can either pass it as a parameter orit is necessary to create nesting 
 routing by creating a wrapper page and implementing BlocProvider in it. So each page on this nested 
 route will have access to this bloc/blocs.
 [Milad-Akarie comment](https://github.com/Milad-Akarie/auto_route_library/issues/632#issuecomment-889936599)
@@ -138,3 +138,12 @@ Alternative example [implementing AutoRouteWapper](https://github.com/Milad-Akar
 
 ## Preload images
 [Source](https://medium.com/flutter/improving-perceived-performance-with-image-placeholders-precaching-and-disabled-navigation-6b3601087a2b)
+
+## To run iOS on a real device
+Use `flutter run --release`
+
+## YandexMapKit  
+Problems with iOS deployment. Fixed with changing target OS version to 12.0 and running
+[this](https://github.com/CocoaPods/CocoaPods/issues/10220#issuecomment-730963835)
+
+Also need specify locale `YMKMapKit.setLocale("ru_RU")`

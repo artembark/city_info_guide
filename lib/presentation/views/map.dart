@@ -96,19 +96,6 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
     }
   }
 
-  // @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-  //   SystemChrome.setSystemUIOverlayStyle(
-  //     SystemUiOverlayStyle.dark.copyWith(
-  //       //status bar color only for android
-  //       statusBarColor: Colors.black38,
-  //       statusBarBrightness: Brightness
-  //           .light, //dark copy: when light text is black, when dark - white
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,10 +136,10 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
               mapObjects: mapObjects,
               onMapCreated: (YandexMapController yandexMapController) async {
                 controller = yandexMapController;
-                controller.moveCamera(
-                    CameraUpdate.newCameraPosition(
-                        CameraPosition(target: _point)),
-                    animation: animation);
+                // controller.moveCamera(
+                //     CameraUpdate.newCameraPosition(
+                //         CameraPosition(target: _point)),
+                //     animation: animation);
                 final cameraPosition = await controller.getCameraPosition();
                 final minZoom = await controller.getMinZoom();
                 final maxZoom = await controller.getMaxZoom();
