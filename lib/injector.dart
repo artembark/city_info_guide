@@ -5,18 +5,22 @@ import 'package:city_info_guide/data/datasources/local/poi/local_poi_data_source
 import 'package:city_info_guide/data/datasources/remote/schedule/yandex_rasp_api_data_source.dart';
 import 'package:city_info_guide/data/datasources/remote/suggests/yandex_suggests_api_data_source.dart';
 import 'package:city_info_guide/data/repository/geolocation_repo_impl.dart';
+import 'package:city_info_guide/data/repository/list_station_route_repo_impl.dart';
 import 'package:city_info_guide/data/repository/poi_repo_impl.dart';
 import 'package:city_info_guide/data/repository/schedule_point_point_repo_impl.dart';
 import 'package:city_info_guide/data/repository/suggested_city_repo_impl.dart';
 import 'package:city_info_guide/domain/repositories/geolocation_repository.dart';
+import 'package:city_info_guide/domain/repositories/list_station_route_repository.dart';
 import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart';
 import 'package:city_info_guide/domain/repositories/poi_repository.dart';
 import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
+import 'package:city_info_guide/domain/usecases/get_list_stations_route.dart';
 import 'package:city_info_guide/domain/usecases/get_nearest_settlement.dart';
 import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
 import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
+import 'package:city_info_guide/presentation/blocs/schedule_details/schedule_details_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
@@ -46,6 +50,8 @@ Future<void> initializeDependencies() async {
         nearestSettlementRepository: sl(),
         geolocationRepository: sl(),
       ));
+  sl.registerLazySingleton(
+      () => GetListStationsRoute(listStationRouteRepository: sl()));
   // Bloc
   sl.registerFactory(
     () => ScheduleCubit(
@@ -58,6 +64,7 @@ Future<void> initializeDependencies() async {
       placesOfInterestRepository: sl(),
     ),
   );
+  sl.registerFactory(() => ScheduleDetailsCubit(getListStationsRoute: sl()));
   // Repository
   sl.registerLazySingleton<ScheduleRepository>(
     () => ScheduleRepositoryImpl(
@@ -70,6 +77,10 @@ Future<void> initializeDependencies() async {
           ));
   sl.registerLazySingleton<NearestSettlementRepository>(
       () => NearestSettlementRepoImpl(
+            scheduleApiDataSource: sl(),
+          ));
+  sl.registerLazySingleton<ListStationRouteRepository>(
+      () => ListStationRouteRepoImpl(
             scheduleApiDataSource: sl(),
           ));
   sl.registerLazySingleton<GeolocationRepository>(

@@ -79,9 +79,16 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                                       TextFieldConfiguration(
                                           controller: _fromTypeAheadController,
                                           autofocus: false,
-                                          decoration: const InputDecoration(
+                                          decoration: InputDecoration(
+                                              suffixIcon: IconButton(
+                                                onPressed: () =>
+                                                    _fromTypeAheadController
+                                                        .clear(),
+                                                icon: const Icon(Icons.close),
+                                              ),
                                               labelText: 'Откуда',
-                                              border: OutlineInputBorder())),
+                                              border:
+                                                  const OutlineInputBorder())),
                                   suggestionsCallback: (userInput) async {
                                     final res = await sl<
                                             SuggestedCityCompactRepository>()
@@ -157,9 +164,14 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
                             textFieldConfiguration: TextFieldConfiguration(
                               controller: _toTypeAheadController,
                               autofocus: false,
-                              decoration: const InputDecoration(
+                              decoration: InputDecoration(
+                                suffixIcon: IconButton(
+                                  onPressed: () =>
+                                      _toTypeAheadController.clear(),
+                                  icon: const Icon(Icons.close),
+                                ),
                                 labelText: 'Куда',
-                                border: OutlineInputBorder(),
+                                border: const OutlineInputBorder(),
                               ),
                             ),
                             suggestionsCallback: (userInput) async {

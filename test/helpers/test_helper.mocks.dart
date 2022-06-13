@@ -2,27 +2,29 @@
 // in city_info_guide/test/helpers/test_helper.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i6;
+import 'dart:async' as _i7;
 
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart'
-    as _i13;
+    as _i14;
+import 'package:city_info_guide/data/dto/list_stations_route/list_stations_route_dto.dart'
+    as _i5;
 import 'package:city_info_guide/data/dto/nearest_settlement/nearest_settlement_dto.dart'
     as _i4;
 import 'package:city_info_guide/data/dto/schedule_p_p/schedule_point_point_dto.dart'
     as _i3;
-import 'package:city_info_guide/data/failure.dart' as _i7;
+import 'package:city_info_guide/data/failure.dart' as _i8;
 import 'package:city_info_guide/domain/entities/nearest_settlement_entity.dart'
-    as _i10;
-import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point_entity.dart'
-    as _i12;
-import 'package:city_info_guide/domain/repositories/geolocation_repository.dart'
-    as _i5;
-import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart'
-    as _i9;
-import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart'
     as _i11;
+import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point_entity.dart'
+    as _i13;
+import 'package:city_info_guide/domain/repositories/geolocation_repository.dart'
+    as _i6;
+import 'package:city_info_guide/domain/repositories/nearest_settlement_repository.dart'
+    as _i10;
+import 'package:city_info_guide/domain/repositories/schedule_point_point_repository.dart'
+    as _i12;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:geolocator/geolocator.dart' as _i8;
+import 'package:geolocator/geolocator.dart' as _i9;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -43,87 +45,97 @@ class _FakeSchedulePointPointDTO_1 extends _i1.Fake
 class _FakeNearestSettlementDTO_2 extends _i1.Fake
     implements _i4.NearestSettlementDTO {}
 
+class _FakeListStationsRouteDTO_3 extends _i1.Fake
+    implements _i5.ListStationsRouteDTO {}
+
 /// A class which mocks [GeolocationRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGeolocationRepository extends _i1.Mock
-    implements _i5.GeolocationRepository {
+    implements _i6.GeolocationRepository {
   MockGeolocationRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, _i8.Position>> getCurrentPosition() =>
+  _i7.Future<_i2.Either<_i8.Failure, _i9.Position>> getCurrentPosition() =>
       (super.noSuchMethod(Invocation.method(#getCurrentPosition, []),
-              returnValue: Future<_i2.Either<_i7.Failure, _i8.Position>>.value(
-                  _FakeEither_0<_i7.Failure, _i8.Position>()))
-          as _i6.Future<_i2.Either<_i7.Failure, _i8.Position>>);
+              returnValue: Future<_i2.Either<_i8.Failure, _i9.Position>>.value(
+                  _FakeEither_0<_i8.Failure, _i9.Position>()))
+          as _i7.Future<_i2.Either<_i8.Failure, _i9.Position>>);
 }
 
 /// A class which mocks [NearestSettlementRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNearestSettlementRepository extends _i1.Mock
-    implements _i9.NearestSettlementRepository {
+    implements _i10.NearestSettlementRepository {
   MockNearestSettlementRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>
+  _i7.Future<_i2.Either<_i8.Failure, _i11.NearestSettlementEntity>>
       getNearestSettlement({double? lat, double? lon}) => (super.noSuchMethod(
           Invocation.method(#getNearestSettlement, [], {#lat: lat, #lon: lon}),
           returnValue: Future<
-                  _i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>.value(
-              _FakeEither_0<_i7.Failure, _i10.NearestSettlementEntity>())) as _i6
-          .Future<_i2.Either<_i7.Failure, _i10.NearestSettlementEntity>>);
+                  _i2.Either<_i8.Failure, _i11.NearestSettlementEntity>>.value(
+              _FakeEither_0<_i8.Failure, _i11.NearestSettlementEntity>())) as _i7
+          .Future<_i2.Either<_i8.Failure, _i11.NearestSettlementEntity>>);
 }
 
 /// A class which mocks [ScheduleRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockScheduleRepository extends _i1.Mock
-    implements _i11.ScheduleRepository {
+    implements _i12.ScheduleRepository {
   MockScheduleRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>
+  _i7.Future<_i2.Either<_i8.Failure, _i13.SchedulePointPointEntity>>
       getSchedulePointPoint({String? from, String? to, DateTime? date}) =>
           (super.noSuchMethod(
               Invocation.method(#getSchedulePointPoint, [],
                   {#from: from, #to: to, #date: date}),
               returnValue:
-                  Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>.value(
-                      _FakeEither_0<_i7.Failure, _i12.SchedulePointPointEntity>())) as _i6
-              .Future<_i2.Either<_i7.Failure, _i12.SchedulePointPointEntity>>);
+                  Future<_i2.Either<_i8.Failure, _i13.SchedulePointPointEntity>>.value(
+                      _FakeEither_0<_i8.Failure, _i13.SchedulePointPointEntity>())) as _i7
+              .Future<_i2.Either<_i8.Failure, _i13.SchedulePointPointEntity>>);
 }
 
 /// A class which mocks [ScheduleApiDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockScheduleApiDataSource extends _i1.Mock
-    implements _i13.ScheduleApiDataSource {
+    implements _i14.ScheduleApiDataSource {
   MockScheduleApiDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i6.Future<_i3.SchedulePointPointDTO> getSchedulePointPoint(
+  _i7.Future<_i3.SchedulePointPointDTO> getSchedulePointPoint(
           {String? from, String? to, DateTime? date}) =>
       (super.noSuchMethod(
           Invocation.method(
               #getSchedulePointPoint, [], {#from: from, #to: to, #date: date}),
           returnValue: Future<_i3.SchedulePointPointDTO>.value(
-              _FakeSchedulePointPointDTO_1())) as _i6
+              _FakeSchedulePointPointDTO_1())) as _i7
           .Future<_i3.SchedulePointPointDTO>);
   @override
-  _i6.Future<_i4.NearestSettlementDTO> getNearestSettlement(
+  _i7.Future<_i4.NearestSettlementDTO> getNearestSettlement(
           {double? lat, double? lon}) =>
       (super.noSuchMethod(
           Invocation.method(#getNearestSettlement, [], {#lat: lat, #lon: lon}),
           returnValue: Future<_i4.NearestSettlementDTO>.value(
-              _FakeNearestSettlementDTO_2())) as _i6
+              _FakeNearestSettlementDTO_2())) as _i7
           .Future<_i4.NearestSettlementDTO>);
+  @override
+  _i7.Future<_i5.ListStationsRouteDTO> getListStationsRoute({String? uid}) =>
+      (super.noSuchMethod(
+              Invocation.method(#getListStationsRoute, [], {#uid: uid}),
+              returnValue: Future<_i5.ListStationsRouteDTO>.value(
+                  _FakeListStationsRouteDTO_3()))
+          as _i7.Future<_i5.ListStationsRouteDTO>);
 }

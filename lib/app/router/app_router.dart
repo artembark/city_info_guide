@@ -6,7 +6,6 @@ import 'package:city_info_guide/presentation/views/map_controls_page.dart';
 import 'package:city_info_guide/presentation/views/profile_page.dart';
 import 'package:city_info_guide/presentation/views/schedule_input_page.dart';
 import 'package:city_info_guide/presentation/views/splash_page.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../presentation/views/animals_page.dart';
 import '../../presentation/views/cars_page.dart';
@@ -17,6 +16,7 @@ import '../../presentation/views/home_wrapper.dart';
 import '../../presentation/views/hotels_page.dart';
 import '../../presentation/views/kids_page.dart';
 import '../../presentation/views/poi_page.dart';
+import '../../presentation/views/schedule_result_details_page.dart';
 import '../../presentation/views/schedule_result_page.dart';
 import '../../presentation/views/schedule_wrapper.dart';
 
@@ -49,6 +49,7 @@ import '../../presentation/views/schedule_wrapper.dart';
                   page: ScheduleInputPage,
                 ),
                 AutoRoute(page: ScheduleResultPage),
+                AutoRoute(page: ScheduleResultDetailsPage),
               ],
             ),
             AutoRoute(page: PoiPage),

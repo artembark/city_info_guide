@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 
 part 'schedule_state.dart';
-
 part 'schedule_cubit.freezed.dart';
 
 class ScheduleCubit extends Cubit<ScheduleState> {
@@ -114,7 +113,9 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   getSchedule() async {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    if (scheduleRequest.from == scheduleRequest.to) {}
+    if (scheduleRequest.from == scheduleRequest.to) {
+      return;
+    }
     emit(const ScheduleState.resultsLoading());
     final schedulePointPoint = await getSchedulePointPoint.call(
         SchedulePointPointParams(

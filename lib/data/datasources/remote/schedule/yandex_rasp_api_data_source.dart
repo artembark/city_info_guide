@@ -1,4 +1,5 @@
 import 'package:city_info_guide/data/datasources/remote/schedule/schedule_api_data_source.dart';
+import 'package:city_info_guide/data/dto/list_stations_route/list_stations_route_dto.dart';
 import 'package:city_info_guide/data/exception.dart';
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
@@ -45,6 +46,22 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
     });
     if (response.statusCode == 200) {
       return NearestSettlementDTO.fromJson(response.data);
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<ListStationsRouteDTO> getListStationsRoute(
+      {required String uid}) async {
+    final response = await dio.get('/v3.0/thread/', queryParameters: {
+      'apikey': const String.fromEnvironment('API_KEY'),
+      'uid': uid,
+      'format': 'json',
+      'lang': 'ru_RU'
+    });
+    if (response.statusCode == 200) {
+      return ListStationsRouteDTO.fromJson(response.data);
     } else {
       throw ServerException();
     }

@@ -14,7 +14,7 @@ part 'nearest_settlement_dto.g.dart';
 
 @freezed
 class NearestSettlementDTO with _$NearestSettlementDTO {
-  factory NearestSettlementDTO({
+  const factory NearestSettlementDTO({
     final double? distance,
     final String? code,
     final String? title,
