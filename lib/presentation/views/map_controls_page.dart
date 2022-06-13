@@ -136,10 +136,10 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
               mapObjects: mapObjects,
               onMapCreated: (YandexMapController yandexMapController) async {
                 controller = yandexMapController;
-                // controller.moveCamera(
-                //     CameraUpdate.newCameraPosition(
-                //         CameraPosition(target: _point)),
-                //     animation: animation);
+                controller.moveCamera(
+                    CameraUpdate.newCameraPosition(
+                        CameraPosition(target: _point)),
+                    animation: animation);
                 final cameraPosition = await controller.getCameraPosition();
                 final minZoom = await controller.getMinZoom();
                 final maxZoom = await controller.getMaxZoom();
