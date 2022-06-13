@@ -16,8 +16,10 @@ class GetSchedulePointPoint
   @override
   Future<Either<Failure, SchedulePointPointEntity>> call(
       SchedulePointPointParams params) async {
-    return await scheduleRepository.getSchedulePointPoint(
-        from: params.from, to: params.to, date: params.dateTime);
+    //TODO:remove this demonstration only delay
+    return Future.delayed(const Duration(seconds: 1)).then((value) async =>
+        await scheduleRepository.getSchedulePointPoint(
+            from: params.from, to: params.to, date: params.dateTime));
   }
 }
 

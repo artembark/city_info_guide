@@ -5,6 +5,7 @@ import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 import '../../core/utils/duration_converter.dart';
@@ -28,61 +29,94 @@ class ScheduleResultPage extends StatelessWidget {
             title: Column(
               children: [
                 Text('Расписание'),
-                Text(
-                  '${schedulePointPointEntity.search?.from?.title} - '
-                  '${schedulePointPointEntity.search?.to?.title}',
-                  maxLines: 2,
-                )
               ],
             ),
           ),
           body: SafeArea(
-              child: ListView.separated(
-            padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
-            itemCount: segments!.length,
-            itemBuilder: (context, index) {
-              final segment = segments[index];
-              IconData icon = Icons.control_point;
-              if (segment.from?.transportType == 'bus') {
-                icon = Icons.bus_alert;
-              }
-              if (segment.from?.transportType == 'train') {
-                icon = Icons.train;
-              }
-              int dur = 0;
-              final duration = segment.duration;
-              if (duration != null) {
-                dur = duration.toInt();
-              }
-              final correctedDepartureTime =
-                  segment.departure?.add(const Duration(hours: 3));
-              final correctedArrivalTime =
-                  segment.arrival?.add(const Duration(hours: 3));
-              return Card(
-                color: Colors.grey[200],
-                child: ListTile(
-                  leading: Icon(icon),
-                  title: Column(
-                    children: [
-                      Text('Тип транспорта ${segment.from?.transportType}'),
-                      Text(segment.from?.title ?? ''),
-                      Text(
-                          '${DateFormat('dd/MM/yyyy kk:mm').format(correctedDepartureTime!)}'),
-                      Text(segments[index].to?.title ?? ''),
-                      Text(
-                          '${DateFormat('dd/MM/yyyy kk:mm').format(correctedArrivalTime!)}'),
-                      Text(
-                          'Время в пути ${printDuration(Duration(seconds: dur))}'),
-                    ],
-                  ),
+              child: Column(
+            children: [
+              Text(
+                DateFormat('dd/MM/yyyy').format(
+                  DateTime.parse(schedulePointPointEntity.search?.date ?? ''),
                 ),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return const SizedBox(
-                height: 10.0,
-              );
-            },
+              ),
+              Text(
+                '${schedulePointPointEntity.search?.from?.title} - '
+                '${schedulePointPointEntity.search?.to?.title}',
+              ),
+              Expanded(
+                child: ListView.separated(
+                  padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0),
+                  itemCount: segments!.length,
+                  itemBuilder: (context, index) {
+                    final segment = segments[index];
+                    IconData icon = Icons.control_point;
+                    if (segment.from?.transportType == 'bus') {
+                      icon = FontAwesomeIcons.bus;
+                    }
+                    if (segment.from?.transportType == 'train') {
+                      icon = FontAwesomeIcons.trainSubway;
+                    }
+                    int dur = 0;
+                    final duration = segment.duration;
+                    if (duration != null) {
+                      dur = duration.toInt();
+                    }
+                    final correctedDepartureTime =
+                        segment.departure?.add(const Duration(hours: 3));
+                    final correctedArrivalTime =
+                        segment.arrival?.add(const Duration(hours: 3));
+                    return Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(13.0),
+                        side: const BorderSide(
+                          color: Colors.black45,
+                        ),
+                      ),
+                      clipBehavior: Clip.hardEdge,
+                      elevation: 0,
+                      color: Colors.grey[200],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                    '${DateFormat('kk:mm').format(correctedDepartureTime!)}•--------'),
+                                Icon(icon),
+                                Text(
+                                    '--------•${DateFormat('kk:mm').format(correctedArrivalTime!)}')
+                              ],
+                              mainAxisAlignment: MainAxisAlignment.center,
+                            ),
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Text(
+                                '${printDuration(Duration(seconds: dur))}',
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                color:
+                                    const Color(0xFF8DC6FF).withOpacity(0.5)),
+                            //width: double.infinity,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const SizedBox(
+                      height: 10.0,
+                    );
+                  },
+                ),
+              ),
+            ],
           ))),
     );
   }

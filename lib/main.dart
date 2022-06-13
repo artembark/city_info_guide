@@ -36,6 +36,20 @@ class CityInfoGuideApp extends StatelessWidget {
               GoogleFonts.montserrat(),
             ),
           ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              textStyle: MaterialStateProperty.all(
+                  GoogleFonts.montserrat(color: Colors.black)),
+              // backgroundColor:
+              //     MaterialStateProperty.all(const Color(0xFFbad6ec)),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+              ),
+            ),
+          ),
           appBarTheme: const AppBarTheme().copyWith(
             iconTheme: IconThemeData(
               color: Colors.black, //change your color here
