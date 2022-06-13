@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'app/router/app_router.gr.dart';
 import 'injector.dart' as di;
@@ -13,7 +14,9 @@ import 'injector.dart' as di;
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await initializeDateFormatting('fr_FR', null);
   await di.initializeDependencies();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   BlocOverrides.runZoned(
     () {
       runApp(CityInfoGuideApp());

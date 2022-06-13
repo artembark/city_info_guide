@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,14 @@ class ScheduleWrapperPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<ScheduleCubit>(),
+      create: (_) => sl<ScheduleCubit>()
+        ..init(
+          ScheduleRequest(
+            date: DateTime.now().add(
+              const Duration(days: 1),
+            ),
+          ),
+        ),
       child: const AutoRouter(),
     );
   }

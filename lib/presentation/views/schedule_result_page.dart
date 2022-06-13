@@ -21,7 +21,13 @@ class ScheduleResultPage extends StatelessWidget {
     final segments = schedulePointPointEntity.segments;
     return WillPopScope(
       onWillPop: () async {
-        context.read<ScheduleCubit>().init(ScheduleRequest());
+        context.read<ScheduleCubit>().init(
+              ScheduleRequest(
+                date: DateTime.now().add(
+                  const Duration(days: 1),
+                ),
+              ),
+            );
         return true;
       },
       child: Scaffold(

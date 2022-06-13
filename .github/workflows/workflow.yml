@@ -27,7 +27,7 @@ jobs:
       #- uses: codecov/codecov-action@v1.0.2
       #  with:
       #    token: ${{ secrets.CODECOV_TOKEN }}
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
           with:
             name: release-apk
             path: build/app/outputs/apk/release/app-release.apk

@@ -23,11 +23,8 @@ class ScheduleResultDetailsPage extends StatelessWidget {
             child: BlocBuilder<ScheduleDetailsCubit, ScheduleDetailsState>(
           builder: (context, state) {
             return state.when(
-                initial: () {
-                  return const Center(
-                    child: Text('Init'),
-                  );
-                },
+                initial: () => Center(
+                    child: Lottie.asset('assets/lottie/bus_driving.json')),
                 resultsLoading: () => Center(
                     child: Lottie.asset('assets/lottie/bus_driving.json')),
                 resultsLoaded: (listStationsRoute) {

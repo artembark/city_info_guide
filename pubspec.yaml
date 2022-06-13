@@ -32,6 +32,7 @@ dependencies:
   google_fonts: ^3.0.1
   yandex_mapkit: ^3.0.0
   flutter_launcher_icons: ^0.9.3
+  toggle_switch: ^2.0.1
 
 dev_dependencies:
   flutter_test:
