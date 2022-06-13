@@ -1,22 +1,7 @@
-# City guide app project
-City guide app development. Development is in progress.
+# City guide app project description
+City guide app. Development is in progress.
 
 <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">
-
-
-## Yandex Schedule API
-It is good to know how one can come to your city and leave it. So you need a schedule service.  
-Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)  
-Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.html)  
-Currently project uses two API methods:
-- get schedule between two stations
-- get nearest settlement to current location (geocoder)
-
-## Suggests API
-In order to simplify entering from and to position for schedule this app uses suggestions API. 
-Settlements name appear as you type letters, suggesting you convenient names.
-Schedule api also needs to have city codes in request. Suggests api is used for 
-converting human readable city names to codes. 
 
 ## Packages used
 
@@ -45,6 +30,21 @@ converting human readable city names to codes.
 - [yandex_mapkit](https://pub.dev/packages/yandex_mapkit) to use Yandex MapKit
 - [dartz](https://pub.dev/packages/dartz) to implement Either and handle Errors
 - [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) to create launcher icons
+
+## Yandex Schedule API
+It is good to know how one can come to your city and leave it. So you need a schedule service.  
+Project involves [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/)  
+Documentation can be found [here](https://yandex.ru/dev/rasp/doc/concepts/about.html)  
+Currently project uses two API methods:
+- get schedule between two stations
+- get nearest settlement to current location (geocoder)
+
+## Suggests API
+In order to simplify entering from and to position for schedule this app uses suggestions API. 
+Settlements name appear as you type letters, suggesting you convenient names.
+Schedule api also needs to have city codes in request. Suggests api is used for 
+converting human readable city names to codes.
+This app uses [Yandex suggests api](suggests.rasp.yandex.net)
 
 ## [Native splash screen](https://pub.dev/packages/flutter_native_splash)  
 A native splash screen will be shown before flutter app starts.
