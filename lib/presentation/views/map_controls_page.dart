@@ -1,19 +1,4 @@
-// import 'package:flutter/material.dart';
-//
-// class MapPage extends StatelessWidget {
-//   const MapPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: SafeArea(
-//         child: Center(
-//           child: Text('MAP TO BE IMLEMENTED'),
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -41,8 +26,7 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
   final List<MapObject> mapObjects = [];
 
   final MapObjectId targetMapObjectId = const MapObjectId('target_placemark');
-  static final Point _point =
-      const Point(latitude: 61.036554, longitude: 30.119838);
+  static const Point _point = Point(latitude: 61.036554, longitude: 30.119838);
   final animation =
       const MapAnimation(type: MapAnimationType.smooth, duration: 2.0);
 
@@ -138,31 +122,44 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                 controller = yandexMapController;
                 controller.moveCamera(
                     CameraUpdate.newCameraPosition(
-                        CameraPosition(target: _point)),
+                        const CameraPosition(target: _point)),
                     animation: animation);
                 final cameraPosition = await controller.getCameraPosition();
                 final minZoom = await controller.getMinZoom();
                 final maxZoom = await controller.getMaxZoom();
 
-                print('Camera position: $cameraPosition');
-                print('Min zoom: $minZoom, Max zoom: $maxZoom');
+                if (kDebugMode) {
+                  print('Camera position: $cameraPosition');
+                  print('Min zoom: $minZoom, Max zoom: $maxZoom');
+                }
               },
               onMapTap: (Point point) async {
-                print('Tapped map at $point');
-
+                if (kDebugMode) {
+                  print('Tapped map at $point');
+                }
                 await controller.deselectGeoObject();
               },
-              onMapLongTap: (Point point) => print('Long tapped map at $point'),
+              onMapLongTap: (Point point) {
+                if (kDebugMode) {
+                  print('Long tapped map at $point');
+                }
+              },
               onCameraPositionChanged: (CameraPosition cameraPosition,
                   CameraUpdateReason reason, bool finished) {
-                print('Camera position: $cameraPosition, Reason: $reason');
+                if (kDebugMode) {
+                  print('Camera position: $cameraPosition, Reason: $reason');
+                }
 
                 if (finished) {
-                  print('Camera position movement has been finished');
+                  if (kDebugMode) {
+                    print('Camera position movement has been finished');
+                  }
                 }
               },
               onObjectTap: (GeoObject geoObject) async {
-                print('Tapped object: ${geoObject.name}');
+                if (kDebugMode) {
+                  print('Tapped object: ${geoObject.name}');
+                }
 
                 if (geoObject.selectionMetadata != null) {
                   await controller.selectGeoObject(
@@ -181,7 +178,7 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                             onPressed: () async {
                               await controller.moveCamera(
                                   CameraUpdate.newCameraPosition(
-                                      CameraPosition(target: _point)),
+                                      const CameraPosition(target: _point)),
                                   animation: animation);
                             },
                             title: 'Specific position'),
@@ -227,11 +224,11 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                       TableRow(children: <Widget>[
                         ControlButton(
                             onPressed: () async {
-                              final newBounds = const BoundingBox(
+                              const newBounds = BoundingBox(
                                 northEast:
                                     Point(latitude: 65.0, longitude: 40.0),
-                                southWest: const Point(
-                                    latitude: 60.0, longitude: 30.0),
+                                southWest:
+                                    Point(latitude: 60.0, longitude: 30.0),
                               );
                               await controller.moveCamera(
                                   CameraUpdate.newBounds(newBounds),
@@ -240,11 +237,11 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                             title: 'New bounds'),
                         ControlButton(
                             onPressed: () async {
-                              final newBounds = const BoundingBox(
+                              const newBounds = BoundingBox(
                                 northEast:
                                     Point(latitude: 65.0, longitude: 40.0),
-                                southWest: const Point(
-                                    latitude: 60.0, longitude: 30.0),
+                                southWest:
+                                    Point(latitude: 60.0, longitude: 30.0),
                               );
                               await controller.moveCamera(
                                   CameraUpdate.newTiltAzimuthBounds(newBounds,
@@ -323,14 +320,18 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                               onPressed: () async {
                                 final region =
                                     await controller.getFocusRegion();
-                                print(region);
+                                if (kDebugMode) {
+                                  print(region);
+                                }
                               },
                               title: 'Focus region'),
                           ControlButton(
                               onPressed: () async {
                                 final region =
                                     await controller.getVisibleRegion();
-                                print(region);
+                                if (kDebugMode) {
+                                  print(region);
+                                }
                               },
                               title: 'Visible region')
                         ],
@@ -342,8 +343,9 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                                   await controller.getScreenPoint(
                                       (await controller.getCameraPosition())
                                           .target);
-
-                              print(screenPoint);
+                              if (kDebugMode) {
+                                print(screenPoint);
+                              }
                             },
                             title: 'Map point to screen'),
                         ControlButton(
@@ -353,8 +355,9 @@ class _MapControlsExampleState extends State<_MapControlsExample> {
                                   ScreenPoint(
                                       x: mediaQuery.size.width,
                                       y: mediaQuery.size.height));
-
-                              print(point);
+                              if (kDebugMode) {
+                                print(point);
+                              }
                             },
                             title: 'Screen point to map'),
                       ]),
