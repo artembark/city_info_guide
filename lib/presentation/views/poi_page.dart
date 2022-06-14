@@ -3,6 +3,7 @@ import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../injector.dart';
@@ -35,67 +36,99 @@ class _PoiPageState extends State<PoiPage> {
                 itemCount: state.placesOfInterest.length,
                 itemBuilder: (context, index) {
                   return Card(
-                    child: ListTile(
-                      leading: CachedNetworkImage(
-                        imageUrl: state.placesOfInterest[index].image!,
-                        placeholder: (_, __) => SizedBox(
-                          //width: 150,
-                          height: 200.0,
-                          child: Shimmer.fromColors(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      side: const BorderSide(
+                        color: Colors.black45,
+                      ),
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    elevation: 0,
+                    color: Colors.grey[200],
+                    child: Row(
+                      children: [
+                        CachedNetworkImage(
+                          fit: BoxFit.fitHeight,
+                          imageBuilder: (context, imageProvider) => Container(
+                            width: 190,
+                            height: 150,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          imageUrl: state.placesOfInterest[index].image!,
+                          placeholder: (_, __) => Shimmer.fromColors(
                             baseColor: Colors.grey[500]!,
                             highlightColor: Colors.grey[100]!,
                             child: Container(
-                              width: 150.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white,
+                              ),
+                              width: 190.0,
                               height: 150.0,
-                              color: Colors.white,
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Center(
+                                    child: Text(
+                                  state.placesOfInterest[index].title ?? '-',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.montserrat(
+                                      fontWeight: FontWeight.w500),
+                                )),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () => YandexMapLauncher()
+                                          .showPanorama(
+                                              pointLat: state
+                                                  .placesOfInterest[index].lat!,
+                                              pointLon: state
+                                                  .placesOfInterest[index].lon!,
+                                              directionAzimuth: 0,
+                                              directionAngle: 0,
+                                              spanHorizontal: 0,
+                                              spanVertical: 0),
+                                      child: Text('Панорама'),
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () => YandexMapLauncher()
+                                          .showMarker(
+                                              pointLat: state
+                                                  .placesOfInterest[index].lat!,
+                                              pointLon: state
+                                                  .placesOfInterest[index].lon!,
+                                              zoom: 17),
+                                      child: Text('В Яндекс Карты'),
+                                    ),
+                                    // ElevatedButton(
+                                    //   onPressed: () => YandexMapLauncher()
+                                    //       .showOrgCard(
+                                    //           oid: state.placesOfInterest[index]
+                                    //               .oid!),
+                                    //   child: Text('Карточка'),
+                                    // )
+                                  ],
+                                )
+                              ],
                             ),
                           ),
                         ),
-                        height: 200,
-                        errorWidget: (context, url, error) => Icon(Icons.error),
-                      ),
-                      title: Column(
-                        children: [
-                          Text(state.placesOfInterest[index].title ?? '-'),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                icon: const Icon(Icons.panorama),
-                                onPressed: () {
-                                  YandexMapLauncher().showPanorama(
-                                      pointLat:
-                                          state.placesOfInterest[index].lat!,
-                                      pointLon:
-                                          state.placesOfInterest[index].lon!,
-                                      directionAzimuth: 0,
-                                      directionAngle: 0,
-                                      spanHorizontal: 0,
-                                      spanVertical: 0);
-                                },
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.control_point),
-                                onPressed: () {
-                                  YandexMapLauncher().showMarker(
-                                      pointLat:
-                                          state.placesOfInterest[index].lat!,
-                                      pointLon:
-                                          state.placesOfInterest[index].lon!,
-                                      zoom: 17);
-                                },
-                              ),
-                              IconButton(
-                                icon: const Icon(Icons.circle),
-                                onPressed: () {
-                                  YandexMapLauncher().showOrgCard(
-                                      oid: state.placesOfInterest[index].oid!);
-                                },
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+                      ],
                     ),
                   );
                 },
