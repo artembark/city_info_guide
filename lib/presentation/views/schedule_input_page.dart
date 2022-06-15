@@ -13,6 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
+import '../../core/utils/date_converters.dart';
 import '../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 import '../../domain/entities/schedule_request.dart';
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
@@ -414,121 +415,6 @@ class ButtonWithDate extends StatelessWidget {
           return const SizedBox.shrink();
         });
       },
-    );
-  }
-}
-
-String formButtonDateText(DateTime dateTime) {
-  String buttonDateText = DateFormat.d().format(dateTime);
-  String enMonth = DateFormat.M().format(dateTime);
-  String buttonMonthText = monthToText(enMonth);
-  return ' на $buttonDateText $buttonMonthText';
-}
-
-String monthToText(enMonth) {
-  String buttonMonthText = '';
-  switch (enMonth) {
-    case '1':
-      buttonMonthText = 'января';
-      break;
-    case '2':
-      buttonMonthText = 'февраля';
-      break;
-    case '3':
-      buttonMonthText = 'марта';
-      break;
-    case '4':
-      buttonMonthText = 'апреля';
-      break;
-    case '5':
-      buttonMonthText = 'мая';
-      break;
-    case '6':
-      buttonMonthText = 'июня';
-      break;
-    case '7':
-      buttonMonthText = 'июля';
-      break;
-    case '8':
-      buttonMonthText = 'августа';
-      break;
-    case '9':
-      buttonMonthText = 'сентября';
-      break;
-    case '10':
-      buttonMonthText = 'октября';
-      break;
-    case '11':
-      buttonMonthText = 'ноября';
-      break;
-    case '12':
-      buttonMonthText = 'декабря';
-      break;
-  }
-  return buttonMonthText;
-}
-
-class PopularItem extends StatelessWidget {
-  const PopularItem(
-      {Key? key,
-      required this.from,
-      required this.to,
-      required this.date,
-      required this.onTap})
-      : super(key: key);
-
-  final String from;
-  final String to;
-  final DateTime date;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1 / 1.2,
-      child: Card(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(13.0),
-          side: const BorderSide(
-            color: Colors.black12,
-          ),
-        ),
-        clipBehavior: Clip.hardEdge,
-        child: InkWell(
-          onTap: onTap,
-          child: Stack(
-            children: [
-              Ink.image(
-                image: AssetImage(Assets.images.station.path),
-                fit: BoxFit.cover,
-              ),
-              Positioned(
-                top: 10,
-                right: 10,
-                child: Container(
-                  constraints: const BoxConstraints(maxWidth: 150),
-                  padding: const EdgeInsets.all(6),
-                  decoration: BoxDecoration(
-                      color: const Color(0xFF007FFF).withOpacity(0.75),
-                      borderRadius: BorderRadius.circular(16)),
-                  child: Text(
-                    from,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(
-                      textStyle: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
