@@ -55,5 +55,10 @@
 		<string>This app needs access to location when in the background.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>CFBundleLocalizations</key>
+        <array>
+        	<string>en</string>
+        	<string>ru</string>
+        </array>
 	</dict>
 </plist>

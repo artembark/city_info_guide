@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
 import 'package:city_info_guide/gen/assets.gen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
         title: Text(
-          'ПРИОЗЕРСК',
+          LocaleKeys.priozersk_caps.tr(),
           style: GoogleFonts.montserrat(
             textStyle: const TextStyle(
               fontSize: 35,
@@ -48,128 +50,163 @@ class _HomePageState extends State<HomePage> {
           Assets.images.korela1.image(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
+            children: const [
+              SizedBox(
                 height: 235,
               ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black38),
-                    color: Colors.white,
-                    borderRadius: const BorderRadius.all(Radius.circular(20))),
-                child: GridView(
-                  padding: const EdgeInsets.fromLTRB(6, 12, 6, 6),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      mainAxisSpacing: 5,
-                      childAspectRatio: 1 / 1.2),
-                  children: [
-                    MenuGridItem(
-                      onTap: () => context.router.push(const PoiRoute()),
-                      icon: FontAwesomeIcons.mapLocation,
-                      backgroundColor: const Color(0xFF007FFF).withOpacity(0.5),
-                      title: 'Места',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const HotelsRoute()),
-                      icon: FontAwesomeIcons.hotel,
-                      backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
-                      title: 'Гостиницы',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const ScheduleRouter()),
-                      icon: FontAwesomeIcons.bus,
-                      backgroundColor: const Color(0xFF8DC6FF).withOpacity(0.5),
-                      title: 'Транспорт',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const FoodRoute()),
-                      icon: FontAwesomeIcons.plateWheat,
-                      backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
-                      title: 'Где поесть',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const EventsRoute()),
-                      icon: FontAwesomeIcons.calendar,
-                      backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
-                      title: 'События',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const KidsRoute()),
-                      icon: FontAwesomeIcons.child,
-                      backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
-                      title: 'Детям',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const AnimalsRoute()),
-                      icon: FontAwesomeIcons.kiwiBird,
-                      backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
-                      title: 'Животные',
-                    ),
-                    MenuGridItem(
-                      onTap: () => context.pushRoute(const CarRoute()),
-                      icon: FontAwesomeIcons.car,
-                      backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
-                      title: 'Авто',
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'Популярное',
-                  style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        PopularItem(
-                          onTap: () {},
-                          imagePath: Assets.images.korela1.path,
-                          title: 'Крепость Корела',
-                          type: 'Музей',
-                          color: const Color(0xFF007FFF),
-                        ),
-                        PopularItem(
-                          onTap: () {},
-                          imagePath: Assets.images.tochka.path,
-                          title: 'Точка на карте',
-                          type: 'Гостиница',
-                          color: const Color(0xFF8DC6AF),
-                        ),
-                        PopularItem(
-                          onTap: () {},
-                          imagePath: Assets.images.station.path,
-                          title: 'Вокзал',
-                          type: 'Место',
-                          color: const Color(0xFF007FFF),
-                        ),
-                        PopularItem(
-                          onTap: () {},
-                          imagePath: Assets.images.pointAndLine.path,
-                          title: 'Точка и линия на плоскости',
-                          type: 'Кафе',
-                          color: const Color(0xFFD143BE),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+              HomeIconMenu(),
+              PopularText(),
+              HomePopularSlide()
             ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class PopularText extends StatelessWidget {
+  const PopularText({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Text(
+        LocaleKeys.popular.tr(),
+        style: GoogleFonts.montserrat(
+          textStyle: const TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomePopularSlide extends StatelessWidget {
+  const HomePopularSlide({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              PopularItem(
+                onTap: () {},
+                imagePath: Assets.images.korela1.path,
+                //this text constants should load from backend
+                title: 'Крепость Корела',
+                type: LocaleKeys.type_museum.tr(),
+                color: const Color(0xFF007FFF),
+              ),
+              PopularItem(
+                onTap: () {},
+                imagePath: Assets.images.tochka.path,
+                //this text constants should load from backend
+                title: 'Точка на карте',
+                type: LocaleKeys.type_hotel.tr(),
+                color: const Color(0xFF8DC6AF),
+              ),
+              PopularItem(
+                onTap: () {},
+                imagePath: Assets.images.station.path,
+                //this text constants should load from backend
+                title: 'Вокзал',
+                type: LocaleKeys.type_place,
+                color: const Color(0xFF007FFF),
+              ),
+              PopularItem(
+                onTap: () {},
+                imagePath: Assets.images.pointAndLine.path,
+                //this text constants should load from backend
+                title: 'Точка и линия на плоскости',
+                type: LocaleKeys.type_cafe.tr(),
+                color: const Color(0xFFD143BE),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HomeIconMenu extends StatelessWidget {
+  const HomeIconMenu({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black38),
+          color: Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(20))),
+      child: GridView(
+        padding: const EdgeInsets.fromLTRB(6, 12, 6, 6),
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, mainAxisSpacing: 5, childAspectRatio: 1 / 1.2),
+        children: [
+          MenuGridItem(
+            onTap: () => context.router.push(const PoiRoute()),
+            icon: FontAwesomeIcons.mapLocation,
+            backgroundColor: const Color(0xFF007FFF).withOpacity(0.5),
+            title: LocaleKeys.home_places.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const HotelsRoute()),
+            icon: FontAwesomeIcons.hotel,
+            backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
+            title: LocaleKeys.home_hotels.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const ScheduleRouter()),
+            icon: FontAwesomeIcons.bus,
+            backgroundColor: const Color(0xFF8DC6FF).withOpacity(0.5),
+            title: LocaleKeys.home_transport.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const FoodRoute()),
+            icon: FontAwesomeIcons.plateWheat,
+            backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
+            title: LocaleKeys.home_food.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const EventsRoute()),
+            icon: FontAwesomeIcons.calendar,
+            backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
+            title: LocaleKeys.home_events.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const KidsRoute()),
+            icon: FontAwesomeIcons.child,
+            backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
+            title: LocaleKeys.home_kids.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const AnimalsRoute()),
+            icon: FontAwesomeIcons.kiwiBird,
+            backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
+            title: LocaleKeys.home_animals.tr(),
+          ),
+          MenuGridItem(
+            onTap: () => context.pushRoute(const CarRoute()),
+            icon: FontAwesomeIcons.car,
+            backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
+            title: LocaleKeys.home_car.tr(),
           ),
         ],
       ),

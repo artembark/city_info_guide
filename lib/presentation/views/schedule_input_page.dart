@@ -2,14 +2,15 @@ import 'dart:math';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -91,7 +92,7 @@ class _ScheduleInputPageState extends State<ScheduleInputPage> {
           return state.when(
               citiesSubmitting: (scheduleRequest, loadingLocation) {
             _fromTypeAheadController.text = loadingLocation
-                ? 'Определяем положение...'
+                ? LocaleKeys.updating_geolocation.tr()
                 : scheduleRequest.fromTitle ?? '';
             _toTypeAheadController.text = scheduleRequest.toTitle ?? '';
             return SingleChildScrollView(

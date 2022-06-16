@@ -173,3 +173,8 @@ Open info.plist (located at ios/Runner)
 <string>App Name</string> // Your app name here`   
 Don't forget to run `flutter clean`   
 Can use [THIS](https://pub.dev/packages/flutter_launcher_name) package alternatively.    
+
+## Easy Localization
+`flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n"`   
+`flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n" -o "locale_keys.dart" -f keys`
+

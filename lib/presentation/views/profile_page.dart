@@ -16,7 +16,7 @@ class ProfilePage extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Icon(
                 FontAwesomeIcons.user,
                 size: 40.0,

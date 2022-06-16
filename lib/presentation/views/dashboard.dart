@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -19,15 +21,23 @@ class DashboardPage extends StatelessWidget {
           return NavigationBar(
             selectedIndex: tabsRouter.activeIndex,
             onDestinationSelected: (index) => tabsRouter.setActiveIndex(index),
-            destinations: const [
+            destinations: [
               NavigationDestination(
-                  icon: Icon(FontAwesomeIcons.houseUser), label: 'Главная'),
+                icon: const Icon(FontAwesomeIcons.houseUser),
+                label: LocaleKeys.tab_main.tr(),
+              ),
               NavigationDestination(
-                  icon: Icon(FontAwesomeIcons.map), label: 'Карта'),
+                icon: const Icon(FontAwesomeIcons.map),
+                label: LocaleKeys.tab_map.tr(),
+              ),
               NavigationDestination(
-                  icon: Icon(FontAwesomeIcons.heart), label: 'Избранное'),
+                icon: const Icon(FontAwesomeIcons.heart),
+                label: LocaleKeys.tab_favourites.tr(),
+              ),
               NavigationDestination(
-                  icon: Icon(FontAwesomeIcons.user), label: 'Профиль'),
+                icon: const Icon(FontAwesomeIcons.user),
+                label: LocaleKeys.tab_profile.tr(),
+              ),
             ],
           );
         });
