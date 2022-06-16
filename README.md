@@ -1,7 +1,8 @@
 # City guide app project description
 City guide app. Development is in progress.
 
-<img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">
+<img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194798-6b238fe4-af09-484d-b48f-5d46cc3bb7d9.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194908-f323d0df-b314-47c5-ab84-17a10f9a4d2e.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195212-c472d2ab-50e0-4b5a-a3d2-0b2bc41c5d1a.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194986-eaf5eb25-c48a-4ae3-979d-2df4af46a424.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195073-a9d10700-6b3d-4863-9e7f-45bbfa8995be.png">
+
 
 ## Packages used
 
@@ -11,25 +12,42 @@ City guide app. Development is in progress.
 - [`freezed_annotation`](https://pub.dev/packages/freezed_annotation) to write annotations used by freezed
 - [`json_serializable`](https://pub.dev/packages/json_serializable) to create code for JSON serialization and deserialization
 - [`json_annotation`](https://pub.dev/packages/json_annotation) to write annotations used by json_serializable
-- [equatable](https://pub.dev/packages/equatable) to create simple comparable classes
+- [`equatable`](https://pub.dev/packages/equatable) to create simple comparable classes
 - [`dio`](https://pub.dev/packages/dio) for handling network requests
-- [http_mock_adapter](https://pub.dev/packages/http_mock_adapter) for dio testing
+- [`http_mock_adapter`](https://pub.dev/packages/http_mock_adapter) for dio testing
 - [`auto_route`](https://pub.dev/packages/auto_route) for app navigation
 - [`auto_route_generator`](https://pub.dev/packages/auto_route_generator) generator for `auto_route`
 - [`get_it`](https://pub.dev/packages/get_it) service locator
 - [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - [`mockito`](https://pub.dev/packages/mockito) for testing
-- [cached_network_image](https://pub.dev/packages/cached_network_image) for caching images
+- [`cached_network_image`](https://pub.dev/packages/cached_network_image) for caching images
 - [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services
 - [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
 - [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
-- [font_awesome_flutter](https://artembark.youtrack.cloud/newIssue?draftId=2-27) for icons
-- [lottie](https://pub.dev/packages/lottie) for lottie animation files
-- [google_fonts](https://pub.dev/packages/google_fonts) for custom free fonts
-- [yandex_mapkit](https://pub.dev/packages/yandex_mapkit) to use Yandex MapKit
-- [dartz](https://pub.dev/packages/dartz) to implement Either and handle Errors
-- [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) to create launcher icons
+- [`font_awesome_flutter`](https://artembark.youtrack.cloud/newIssue?draftId=2-27) for icons
+- [`lottie`](https://pub.dev/packages/lottie) for lottie animation files
+- [`google_fonts`](https://pub.dev/packages/google_fonts) for custom free fonts
+- [`yandex_mapkit`](https://pub.dev/packages/yandex_mapkit) to use Yandex MapKit
+- [`dartz`](https://pub.dev/packages/dartz) to implement Either and handle Errors
+- [`flutter_launcher_icons`](https://pub.dev/packages/flutter_launcher_icons) to create launcher icons
+- [`toggle_switch`](https://pub.dev/packages/toggle_switch) simple toggle switch widget
+- [`easy_localization`](https://pub.dev/packages/easy_localization) to create localizations
+- [`flutter_gen`](https://pub.dev/packages/flutter_gen) code generator for assets
+
+## Architecture
+<img width="600" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195667-71211f71-1459-4892-ae20-15f8bb2dd5eb.png">   
+
+[From this source](https://betterprogramming.pub/flutter-clean-architecture-test-driven-development-practical-guide-445f388e8604)  
+As in the diagram above, the clean architecture is depicted as a pyramid or a slice of onion when viewed from the top. The clean architecture will divide the Flutter project into 3 main layers, namely:
+ - Data & Platform layer  
+The data layer is located at the outermost layer. This layer consists of data source code such as consume Rest API, access to the local database, Firebase, or other sources. Also, on this layer, there is usually the platform code that builds up the UI (widgets).
+ - Presentation Layer  
+The presentation layer consists of the code to access the data of the app from a repository. Also, there is the code for state management such as providers, BLoC, and so on.
+ - Domain Layer  
+The domain layer is the deepest in the clean architecture. This layer contains the code for business logic applications such as entities and use cases.
+Each layer depends on the other layers. The arrows on the diagram show how the layers are related. The outermost layer will depend on the inner layer and so on.  
+The layer that does not depend on any other layers here is only the domain layer (independent) which is the code for the business logic. That way, the application is more adaptable and dynamic. For example, if we want to change the state management from the provider to BLoC, the migration process will not interfere with the existing business logic.  
 
 ## Yandex Schedule API
 It is good to know how one can come to your city and leave it. So you need a schedule service.  
@@ -175,6 +193,10 @@ Don't forget to run `flutter clean`
 Can use [THIS](https://pub.dev/packages/flutter_launcher_name) package alternatively.    
 
 ## Easy Localization
+For localization a package [easy_localization](https://pub.dev/packages/easy_localization) is used.  
+Terminal commands:  
 `flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n"`   
 `flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n" -o "locale_keys.dart" -f keys`
+
+## Generating assets paths
 
