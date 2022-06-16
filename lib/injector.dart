@@ -19,8 +19,9 @@ import 'package:city_info_guide/domain/usecases/get_list_stations_route.dart';
 import 'package:city_info_guide/domain/usecases/get_nearest_settlement.dart';
 import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
 import 'package:city_info_guide/presentation/blocs/poi/poi_cubit.dart';
-import 'package:city_info_guide/presentation/blocs/schedule/schedule_cubit.dart';
 import 'package:city_info_guide/presentation/blocs/schedule_details/schedule_details_cubit.dart';
+import 'package:city_info_guide/presentation/blocs/schedule_input/schedule_input_cubit.dart';
+import 'package:city_info_guide/presentation/blocs/schedule_result/schedule_result_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
@@ -54,9 +55,13 @@ Future<void> initializeDependencies() async {
       () => GetListStationsRoute(listStationRouteRepository: sl()));
   // Bloc
   sl.registerFactory(
-    () => ScheduleCubit(
-      getSchedulePointPoint: sl(),
+    () => ScheduleInputCubit(
       getNearestSettlement: sl(),
+    ),
+  );
+  sl.registerFactory(
+    () => ScheduleResultCubit(
+      getSchedulePointPoint: sl(),
     ),
   );
   sl.registerFactory(

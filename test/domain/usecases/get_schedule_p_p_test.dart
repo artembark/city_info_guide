@@ -16,7 +16,7 @@ void main() {
   });
 
   test(
-    'should get schedule from the repository',
+    'should get schedule_input from the repository',
     () async {
       when(mockScheduleRepository.getSchedulePointPoint(
               from: 'c2', to: 'c10893', date: DateTime(2022, 6, 10)))

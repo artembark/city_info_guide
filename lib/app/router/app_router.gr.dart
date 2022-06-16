@@ -13,8 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i19;
 import 'package:flutter/material.dart' as _i20;
 
-import '../../domain/entities/schedule_p_p/schedule_point_point_entity.dart'
-    as _i21;
+import '../../domain/entities/schedule_request.dart' as _i21;
 import '../../presentation/views/animals_page.dart' as _i14;
 import '../../presentation/views/cars_page.dart' as _i15;
 import '../../presentation/views/dashboard.dart' as _i2;
@@ -109,8 +108,7 @@ class AppRouter extends _i19.RootStackRouter {
       return _i19.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i17.ScheduleResultPage(
-              key: args.key,
-              schedulePointPointEntity: args.schedulePointPointEntity));
+              key: args.key, scheduleRequest: args.scheduleRequest));
     },
     ScheduleResultDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<ScheduleResultDetailsRouteArgs>();
@@ -310,27 +308,25 @@ class ScheduleInputRoute extends _i19.PageRouteInfo<void> {
 /// [_i17.ScheduleResultPage]
 class ScheduleResultRoute extends _i19.PageRouteInfo<ScheduleResultRouteArgs> {
   ScheduleResultRoute(
-      {_i20.Key? key,
-      required _i21.SchedulePointPointEntity schedulePointPointEntity})
+      {_i20.Key? key, required _i21.ScheduleRequest scheduleRequest})
       : super(ScheduleResultRoute.name,
             path: 'schedule-result-page',
             args: ScheduleResultRouteArgs(
-                key: key, schedulePointPointEntity: schedulePointPointEntity));
+                key: key, scheduleRequest: scheduleRequest));
 
   static const String name = 'ScheduleResultRoute';
 }
 
 class ScheduleResultRouteArgs {
-  const ScheduleResultRouteArgs(
-      {this.key, required this.schedulePointPointEntity});
+  const ScheduleResultRouteArgs({this.key, required this.scheduleRequest});
 
   final _i20.Key? key;
 
-  final _i21.SchedulePointPointEntity schedulePointPointEntity;
+  final _i21.ScheduleRequest scheduleRequest;
 
   @override
   String toString() {
-    return 'ScheduleResultRouteArgs{key: $key, schedulePointPointEntity: $schedulePointPointEntity}';
+    return 'ScheduleResultRouteArgs{key: $key, scheduleRequest: $scheduleRequest}';
   }
 }
 

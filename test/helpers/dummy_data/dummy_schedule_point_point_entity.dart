@@ -36,7 +36,7 @@ final tSchedulePointPointEntity = SchedulePointPointEntity(
         departure: DateTime.parse('2022-06-15T05:05:00+03:00'),
         stops: '',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9837534',
             title: 'Санкт-Петербург, метро «Парнас»',
             stationType: null,
@@ -77,7 +77,7 @@ final tSchedulePointPointEntity = SchedulePointPointEntity(
         departure: DateTime.parse('2022-06-15T05:20:00+03:00'),
         stops: '',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9654496',
             title: 'Санкт-Петербург, Северный автовокзал',
             stationType: null,
@@ -93,7 +93,7 @@ final tSchedulePointPointEntity = SchedulePointPointEntity(
         startDate: null,
         arrivalPlatform: null)
   ],
-  search: SearchEntity(
+  search: const SearchEntity(
     date: '2022-06-15',
     to: ToEntity(
         code: 'c2',
@@ -104,7 +104,7 @@ final tSchedulePointPointEntity = SchedulePointPointEntity(
         transportType: null,
         stationTypeName: null,
         type: 'settlement'),
-    from: const FromEntity(
+    from: FromEntity(
         code: 'c10883',
         title: 'Приозерск',
         stationType: null,

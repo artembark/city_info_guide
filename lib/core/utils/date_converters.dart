@@ -4,7 +4,7 @@ String formButtonDateText(DateTime dateTime) {
   String buttonDateText = DateFormat.d().format(dateTime);
   String enMonth = DateFormat.M().format(dateTime);
   String buttonMonthText = monthToText(enMonth);
-  return ' на $buttonDateText $buttonMonthText';
+  return '$buttonDateText $buttonMonthText';
 }
 
 String monthToText(enMonth) {

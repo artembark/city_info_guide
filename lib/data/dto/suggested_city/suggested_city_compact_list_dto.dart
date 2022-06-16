@@ -1,5 +1,4 @@
 import 'package:city_info_guide/data/dto/suggested_city/suggested_city_compact_dto.dart';
-import 'package:city_info_guide/domain/entities/suggested_city/suggested_city_compact.dart';
 import 'package:city_info_guide/domain/entities/suggested_city/suggested_city_compact_list.dart';
 
 class SuggestedCityCompactListDTO {

@@ -1,4 +1,6 @@
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
 import 'package:city_info_guide/presentation/blocs/schedule_details/schedule_details_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
@@ -17,7 +19,7 @@ class ScheduleResultDetailsPage extends StatelessWidget {
       create: (context) => sl<ScheduleDetailsCubit>()..getScheduleDetails(uid),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Подробности маршрута'),
+          title: Text(LocaleKeys.route_details.tr()),
         ),
         body: SafeArea(
             child: BlocBuilder<ScheduleDetailsCubit, ScheduleDetailsState>(
@@ -45,7 +47,7 @@ class ScheduleResultDetailsPage extends StatelessWidget {
                             },
                             separatorBuilder:
                                 (BuildContext context, int index) {
-                              return Divider();
+                              return const Divider();
                             },
                             itemCount: listStationsRoute.stops!.length),
                       )

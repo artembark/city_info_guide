@@ -19,8 +19,6 @@ main() {
   const wontFindPath = "/wont-find";
   const testPath = "/test";
 
-  Response<dynamic> response;
-
   const baseUrl = 'https://api.rasp.yandex.net';
   setUpAll(() async {
     dio = Dio(BaseOptions(baseUrl: baseUrl));
@@ -101,7 +99,7 @@ main() {
   });
 
   group('getNearestSettlement', () {
-    final testNearestSettlementDTO = NearestSettlementDTO(
+    const testNearestSettlementDTO = NearestSettlementDTO(
         distance: 1.239882235661964,
         code: "c10883",
         title: "Приозерск",

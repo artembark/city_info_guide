@@ -1,5 +1,6 @@
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class KidsPage extends StatelessWidget {
@@ -9,8 +10,8 @@ class KidsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Детям',
+        title: Text(
+          LocaleKeys.home_kids.tr(),
         ),
       ),
       body: SafeArea(

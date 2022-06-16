@@ -1,5 +1,3 @@
-import 'dart:convert' as convert;
-
 import '../../../domain/entities/suggested_city/suggested_city_compact.dart';
 
 class SuggestedCityCompactDTO {

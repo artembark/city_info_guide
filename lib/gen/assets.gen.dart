@@ -51,12 +51,23 @@ class $AssetsLottieGen {
   String get busDriving => 'assets/lottie/bus_driving.json';
 }
 
+class $AssetsTranslationsGen {
+  const $AssetsTranslationsGen();
+
+  /// File path: assets/translations/en-US.json
+  String get enUS => 'assets/translations/en-US.json';
+
+  /// File path: assets/translations/ru-RU.json
+  String get ruRU => 'assets/translations/ru-RU.json';
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
   static const String places = 'assets/places.json';
+  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
 class AssetGenImage {

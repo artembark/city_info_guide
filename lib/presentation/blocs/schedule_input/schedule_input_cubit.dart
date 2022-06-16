@@ -1,31 +1,27 @@
 import 'package:bloc/bloc.dart';
 import 'package:city_info_guide/domain/entities/schedule_request.dart';
 import 'package:city_info_guide/domain/usecases/get_nearest_settlement.dart';
-import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
 import 'package:city_info_guide/domain/usecases/usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/schedule_p_p/schedule_point_point_entity.dart';
+part 'schedule_input_state.dart';
+part 'schedule_input_cubit.freezed.dart';
 
-part 'schedule_state.dart';
-part 'schedule_cubit.freezed.dart';
-
-class ScheduleCubit extends Cubit<ScheduleState> {
-  ScheduleCubit({
-    required this.getSchedulePointPoint,
+class ScheduleInputCubit extends Cubit<ScheduleInputState> {
+  ScheduleInputCubit({
     required this.getNearestSettlement,
   }) : super(
-          ScheduleState.citiesSubmitting(scheduleRequest: ScheduleRequest()),
+          ScheduleInputState.citiesSubmitting(
+              scheduleRequest: ScheduleRequest()),
         );
-  final GetSchedulePointPoint getSchedulePointPoint;
   final GetNearestSettlement getNearestSettlement;
 
   init(ScheduleRequest scheduleRequest) {
-    emit(ScheduleState.citiesSubmitting(scheduleRequest: scheduleRequest));
+    emit(ScheduleInputState.citiesSubmitting(scheduleRequest: scheduleRequest));
   }
 
   fillWithFavourite() {
-    emit(ScheduleState.citiesSubmitting(
+    emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: ScheduleRequest(
             from: 'c10883',
             fromTitle: 'Приозерск',
@@ -37,7 +33,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
   swapFromTo() {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(
-      ScheduleState.citiesSubmitting(
+      ScheduleInputState.citiesSubmitting(
         scheduleRequest: ScheduleRequest(
             from: scheduleRequest.to,
             fromTitle: scheduleRequest.toTitle,
@@ -50,7 +46,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   setFromCity(String fromCode, String fromTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(
+    emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest:
             scheduleRequest.copyWith(from: fromCode, fromTitle: fromTitle)));
     // state.maybeMap(
@@ -62,7 +58,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   setToCity(String toCode, String toTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(
+    emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest:
             scheduleRequest.copyWith(to: toCode, toTitle: toTitle)));
     // state.maybeMap(
@@ -74,7 +70,7 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   setDate(DateTime dateTime) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(
+    emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: scheduleRequest.copyWith(date: dateTime)));
     // state.maybeMap(
     //     citiesSubmitting: (state) {
@@ -85,15 +81,15 @@ class ScheduleCubit extends Cubit<ScheduleState> {
 
   getPosition() async {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    emit(ScheduleState.citiesSubmitting(
+    emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: scheduleRequest, requestingLocation: true));
 
     final nearestSettlement = await getNearestSettlement.call(NoParams());
 
     nearestSettlement.fold(
-        (l) => emit(const ScheduleState.resultsFailure('Error')),
+        (l) => emit(const ScheduleInputState.geolocationFailure('Error')),
         (nearestSettlement) => emit(
-              ScheduleState.citiesSubmitting(
+              ScheduleInputState.citiesSubmitting(
                 scheduleRequest: scheduleRequest.copyWith(
                   from: nearestSettlement.code,
                   fromTitle: nearestSettlement.title,
@@ -111,49 +107,28 @@ class ScheduleCubit extends Cubit<ScheduleState> {
     //     orElse: () {});
   }
 
-  getSchedule() async {
-    final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
-    if (scheduleRequest.from == scheduleRequest.to) {
-      return;
-    }
-    emit(const ScheduleState.resultsLoading());
-    final schedulePointPoint = await getSchedulePointPoint.call(
-        SchedulePointPointParams(
-            from: scheduleRequest.from ?? '',
-            to: scheduleRequest.to ?? '',
-            dateTime: scheduleRequest.date ?? DateTime.now()));
-    schedulePointPoint.fold(
-      (failure) => emit(
-        ScheduleState.resultsFailure(failure.message),
-      ),
-      (data) {
-        if (data.pagination?.total == 0) {
-          emit(const ScheduleState.resultsEmpty());
-        } else {
-          emit(ScheduleState.toDetailsPage(data));
-          //emit(ScheduleState.resultsLoaded(data));
-        }
-      },
-    );
-
-    // state.maybeMap(
-    //     citiesSubmitting: (state) async {
-    //       emit(const ScheduleState.resultsLoading());
-    //       try {
-    //         final schedulePointPoint =
-    //             await schedulePointPointRepository.getSchedulePointPoint(
-    //                 from: state.scheduleRequest.from ?? '',
-    //                 to: state.scheduleRequest.to ?? '',
-    //                 date: state.scheduleRequest.date ?? DateTime.now());
-    //         if (schedulePointPoint.pagination?.total == 0) {
-    //           emit(const ScheduleState.resultsEmpty());
-    //         } else {
-    //           emit(ScheduleState.resultsLoaded(schedulePointPoint));
-    //         }
-    //       } on Exception catch (exception) {
-    //         emit(ScheduleState.resultsFailure(exception));
-    //       }
-    //     },
-    //     orElse: () {});
+  checkInputFields() {
+    state.whenOrNull(
+        citiesSubmitting: (scheduleRequest, locationUpdating, message) {
+      if (scheduleRequest.from == null && scheduleRequest.to == null) {
+        emit(ScheduleInputState.citiesSubmitting(
+            scheduleRequest: scheduleRequest,
+            errorMessage: 'Необходимо ввести пункты отправления и прибытия'));
+      } else if (scheduleRequest.from == scheduleRequest.to) {
+        emit(ScheduleInputState.citiesSubmitting(
+            scheduleRequest: scheduleRequest,
+            errorMessage: 'Необходимо ввести разные пункты'));
+      } else if (scheduleRequest.from == null) {
+        emit(ScheduleInputState.citiesSubmitting(
+            scheduleRequest: scheduleRequest,
+            errorMessage: 'Необходимо ввести пункт отправления'));
+      } else if (scheduleRequest.to == null) {
+        emit(ScheduleInputState.citiesSubmitting(
+            scheduleRequest: scheduleRequest,
+            errorMessage: 'Необходимо ввести пункт прибытия'));
+      } else {
+        emit(ScheduleInputState.toDetailsPage(scheduleRequest));
+      }
+    });
   }
 }

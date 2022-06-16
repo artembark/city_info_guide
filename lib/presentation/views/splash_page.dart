@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
+import 'package:city_info_guide/core/l10n/locale_keys.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -46,7 +48,6 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 0,
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           statusBarIconBrightness: Brightness.light,
@@ -69,7 +70,7 @@ class _SplashPageState extends State<SplashPage> {
                       : CrossFadeState.showSecond,
                   firstChild: Container(),
                   secondChild: Text(
-                    'ПРИОЗЕРСК',
+                    LocaleKeys.priozersk_caps.tr(),
                     style: GoogleFonts.sourceSansPro(
                       textStyle: const TextStyle(
                         letterSpacing: 1,

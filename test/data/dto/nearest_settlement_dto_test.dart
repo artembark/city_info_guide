@@ -6,7 +6,7 @@ import 'package:city_info_guide/domain/entities/nearest_settlement_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final testNearestSettlementDTO = NearestSettlementDTO(
+  const testNearestSettlementDTO = NearestSettlementDTO(
       distance: 1.239882235661964,
       code: "c10883",
       title: "Приозерск",
@@ -57,16 +57,16 @@ void main() {
               .readAsStringSync(),
         );
         //alternative
-        final expectedJsonMap = {
-          "distance": 1.239882235661964,
-          "code": "c10883",
-          "title": "Приозерск",
-          "popular_title": "Приозерск",
-          "short_title": "Приозерск",
-          "lat": 61.035787,
-          "lng": 30.102868,
-          "type": "settlement"
-        };
+        // final expectedJsonMap = {
+        //   "distance": 1.239882235661964,
+        //   "code": "c10883",
+        //   "title": "Приозерск",
+        //   "popular_title": "Приозерск",
+        //   "short_title": "Приозерск",
+        //   "lat": 61.035787,
+        //   "lng": 30.102868,
+        //   "type": "settlement"
+        // };
         expect(result, equals(expectedJsonMapFromFile));
       },
     );

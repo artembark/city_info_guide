@@ -7,7 +7,8 @@ import '../widgets/control_button.dart';
 import '../widgets/map_page.dart';
 
 class MapControlsPage extends MapPage {
-  const MapControlsPage() : super('Map controls example');
+  // ignore: use_key_in_widget_constructors
+  const MapControlsPage() : super(title: 'Map controls example');
 
   @override
   Widget build(BuildContext context) {

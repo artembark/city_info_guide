@@ -41,7 +41,7 @@ void main() {
       type: "settlement");
 
   test(
-    'should get schedule from the repository',
+    'should get schedule_input from the repository',
     () async {
       when(mockGeolocationRepository.getCurrentPosition())
           .thenAnswer((_) async => Right(position));

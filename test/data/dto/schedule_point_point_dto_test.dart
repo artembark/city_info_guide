@@ -9,7 +9,7 @@ import '../../helpers/dummy_data/new_dummmy_schedule_point_point_entity.dart';
 
 void main() {
   group('to entity', () {
-    test('should be a subclass of schedule point point entity', () {
+    test('should be a subclass of schedule_input point point entity', () {
       final result = testSchedulePointPointDTO.toEntity();
       expect(result, equals(testSchedulePointPointEntity));
     });

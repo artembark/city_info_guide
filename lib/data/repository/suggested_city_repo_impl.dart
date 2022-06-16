@@ -1,6 +1,4 @@
-import 'package:city_info_guide/data/datasources/remote/suggests/yandex_suggests_api_data_source.dart';
 import 'package:city_info_guide/data/dto/suggested_city/suggested_city_compact_dto.dart';
-import 'package:city_info_guide/data/dto/suggested_city/suggested_city_compact_list_dto.dart';
 import 'package:city_info_guide/domain/repositories/suggested_city_repository.dart';
 
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';

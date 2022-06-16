@@ -10,7 +10,7 @@ class ToEntity extends Equatable {
   final String? stationTypeName;
   final String? type;
 
-  ToEntity({
+  const ToEntity({
     required this.code,
     required this.title,
     required this.stationType,

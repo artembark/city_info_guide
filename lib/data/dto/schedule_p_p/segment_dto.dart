@@ -1,6 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
-
 import '../../../domain/entities/schedule_p_p/segment_entity.dart';
 import 'from_dto.dart';
 import 'thread_dto.dart';

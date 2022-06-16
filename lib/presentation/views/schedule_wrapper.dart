@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../injector.dart';
-import '../blocs/schedule/schedule_cubit.dart';
+import '../blocs/schedule_input/schedule_input_cubit.dart';
 
 class ScheduleWrapperPage extends StatelessWidget {
   const ScheduleWrapperPage({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class ScheduleWrapperPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<ScheduleCubit>()
+      create: (_) => sl<ScheduleInputCubit>()
         ..init(
           ScheduleRequest(
             date: DateTime.now().add(

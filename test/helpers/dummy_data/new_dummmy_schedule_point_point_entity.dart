@@ -40,7 +40,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         departure: DateTime.parse('2022-06-15 02:05:00.000Z'),
         stops: '',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9837534',
             title: 'Санкт-Петербург, метро «Парнас»',
             stationType: 'bus_stop',
@@ -83,7 +83,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         departure: DateTime.parse('2022-06-15 02:20:00.000Z'),
         stops: '',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9654496',
             title: 'Санкт-Петербург, Северный автовокзал',
             stationType: 'bus_station',
@@ -127,7 +127,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         departure: DateTime.parse('2022-06-15 02:28:00.000Z'),
         stops: 'везде',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9602497',
             title: 'Санкт-Петербург (Финляндский вокзал)',
             stationType: 'train_station',
@@ -178,7 +178,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         stops:
             'Громово, Лосево, Сосново, 69 км, Орехово, Токсово, Девяткино, Санкт-Петербург (Финляндский вокзал)',
         departureTerminal: null,
-        to: ToEntity(
+        to: const ToEntity(
             code: 's9602497',
             title: 'Санкт-Петербург (Финляндский вокзал)',
             stationType: 'train_station',
@@ -200,7 +200,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         startDate: '2022-06-15',
         arrivalPlatform: '')
   ],
-  search: SearchEntity(
+  search: const SearchEntity(
     date: '2022-06-15',
     to: ToEntity(
         code: 'c2',
@@ -211,7 +211,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
         transportType: 'null',
         stationTypeName: 'null',
         type: 'settlement'),
-    from: const FromEntity(
+    from: FromEntity(
         code: 'c10883',
         title: 'Приозерск',
         stationType: 'null',
