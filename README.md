@@ -4,6 +4,10 @@ City guide app. Development is in progress.
 <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194798-6b238fe4-af09-484d-b48f-5d46cc3bb7d9.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194908-f323d0df-b314-47c5-ab84-17a10f9a4d2e.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195212-c472d2ab-50e0-4b5a-a3d2-0b2bc41c5d1a.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194986-eaf5eb25-c48a-4ae3-979d-2df4af46a424.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195073-a9d10700-6b3d-4863-9e7f-45bbfa8995be.png">
 
 
+https://user-images.githubusercontent.com/30658712/174331432-3fb29939-b824-4cb0-ade4-921834e428bf.mp4
+
+
+
 ## Packages used
 
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) for state management
