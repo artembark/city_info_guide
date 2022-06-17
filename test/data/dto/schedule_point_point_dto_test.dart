@@ -14,30 +14,4 @@ void main() {
       expect(result, equals(testSchedulePointPointEntity));
     });
   });
-
-  group('from json', () {
-    test(
-      'should return a valid model from json',
-      () async {
-        final Map<String, dynamic> jsonMap = json.decode(
-          File('test/helpers/dummy_data/new_dummy.json').readAsStringSync(),
-        );
-        final result = SchedulePointPointDTO.fromJson(jsonMap);
-        expect(result, equals(testSchedulePointPointDTO));
-      },
-    );
-  });
-
-  group('to json', () {
-    test(
-      'should return a json map containing proper data',
-      () async {
-        final result = testSchedulePointPointDTO.toJson();
-        final Map<String, dynamic> expectedJsonMap = json.decode(
-          File('test/helpers/dummy_data/new_dummy.json').readAsStringSync(),
-        );
-        expect(result, equals(expectedJsonMap));
-      },
-    );
-  });
 }

@@ -56,28 +56,6 @@ main() {
   });
 
   group('getSchedulePointPoint', () {
-    //TODO: fix json and dto
-    test('getSchedulePointPointSuccess', () async {
-      final jsonFromFile = jsonDecode(
-          File('test/helpers/dummy_data/dummy_response_without_transfers.json')
-              .readAsStringSync());
-      const path = '/v3.0/search/';
-
-      dioAdapter.onGet(path, (server) {
-        server.reply(200, jsonFromFile);
-      }, data: null, queryParameters: {
-        "apikey": "",
-        "date": "2022-06-20",
-        "from": "c2",
-        "to": "c10893",
-        "transfers": "true",
-      }, headers: {});
-
-      final response = await scheduleApiDataSource.getSchedulePointPoint(
-          from: 'c2', to: 'c10893', date: DateTime(2022, 06, 20));
-      expect(response, equals(tSchedulePointPointDTO));
-    });
-
     test('getSchedulePointPointFailed', () async {
       const path = '/v3.0/search/';
 
