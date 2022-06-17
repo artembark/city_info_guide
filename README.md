@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/30658712/174331432-3fb29939-b824-4cb0-
 - [`flutter_gen`](https://pub.dev/packages/flutter_gen) code generator for assets
 
 ## Architecture
-<img width="600" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195667-71211f71-1459-4892-ae20-15f8bb2dd5eb.png">   
+<img width="500" alt="arch1" src="https://user-images.githubusercontent.com/30658712/174195667-71211f71-1459-4892-ae20-15f8bb2dd5eb.png">  <img width="500" alt="arch2" src="https://user-images.githubusercontent.com/30658712/174342222-121ccbc7-4677-4409-a78a-dde4e3350023.png">
 
 [From this source](https://betterprogramming.pub/flutter-clean-architecture-test-driven-development-practical-guide-445f388e8604)  
 As in the diagram above, the clean architecture is depicted as a pyramid or a slice of onion when viewed from the top. The clean architecture will divide the Flutter project into 3 main layers, namely:
