@@ -19,11 +19,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -87,10 +82,40 @@ class PopularText extends StatelessWidget {
   }
 }
 
-class HomePopularSlide extends StatelessWidget {
+class HomePopularSlide extends StatefulWidget {
   const HomePopularSlide({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomePopularSlide> createState() => _HomePopularSlideState();
+}
+
+class _HomePopularSlideState extends State<HomePopularSlide> {
+  ScrollController popularController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    popularController.addListener(_scrollListener);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      popularController.animateTo(popularController.position.maxScrollExtent,
+          duration: const Duration(seconds: 4), curve: Curves.linear);
+    });
+  }
+
+  _scrollListener() {
+    if (popularController.offset >=
+        popularController.position.maxScrollExtent) {
+      popularController.animateTo(popularController.position.minScrollExtent,
+          duration: const Duration(seconds: 4), curve: Curves.linear);
+    }
+    if (popularController.offset <=
+        popularController.position.minScrollExtent) {
+      popularController.animateTo(popularController.position.maxScrollExtent,
+          duration: const Duration(seconds: 4), curve: Curves.linear);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +123,7 @@ class HomePopularSlide extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: SingleChildScrollView(
+          controller: popularController,
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
@@ -122,7 +148,7 @@ class HomePopularSlide extends StatelessWidget {
                 imagePath: Assets.images.station.path,
                 //this text constants should load from backend
                 title: 'Вокзал',
-                type: LocaleKeys.type_place,
+                type: LocaleKeys.type_place.tr(),
                 color: const Color(0xFF007FFF),
               ),
               PopularItem(
@@ -141,10 +167,28 @@ class HomePopularSlide extends StatelessWidget {
   }
 }
 
-class HomeIconMenu extends StatelessWidget {
+class HomeIconMenu extends StatefulWidget {
   const HomeIconMenu({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomeIconMenu> createState() => _HomeIconMenuState();
+}
+
+class _HomeIconMenuState extends State<HomeIconMenu> {
+  double menuOpacity = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(milliseconds: 100)).then(
+      (value) => setState(() {
+        menuOpacity = 1;
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,62 +197,66 @@ class HomeIconMenu extends StatelessWidget {
           border: Border.all(color: Colors.black38),
           color: Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(20))),
-      child: GridView(
-        padding: const EdgeInsets.fromLTRB(6, 12, 6, 6),
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4, mainAxisSpacing: 5, childAspectRatio: 1 / 1.2),
-        children: [
-          MenuGridItem(
-            onTap: () => context.router.push(const PoiRoute()),
-            icon: FontAwesomeIcons.mapLocation,
-            backgroundColor: const Color(0xFF007FFF).withOpacity(0.5),
-            title: LocaleKeys.home_places.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const HotelsRoute()),
-            icon: FontAwesomeIcons.hotel,
-            backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
-            title: LocaleKeys.home_hotels.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const ScheduleRouter()),
-            icon: FontAwesomeIcons.bus,
-            backgroundColor: const Color(0xFF8DC6FF).withOpacity(0.5),
-            title: LocaleKeys.home_transport.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const FoodRoute()),
-            icon: FontAwesomeIcons.plateWheat,
-            backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
-            title: LocaleKeys.home_food.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const EventsRoute()),
-            icon: FontAwesomeIcons.calendar,
-            backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
-            title: LocaleKeys.home_events.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const KidsRoute()),
-            icon: FontAwesomeIcons.child,
-            backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
-            title: LocaleKeys.home_kids.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const AnimalsRoute()),
-            icon: FontAwesomeIcons.kiwiBird,
-            backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
-            title: LocaleKeys.home_animals.tr(),
-          ),
-          MenuGridItem(
-            onTap: () => context.pushRoute(const CarRoute()),
-            icon: FontAwesomeIcons.car,
-            backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
-            title: LocaleKeys.home_car.tr(),
-          ),
-        ],
+      child: AnimatedOpacity(
+        opacity: menuOpacity,
+        duration: const Duration(milliseconds: 500),
+        child: GridView(
+          padding: const EdgeInsets.fromLTRB(6, 12, 6, 6),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4, mainAxisSpacing: 5, childAspectRatio: 1 / 1.2),
+          children: [
+            MenuGridItem(
+              onTap: () => context.router.push(const PoiRoute()),
+              icon: FontAwesomeIcons.mapLocation,
+              backgroundColor: const Color(0xFF007FFF).withOpacity(0.5),
+              title: LocaleKeys.home_places.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const HotelsRoute()),
+              icon: FontAwesomeIcons.hotel,
+              backgroundColor: const Color(0xFF8DC6AF).withOpacity(0.5),
+              title: LocaleKeys.home_hotels.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const ScheduleRouter()),
+              icon: FontAwesomeIcons.bus,
+              backgroundColor: const Color(0xFF8DC6FF).withOpacity(0.5),
+              title: LocaleKeys.home_transport.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const FoodRoute()),
+              icon: FontAwesomeIcons.plateWheat,
+              backgroundColor: const Color(0xFFD143BE).withOpacity(0.5),
+              title: LocaleKeys.home_food.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const EventsRoute()),
+              icon: FontAwesomeIcons.calendar,
+              backgroundColor: const Color(0xFFC68EB9).withOpacity(0.5),
+              title: LocaleKeys.home_events.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const KidsRoute()),
+              icon: FontAwesomeIcons.child,
+              backgroundColor: const Color(0xFF5381AE).withOpacity(0.5),
+              title: LocaleKeys.home_kids.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const AnimalsRoute()),
+              icon: FontAwesomeIcons.kiwiBird,
+              backgroundColor: const Color(0xFF5381DE).withOpacity(0.5),
+              title: LocaleKeys.home_animals.tr(),
+            ),
+            MenuGridItem(
+              onTap: () => context.pushRoute(const CarRoute()),
+              icon: FontAwesomeIcons.car,
+              backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
+              title: LocaleKeys.home_car.tr(),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -48,18 +48,33 @@ void main() {
       ),
     );
   }
-  //
-  // testWidgets(
-  //   'should show progress indicator when state is loading',
-  //   (WidgetTester tester) async {
-  //     // arrange
-  //     when(() => mockPoiCubit.state).thenReturn(const PoiState.loading());
-  //
-  //     // act
-  //     await tester.pumpWidget(_makeTestableWidget(const PoiPage()));
-  //
-  //     // assert
-  //     expect(find.byType(CircularProgressIndicator), equals(findsOneWidget));
-  //   },
-  // );
+
+  testWidgets(
+    'should show progress indicator when state is loading',
+    (WidgetTester tester) async {
+      when(() => mockPoiCubit.state).thenReturn(const PoiState.loading());
+      await tester.pumpWidget(_makeTestableWidget(const PoiView()));
+      expect(find.byType(CircularProgressIndicator), equals(findsOneWidget));
+    },
+  );
+
+  testWidgets(
+    'should show widget contain weather data when state is has data',
+    (WidgetTester tester) async {
+      when(() => mockPoiCubit.state).thenReturn(PoiState.success(tPoiList));
+
+      await tester.pumpWidget(_makeTestableWidget(const PoiView()));
+      expect(find.byType(Image), equals(findsOneWidget));
+    },
+  );
+
+  testWidgets(
+    'should show widget contain weather data when state is has data',
+    (WidgetTester tester) async {
+      when(() => mockPoiCubit.state).thenReturn(const PoiState.empty());
+
+      await tester.pumpWidget(_makeTestableWidget(const PoiView()));
+      expect(find.byType(Text), equals(findsOneWidget));
+    },
+  );
 }

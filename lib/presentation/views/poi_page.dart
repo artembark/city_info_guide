@@ -28,21 +28,32 @@ class _PoiPageState extends State<PoiPage> {
       body: SafeArea(
           child: BlocProvider(
         create: (_) => sl<PoiCubit>()..getPointsOfInterest(),
-        child: BlocBuilder<PoiCubit, PoiState>(builder: (context, state) {
-          return state.map(
-            initial: (state) => const PoiInitial(),
-            loading: (state) => const PoiLoading(),
-            success: (state) => PoiSuccess(
-              placesOfInterest: state.placesOfInterest,
-            ),
-            empty: (state) => const PoiEmpty(),
-            failure: (state) => PoiError(
-              exception: state.exception,
-            ),
-          );
-        }),
+        child: const PoiView(),
       )),
     );
+  }
+}
+
+class PoiView extends StatelessWidget {
+  const PoiView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<PoiCubit, PoiState>(builder: (context, state) {
+      return state.map(
+        initial: (state) => const PoiInitial(),
+        loading: (state) => const PoiLoading(),
+        success: (state) => PoiSuccess(
+          placesOfInterest: state.placesOfInterest,
+        ),
+        empty: (state) => const PoiEmpty(),
+        failure: (state) => PoiError(
+          exception: state.exception,
+        ),
+      );
+    });
   }
 }
 
@@ -85,97 +96,109 @@ class PoiSuccess extends StatelessWidget {
     return ListView.builder(
       itemCount: placesOfInterest.length,
       itemBuilder: (context, index) {
-        return Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
-            side: const BorderSide(
-              color: Colors.black45,
-            ),
-          ),
-          clipBehavior: Clip.hardEdge,
-          elevation: 0,
-          color: Colors.grey[200],
-          child: Row(
-            children: [
-              CachedNetworkImage(
-                fit: BoxFit.fitHeight,
-                imageBuilder: (context, imageProvider) => Container(
-                  width: 190,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+        return PoiCard(placesOfInterest: placesOfInterest[index]);
+      },
+    );
+  }
+}
+
+class PoiCard extends StatelessWidget {
+  const PoiCard({
+    Key? key,
+    required this.placesOfInterest,
+  }) : super(key: key);
+
+  final PlaceOfInterest placesOfInterest;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+        side: const BorderSide(
+          color: Colors.black45,
+        ),
+      ),
+      clipBehavior: Clip.hardEdge,
+      elevation: 0,
+      color: Colors.grey[200],
+      child: Row(
+        children: [
+          CachedNetworkImage(
+            fit: BoxFit.fitHeight,
+            imageBuilder: (context, imageProvider) => Container(
+              width: 190,
+              height: 150,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
                 ),
-                imageUrl: placesOfInterest[index].image!,
-                placeholder: (_, __) => Shimmer.fromColors(
-                  baseColor: Colors.grey[500]!,
-                  highlightColor: Colors.grey[100]!,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.white,
-                    ),
-                    width: 190.0,
-                    height: 150.0,
-                  ),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            imageUrl: placesOfInterest.image!,
+            placeholder: (_, __) => Shimmer.fromColors(
+              baseColor: Colors.grey[500]!,
+              highlightColor: Colors.grey[100]!,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.white,
+                ),
+                width: 190.0,
+                height: 150.0,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text(
+                      placesOfInterest.title ?? '-',
+                      textAlign: TextAlign.center,
+                      style:
+                          GoogleFonts.montserrat(fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Center(
-                        child: Text(
-                          placesOfInterest[index].title ?? '-',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w500),
-                        ),
+                      ElevatedButton(
+                        onPressed: () => YandexMapLauncher().showPanorama(
+                            pointLat: placesOfInterest.lat!,
+                            pointLon: placesOfInterest.lon!,
+                            directionAzimuth: 0,
+                            directionAngle: 0,
+                            spanHorizontal: 0,
+                            spanVertical: 0),
+                        child: Text(LocaleKeys.panorama.tr()),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => YandexMapLauncher().showPanorama(
-                                pointLat: placesOfInterest[index].lat!,
-                                pointLon: placesOfInterest[index].lon!,
-                                directionAzimuth: 0,
-                                directionAngle: 0,
-                                spanHorizontal: 0,
-                                spanVertical: 0),
-                            child: Text(LocaleKeys.panorama.tr()),
-                          ),
-                          ElevatedButton(
-                            onPressed: () => YandexMapLauncher().showMarker(
-                                pointLat: placesOfInterest[index].lat!,
-                                pointLon: placesOfInterest[index].lon!,
-                                zoom: 17),
-                            child: Text(LocaleKeys.to_ya_map.tr()),
-                          ),
-                          // ElevatedButton(
-                          //   onPressed: () => YandexMapLauncher()
-                          //       .showOrgCard(
-                          //           oid: placesOfInterest[index]
-                          //               .oid!),
-                          //   child: Text('Карточка'),
-                          // )
-                        ],
+                      // ElevatedButton(
+                      //   onPressed: () => YandexMapLauncher().showMarker(
+                      //       pointLat: placesOfInterest.lat!,
+                      //       pointLon: placesOfInterest.lon!,
+                      //       zoom: 17),
+                      //   child: Text(LocaleKeys.to_ya_map.tr()),
+                      // ),
+                      ElevatedButton(
+                        onPressed: () => YandexMapLauncher()
+                            .showOrgCard(oid: placesOfInterest.oid!),
+                        child: Text(LocaleKeys.to_ya_map.tr()),
                       )
                     ],
-                  ),
-                ),
+                  )
+                ],
               ),
-            ],
+            ),
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }
