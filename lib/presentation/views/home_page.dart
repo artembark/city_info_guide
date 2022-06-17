@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/app_router.gr.dart';
 import 'package:city_info_guide/core/l10n/locale_keys.dart';
-import 'package:city_info_guide/gen/assets.gen.dart';
+import 'package:city_info_guide/app/assets/assets.gen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:city_info_guide/app/router/navigation_observer.dart';
-import 'package:city_info_guide/bloc_observer.dart';
+import 'package:city_info_guide/app/theme/theme.dart';
+import 'package:city_info_guide/core/bloc_observer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -43,41 +44,7 @@ class CityInfoGuideApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: Theme.of(context).copyWith(
-          navigationBarTheme: const NavigationBarThemeData().copyWith(
-            labelTextStyle: MaterialStateProperty.all(
-              GoogleFonts.montserrat(),
-            ),
-          ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              textStyle: MaterialStateProperty.all(
-                  GoogleFonts.montserrat(color: Colors.black)),
-              // backgroundColor:
-              //     MaterialStateProperty.all(const Color(0xFFbad6ec)),
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-            ),
-          ),
-          appBarTheme: const AppBarTheme().copyWith(
-            iconTheme: const IconThemeData(
-              color: Colors.black, //change your color here
-            ),
-            titleTextStyle: GoogleFonts.montserrat(
-                color: Colors.black, fontWeight: FontWeight.w500, fontSize: 22),
-            elevation: 0,
-            color: Colors.transparent,
-            systemOverlayStyle: const SystemUiOverlayStyle(
-              statusBarColor: Colors.black38,
-              statusBarIconBrightness: Brightness.light,
-              // For Android (dark icons)
-              statusBarBrightness: Brightness.light, // For iOS (dark icons)
-            ),
-          )),
+      theme: appTheme,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,

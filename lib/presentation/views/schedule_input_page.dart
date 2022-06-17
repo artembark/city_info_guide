@@ -16,7 +16,7 @@ import 'package:toggle_switch/toggle_switch.dart';
 import '../../core/utils/date_converters.dart';
 import '../../domain/entities/schedule_request.dart';
 import '../../domain/entities/suggested_city/suggested_city_compact.dart';
-import '../../gen/assets.gen.dart';
+import 'package:city_info_guide/app/assets/assets.gen.dart';
 import '../blocs/schedule_input/schedule_input_cubit.dart';
 import '/injector.dart';
 
@@ -118,7 +118,13 @@ class PopularRoutes extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemCount: popularRequests.length,
               itemBuilder: (context, index) => InkWell(
-                onTap: null,
+                onTap: () => context.read<ScheduleInputCubit>().toDetailsPage(
+                      ScheduleRequest(
+                        from: popularRequests[index].from,
+                        to: popularRequests[index].to,
+                        date: popularRequests[index].date,
+                      ),
+                    ),
                 child: Card(
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),

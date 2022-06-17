@@ -7,6 +7,7 @@ City guide app. Development is in progress.
 ## Packages used
 
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) for state management
+- [`bloc_test`](https://pub.dev/packages/bloc_test) for bloc testing
 - [`intl`](https://pub.dev/packages/intl) for currency, date, time formatting
 - [`freezed`](https://pub.dev/packages/freezed) to reduce boilerplate code in model classes
 - [`freezed_annotation`](https://pub.dev/packages/freezed_annotation) to write annotations used by freezed
@@ -62,7 +63,7 @@ In order to simplify entering from and to position for schedule this app uses su
 Settlements name appear as you type letters, suggesting you convenient names.
 Schedule api also needs to have city codes in request. Suggests api is used for 
 converting human readable city names to codes.
-This app uses [Yandex suggests api](suggests.rasp.yandex.net)
+This app uses [Yandex suggests api](https://suggests.rasp.yandex.net)
 
 ## [Native splash screen](https://pub.dev/packages/flutter_native_splash)  
 A native splash screen will be shown before flutter app starts.

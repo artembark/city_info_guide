@@ -131,4 +131,8 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
       }
     });
   }
+
+  toDetailsPage(ScheduleRequest scheduleRequest) {
+    emit(ScheduleInputState.toDetailsPage(scheduleRequest));
+  }
 }
