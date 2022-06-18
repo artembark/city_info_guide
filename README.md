@@ -6,7 +6,7 @@ City guide app. Development is in progress.
 https://user-images.githubusercontent.com/30658712/174331432-3fb29939-b824-4cb0-ade4-921834e428bf.mp4
 
 ## How to build this app
-After cloning don't forget to run `flutter pub get` and `flutter pub run build_runner build --delete-conflicting-outputs`
+After cloning don't forget to run `flutter pub get` and `flutter pub run build_runner build --delete-conflicting-outputs`   
 Also in order to build this app you need to get an api key from [yandex schedule api](https://yandex.ru/dev/rasp/raspapi/) and add additional run arguments   
 `--dart-define=API_KEY=your_key`
 
@@ -15,33 +15,33 @@ Also in order to build this app you need to get an api key from [yandex schedule
 
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) for state management
 - [`bloc_test`](https://pub.dev/packages/bloc_test) for bloc testing
-- [`intl`](https://pub.dev/packages/intl) for currency, date, time formatting
+- [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`, `flutter_gen`
 - [`freezed`](https://pub.dev/packages/freezed) to reduce boilerplate code in model classes
 - [`freezed_annotation`](https://pub.dev/packages/freezed_annotation) to write annotations used by freezed
 - [`json_serializable`](https://pub.dev/packages/json_serializable) to create code for JSON serialization and deserialization
 - [`json_annotation`](https://pub.dev/packages/json_annotation) to write annotations used by json_serializable
 - [`equatable`](https://pub.dev/packages/equatable) to create simple comparable classes
+- [`get_it`](https://pub.dev/packages/get_it) service locator
+- [`flutter_gen`](https://pub.dev/packages/flutter_gen) code generator for assets
 - [`dio`](https://pub.dev/packages/dio) for handling network requests
 - [`http_mock_adapter`](https://pub.dev/packages/http_mock_adapter) for dio testing
+- [`mockito`](https://pub.dev/packages/mockito) for testing
 - [`auto_route`](https://pub.dev/packages/auto_route) for app navigation
 - [`auto_route_generator`](https://pub.dev/packages/auto_route_generator) generator for `auto_route`
-- [`get_it`](https://pub.dev/packages/get_it) service locator
-- [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
-- [`mockito`](https://pub.dev/packages/mockito) for testing
+- [`easy_localization`](https://pub.dev/packages/easy_localization) to create localizations
+- [`intl`](https://pub.dev/packages/intl) for currency, date, time formatting
 - [`cached_network_image`](https://pub.dev/packages/cached_network_image) for caching images
 - [`shimmer`](https://pub.dev/packages/shimmer) to add shimmer effect while loading data
 - [`geolocator`](https://pub.dev/packages/geolocator) for accessing platform specific location services
-- [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
-- [`build_runner`](https://pub.dev/packages/build_runner) dart code generator used by `json_serializable`, `freezed`, `auto_route`
-- [`font_awesome_flutter`](https://artembark.youtrack.cloud/newIssue?draftId=2-27) for icons
-- [`lottie`](https://pub.dev/packages/lottie) for lottie animation files
-- [`google_fonts`](https://pub.dev/packages/google_fonts) for custom free fonts
 - [`yandex_mapkit`](https://pub.dev/packages/yandex_mapkit) to use Yandex MapKit
 - [`dartz`](https://pub.dev/packages/dartz) to implement Either and handle Errors
 - [`flutter_launcher_icons`](https://pub.dev/packages/flutter_launcher_icons) to create launcher icons
+- [`flutter_native_splash`](https://pub.dev/packages/flutter_native_splash) for generating native splash screen
+- [`lottie`](https://pub.dev/packages/lottie) for lottie animation files
+- [`google_fonts`](https://pub.dev/packages/google_fonts) for custom free fonts
+- [`font_awesome_flutter`](https://artembark.youtrack.cloud/newIssue?draftId=2-27) for icons
+- [`flutter_typeahead`](https://pub.dev/packages/flutter_typeahead) for showing suggestions to users as they type
 - [`toggle_switch`](https://pub.dev/packages/toggle_switch) simple toggle switch widget
-- [`easy_localization`](https://pub.dev/packages/easy_localization) to create localizations
-- [`flutter_gen`](https://pub.dev/packages/flutter_gen) code generator for assets
 
 ## Architecture
 <img width="500" alt="arch1" src="https://user-images.githubusercontent.com/30658712/174195667-71211f71-1459-4892-ae20-15f8bb2dd5eb.png">  <img width="500" alt="arch2" src="https://user-images.githubusercontent.com/30658712/174342222-121ccbc7-4677-4409-a78a-dde4e3350023.png">
