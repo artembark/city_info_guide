@@ -3,9 +3,12 @@ City guide app. Development is in progress.
 
 <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/173255351-b2c15dab-db1e-4115-9c9f-df50a46d6ed3.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194798-6b238fe4-af09-484d-b48f-5d46cc3bb7d9.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194908-f323d0df-b314-47c5-ab84-17a10f9a4d2e.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195212-c472d2ab-50e0-4b5a-a3d2-0b2bc41c5d1a.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174194986-eaf5eb25-c48a-4ae3-979d-2df4af46a424.png">  <img width="300" alt="menu" src="https://user-images.githubusercontent.com/30658712/174195073-a9d10700-6b3d-4863-9e7f-45bbfa8995be.png">
 
-
 https://user-images.githubusercontent.com/30658712/174331432-3fb29939-b824-4cb0-ade4-921834e428bf.mp4
 
+## How to build this app
+After cloning don't forget to run `flutter pub get` and `flutter pub run build_runner build --delete-conflicting-outputs`
+Also in order to build this app you need to get an api key from [yandex schedule api](https://yandex.ru/dev/rasp/raspapi/) and add additional run arguments   
+`--dart-define=API_KEY=your_key`
 
 
 ## Packages used
@@ -88,11 +91,11 @@ make route to, showing organization card and showing 360 degree panorama.
 Documentation to Yandex Map intents is [here](https://yandex.ru/dev/yandex-apps-launch/maps/)
 
 To open Android native and iOS native from Android Studio Flutter project go to Tools-Flutter-Open 
-corresponding variant. 
-[Writing custom platform-specific code](https://docs.flutter.dev/development/platform-integration/platform-channels)
-[How To Call iOS Native Code [2021] Swift Platform Specific Code](https://www.youtube.com/watch?v=EHQTdB2qenU)
-[How To Call Android Native Code [2021] 1/2 Java & Kotlin Platform Specific Code](https://www.youtube.com/watch?v=j0cy_Z6IG_c)
-For iOS don't forget to add url schemes in Info.plist file
+corresponding variant.   
+[Writing custom platform-specific code](https://docs.flutter.dev/development/platform-integration/platform-channels)   
+[How To Call iOS Native Code [2021] Swift Platform Specific Code](https://www.youtube.com/watch?v=EHQTdB2qenU)   
+[How To Call Android Native Code [2021] 1/2 Java & Kotlin Platform Specific Code](https://www.youtube.com/watch?v=j0cy_Z6IG_c)   
+For iOS don't forget to add url schemes in Info.plist file   
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
@@ -199,9 +202,13 @@ Can use [THIS](https://pub.dev/packages/flutter_launcher_name) package alternati
 
 ## Easy Localization
 For localization a package [easy_localization](https://pub.dev/packages/easy_localization) is used.  
-Terminal commands:  
+Terminal commands:
+- to generate translations:   
 `flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n"`   
+- to generate keys:   
 `flutter pub run easy_localization:generate -S "assets/translations" -O "lib/core/l10n" -o "locale_keys.dart" -f keys`
 
 ## Generating assets paths
-
+Code generator for assets allowing to get rid of all String-based APIs. The code is generated with `build_runner`. To explicitly specify output directory add this lines to pubspec.yaml   
+`flutter_gen:
+  output: lib/app/assets`
