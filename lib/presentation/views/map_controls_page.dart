@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
+import '../../core/map/map_key.dart';
 import '../widgets/control_button.dart';
 import '../widgets/map_page.dart';
 

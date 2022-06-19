@@ -7,18 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app/router/app_router.gr.dart';
 import 'core/l10n/codegen_loader.g.dart';
+import 'core/map/map_key.dart';
 import 'injector.dart' as di;
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  setYandexMapKitParameters(
+    'ru_RU',
+    const String.fromEnvironment('MAP_API_KEY'),
+  );
+  await EasyLocalization.ensureInitialized();
   await di.initializeDependencies();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   BlocOverrides.runZoned(
     () {
       runApp(

@@ -10,26 +10,30 @@ import com.yandex.mapkit.MapKitFactory;
 
 class MainActivity : FlutterActivity() {
     private val MAP_LAUNCHER_CHANNEL = "map_launcher"
-    private lateinit var channel: MethodChannel
+    private val API_KEY_CHANNEL = "yandex_map_kit_channel"
+    private lateinit var mapChannel: MethodChannel
+    private lateinit var apiKeyChannel: MethodChannel
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-        MapKitFactory.setApiKey("f96d8fa8-446f-43d3-b09f-f8f814b38329");
+        //currently works without key
+        MapKitFactory.setApiKey("write-any-api-key")
         super.configureFlutterEngine(flutterEngine)
         //create channel
-        channel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MAP_LAUNCHER_CHANNEL)
-
+        mapChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MAP_LAUNCHER_CHANNEL)
         //receive data from Flutter
-        channel.setMethodCallHandler { call, result ->
-            val arguments = call.arguments<Map<String, String>>() ?: return@setMethodCallHandler result.error(
-                "ARGUMENTS_NOT_PROVIDED",
-                "Arguments not provided",
-                null,
-            )
-            val mapPackageName = arguments["mapPackageName"] ?: return@setMethodCallHandler result.error(
-                "MAP_NAME_NOT_PROVIDED",
-                "Map name not provided",
-                null,
-            )
+        mapChannel.setMethodCallHandler { call, result ->
+            val arguments =
+                call.arguments<Map<String, String>>() ?: return@setMethodCallHandler result.error(
+                    "ARGUMENTS_NOT_PROVIDED",
+                    "Arguments not provided",
+                    null,
+                )
+            val mapPackageName =
+                arguments["mapPackageName"] ?: return@setMethodCallHandler result.error(
+                    "MAP_NAME_NOT_PROVIDED",
+                    "Map name not provided",
+                    null,
+                )
             when (call.method) {
                 "isMapAvailable" -> {
                     if (isMapAvailable(mapPackageName)) {
@@ -57,7 +61,35 @@ class MainActivity : FlutterActivity() {
                 }
                 else -> result.notImplemented()
             }
+        }
 
+        apiKeyChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, API_KEY_CHANNEL)
+        apiKeyChannel.setMethodCallHandler { call, result ->
+            val arguments =
+                call.arguments<Map<String, String>>() ?: return@setMethodCallHandler result.error(
+                    "ARGUMENTS_NOT_PROVIDED",
+                    "Arguments not provided",
+                    null,
+                )
+            val mapLocale =
+                arguments["yandexMapKitLocale"] ?: return@setMethodCallHandler result.error(
+                    "LOCALE_NOT_PROVIDED",
+                    "Locale not provided",
+                    null,
+                )
+            val mapApiKey =
+                arguments["yandexMapKitKey"] ?: return@setMethodCallHandler result.error(
+                    "API_KEY_NOT_PROVIDED",
+                    "Api key not provided",
+                    null,
+                )
+            if (call.method == "setYandexMapKitParameters") {
+                //currently it is ignored and works without key
+                //MapKitFactory.setLocale(mapLocale)
+                MapKitFactory.getInstance().setApiKey(mapApiKey)
+            } else {
+                result.notImplemented()
+            }
         }
     }
 
@@ -82,5 +114,6 @@ class MainActivity : FlutterActivity() {
         intent.setPackage("ru.yandex.yandexmaps")
         startActivity(intent);
     }
+
 
 }
