@@ -7,8 +7,9 @@ https://user-images.githubusercontent.com/30658712/174331432-3fb29939-b824-4cb0-
 
 ## How to build this app
 After cloning don't forget to run `flutter pub get` and `flutter pub run build_runner build --delete-conflicting-outputs`   
-Also in order to build this app you need to get an api key from [yandex schedule api](https://yandex.ru/dev/rasp/raspapi/) and add additional run arguments   
-`--dart-define=API_KEY=your_key`
+Also in order to build this app you need to get an api key from [Yandex Schedule Api](https://yandex.ru/dev/rasp/raspapi/), [Yandex Map Api](https://yandex.ru/dev/maps/mapkit/) and add additional run arguments:   
+`--dart-define=API_KEY=your_schedule_api_key`   
+`--dart-define=MAP_API_KEY=your_map_api_key`
 
 
 ## Packages used
