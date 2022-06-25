@@ -9,10 +9,12 @@ import YandexMapsMobile
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       YMKMapKit.setLocale("ru_RU")
-          YMKMapKit.setApiKey("f96d8fa8-446f-43d3-b09f-f8f814b38329")
-    
+      let apiKeyDefine = Bundle.main.object(forInfoDictionaryKey: "Map Api Key") as! String
+      YMKMapKit.setApiKey(apiKeyDefine)
+
       let controller:FlutterViewController = window?.rootViewController as! FlutterViewController
       let MAP_LAUNCHER_CHANNEL = "map_launcher"
+    
       let mapChannel = FlutterMethodChannel(name: MAP_LAUNCHER_CHANNEL,binaryMessenger: controller.binaryMessenger)
       mapChannel.setMethodCallHandler({(call:FlutterMethodCall,result:@escaping FlutterResult)->Void in
           guard let args = call.arguments as? [String:String] else {result(FlutterError(code: "ARGUMENTS_NOT_PROVIDED",message: "Arguments not provided",details: nil));return}
@@ -34,6 +36,8 @@ import YandexMapsMobile
               result(FlutterMethodNotImplemented)
           }
       })
+
+      
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

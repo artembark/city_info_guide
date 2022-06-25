@@ -100,20 +100,20 @@ class _HomePopularSlideState extends State<HomePopularSlide> {
     popularController.addListener(_scrollListener);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       popularController.animateTo(popularController.position.maxScrollExtent,
-          duration: const Duration(seconds: 4), curve: Curves.linear);
+          duration: const Duration(seconds: 6), curve: Curves.linear);
     });
   }
 
   _scrollListener() {
     if (popularController.offset >=
-        popularController.position.maxScrollExtent) {
+        popularController.position.maxScrollExtent - 1) {
       popularController.animateTo(popularController.position.minScrollExtent,
-          duration: const Duration(seconds: 4), curve: Curves.linear);
+          duration: const Duration(seconds: 6), curve: Curves.linear);
     }
     if (popularController.offset <=
-        popularController.position.minScrollExtent) {
+        popularController.position.minScrollExtent + 1) {
       popularController.animateTo(popularController.position.maxScrollExtent,
-          duration: const Duration(seconds: 4), curve: Curves.linear);
+          duration: const Duration(seconds: 6), curve: Curves.linear);
     }
   }
 
