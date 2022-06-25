@@ -50,3 +50,4 @@ app.*.map.json
 lib/core/utils/secrets.dart
 *.g.dart
 *.freezed.dart
+Define.xcconfig

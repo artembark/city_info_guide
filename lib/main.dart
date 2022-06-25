@@ -10,16 +10,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'app/router/app_router.gr.dart';
 import 'core/l10n/codegen_loader.g.dart';
-import 'core/map/map_key.dart';
 import 'injector.dart' as di;
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  setYandexMapKitParameters(
-    'ru_RU',
-    const String.fromEnvironment('MAP_API_KEY'),
-  );
   await EasyLocalization.ensureInitialized();
   await di.initializeDependencies();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

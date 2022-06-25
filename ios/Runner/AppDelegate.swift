@@ -9,11 +9,12 @@ import YandexMapsMobile
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       YMKMapKit.setLocale("ru_RU")
-      YMKMapKit.setApiKey("write-any-api-key")
-    
+      let apiKeyDefine = Bundle.main.object(forInfoDictionaryKey: "Map Api Key") as! String
+      YMKMapKit.setApiKey(apiKeyDefine)
+
       let controller:FlutterViewController = window?.rootViewController as! FlutterViewController
       let MAP_LAUNCHER_CHANNEL = "map_launcher"
-      let API_KEY_CHANNEL = "api_key"
+    
       let mapChannel = FlutterMethodChannel(name: MAP_LAUNCHER_CHANNEL,binaryMessenger: controller.binaryMessenger)
       mapChannel.setMethodCallHandler({(call:FlutterMethodCall,result:@escaping FlutterResult)->Void in
           guard let args = call.arguments as? [String:String] else {result(FlutterError(code: "ARGUMENTS_NOT_PROVIDED",message: "Arguments not provided",details: nil));return}
@@ -35,21 +36,7 @@ import YandexMapsMobile
               result(FlutterMethodNotImplemented)
           }
       })
-      
-      let apiKeyChannel = FlutterMethodChannel(name: API_KEY_CHANNEL,binaryMessenger: controller.binaryMessenger)
-      apiKeyChannel.setMethodCallHandler({(call:FlutterMethodCall,result:@escaping FlutterResult)->Void in
-          guard let args = call.arguments as? [String:String] else {result(FlutterError(code: "ARGUMENTS_NOT_PROVIDED",message: "Arguments not provided",details: nil));return}
-          guard let yandexMapKitLocale = args["yandexMapKitLocale"] else {result(FlutterError(code: "LOCALE_NOT_PROVIDED",message: "Map locale not provided",details: nil)); return}
-          guard let yandexMapKitApiKey = args["yandexMapKitKey"] else {result(FlutterError(code: "API_KEY_NOT_PROVIDED",message: "Api key not provided",details: nil)); return}
-          switch call.method{
-    
-          case "setYandexMapKitParameters":
-             // YMKMapKit.setLocale(yandexMapKitLocale)
-             YMKMapKit.setApiKey(yandexMapKitApiKey)
-          default:
-              result(FlutterMethodNotImplemented)
-          }
-      })
+
       
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

@@ -10,13 +10,10 @@ import com.yandex.mapkit.MapKitFactory;
 
 class MainActivity : FlutterActivity() {
     private val MAP_LAUNCHER_CHANNEL = "map_launcher"
-    private val API_KEY_CHANNEL = "yandex_map_kit_channel"
     private lateinit var mapChannel: MethodChannel
-    private lateinit var apiKeyChannel: MethodChannel
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
-        //currently works without key
-        MapKitFactory.setApiKey("write-any-api-key")
+        MapKitFactory.setApiKey(getString(R.string.api_key))
         super.configureFlutterEngine(flutterEngine)
         //create channel
         mapChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, MAP_LAUNCHER_CHANNEL)
@@ -60,35 +57,6 @@ class MainActivity : FlutterActivity() {
                     )
                 }
                 else -> result.notImplemented()
-            }
-        }
-
-        apiKeyChannel = MethodChannel(flutterEngine.dartExecutor.binaryMessenger, API_KEY_CHANNEL)
-        apiKeyChannel.setMethodCallHandler { call, result ->
-            val arguments =
-                call.arguments<Map<String, String>>() ?: return@setMethodCallHandler result.error(
-                    "ARGUMENTS_NOT_PROVIDED",
-                    "Arguments not provided",
-                    null,
-                )
-            val mapLocale =
-                arguments["yandexMapKitLocale"] ?: return@setMethodCallHandler result.error(
-                    "LOCALE_NOT_PROVIDED",
-                    "Locale not provided",
-                    null,
-                )
-            val mapApiKey =
-                arguments["yandexMapKitKey"] ?: return@setMethodCallHandler result.error(
-                    "API_KEY_NOT_PROVIDED",
-                    "Api key not provided",
-                    null,
-                )
-            if (call.method == "setYandexMapKitParameters") {
-                //currently it is ignored and works without key
-                //MapKitFactory.setLocale(mapLocale)
-                MapKitFactory.getInstance().setApiKey(mapApiKey)
-            } else {
-                result.notImplemented()
             }
         }
     }
