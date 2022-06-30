@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
       }),
     );
     Future.delayed(const Duration(milliseconds: 1500)).then((value) {
-      return context.router.replace(const DashboardRoute());
+      return context.router.replace(const CircleMenuRoute());
     });
   }
 

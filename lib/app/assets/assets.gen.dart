@@ -19,11 +19,26 @@ class $AssetsImagesGen {
   AssetGenImage get birdSquare =>
       const AssetGenImage('assets/images/bird_square.png');
 
-  /// File path: assets/images/korela.jpg
-  AssetGenImage get korela => const AssetGenImage('assets/images/korela.jpg');
+  /// File path: assets/images/food_gen.png
+  AssetGenImage get foodGen =>
+      const AssetGenImage('assets/images/food_gen.png');
+
+  /// File path: assets/images/food_ter.jpeg
+  AssetGenImage get foodTer =>
+      const AssetGenImage('assets/images/food_ter.jpeg');
+
+  /// File path: assets/images/food_tnk.png
+  AssetGenImage get foodTnk =>
+      const AssetGenImage('assets/images/food_tnk.png');
+
+  /// File path: assets/images/korela.png
+  AssetGenImage get korela => const AssetGenImage('assets/images/korela.png');
 
   /// File path: assets/images/korela1.JPG
   AssetGenImage get korela1 => const AssetGenImage('assets/images/korela1.JPG');
+
+  /// File path: assets/images/korela2.jpg
+  AssetGenImage get korela2 => const AssetGenImage('assets/images/korela2.jpg');
 
   /// File path: assets/images/main_circle.png
   AssetGenImage get mainCircle =>

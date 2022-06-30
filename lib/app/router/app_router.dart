@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/presentation/views/circle_menu_page.dart';
 import 'package:city_info_guide/presentation/views/favourites_page.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
 import 'package:city_info_guide/presentation/views/map_controls_page.dart';
@@ -28,44 +29,40 @@ import '../../presentation/views/schedule_wrapper.dart';
   routes: <AutoRoute>[
     AutoRoute(
       page: SplashPage,
-      initial: true,
+      //initial: true,
     ),
     AutoRoute(
-      page: DashboardPage,
+      page: HomeWrapperPage,
       children: [
         AutoRoute(
-          page: HomeWrapperPage,
+          page: HomePage,
+          // initial: true,
+        ),
+        AutoRoute(
+          page: ScheduleWrapperPage,
+          name: 'ScheduleRouter',
           children: [
             AutoRoute(
-              page: HomePage,
               initial: true,
+              page: ScheduleInputPage,
             ),
-            AutoRoute(
-              page: ScheduleWrapperPage,
-              name: 'ScheduleRouter',
-              children: [
-                AutoRoute(
-                  initial: true,
-                  page: ScheduleInputPage,
-                ),
-                AutoRoute(page: ScheduleResultPage),
-                AutoRoute(page: ScheduleResultDetailsPage),
-              ],
-            ),
-            AutoRoute(page: PoiPage),
-            AutoRoute(page: HotelsPage),
-            AutoRoute(page: FoodPage),
-            AutoRoute(page: EventsPage),
-            AutoRoute(page: KidsPage),
-            AutoRoute(page: AnimalsPage),
-            AutoRoute(page: CarPage),
+            AutoRoute(page: ScheduleResultPage),
+            AutoRoute(page: ScheduleResultDetailsPage),
           ],
         ),
-        AutoRoute(page: MapControlsPage),
-        AutoRoute(page: FavouritesPage),
-        AutoRoute(page: ProfilePage),
+        AutoRoute(page: PoiPage),
+        AutoRoute(page: HotelsPage),
+        AutoRoute(page: FoodPage),
+        AutoRoute(page: EventsPage),
+        AutoRoute(page: KidsPage),
+        AutoRoute(page: AnimalsPage),
+        AutoRoute(page: CarPage),
       ],
-    )
+    ),
+    AutoRoute(page: CircleMenuPage, initial: true),
+    AutoRoute(page: MapControlsPage),
+    AutoRoute(page: FavouritesPage),
+    AutoRoute(page: ProfilePage)
   ],
 )
 // extend the generated private router

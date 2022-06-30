@@ -16,12 +16,12 @@ import 'package:flutter/material.dart' as _i20;
 import '../../domain/entities/schedule_request.dart' as _i21;
 import '../../presentation/views/animals_page.dart' as _i14;
 import '../../presentation/views/cars_page.dart' as _i15;
-import '../../presentation/views/dashboard.dart' as _i2;
+import '../../presentation/views/circle_menu_page.dart' as _i3;
 import '../../presentation/views/event_page.dart' as _i12;
 import '../../presentation/views/favourites_page.dart' as _i5;
 import '../../presentation/views/food_page.dart' as _i11;
 import '../../presentation/views/home_page.dart' as _i7;
-import '../../presentation/views/home_wrapper.dart' as _i3;
+import '../../presentation/views/home_wrapper.dart' as _i2;
 import '../../presentation/views/hotels_page.dart' as _i10;
 import '../../presentation/views/kids_page.dart' as _i13;
 import '../../presentation/views/map_controls_page.dart' as _i4;
@@ -43,13 +43,13 @@ class AppRouter extends _i19.RootStackRouter {
       return _i19.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.SplashPage());
     },
-    DashboardRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.DashboardPage());
-    },
     HomeWrapperRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.HomeWrapperPage());
+          routeData: routeData, child: const _i2.HomeWrapperPage());
+    },
+    CircleMenuRoute.name: (routeData) {
+      return _i19.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.CircleMenuPage());
     },
     MapControlsRoute.name: (routeData) {
       return _i19.MaterialPageX<dynamic>(
@@ -120,87 +120,78 @@ class AppRouter extends _i19.RootStackRouter {
 
   @override
   List<_i19.RouteConfig> get routes => [
-        _i19.RouteConfig(SplashRoute.name, path: '/'),
-        _i19.RouteConfig(DashboardRoute.name,
-            path: '/dashboard-page',
+        _i19.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i19.RouteConfig(HomeWrapperRoute.name,
+            path: '/home-wrapper-page',
             children: [
-              _i19.RouteConfig(HomeWrapperRoute.name,
-                  path: 'home-wrapper-page',
-                  parent: DashboardRoute.name,
+              _i19.RouteConfig(HomeRoute.name,
+                  path: 'home-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(ScheduleRouter.name,
+                  path: 'schedule-wrapper-page',
+                  parent: HomeWrapperRoute.name,
                   children: [
-                    _i19.RouteConfig(HomeRoute.name,
-                        path: '', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(ScheduleRouter.name,
-                        path: 'schedule-wrapper-page',
-                        parent: HomeWrapperRoute.name,
-                        children: [
-                          _i19.RouteConfig(ScheduleInputRoute.name,
-                              path: '', parent: ScheduleRouter.name),
-                          _i19.RouteConfig(ScheduleResultRoute.name,
-                              path: 'schedule-result-page',
-                              parent: ScheduleRouter.name),
-                          _i19.RouteConfig(ScheduleResultDetailsRoute.name,
-                              path: 'schedule-result-details-page',
-                              parent: ScheduleRouter.name)
-                        ]),
-                    _i19.RouteConfig(PoiRoute.name,
-                        path: 'poi-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(HotelsRoute.name,
-                        path: 'hotels-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(FoodRoute.name,
-                        path: 'food-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(EventsRoute.name,
-                        path: 'events-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(KidsRoute.name,
-                        path: 'kids-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(AnimalsRoute.name,
-                        path: 'animals-page', parent: HomeWrapperRoute.name),
-                    _i19.RouteConfig(CarRoute.name,
-                        path: 'car-page', parent: HomeWrapperRoute.name)
+                    _i19.RouteConfig(ScheduleInputRoute.name,
+                        path: '', parent: ScheduleRouter.name),
+                    _i19.RouteConfig(ScheduleResultRoute.name,
+                        path: 'schedule-result-page',
+                        parent: ScheduleRouter.name),
+                    _i19.RouteConfig(ScheduleResultDetailsRoute.name,
+                        path: 'schedule-result-details-page',
+                        parent: ScheduleRouter.name)
                   ]),
-              _i19.RouteConfig(MapControlsRoute.name,
-                  path: 'map-controls-page', parent: DashboardRoute.name),
-              _i19.RouteConfig(FavouritesRoute.name,
-                  path: 'favourites-page', parent: DashboardRoute.name),
-              _i19.RouteConfig(ProfileRoute.name,
-                  path: 'profile-page', parent: DashboardRoute.name)
-            ])
+              _i19.RouteConfig(PoiRoute.name,
+                  path: 'poi-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(HotelsRoute.name,
+                  path: 'hotels-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(FoodRoute.name,
+                  path: 'food-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(EventsRoute.name,
+                  path: 'events-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(KidsRoute.name,
+                  path: 'kids-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(AnimalsRoute.name,
+                  path: 'animals-page', parent: HomeWrapperRoute.name),
+              _i19.RouteConfig(CarRoute.name,
+                  path: 'car-page', parent: HomeWrapperRoute.name)
+            ]),
+        _i19.RouteConfig(CircleMenuRoute.name, path: '/'),
+        _i19.RouteConfig(MapControlsRoute.name, path: '/map-controls-page'),
+        _i19.RouteConfig(FavouritesRoute.name, path: '/favourites-page'),
+        _i19.RouteConfig(ProfileRoute.name, path: '/profile-page')
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
 class SplashRoute extends _i19.PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/');
+  const SplashRoute() : super(SplashRoute.name, path: '/splash-page');
 
   static const String name = 'SplashRoute';
 }
 
 /// generated route for
-/// [_i2.DashboardPage]
-class DashboardRoute extends _i19.PageRouteInfo<void> {
-  const DashboardRoute({List<_i19.PageRouteInfo>? children})
-      : super(DashboardRoute.name,
-            path: '/dashboard-page', initialChildren: children);
-
-  static const String name = 'DashboardRoute';
-}
-
-/// generated route for
-/// [_i3.HomeWrapperPage]
+/// [_i2.HomeWrapperPage]
 class HomeWrapperRoute extends _i19.PageRouteInfo<void> {
   const HomeWrapperRoute({List<_i19.PageRouteInfo>? children})
       : super(HomeWrapperRoute.name,
-            path: 'home-wrapper-page', initialChildren: children);
+            path: '/home-wrapper-page', initialChildren: children);
 
   static const String name = 'HomeWrapperRoute';
+}
+
+/// generated route for
+/// [_i3.CircleMenuPage]
+class CircleMenuRoute extends _i19.PageRouteInfo<void> {
+  const CircleMenuRoute() : super(CircleMenuRoute.name, path: '/');
+
+  static const String name = 'CircleMenuRoute';
 }
 
 /// generated route for
 /// [_i4.MapControlsPage]
 class MapControlsRoute extends _i19.PageRouteInfo<void> {
   const MapControlsRoute()
-      : super(MapControlsRoute.name, path: 'map-controls-page');
+      : super(MapControlsRoute.name, path: '/map-controls-page');
 
   static const String name = 'MapControlsRoute';
 }
@@ -209,7 +200,7 @@ class MapControlsRoute extends _i19.PageRouteInfo<void> {
 /// [_i5.FavouritesPage]
 class FavouritesRoute extends _i19.PageRouteInfo<void> {
   const FavouritesRoute()
-      : super(FavouritesRoute.name, path: 'favourites-page');
+      : super(FavouritesRoute.name, path: '/favourites-page');
 
   static const String name = 'FavouritesRoute';
 }
@@ -217,7 +208,7 @@ class FavouritesRoute extends _i19.PageRouteInfo<void> {
 /// generated route for
 /// [_i6.ProfilePage]
 class ProfileRoute extends _i19.PageRouteInfo<void> {
-  const ProfileRoute() : super(ProfileRoute.name, path: 'profile-page');
+  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
 
   static const String name = 'ProfileRoute';
 }
@@ -225,7 +216,7 @@ class ProfileRoute extends _i19.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.HomePage]
 class HomeRoute extends _i19.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '');
+  const HomeRoute() : super(HomeRoute.name, path: 'home-page');
 
   static const String name = 'HomeRoute';
 }
