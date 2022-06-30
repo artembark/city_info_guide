@@ -37,6 +37,7 @@ dependencies:
   toggle_switch: ^2.0.1
   easy_localization: ^3.0.1
   url_launcher: ^6.1.4
+  avatar_glow: ^2.0.2
 
 dev_dependencies:
   flutter_test:

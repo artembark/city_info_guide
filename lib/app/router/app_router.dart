@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:city_info_guide/presentation/views/circle_menu_page.dart';
 import 'package:city_info_guide/presentation/views/favourites_page.dart';
 import 'package:city_info_guide/presentation/views/home_page.dart';
 import 'package:city_info_guide/presentation/views/map_controls_page.dart';
@@ -59,6 +60,7 @@ import '../../presentation/views/schedule_wrapper.dart';
             AutoRoute(page: KidsPage),
             AutoRoute(page: AnimalsPage),
             AutoRoute(page: CarPage),
+            AutoRoute(page: CircleMenuPage),
           ],
         ),
         AutoRoute(page: MapControlsPage),

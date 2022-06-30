@@ -250,7 +250,7 @@ class _HomeIconMenuState extends State<HomeIconMenu> {
               title: LocaleKeys.home_animals.tr(),
             ),
             MenuGridItem(
-              onTap: () => context.pushRoute(const CarRoute()),
+              onTap: () => context.pushRoute(const CircleMenuRoute()),
               icon: FontAwesomeIcons.car,
               backgroundColor: const Color(0xFF5381FE).withOpacity(0.5),
               title: LocaleKeys.home_car.tr(),
