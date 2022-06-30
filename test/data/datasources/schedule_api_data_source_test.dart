@@ -8,8 +8,6 @@ import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../helpers/dummy_data/dummy_schedule_point_point_dto.dart';
-
 main() {
   //rederence https://github.com/lomsa-dev/http-mock-adapter/blob/main/example/main.dart
   late Dio dio;

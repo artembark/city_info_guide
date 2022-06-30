@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -8,24 +8,22 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Профиль пользователя'),
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                FontAwesomeIcons.user,
-                size: 40.0,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text('PROFILE TO BE IMPLEMENTED'),
-            ],
-          ),
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () async {
+                await launchUrl(
+                  Uri.parse('https://yandex.ru/legal/maps_termsofuse/'),
+                );
+              },
+              child: const Text('Условия использования Яндекс.Карт'),
+            )
+          ],
         ),
       ),
     );

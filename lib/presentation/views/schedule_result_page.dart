@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../app/assets/assets.gen.dart';
 import '../../app/router/app_router.gr.dart';
 import '../../core/utils/duration_converter.dart';
 import '../../injector.dart';
@@ -156,31 +158,43 @@ class RoutesList extends StatelessWidget {
     return Expanded(
       child: ListView.separated(
         padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0),
-        itemCount: segments.length,
+        itemCount: segments.length + 1,
         itemBuilder: (context, index) {
-          final segment = segments[index];
-          IconData icon = Icons.control_point;
-          if (segment.from?.transportType == 'bus') {
-            icon = FontAwesomeIcons.bus;
+          if (index < segments.length) {
+            final segment = segments[index];
+            IconData icon = Icons.control_point;
+            if (segment.from?.transportType == 'bus') {
+              icon = FontAwesomeIcons.bus;
+            }
+            if (segment.from?.transportType == 'train') {
+              icon = FontAwesomeIcons.trainSubway;
+            }
+            int dur = 0;
+            final duration = segment.duration;
+            if (duration != null) {
+              dur = duration.toInt();
+            }
+            final correctedDepartureTime =
+                segment.departure?.add(const Duration(hours: 3));
+            final correctedArrivalTime =
+                segment.arrival?.add(const Duration(hours: 3));
+            return RouteCard(
+                segment: segment,
+                correctedDepartureTime: correctedDepartureTime,
+                icon: icon,
+                correctedArrivalTime: correctedArrivalTime,
+                dur: dur);
+          } else {
+            return Center(
+              child: GestureDetector(
+                  onTap: () async {
+                    await launchUrl(Uri.parse('https://rasp.yandex.ru/'));
+                  },
+                  child: Assets.images.yandexRaspCopyright.image(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                  )),
+            );
           }
-          if (segment.from?.transportType == 'train') {
-            icon = FontAwesomeIcons.trainSubway;
-          }
-          int dur = 0;
-          final duration = segment.duration;
-          if (duration != null) {
-            dur = duration.toInt();
-          }
-          final correctedDepartureTime =
-              segment.departure?.add(const Duration(hours: 3));
-          final correctedArrivalTime =
-              segment.arrival?.add(const Duration(hours: 3));
-          return RouteCard(
-              segment: segment,
-              correctedDepartureTime: correctedDepartureTime,
-              icon: icon,
-              correctedArrivalTime: correctedArrivalTime,
-              dur: dur);
         },
         separatorBuilder: (BuildContext context, int index) {
           return const SizedBox(

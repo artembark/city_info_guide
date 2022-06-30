@@ -42,6 +42,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/tochka.jpeg
   AssetGenImage get tochka => const AssetGenImage('assets/images/tochka.jpeg');
+
+  /// File path: assets/images/yandex_rasp_copyright.png
+  AssetGenImage get yandexRaspCopyright =>
+      const AssetGenImage('assets/images/yandex_rasp_copyright.png');
 }
 
 class $AssetsLottieGen {

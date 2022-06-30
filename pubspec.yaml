@@ -36,7 +36,7 @@ dependencies:
   flutter_launcher_icons: ^0.9.3
   toggle_switch: ^2.0.1
   easy_localization: ^3.0.1
-
+  url_launcher: ^6.1.4
 
 dev_dependencies:
   flutter_test:
