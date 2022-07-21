@@ -24,9 +24,9 @@ class _CircleMenuPageState extends State<CircleMenuPage>
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500)).then(
-      (value) => FlutterNativeSplash.remove(),
-    );
+    // Future.delayed(const Duration(milliseconds: 500)).then(
+    //   (value) => FlutterNativeSplash.remove(),
+    // );
     _itemsController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 350),
