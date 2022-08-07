@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:city_info_guide/data/datasources/local/location/geolocator_data_source.dart';
@@ -34,11 +35,11 @@ import 'data/repository/nearest_settlement_repo_impl.dart';
 
 GetIt sl = GetIt.instance;
 //TODO: move this and dio to external file
-_parseAndDecode(String response) {
-  return jsonDecode(response);
+FutureOr<Map<String, dynamic>> _parseAndDecode(String response) {
+  return jsonDecode(response) as FutureOr<Map<String, dynamic>>;
 }
 
-parseJson(String response) {
+FutureOr<Map<String, dynamic>> parseJson(String response) {
   return compute(_parseAndDecode, response);
 }
 
@@ -119,7 +120,7 @@ Future<void> initializeDependencies() async {
       final dio = Dio(
         BaseOptions(
           baseUrl: baseUrl,
-          headers: {
+          headers: <String, String>{
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           },

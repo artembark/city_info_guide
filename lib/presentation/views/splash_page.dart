@@ -24,15 +24,15 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500)).then(
+    Future<void>.delayed(const Duration(milliseconds: 500)).then(
       (value) => FlutterNativeSplash.remove(),
     );
-    Future.delayed(const Duration(milliseconds: 700)).then(
+    Future<void>.delayed(const Duration(milliseconds: 700)).then(
       (value) => setState(() {
         expanded = true;
       }),
     );
-    Future.delayed(const Duration(milliseconds: 1500)).then((value) {
+    Future<void>.delayed(const Duration(milliseconds: 1500)).then((value) {
       return context.router.replace(const DashboardRoute());
     });
   }

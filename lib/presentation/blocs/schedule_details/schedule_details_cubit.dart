@@ -14,7 +14,7 @@ class ScheduleDetailsCubit extends Cubit<ScheduleDetailsState> {
 
   final GetListStationsRoute getListStationsRoute;
 
-  getScheduleDetails(String uid) async {
+  void getScheduleDetails(String uid) async {
     emit(const ScheduleDetailsState.resultsLoading());
     final listStationsRoute = await getListStationsRoute.call(
       ListStationsRouteParams(uid: uid),

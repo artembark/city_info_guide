@@ -15,8 +15,10 @@ class GetListStationsRoute
   Future<Either<Failure, ListStationsRouteEntity>> call(
       ListStationsRouteParams params) async {
     //TODO:remove this demonstration only delay
-    return Future.delayed(const Duration(seconds: 1)).then((value) async =>
-        await listStationRouteRepository.getListStationsRoute(uid: params.uid));
+    return Future<Either<Failure, ListStationsRouteEntity>?>.delayed(
+            const Duration(seconds: 0))
+        .then((value) async => await listStationRouteRepository
+            .getListStationsRoute(uid: params.uid));
   }
 }
 

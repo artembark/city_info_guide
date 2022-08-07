@@ -29,9 +29,11 @@ class ScheduleResultPage extends StatelessWidget {
       onWillPop: () async {
         context.read<ScheduleInputCubit>().init(
               ScheduleRequest(
-                date: DateTime.now().add(
-                  const Duration(days: 1),
-                ),
+                from: scheduleRequest.from,
+                fromTitle: scheduleRequest.fromTitle,
+                to: scheduleRequest.to,
+                toTitle: scheduleRequest.toTitle,
+                date: scheduleRequest.date,
               ),
             );
         return true;

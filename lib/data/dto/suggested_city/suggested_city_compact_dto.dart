@@ -13,11 +13,12 @@ class SuggestedCityCompactDTO {
     this.slug,
   });
 
-  factory SuggestedCityCompactDTO.fromApi(data) => SuggestedCityCompactDTO(
-        pointKey: data[0],
-        title: data[1],
-        fullTitle: data[2],
-        slug: data[3],
+  factory SuggestedCityCompactDTO.fromApi(List<dynamic> data) =>
+      SuggestedCityCompactDTO(
+        pointKey: data[0] as String,
+        title: data[1] as String,
+        fullTitle: data[2] as String,
+        slug: data[3] as String,
       );
 
 // factory SuggestedCityCompactDTO.fromApi(data) {

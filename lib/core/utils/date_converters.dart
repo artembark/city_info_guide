@@ -7,7 +7,7 @@ String formButtonDateText(DateTime dateTime) {
   return '$buttonDateText $buttonMonthText';
 }
 
-String monthToText(enMonth) {
+String monthToText(String enMonth) {
   String buttonMonthText = '';
   switch (enMonth) {
     case '1':

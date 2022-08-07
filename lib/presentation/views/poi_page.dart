@@ -150,7 +150,8 @@ class PoiCard extends StatelessWidget {
                 height: 150.0,
               ),
             ),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+            errorWidget: (context, url, dynamic error) =>
+                const Icon(Icons.error),
           ),
           Expanded(
             child: Padding(

@@ -30,7 +30,7 @@ class YandexMapLauncher extends MapLauncher {
       'mapPackageName': 'ru.yandex.yandexmaps',
       'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showMap', methodArgs);
+    return _channel.invokeMethod<MethodChannel>('showMap', methodArgs);
   }
 
   @override
@@ -48,7 +48,7 @@ class YandexMapLauncher extends MapLauncher {
       'mapPackageName': 'ru.yandex.yandexmaps',
       'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showMap', methodArgs);
+    return _channel.invokeMethod<MethodChannel>('showMap', methodArgs);
   }
 
   @override
@@ -64,7 +64,7 @@ class YandexMapLauncher extends MapLauncher {
       'mapPackageName': 'ru.yandex.yandexmaps',
       'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showMap', methodArgs);
+    return _channel.invokeMethod<MethodChannel>('showMap', methodArgs);
   }
 
   @override
@@ -77,6 +77,6 @@ class YandexMapLauncher extends MapLauncher {
       'mapPackageName': 'ru.yandex.yandexmaps',
       'mapUrlPrefix': 'yandexmaps://',
     };
-    return _channel.invokeMethod('showMap', methodArgs);
+    return _channel.invokeMethod<MethodChannel>('showMap', methodArgs);
   }
 }

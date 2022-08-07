@@ -6,10 +6,11 @@ class SuggestedCityCompactListDTO {
 
   SuggestedCityCompactListDTO({required this.suggests});
 
-  factory SuggestedCityCompactListDTO.fromApi(data) =>
+  factory SuggestedCityCompactListDTO.fromApi(List<dynamic> data) =>
       SuggestedCityCompactListDTO(
           suggests: (data[1] as List<dynamic>)
-              .map((e) => SuggestedCityCompactDTO.fromApi(e))
+              .map((dynamic e) =>
+                  SuggestedCityCompactDTO.fromApi(e as List<dynamic>))
               .toList());
 }
 

@@ -11,14 +11,14 @@ class SuggestedCityFullListDTO {
   factory SuggestedCityFullListDTO.fromJson(Map<String, dynamic> json) =>
       SuggestedCityFullListDTO(
         suggests: (json['suggests'] as List<dynamic>?)
-            ?.map(
-                (e) => SuggestedCityFullDTO.fromJson(e as Map<String, dynamic>))
+            ?.map((dynamic e) =>
+                SuggestedCityFullDTO.fromJson(e as Map<String, dynamic>))
             .toList(),
         totalFound: json['total_found'] as int?,
         hasExactMatch: json['has_exact_match'] as bool?,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
         'suggests': suggests?.map((e) => e.toJson()).toList(),
         'total_found': totalFound,
         'has_exact_match': hasExactMatch,

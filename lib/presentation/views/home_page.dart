@@ -104,7 +104,7 @@ class _HomePopularSlideState extends State<HomePopularSlide> {
     });
   }
 
-  _scrollListener() {
+  void _scrollListener() {
     if (popularController.offset >=
         popularController.position.maxScrollExtent - 1) {
       popularController.animateTo(popularController.position.minScrollExtent,
@@ -183,7 +183,7 @@ class _HomeIconMenuState extends State<HomeIconMenu> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(milliseconds: 100)).then(
+    Future<void>.delayed(const Duration(milliseconds: 100)).then(
       (value) => setState(() {
         menuOpacity = 1;
       }),

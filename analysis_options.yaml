@@ -30,4 +30,8 @@ linter:
 analyzer:
   exclude:
     - lib/**.g.dart
+    - lib/**.freezed.dart
     - lib/core/l10n/locale_keys.dart
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false

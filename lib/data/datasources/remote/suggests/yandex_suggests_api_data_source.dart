@@ -11,7 +11,7 @@ class YandexSuggestsApiDataSource implements SuggestsApiDataSource {
   final Dio dio = Dio(
     BaseOptions(
       baseUrl: 'https://suggests.rasp.yandex.net',
-      headers: {
+      headers: <String, dynamic>{
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
@@ -29,12 +29,14 @@ class YandexSuggestsApiDataSource implements SuggestsApiDataSource {
   @override
   Future<List<SuggestedCityCompactDTO>> getSuggestedCityListCompact(
       {required String userInput}) async {
-    final response = await dio.get('/all_suggests', queryParameters: {
+    final Response<List<dynamic>> response = await dio
+        .get<List<dynamic>>('/all_suggests', queryParameters: <String, dynamic>{
       'format': 'old',
       'lang': 'ru',
       'national_version': 'ru',
       'part': userInput,
     });
-    return SuggestedCityCompactListDTO.fromApi(response.data).suggests;
+    return SuggestedCityCompactListDTO.fromApi(response.data as List<dynamic>)
+        .suggests;
   }
 }

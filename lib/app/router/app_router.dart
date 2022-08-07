@@ -27,45 +27,45 @@ import '../../presentation/views/schedule_wrapper.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(
+    AutoRoute<AutoRoute>(
       page: SplashPage,
       initial: true,
     ),
-    AutoRoute(
+    AutoRoute<AutoRoute>(
       page: DashboardPage,
       children: [
-        AutoRoute(
+        AutoRoute<AutoRoute>(
           page: HomeWrapperPage,
           children: [
-            AutoRoute(
+            AutoRoute<AutoRoute>(
               page: HomePage,
               initial: true,
             ),
-            AutoRoute(
+            AutoRoute<AutoRoute>(
               page: ScheduleWrapperPage,
               name: 'ScheduleRouter',
               children: [
-                AutoRoute(
+                AutoRoute<AutoRoute>(
                   initial: true,
                   page: ScheduleInputPage,
                 ),
-                AutoRoute(page: ScheduleResultPage),
-                AutoRoute(page: ScheduleResultDetailsPage),
+                AutoRoute<AutoRoute>(page: ScheduleResultPage),
+                AutoRoute<AutoRoute>(page: ScheduleResultDetailsPage),
               ],
             ),
-            AutoRoute(page: PoiPage),
-            AutoRoute(page: HotelsPage),
-            AutoRoute(page: FoodPage),
-            AutoRoute(page: EventsPage),
-            AutoRoute(page: KidsPage),
-            AutoRoute(page: AnimalsPage),
-            AutoRoute(page: CarPage),
-            AutoRoute(page: CircleMenuPage),
+            AutoRoute<AutoRoute>(page: PoiPage),
+            AutoRoute<AutoRoute>(page: HotelsPage),
+            AutoRoute<AutoRoute>(page: FoodPage),
+            AutoRoute<AutoRoute>(page: EventsPage),
+            AutoRoute<AutoRoute>(page: KidsPage),
+            AutoRoute<AutoRoute>(page: AnimalsPage),
+            AutoRoute<AutoRoute>(page: CarPage),
+            AutoRoute<AutoRoute>(page: CircleMenuPage),
           ],
         ),
-        AutoRoute(page: MapControlsPage),
-        AutoRoute(page: FavouritesPage),
-        AutoRoute(page: ProfilePage),
+        AutoRoute<AutoRoute>(page: MapControlsPage),
+        AutoRoute<AutoRoute>(page: FavouritesPage),
+        AutoRoute<AutoRoute>(page: ProfilePage),
       ],
     )
   ],

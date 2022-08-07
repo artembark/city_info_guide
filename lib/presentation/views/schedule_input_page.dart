@@ -215,12 +215,17 @@ class ScheduleInputForm extends StatefulWidget {
 }
 
 class _ScheduleInputFormState extends State<ScheduleInputForm> {
-  final TextEditingController _fromTypeAheadController =
-      TextEditingController();
-
-  final TextEditingController _toTypeAheadController = TextEditingController();
+  late final TextEditingController _fromTypeAheadController;
+  late final TextEditingController _toTypeAheadController;
 
   int? initialIndex = 1;
+
+  @override
+  void initState() {
+    _fromTypeAheadController = TextEditingController();
+    _toTypeAheadController = TextEditingController();
+    super.initState();
+  }
 
   @override
   void dispose() {

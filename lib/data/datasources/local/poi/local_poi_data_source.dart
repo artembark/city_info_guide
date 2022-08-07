@@ -9,8 +9,10 @@ class AssetJsonPoiDataSource implements PoiDataSource {
   @override
   Future<List<PoiDTO>> getPlacesOfInterest() async {
     String dataFromFile = await rootBundle.loadString('assets/places.json');
-    Iterable poiDtoIterableJson = jsonDecode(dataFromFile);
-    return List<PoiDTO>.from(
-        poiDtoIterableJson.map((model) => PoiDTO.fromJson(model)));
+    List<Map<String, dynamic>> poiDtoIterableJson =
+        jsonDecode(dataFromFile) as List<Map<String, dynamic>>;
+    return poiDtoIterableJson
+        .map((Map<String, dynamic> model) => PoiDTO.fromJson(model))
+        .toList();
   }
 }

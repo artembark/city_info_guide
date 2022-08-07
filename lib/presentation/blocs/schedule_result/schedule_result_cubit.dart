@@ -15,7 +15,7 @@ class ScheduleResultCubit extends Cubit<ScheduleResultState> {
 
   final GetSchedulePointPoint getSchedulePointPoint;
 
-  getSchedule(ScheduleRequest scheduleRequest) async {
+  void getSchedule(ScheduleRequest scheduleRequest) async {
     emit(const ScheduleResultState.resultsLoading());
     final schedulePointPoint = await getSchedulePointPoint.call(
         SchedulePointPointParams(

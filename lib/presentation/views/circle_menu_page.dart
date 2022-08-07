@@ -16,7 +16,7 @@ class _CircleMenuPageState extends State<CircleMenuPage>
     with TickerProviderStateMixin {
   late AnimationController _itemsController;
   late AnimationController _mainMenuController;
-  late Animation _mainMenuAnimation;
+  late Animation<double> _mainMenuAnimation;
   bool toggle = false;
   bool rippleAnimation = true;
   double mainCircleSize = 60;

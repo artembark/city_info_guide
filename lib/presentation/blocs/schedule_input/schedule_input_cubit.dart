@@ -5,6 +5,7 @@ import 'package:city_info_guide/domain/usecases/usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'schedule_input_state.dart';
+
 part 'schedule_input_cubit.freezed.dart';
 
 class ScheduleInputCubit extends Cubit<ScheduleInputState> {
@@ -16,11 +17,11 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
         );
   final GetNearestSettlement getNearestSettlement;
 
-  init(ScheduleRequest scheduleRequest) {
+  void init(ScheduleRequest scheduleRequest) {
     emit(ScheduleInputState.citiesSubmitting(scheduleRequest: scheduleRequest));
   }
 
-  fillWithFavourite() {
+  void fillWithFavourite() {
     emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: ScheduleRequest(
             from: 'c10883',
@@ -30,7 +31,7 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
             date: DateTime(2022, 06, 28))));
   }
 
-  swapFromTo() {
+  void swapFromTo() {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(
       ScheduleInputState.citiesSubmitting(
@@ -44,19 +45,20 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
     );
   }
 
-  setFromCity(String fromCode, String fromTitle) {
+  void setFromCity(String fromCode, String fromTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest:
             scheduleRequest.copyWith(from: fromCode, fromTitle: fromTitle)));
     // state.maybeMap(
+    //
     //     citiesSubmitting: (state) {
     //       emit(state.copyWith.scheduleRequest(from: from));
     //     },
     //     orElse: () {});
   }
 
-  setToCity(String toCode, String toTitle) {
+  void setToCity(String toCode, String toTitle) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest:
@@ -68,7 +70,7 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
     //     orElse: () {});
   }
 
-  setDate(DateTime dateTime) {
+  void setDate(DateTime dateTime) {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: scheduleRequest.copyWith(date: dateTime)));
@@ -79,7 +81,7 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
     //     orElse: () {});
   }
 
-  getPosition() async {
+  void getPosition() async {
     final scheduleRequest = (state as _CitiesSubmitting).scheduleRequest;
     emit(ScheduleInputState.citiesSubmitting(
         scheduleRequest: scheduleRequest, requestingLocation: true));
@@ -107,7 +109,7 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
     //     orElse: () {});
   }
 
-  checkInputFields() {
+  void checkInputFields() {
     state.whenOrNull(
         citiesSubmitting: (scheduleRequest, locationUpdating, message) {
       if (scheduleRequest.from == null && scheduleRequest.to == null) {
@@ -132,7 +134,7 @@ class ScheduleInputCubit extends Cubit<ScheduleInputState> {
     });
   }
 
-  toDetailsPage(ScheduleRequest scheduleRequest) {
+  void toDetailsPage(ScheduleRequest scheduleRequest) {
     emit(ScheduleInputState.toDetailsPage(scheduleRequest));
   }
 }

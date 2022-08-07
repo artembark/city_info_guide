@@ -17,16 +17,22 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
       {required String from,
       required String to,
       required DateTime date}) async {
-    //TODO: make api keys be stored securely and be accessible while testing
-    final response = await dio.get('/v3.0/search/', queryParameters: {
-      'apikey': const String.fromEnvironment('API_KEY'),
-      'from': from,
-      'to': to,
-      'date': DateFormat('yyyy-MM-dd').format(date),
-      'transfers': true
-    });
+    final Response<Map<String, dynamic>> response = await dio
+        .get<Map<String, dynamic>>('/v3.0/search/',
+            queryParameters: <String, dynamic>{
+          'apikey': const String.fromEnvironment('API_KEY'),
+          'from': from,
+          'to': to,
+          'date': DateFormat('yyyy-MM-dd').format(date),
+          'transfers': true
+        });
     if (response.statusCode == 200) {
-      return SchedulePointPointDTO.fromJson(response.data);
+      final resp = response.data;
+      if (resp != null) {
+        return SchedulePointPointDTO.fromJson(resp);
+      } else {
+        throw Exception('response is null');
+      }
     } else {
       throw ServerException();
     }
@@ -35,17 +41,23 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
   @override
   Future<NearestSettlementDTO> getNearestSettlement(
       {required double lat, required double lon}) async {
-    final response =
-        await dio.get('/v3.0/nearest_settlement/', queryParameters: {
-      'apikey': const String.fromEnvironment('API_KEY'),
-      'lat': lat,
-      'lng': lon,
-      'distance': '50',
-      'format': 'json',
-      'lang': 'ru_RU'
-    });
+    final Response<Map<String, dynamic>> response = await dio
+        .get<Map<String, dynamic>>('/v3.0/nearest_settlement/',
+            queryParameters: <String, dynamic>{
+          'apikey': const String.fromEnvironment('API_KEY'),
+          'lat': lat,
+          'lng': lon,
+          'distance': '50',
+          'format': 'json',
+          'lang': 'ru_RU'
+        });
     if (response.statusCode == 200) {
-      return NearestSettlementDTO.fromJson(response.data);
+      final resp = response.data;
+      if (resp != null) {
+        return NearestSettlementDTO.fromJson(resp);
+      } else {
+        throw Exception('response is null');
+      }
     } else {
       throw ServerException();
     }
@@ -54,14 +66,21 @@ class YandexRaspApiDataSourceImpl implements ScheduleApiDataSource {
   @override
   Future<ListStationsRouteDTO> getListStationsRoute(
       {required String uid}) async {
-    final response = await dio.get('/v3.0/thread/', queryParameters: {
-      'apikey': const String.fromEnvironment('API_KEY'),
-      'uid': uid,
-      'format': 'json',
-      'lang': 'ru_RU'
-    });
+    final Response<Map<String, dynamic>> response = await dio
+        .get<Map<String, dynamic>>('/v3.0/thread/',
+            queryParameters: <String, dynamic>{
+          'apikey': const String.fromEnvironment('API_KEY'),
+          'uid': uid,
+          'format': 'json',
+          'lang': 'ru_RU'
+        });
     if (response.statusCode == 200) {
-      return ListStationsRouteDTO.fromJson(response.data);
+      final resp = response.data;
+      if (resp != null) {
+        return ListStationsRouteDTO.fromJson(resp);
+      } else {
+        throw Exception('response is null');
+      }
     } else {
       throw ServerException();
     }

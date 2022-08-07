@@ -82,7 +82,7 @@ class SuggestedCityFullDTO {
         countryTitle: json['country_title'] as String?,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
         'country_id': countryId,
         'disputed_territory': disputedTerritory,
         'full_title': fullTitle,
