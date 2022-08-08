@@ -37,10 +37,9 @@ void main() {
     test(
       'should return a valid nearest settlement model from json',
       () async {
-        final Map<String, dynamic> jsonMap = json.decode(
-          File('test/helpers/dummy_data/dummy_nearest_settlement_response.json')
-              .readAsStringSync(),
-        );
+        final Map<String, dynamic> jsonMap = json.decode(File(
+                'test/helpers/dummy_data/dummy_nearest_settlement_response.json')
+            .readAsStringSync()) as Map<String, dynamic>;
         final result = NearestSettlementDTO.fromJson(jsonMap);
         expect(result, equals(testNearestSettlementDTO));
       },
@@ -55,7 +54,7 @@ void main() {
         final Map<String, dynamic> expectedJsonMapFromFile = jsonDecode(
           File('test/helpers/dummy_data/dummy_nearest_settlement_response.json')
               .readAsStringSync(),
-        );
+        ) as Map<String, dynamic>;
         //alternative
         // final expectedJsonMap = {
         //   "distance": 1.239882235661964,

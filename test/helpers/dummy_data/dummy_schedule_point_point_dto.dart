@@ -7,7 +7,7 @@ import 'package:city_info_guide/data/dto/schedule_p_p/thread_dto.dart';
 import 'package:city_info_guide/data/dto/schedule_p_p/to_dto.dart';
 
 final tSchedulePointPointDTO = SchedulePointPointDTO(
-  intervalSegments: [],
+  intervalSegments: const <dynamic>[],
   pagination: const PaginationDTO(total: 2, limit: 100, offset: 0),
   segments: [
     SegmentDTO(

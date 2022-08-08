@@ -9,7 +9,7 @@ import 'package:city_info_guide/data/dto/schedule_p_p/to_dto.dart';
 import 'package:city_info_guide/data/dto/schedule_p_p/transport_subtype_dto.dart';
 
 final testSchedulePointPointDTO = SchedulePointPointDTO(
-  intervalSegments: [],
+  intervalSegments: const <dynamic>[],
   pagination: const PaginationDTO(total: 4, limit: 100, offset: 0),
   segments: [
     SegmentDTO(
@@ -50,7 +50,7 @@ final testSchedulePointPointDTO = SchedulePointPointDTO(
             stationTypeName: 'автобусная остановка',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: []),
+        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: <dynamic>[]),
         duration: 8760,
         arrivalTerminal: null,
         startDate: '2022-06-15',
@@ -93,7 +93,7 @@ final testSchedulePointPointDTO = SchedulePointPointDTO(
             stationTypeName: 'автовокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: []),
+        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: <dynamic>[]),
         duration: 10080,
         arrivalTerminal: null,
         startDate: '2022-06-15',
@@ -137,7 +137,7 @@ final testSchedulePointPointDTO = SchedulePointPointDTO(
             stationTypeName: 'вокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: [
+        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: <dynamic>[
           {
             'currency': 'RUB',
             'price': {'cents': 0, 'whole': 392},
@@ -188,7 +188,7 @@ final testSchedulePointPointDTO = SchedulePointPointDTO(
             stationTypeName: 'вокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: [
+        ticketsInfo: const TicketsInfoDTO(etMarker: false, places: <dynamic>[
           {
             'currency': 'RUB',
             'price': {'cents': 0, 'whole': 447},

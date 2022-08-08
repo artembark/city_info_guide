@@ -9,7 +9,7 @@ import 'package:city_info_guide/domain/entities/schedule_p_p/to_entity.dart';
 import 'package:city_info_guide/domain/entities/schedule_p_p/transport_subtype_entity.dart';
 
 final testSchedulePointPointEntity = SchedulePointPointEntity(
-  intervalSegments: const [],
+  intervalSegments: const <dynamic>[],
   pagination: const PaginationEntity(total: 4, limit: 100, offset: 0),
   segments: [
     SegmentEntity(
@@ -50,7 +50,8 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
             stationTypeName: 'автобусная остановка',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: []),
+        ticketsInfo:
+            const TicketsInfoEntity(etMarker: false, places: <dynamic>[]),
         duration: 8760,
         arrivalTerminal: null,
         startDate: '2022-06-15',
@@ -93,7 +94,8 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
             stationTypeName: 'автовокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: []),
+        ticketsInfo:
+            const TicketsInfoEntity(etMarker: false, places: <dynamic>[]),
         duration: 10080,
         arrivalTerminal: null,
         startDate: '2022-06-15',
@@ -137,7 +139,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
             stationTypeName: 'вокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: [
+        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: <dynamic>[
           {
             'currency': 'RUB',
             'price': {'cents': 0, 'whole': 392},
@@ -188,7 +190,7 @@ final testSchedulePointPointEntity = SchedulePointPointEntity(
             stationTypeName: 'вокзал',
             type: 'station'),
         hasTransfers: false,
-        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: [
+        ticketsInfo: const TicketsInfoEntity(etMarker: false, places: <dynamic>[
           {
             'currency': 'RUB',
             'price': {'cents': 0, 'whole': 447},

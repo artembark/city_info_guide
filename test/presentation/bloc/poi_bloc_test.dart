@@ -41,7 +41,7 @@ void main() {
       'should emit [loading, has data] when data us gotten successfully',
       build: () {
         when(mockPlacesOfInterestRepository.getPlacesOfInterest()).thenAnswer(
-            (_) => Future.delayed(const Duration(seconds: 1))
+            (_) => Future<PlaceOfInterest>.delayed(const Duration(seconds: 1))
                 .then((value) => tPoiList));
         return poiCubit;
       },

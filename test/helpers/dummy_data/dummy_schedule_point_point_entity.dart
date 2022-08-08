@@ -7,7 +7,7 @@ import 'package:city_info_guide/domain/entities/schedule_p_p/thread_entity.dart'
 import 'package:city_info_guide/domain/entities/schedule_p_p/to_entity.dart';
 
 final tSchedulePointPointEntity = SchedulePointPointEntity(
-  intervalSegments: const [],
+  intervalSegments: const <dynamic>[],
   pagination: const PaginationEntity(total: 2, limit: 100, offset: 0),
   segments: [
     SegmentEntity(

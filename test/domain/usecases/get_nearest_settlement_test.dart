@@ -49,7 +49,10 @@ void main() {
               lat: 61.001, lon: 31.001))
           .thenAnswer((_) async => Right(testNearestSettlementEntity));
       final result = await usecase.call(NoParams());
-      expect(result, equals(Right(testNearestSettlementEntity)));
+      expect(
+          result,
+          equals(Right<dynamic, NearestSettlementEntity>(
+              testNearestSettlementEntity)));
     },
   );
 }

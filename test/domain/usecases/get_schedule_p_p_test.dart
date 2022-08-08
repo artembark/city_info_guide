@@ -1,3 +1,4 @@
+import 'package:city_info_guide/domain/entities/schedule_p_p/schedule_point_point_entity.dart';
 import 'package:city_info_guide/domain/usecases/get_schedule_p_p.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -23,7 +24,10 @@ void main() {
           .thenAnswer((_) async => Right(tSchedulePointPointEntity));
       final result = await usecase.call(SchedulePointPointParams(
           from: 'c2', to: 'c10893', dateTime: DateTime(2022, 6, 10)));
-      expect(result, equals(Right(tSchedulePointPointEntity)));
+      expect(
+          result,
+          equals(Right<dynamic, SchedulePointPointEntity>(
+              tSchedulePointPointEntity)));
     },
   );
 }

@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-main() {
+void main() {
   //rederence https://github.com/lomsa-dev/http-mock-adapter/blob/main/example/main.dart
   late Dio dio;
   late DioAdapter dioAdapter;
@@ -30,7 +30,7 @@ main() {
     dioError = DioError(
       error: {'message': 'Will not find anything..'},
       requestOptions: RequestOptions(path: wontFindPath),
-      response: Response(
+      response: Response<dynamic>(
         statusCode: 404,
         requestOptions: RequestOptions(path: wontFindPath),
       ),
@@ -58,14 +58,14 @@ main() {
       const path = '/v3.0/search/';
 
       dioAdapter.onGet(path, (server) {
-        server.reply(404, {});
-      }, data: null, queryParameters: {
+        server.reply(404, <String, dynamic>{});
+      }, data: null, queryParameters: <String, String>{
         "apikey": "",
         "date": "2022-06-20",
         "from": "c2",
         "to": "c10893",
         "transfers": "true",
-      }, headers: {});
+      }, headers: <String, dynamic>{});
 
       expect(
           () async => await scheduleApiDataSource.getSchedulePointPoint(
@@ -88,7 +88,7 @@ main() {
     test('getNearestSettlementSuccess', () async {
       final jsonFromFile = jsonDecode(
           File('test/helpers/dummy_data/dummy_nearest_settlement_response.json')
-              .readAsStringSync());
+              .readAsStringSync()) as Map<String, dynamic>;
 
       const path = '/v3.0/nearest_settlement/';
 
@@ -102,7 +102,7 @@ main() {
           );
         },
         data: null,
-        queryParameters: {
+        queryParameters: <String, dynamic>{
           'apikey': '',
           'lat': 61.035787,
           'lng': 30.102868,
@@ -110,7 +110,7 @@ main() {
           'format': 'json',
           'lang': 'ru_RU',
         },
-        headers: {},
+        headers: <String, dynamic>{},
       );
 
       final response = await scheduleApiDataSource.getNearestSettlement(
@@ -122,15 +122,15 @@ main() {
       const path = '/v3.0/nearest_settlement/';
 
       dioAdapter.onGet(path, (server) {
-        server.reply(404, {});
-      }, data: null, queryParameters: {
+        server.reply(404, <String, dynamic>{});
+      }, data: null, queryParameters: <String, dynamic>{
         'apikey': '',
         'lat': 61.035787,
         'lng': 30.102868,
         'distance': '50',
         'format': 'json',
         'lang': 'ru_RU',
-      }, headers: {});
+      }, headers: <String, dynamic>{});
 
       expect(
           () async => await scheduleApiDataSource.getNearestSettlement(
