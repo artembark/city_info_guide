@@ -10,7 +10,7 @@ import 'package:mocktail/mocktail.dart';
 
 class MockPoiCubit extends MockCubit<PoiState> implements PoiCubit {}
 
-class FakePoiState extends Fake implements PoiState {}
+//class FakePoiState extends Fake implements PoiState {}
 
 void main() {
   late MockPoiCubit mockPoiCubit;
@@ -18,7 +18,7 @@ void main() {
   setUp(() => mockPoiCubit = MockPoiCubit());
 
   setUpAll(() {
-    registerFallbackValue(FakePoiState());
+    //registerFallbackValue(FakePoiState());
 
     final di = GetIt.instance;
     di.registerFactory(() => mockPoiCubit);
